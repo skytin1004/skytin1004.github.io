@@ -24,9 +24,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "Skytin Engineering Blog"
-email: "skytin1004@gmail.com"
-author: "GitHub User"
+title: Your awesome title
+email: your-email@domain.com
+author: GitHub User
 
 # Copyright setting
 # You can use any html code, currently below placeholders are available:
@@ -42,13 +42,13 @@ author: "GitHub User"
 #
 copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
 
-#description: >- # this means to ignore newlines until "baseurl:"
- # Write an awesome description for your new site here. You can edit this
-  #line in _config.yml. It will appear in your document head meta (for
-  #Google search results) and in your feed.xml site description.
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://skytin1004.github.io" # the base hostname & protocol for your site, e.g. https://example.com
+url: "" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
@@ -134,7 +134,7 @@ yat:
 # it will be always kept on every visit (i.e. no matter
 # the browser is closed or not)
 #
- night_mode: 'auto'
+# night_mode: "auto"
 
 # Code badge setting
 # You can enable or disable the code badge and so on
@@ -154,10 +154,10 @@ yat:
 #   - about.md
 
 # Page default value
- defaults:
-   home:
-     heading: 'Skytin Engineering Blog!'
-     subheading: 'About data engineering and programming'
+# defaults:
+#   home:
+#     heading: "Your awesome heading"
+#     subheading: "Your awesome subheading"
 #     banner: "Your image url"
 
 # Banner default settings
