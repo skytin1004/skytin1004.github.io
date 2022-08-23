@@ -154,11 +154,11 @@ yat:
 #   - about.md
 
 # Page default value
-# defaults:
-#   home:
-#     heading: "Skytin1004 Engineering Blog!"
-#     subheading: "About data engineering and programming"
-#     banner: "Your image url"
+defaults:
+   home:
+     heading: "Skytin1004 Engineering Blog!"
+     subheading: "About data engineering and programming"
+     banner: "Your image url"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
