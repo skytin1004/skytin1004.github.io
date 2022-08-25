@@ -43,6 +43,7 @@ author: GitHub User
 copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
 
 description: >- # this means to ignore newlines until "baseurl:"
+  Skytin1004블로그는 프로그래밍을 하면서 배운 것들을 다루는 블로그입니다.
   Skytin1004, Programming, Data engineering, python, django  
   스카이틴1004, 프로그래밍, 데이터 엔지니어링, 파이썬, 장고
   
@@ -71,7 +72,7 @@ yat:
 # sitemap: false
 
 # If you want to change site language, you can set lang option
-# lang: "en"  # default lang is en
+lang: "ko"  # default lang is en
 
 # Translate languges
 # langs refer to https://cloud.google.com/translate/docs/languages
