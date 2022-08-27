@@ -2,7 +2,7 @@
 layout: post
 title: Test
 subtitle: Each post also has a subtitle
-categories: jekyll update
+categories: Career Reading_note
 tags: [test]
 ---
 
