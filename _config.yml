@@ -137,6 +137,7 @@ lang: "ko"  # default lang is en
 # night_mode: "auto"
 published: true
 future: true
+timezone: Asia/Seoul
 
 # Code badge setting
 # You can enable or disable the code badge and so on
