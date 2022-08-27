@@ -1,9 +1,9 @@
 ---
 layout: post
-title: An exhibit of Markdown
-subtitle: Each post also has a subtitle
-categories: Etc
-tags: [example, markdown]
+title: "Github 블로그 만들기(구름IDE,리눅스)"
+subtitle: "Github 블로그를 만들어 테마를 입히고 본인에 맞게 수정하는 내용입니다."
+categories: Blog 
+tags: [jekyll, github]
 ---
 
 This note demonstrates some of what [Markdown][1] is capable of doing.
