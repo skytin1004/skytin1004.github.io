@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Some articles are just so long they deserve a really long title to see if things will break well"
+title: "Github 블로그 만들기(구름IDE,리눅스)"
 categories: Blog
 ---
 
