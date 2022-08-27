@@ -135,6 +135,8 @@ lang: "ko"  # default lang is en
 # the browser is closed or not)
 #
 # night_mode: "auto"
+published: true
+futrue: true
 
 # Code badge setting
 # You can enable or disable the code badge and so on
