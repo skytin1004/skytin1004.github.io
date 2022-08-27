@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mermaid example
-categories: Data engineering
+categories: Data_engineering
 tags: [mermaid]
 ---
 
