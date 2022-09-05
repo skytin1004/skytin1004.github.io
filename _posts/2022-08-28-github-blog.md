@@ -22,10 +22,14 @@ banner:
 그 중에서 Github블로그 페이지는 코딩을 활용할 수 있다는 좋은점이 있어 Github 블로그페이지로 결정!!
 ## 1.Github 페이지 만들기
 새로운 Github Repository 를 생성합니다.
+
 ![img](https://drive.google.com/uc?id=1p7xVjScn5A-4qXMZGcIQWPbqz62yRIJ4)
+
 Repository 이름은 username.github.io 로 만들어줍니다.
 (제 Github 계정이름은 sms7950이니 sms7950.github.io로 했습니다)
+
 ![img](https://drive.google.com/uc?id=1m_MGc_jbEvA6L3ZePXSAqne9ZSTxCBcj)
+
 Public , Add a README file 선택 후 Create Repository 눌러줍시다.
 ## 2.구름IDE 컨테이너 생성
 ## 3.Jekyll 테마 적용
