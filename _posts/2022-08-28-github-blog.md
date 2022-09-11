@@ -34,7 +34,7 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 여기까지 되면 완성!
 ## 2.구름IDE 컨테이너 생성
-구름IDE에 들어갑니다.(구름 IDE가 아닌 경우는 밑에 작성했습니다.)
+구름IDE에 들어갑니다.
 
 ![img](https://drive.google.com/uc?id=1hVto_OqdClffNy_3XWSlQsIsT6YE-Ig2)
 
@@ -54,4 +54,39 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 
 ## 3.Jekyll 테마 적용
-## 4.Jekyll 테마 수정
+
+
+추천할만한 Jekyll 사이트 목록 
+- http://jekyllthemes.org/
+- https://jekyllthemes.io/free
+
+등등 사이트에서 마음에 드는 테마를 찾으면 됩니다. 저는 http://jekyllthemes.org/ 에서 Another Yat Theme 로 선택할게요.
+
+![img](https://drive.google.com/uc?id=1RlXQK5plGdVUzQXOQOywiKvUPXFp72mf)
+
+원하는 테마 선택 !
+
+![img](https://drive.google.com/uc?id=17x7cyeYe5ueugRSi8AFhNNBkRxSOlPRO)
+
+여기서 HomePage로 들어갑니다.
+
+![img](https://drive.google.com/uc?id=1QDHzUwot2ZPmuJd_18J1AQ0JYwg3X1aH)
+
+오른 쪽 위 초록색 버튼으로 되어있는 Code 부분 누르시고 Download Zip 선택!
+
+![img](https://drive.google.com/uc?id=1HZ4-96OuBq0XCkmrZZhh3rFX5ey1IJ25) 
+다시 전에 만들었던 구름IDE컨테이너로 들어갑시다.  왼쪽 위 메뉴에서 '파일' → '가져오기' → '파일' 클릭해서 전에 받았던 JekyllTheme 를 가져옵니다.
+
+![img](https://drive.google.com/uc?id=1eS-fr21-MZRvVk9DsnHH_aRwUq22Z03T) 
+아래에 있는 '파일 선택' 클릭 후 전에 받았던 JekyllTheme 를 선택합니다.
+
+
+
+
+
+
+## 4.repository을 구름IDE에 복제하기
+
+
+
+## 5.Jekyll 테마 수정
