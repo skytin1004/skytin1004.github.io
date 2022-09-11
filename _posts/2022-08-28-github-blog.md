@@ -42,7 +42,7 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 ![img](https://drive.google.com/uc?id=1C890nfmwEUS6kP8CYLYovPQHiFj9X3--)
 
-쭉 내려가서 탬플릿-Github 선택 후 Github 계정을 연동해서 아까 만들었던 repository를 체크합니다.
+쭉 내려가서 탬플릿 → Github 선택 후 Github 계정을 연동해서 아까 만들었던 repository를 체크합니다.
 
 ![img](https://drive.google.com/uc?id=13ImQSICKw24SHv3QDbbz4NO4ErUZGPOT)
 
@@ -57,8 +57,8 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 
 추천할만한 Jekyll 사이트 목록 
-- http://jekyllthemes.org/
-- https://jekyllthemes.io/free
+- <a href="http://jekyllthemes.org/" target="_blank">http://jekyllthemes.org</a>
+- <a href="https://jekyllthemes.io/free" target="_blank">https://jekyllthemes.io/free</a>
 
 등등 사이트에서 마음에 드는 테마를 찾으면 됩니다. 저는 http://jekyllthemes.org/ 에서 Another Yat Theme 로 선택할게요.
 
