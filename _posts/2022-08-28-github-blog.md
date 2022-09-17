@@ -53,7 +53,7 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 위로 올라가서 컨테이너 이름을 수정해줍시다. (저는 sms7950으로 정했습니다.)
 
 
-## 3.Jekyll 테마 적용
+## 3.Jekyll 테마 섫치
 
 
 추천할만한 Jekyll 사이트 목록 
@@ -80,13 +80,23 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 ![img](https://drive.google.com/uc?id=1eS-fr21-MZRvVk9DsnHH_aRwUq22Z03T) 
 아래에 있는 '파일 선택' 클릭 후 전에 받았던 JekyllTheme 를 선택합니다.
 
+방금 받았던 JekyllTheme 를 압축파일을 풀어줍시다.
+
+![img](https://drive.google.com/uc?id=1InMPR4TY23m0DGaWyxOtiNRLVKag4MRn) 
+
+그럼 이렇게 jekyll-theme-yat-master 폴더 안에 jekyll-theme-yat-master 폴더가 또 생깁니다. 여기서 빨간 사각형 안에 있는 jekyll-theme-yat-master 폴더를 꺼내올거에요.
 
 
 
 
 
-## 4.repository을 구름IDE에 복제하기
+## 4.Jekyll 설치 환경 만들기
+
+터미널에서 `cd username.github.io` 를 입력합니다. 저는 `cd sms7950.github.io` 로 입력할게요.
+
+
+## 5repository을 구름IDE에 복제하기
 
 
 
-## 5.Jekyll 테마 수정
+## 6.ㅓekyll 테마 수정
