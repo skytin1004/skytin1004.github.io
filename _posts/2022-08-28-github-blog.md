@@ -53,14 +53,14 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 위로 올라가서 컨테이너 이름을 수정해줍시다. (저는 sms7950으로 정했습니다.)
 
 
-## 3.Jekyll 테마 섫치
+## 3.Jekyll 테마 설치
 
 
 추천할만한 Jekyll 사이트 목록 
 - <a href="http://jekyllthemes.org/" target="_blank">http://jekyllthemes.org</a>
 - <a href="https://jekyllthemes.io/free" target="_blank">https://jekyllthemes.io/free</a>
 
-등등 사이트에서 마음에 드는 테마를 찾으면 됩니다. 저는 http://jekyllthemes.org/ 에서 Another Yat Theme 로 선택할게요.
+등등 사이트에서 마음에 드는 테마를 찾으면 됩니다. 저는 http://jekyllthemes.org/ 에서 Yet Another Theme 로 선택할게요.
 
 ![img](https://drive.google.com/uc?id=1RlXQK5plGdVUzQXOQOywiKvUPXFp72mf)
 
@@ -86,7 +86,16 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 그럼 이렇게 jekyll-theme-yat-master 폴더 안에 jekyll-theme-yat-master 폴더가 또 생깁니다. 여기서 빨간 사각형 안에 있는 jekyll-theme-yat-master 폴더를 꺼내올거에요.
 
+빨간 사각형 안에 있는 jekyll-theme-yat-master 폴더 오른쪽 마우스 클릭 → 이동 → '(sms7950)컨테이너이름' 클릭 → 확인 
 
+![img](https://drive.google.com/uc?id=1drQe9HHixv8RcU5uXSe4Ms39mXQ5qEFP) 
+
+확인 누르고 
+
+![img](https://drive.google.com/uc?id=1FeYnwz7PkFMfpI13fJ5oyV9CM2pBouMU) 
+
+이런 문구가 뜨면 `예` 눌러줍시다.
+이동시킨 'jekyll-theme-yat-master' 폴더의 이름을 'username.github.io' 로 변경하면 됩니다. (저는 sms7950.github.io)로 변경할게요.
 
 
 
@@ -99,4 +108,4 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 
 
-## 6.ㅓekyll 테마 수정
+## 6.jekyll 테마 수정
