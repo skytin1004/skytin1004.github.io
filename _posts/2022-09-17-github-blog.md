@@ -3,7 +3,7 @@ layout: post
 title: "구름IDE에서 Github 블로그 만들기(1)"
 subtitle: "Github 블로그를 만들어 테마를 입히고 수정하는 내용입니다."
 categories: Github 
-tags: [jekyll,github,Groom IDE]
+tags: [jekyll,github,구름IDE]
 banner:
   image: https://drive.google.com/uc?id=15b90gyux9tlTOZREL8IuLE9xpjNwKzbL
   opacity: 0.618
