@@ -16,12 +16,14 @@ banner:
 
 ## 내용 작성 중입니다 ...(예상게시일: 09/25)
 
-## 4.Jekyll 설치 환경 만들기
+## 1.Jekyll 설치 환경 만들기
+
+![img](https://drive.google.com/uc?id=1FgkOKVnoSrcrDWPApVB1PlOmIj5aDPLw)
 
 터미널에서 `cd username.github.io` 를 입력합니다. 저는 `cd sms7950.github.io` 로 입력할게요.
 
 
-## 5repository을 구름IDE에 복제하기
+## 2.repository을 구름IDE에 복제하기
 
 
 
