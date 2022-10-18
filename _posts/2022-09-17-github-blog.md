@@ -15,7 +15,7 @@ banner:
 ---
 
 ## 0.Github페이지를 만들게 된 이유
-Django를 이용해서 페이지를 직접 많들어보려 했지만 유지보수에 너무 많은 시간이 쓰이게 되었습니다.
+Django를 이용해서 페이지를 직접 만들어보려 했지만 유지보수에 너무 많은 시간이 쓰이게 되었습니다.
 티스토리 블로그랑 고민하던 중 더 자유도가 높은 깃허브 블로그로 결정!
 ## 1.Github 페이지 만들기
 새로운 Github repository 를 생성합니다.
@@ -51,50 +51,17 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 아마 오류가 뜰 겁니다.(컨테이너 이름에 '.' 이 들어가면 안되기 때문입니다.)
 위로 올라가서 컨테이너 이름을 수정해줍시다. (저는 sms7950으로 정했습니다.)
 
+## 3.클론 만들기 
 
-## 3.Jekyll 테마 설치
+![img](https://drive.google.com/uc?id=1BGl0HM900z5QkswHbelIFVq7_0hY5koo)
+
+본인의 깃허브에 들어가서 오른쪽 위 code 버튼을 눌러 주소를 복사합니다.
+
+다시 터미널로 가서  `git clone 복사한주소`를 입력합니다.
 
 
-추천할만한 Jekyll 사이트 목록 
-- <a href="http://jekyllthemes.org/" target="_blank">http://jekyllthemes.org</a>
-- <a href="https://jekyllthemes.io/free" target="_blank">https://jekyllthemes.io/free</a>
 
-등등 사이트에서 마음에 드는 테마를 찾으면 됩니다. 저는 http://jekyllthemes.org/ 에서 Yet Another Theme 로 선택할게요.
 
-![img](https://drive.google.com/uc?id=1RlXQK5plGdVUzQXOQOywiKvUPXFp72mf)
-
-원하는 테마 선택 !
-
-![img](https://drive.google.com/uc?id=17x7cyeYe5ueugRSi8AFhNNBkRxSOlPRO)
-
-여기서 HomePage로 들어갑니다.
-
-![img](https://drive.google.com/uc?id=1QDHzUwot2ZPmuJd_18J1AQ0JYwg3X1aH)
-
-오른 쪽 위 초록색 버튼으로 되어있는 Code 부분 누르시고 Download Zip 선택!
-
-![img](https://drive.google.com/uc?id=1HZ4-96OuBq0XCkmrZZhh3rFX5ey1IJ25) 
-다시 전에 만들었던 구름IDE컨테이너로 들어갑시다.  왼쪽 위 메뉴에서 '파일' → '가져오기' → '파일' 클릭해서 전에 받았던 JekyllTheme 를 가져옵니다.
-
-![img](https://drive.google.com/uc?id=1eS-fr21-MZRvVk9DsnHH_aRwUq22Z03T) 
-아래에 있는 '파일 선택' 클릭 후 전에 받았던 JekyllTheme 를 선택합니다.
-
-방금 받았던 JekyllTheme 를 압축파일을 풀어줍시다.
-
-![img](https://drive.google.com/uc?id=1InMPR4TY23m0DGaWyxOtiNRLVKag4MRn) 
-
-그럼 이렇게 jekyll-theme-yat-master 폴더 안에 jekyll-theme-yat-master 폴더가 또 생깁니다. 여기서 빨간 사각형 안에 있는 jekyll-theme-yat-master 폴더를 꺼내올거에요.
-
-빨간 사각형 안에 있는 jekyll-theme-yat-master 폴더 오른쪽 마우스 클릭 → 이동 → '(sms7950)컨테이너이름' 클릭 → 확인 
-
-![img](https://drive.google.com/uc?id=1drQe9HHixv8RcU5uXSe4Ms39mXQ5qEFP) 
-
-확인 누르고 
-
-![img](https://drive.google.com/uc?id=1FeYnwz7PkFMfpI13fJ5oyV9CM2pBouMU) 
-
-이런 문구가 뜨면 `예` 눌러줍시다.
-이동시킨 'jekyll-theme-yat-master' 폴더의 이름을 'username.github.io' 로 변경하면 됩니다. (저는 sms7950.github.io)로 변경할게요.
 
 
 
