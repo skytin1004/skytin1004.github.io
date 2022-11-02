@@ -61,7 +61,6 @@ banner:
 
 터미널에서 `gem install jekyll bundler`을 입력합니다.
 터미널에서 `bundle install`을 입력합니다.
-***************************8 문제상황 : 지금 jekyll 테마를 입히려고 파일 붙여넣기를 하면 conversation 오류가 떠서 테마가 안옮겨진다. 다시 절차를 처음부터 밟아보고 공부하자.!!!!!!!!!!!!!!1
 
 
 ## 2.repository을 구름IDE에 복제하기
