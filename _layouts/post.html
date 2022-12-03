@@ -59,7 +59,14 @@ sidebar:
     {%- assign result = hidden | where_exp: "item", "item == 'comments'" -%}
     {%- if result.size == 0 -%}
     <div class="post-comments">
-      {%- if page.comments != false -%}
+		<script src="https://utteranc.es/client.js"
+        repo="skytin1004/ skytin1004.github.io"
+        issue-term="pathname"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+        </script>  
+      <!--{%- if page.comments != false -%}
 
       {%- if site.disqus.shortname -%}
       {%- include extensions/comments/disqus.html -%}
@@ -78,14 +85,7 @@ sidebar:
     </div>
     {%- endif -%}
 
-  </section>
-</div>
+  </section>-->
+</div> 
 
-<!-- Utterances 댓글 스니핏 삽입 -->
-<script src="https://utteranc.es/client.js"
-        repo="skytin1004/ skytin1004.github.io"
-        issue-term="pathname"
-        theme="gruvbox-dark"
-        crossorigin="anonymous"
-        async>
-</script>
+
