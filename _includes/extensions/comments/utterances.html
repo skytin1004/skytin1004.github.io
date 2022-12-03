@@ -42,11 +42,10 @@
 {%- else -%}
 <script async
         crossorigin="anonymous"
-        issue-term="pathname"
+        issue-term="{{ site.utterances.issue_term }}"
         label="{{ site.utterances.label }}"
-        repo="skytin1004/ skytin1004.github.io"
+        repo="{{ site.utterances.repo }}"
         src="https://utteranc.es/client.js"
-        theme="gruvbox-dark">
+        theme="{{ site.utterances.theme }}">
  </script>
-
 {%- endif -%}
