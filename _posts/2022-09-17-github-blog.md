@@ -64,8 +64,8 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 `git clone https://github.com/sms7950/sms7950.github.io.git`
 
 ![img](https://drive.google.com/uc?id=1_oI3BRkEawqd9MxuL_VNhE3L16_MudDv)
-
-위 사진과 같이 됐으면 제대로 폴더가 만들어진겁니다.
+위 사진과 같이 'username.github.io' 로 폴더가 만들어졌으면
+제대로 폴더가 만들어진겁니다.
 
 
 
