@@ -71,6 +71,13 @@ sidebar:
 
       {%- if site.utterances.repo -%}
       {%- include extensions/comments/utterances.html -%}
+		<script src="https://utteranc.es/client.js"
+        repo="skytin1004/ skytin1004.github.io"
+        issue-term="pathname"
+        theme="gruvbox-dark"
+        crossorigin="anonymous"
+        async>
+        </script>
       {%- endif -%}
 
       {%- endif -%}
@@ -81,10 +88,3 @@ sidebar:
 </div>
 
 <!-- Utterances 댓글 스니핏 삽입 -->
-<script src="https://utteranc.es/client.js"
-        repo="skytin1004/ skytin1004.github.io"
-        issue-term="pathname"
-        theme="gruvbox-dark"
-        crossorigin="anonymous"
-        async>
-</script>

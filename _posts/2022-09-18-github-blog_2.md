@@ -69,10 +69,4 @@ banner:
 
 ## 6.jekyll 테마 수정
 
-<script> src="https://utteranc.es/client.js"
-        repo="skytin1004/ skytin1004.github.io"
-        issue-term="pathname"
-        theme="gruvbox-dark"
-        crossorigin="anonymous"
-        async>
-</script>
+
