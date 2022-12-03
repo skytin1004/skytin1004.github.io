@@ -206,7 +206,7 @@ utterances:
    issue_term: "pathname"
    label: "utterances comment"
    theme: "gruvbox-dark"
-   follow_site_theme: true
+   follow_site_theme: false
 
 # Build settings
 # highlighter: none
