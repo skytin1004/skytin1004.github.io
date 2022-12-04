@@ -56,8 +56,6 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 ![img](https://drive.google.com/uc?id=1BGl0HM900z5QkswHbelIFVq7_0hY5koo)
 
 본인의 깃허브에 들어가서 오른쪽 위 code 버튼을 눌러 주소를 복사합니다.
- 
-사진 20
 
 다시 구름 IDE 터미널로 가서  `git clone 복사한주소`를 입력합니다.
 
@@ -65,6 +63,7 @@ Public , Add a README file 선택 후 Create repository 눌러줍시다.
 
 ![img](https://drive.google.com/uc?id=1_oI3BRkEawqd9MxuL_VNhE3L16_MudDv)
 위 사진과 같이 'username.github.io' 로 폴더가 만들어졌으면
+
 제대로 폴더가 만들어진겁니다.
 
 

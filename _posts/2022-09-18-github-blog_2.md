@@ -14,7 +14,6 @@ banner:
   subheading_style: "color: gold"
 ---
 
-## 내용 작성 중입니다 ...(예상게시일: 10/25)
 ## 1.Jekyll 테마 설치
 
 
@@ -59,13 +58,17 @@ banner:
 터미널에서 `cd username.github.io` 를 입력합니다. 저는 `cd sms7950.github.io` 로 입력할게요.
 ## 3.Jeckyll 설치하기
 
-터미널에서 `gem install jekyll bundler`을 입력합니다.
-터미널에서 `bundle install`을 입력합니다.
+터미널에서 `gem install jekyll bundler`을 입력합니다. <br>
 
+터미널에서 `bundle install`을 입력합니다. <br>
+![img](https://drive.google.com/uc?id=1n6VDtQxEXL2M-83pXvqCI1_e_L93B7gC)
+프로젝트 → 실행 URL과 포트 에서 포트번호 4000번으로 한 후 등톡합니다.
 
-## 2.repository을 구름IDE에 복제하기
+구름IDE 서버 실행 코드 : `bundle exec jekyll serve --host 0.0.0.0` 를 터미널에 입력해서 웹페이지가 잘 만들어졌는지 확인합니다.(앞으로 자주 쓰게 될 명령어이니 기억해두시기 바랍니다.)
 
+구름IDE 에서는 local 호스트에서 서버 실행이 안되기때문에 host를 0.0.0.0으로 설정해줘야 합니다.
 
+블로그 완성 !!
 
 ## 6.jekyll 테마 수정
 
