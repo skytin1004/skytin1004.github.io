@@ -62,14 +62,43 @@ banner:
 
 터미널에서 `bundle install`을 입력합니다. <br>
 ![img](https://drive.google.com/uc?id=1n6VDtQxEXL2M-83pXvqCI1_e_L93B7gC)
-프로젝트 → 실행 URL과 포트 에서 포트번호 4000번으로 한 후 등톡합니다.
+'프로젝트' → '실행 URL과 포트' 에서 포트번호 4000번으로 설정 후 등록합니다.
 
 구름IDE 서버 실행 코드 : `bundle exec jekyll serve --host 0.0.0.0` 를 터미널에 입력해서 웹페이지가 잘 만들어졌는지 확인합니다.(앞으로 자주 쓰게 될 명령어이니 기억해두시기 바랍니다.)
 
-구름IDE 에서는 local 호스트에서 서버 실행이 안되기때문에 host를 0.0.0.0으로 설정해줘야 합니다.
+구름IDE 에서는 local 호스트에서 서버 실행이 안되기때문에 host를 0.0.0.0으로 설정해줘야 합니다.<br>
 
-블로그 완성 !!
+'프로젝트' → '실행 URL과 포트'에서 포트번호 4000번으로 설정헀던 주소를 복사 후 웹 페이지가 잘 만들어졌는지 확인합니다.<br>
+
+블로그 완성 !!<br>
+
+### 깃허브에 올리기
+
+터미널에서 `git add .` 입력 <br>
+터미널에서 `git commit -m"first commit"` 입력 <br>
+터미널에서 `git push` 입력 <br>
+
+![img](https://drive.google.com/uc?id=1mPEwSalRKJs9SNaj2m0J0GMPQVpY7wW0)
+
+입력하는 도중 이런 오류가 떴는데 아래처럼 터미널에 입력해주면 됩니다.
+
+![img](https://drive.google.com/uc?id=1cTCZBuJrxbSLhM7yCW_oJVFH13AIKFbN)
+
+다시 터미널에서 `git commit -m"first commit"` 입력 후<br>
+터미널에서 `git push` 입력 <br>
+
+![img](https://drive.google.com/uc?id=1BxqXNyh0lRHHF_Pm8sxWcQXuwk3IHcra)
+
+ username에 깃허브 계정 이름 입력합니다. 
+ Password에 깃허브 토큰을 입력합니다.(깃허브 토큰을 입력하기 위해서는 깃허브 __토큰__ 을 먼저 생성해야 합니다.) 
+ 
+
 
 ## 6.jekyll 테마 수정
 
+구름IDE 의 username.github.io 폴더 → config.yml 파일로 이동합니다.  <br>
 
+![img](https://drive.google.com/uc?id=18Pdd1hWVLX1QZnmOcs2XiFp7lk43gVdW)
+시간대를 위와같이 바꿉니다.<br>
+
+나머지 정보도 본인에 맞게 잘 바꾸시면 됩니다.
