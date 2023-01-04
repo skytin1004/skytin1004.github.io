@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "구름IDE에서 Github 블로그 만들기(2)"
-subtitle: "Github 블로그를 만들어 테마를 입히고 수정하는 내용입니다."
+title: "[구름IDE] Github 블로그 만들기(2)"
+subtitle: "Github 블로그: 테마 적용 및 수정"
 categories: Github 
 tags: [jekyll, github,구름IDE]
 banner:
@@ -10,8 +10,8 @@ banner:
   background: "#000"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
-  subheading_style: "color: gold"
+  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
+  subheading_style: "color: #E6E6FA"
 ---
 
 ## 1.Jekyll 테마 설치
@@ -92,7 +92,6 @@ banner:
  username에 깃허브 계정 이름 입력합니다. 
  Password에 깃허브 토큰을 입력합니다.(깃허브 토큰을 입력하기 위해서는 깃허브 __토큰__ 을 먼저 생성해야 합니다.) 
  
-
 
 ## 6.jekyll 테마 수정
 

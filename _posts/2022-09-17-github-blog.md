@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "구름IDE에서 Github 블로그 만들기(1)"
-subtitle: "Github 블로그를 만들어 테마를 입히고 수정하는 내용입니다."
+title: "[구름IDE] Github 블로그 만들기(1)"
+subtitle: "Github 블로그: 컨테이너 및 클론 생성"
 categories: Github 
 tags: [jekyll,github,구름IDE]
 banner:
@@ -10,8 +10,8 @@ banner:
   background: "#000"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
-  subheading_style: "color: gold"
+  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
+  subheading_style: "color: #E6E6FA"
 ---
 
 ## 0.Github페이지를 만들게 된 이유
