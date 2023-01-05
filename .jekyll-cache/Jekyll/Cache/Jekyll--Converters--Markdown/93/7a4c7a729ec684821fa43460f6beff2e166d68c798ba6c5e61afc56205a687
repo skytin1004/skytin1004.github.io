@@ -1,0 +1,88 @@
+I"<h2 id="1jekyll-테마-설치">1.Jekyll 테마 설치</h2>
+
+<p>Jekyll 사이트 중에서 추천할만한 사이트 몇 개를 가져왔습니다.</p>
+<ul>
+  <li><a href="http://jekyllthemes.org/" target="_blank">http://jekyllthemes.org</a></li>
+  <li><a href="https://jekyllthemes.io/free" target="_blank">https://jekyllthemes.io/free</a></li>
+</ul>
+
+<p>위 사이트에서 마음에 드는 테마를 하나 선택합니다. <span style="color:gray">(저는 http://jekyllthemes.org/ 에서 Yet Another Theme 로 선택했습니다.)</span></p>
+
+<p><img src="https://drive.google.com/uc?id=1RlXQK5plGdVUzQXOQOywiKvUPXFp72mf" alt="img" /></p>
+
+<p>마음에 드는 테마를 하나 선택합니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=17x7cyeYe5ueugRSi8AFhNNBkRxSOlPRO" alt="img" /></p>
+
+<p>HomePage로 들어갑니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1QDHzUwot2ZPmuJd_18J1AQ0JYwg3X1aH" alt="img" /></p>
+
+<p>오른 쪽 위 Code 버튼 누르고 Download Zip 선택합니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1HZ4-96OuBq0XCkmrZZhh3rFX5ey1IJ25" alt="img" /> 
+다시 전에 만들었던 구름IDE컨테이너로 들어갑니다. 구름IDE 왼쪽 위 메뉴에서 ‘파일’ → ‘가져오기’ → ‘파일’ 클릭 → 방금 받았던 JekyllTheme 를 가져옵니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1eS-fr21-MZRvVk9DsnHH_aRwUq22Z03T" alt="img" /> 
+아래에 있는 ‘파일 선택’ 클릭 후 방금 받았던 JekyllTheme 를 선택합니다.</p>
+
+<p>방금 받았던 JekyllTheme 압축파일을 풀어줍니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1InMPR4TY23m0DGaWyxOtiNRLVKag4MRn" alt="img" /></p>
+
+<p>그럼 이렇게 jekyll-theme-yat-master 폴더 안에 jekyll-theme-yat-master 폴더가 또 생깁니다. 여기서 빨간 사각형 안에 있는 jekyll-theme-yat-master 의 파일들을 복사할거에요</p>
+
+<p>빨간 사각형 안에 있는 jekyll-theme-yat-master의 파일 전부 선택하고 (Crtl 누르면서 마우스 클릭하면 됩니다.) 오른쪽 마우스 클릭 → 이동 → username.github.io 폴더 → 확인</p>
+
+<p>저는 sms7950.github.io에 파일들을 이동시킬게요</p>
+
+<h2 id="2jekyll-설치-환경-만들기">2.Jekyll 설치 환경 만들기</h2>
+
+<p><img src="https://drive.google.com/uc?id=1FgkOKVnoSrcrDWPApVB1PlOmIj5aDPLw" alt="img" /></p>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">cd username.github.io</code> 를 입력합니다. 저는 <code class="language-plaintext highlighter-rouge">cd sms7950.github.io</code> 로 입력할게요.</p>
+<h2 id="3jeckyll-설치하기">3.Jeckyll 설치하기</h2>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">gem install jekyll bundler</code>을 입력합니다. <br /></p>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">bundle install</code>을 입력합니다. <br />
+<img src="https://drive.google.com/uc?id=1n6VDtQxEXL2M-83pXvqCI1_e_L93B7gC" alt="img" />
+‘프로젝트’ → ‘실행 URL과 포트’ 에서 포트번호 4000번으로 설정 후 등록합니다.</p>
+
+<p>구름IDE 서버 실행 코드 : <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve --host 0.0.0.0</code> 를 터미널에 입력해서 웹페이지가 잘 만들어졌는지 확인합니다.(앞으로 자주 쓰게 될 명령어이니 기억해두시기 바랍니다.)</p>
+
+<p>구름IDE 에서는 local 호스트에서 서버 실행이 안되기때문에 host를 0.0.0.0으로 설정해줘야 합니다.<br /></p>
+
+<p>‘프로젝트’ → ‘실행 URL과 포트’에서 포트번호 4000번으로 설정헀던 주소를 복사 후 웹 페이지가 잘 만들어졌는지 확인합니다.<br /></p>
+
+<p>블로그 완성 !!<br /></p>
+
+<h3 id="깃허브에-올리기">깃허브에 올리기</h3>
+
+<p>터미널에서 <code class="language-plaintext highlighter-rouge">git add .</code> 입력 <br />
+터미널에서 <code class="language-plaintext highlighter-rouge">git commit -m"first commit"</code> 입력 <br />
+터미널에서 <code class="language-plaintext highlighter-rouge">git push</code> 입력 <br /></p>
+
+<p><img src="https://drive.google.com/uc?id=1mPEwSalRKJs9SNaj2m0J0GMPQVpY7wW0" alt="img" /></p>
+
+<p>입력하는 도중 이런 오류가 떴는데 아래처럼 터미널에 입력해주면 됩니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1cTCZBuJrxbSLhM7yCW_oJVFH13AIKFbN" alt="img" /></p>
+
+<p>다시 터미널에서 <code class="language-plaintext highlighter-rouge">git commit -m"first commit"</code> 입력 후<br />
+터미널에서 <code class="language-plaintext highlighter-rouge">git push</code> 입력 <br /></p>
+
+<p><img src="https://drive.google.com/uc?id=1BxqXNyh0lRHHF_Pm8sxWcQXuwk3IHcra" alt="img" /></p>
+
+<p>username에 깃허브 계정 이름 입력합니다. 
+ Password에 깃허브 토큰을 입력합니다.(깃허브 토큰을 입력하기 위해서는 깃허브 <strong>토큰</strong> 을 먼저 생성해야 합니다.)</p>
+
+<h2 id="6jekyll-테마-수정">6.jekyll 테마 수정</h2>
+
+<p>구름IDE 의 username.github.io 폴더 → config.yml 파일로 이동합니다.  <br /></p>
+
+<p><img src="https://drive.google.com/uc?id=18Pdd1hWVLX1QZnmOcs2XiFp7lk43gVdW" alt="img" />
+시간대를 위와같이 바꿉니다.<br /></p>
+
+<p>나머지 정보도 본인에 맞게 잘 바꾸시면 됩니다.</p>
+:ET
