@@ -48,7 +48,7 @@ HomePage로 들어갑니다.
 
 빨간 사각형 안에 있는 jekyll-theme-yat-master의 파일 전부 선택하고 (Crtl 누르면서 마우스 클릭하면 됩니다.) 오른쪽 마우스 클릭 → 이동 → username.github.io 폴더 → 확인 
 
-저는 sms7950.github.io에 파일들을 이동시킵니다. <span style="color:gray">(더 좋은 방법이 있으면 댓글 부탁드립니다.)</span>
+저는 sms7950.github.io에 파일들을 이동시킵니다.
 
 ## 2.Jekyll 설치 
 
