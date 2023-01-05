@@ -121,7 +121,7 @@ lang: "ko"  # default lang is en
 # brand_color: orangered
 #
 # Custom color as below:
-# brand_color: "#1a8e42"
+brand_color: "#9370DB"
 
 # Night/Dark mode
 # Default mode is "auto", "auto" is for auto nightshift
