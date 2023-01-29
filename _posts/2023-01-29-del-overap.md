@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Python] 파이썬 리스트 중복 제거하는 방법"
+title: "[Python] 파이썬 리스트 중복 제거"
 subtitle: "파이썬: 중복되는 원소 제거하기"
 categories: Python
 tags: [Python,리스트,방법]
@@ -17,7 +17,7 @@ banner:
   subheading_style: "color: #E6E6FA"
 ---
 
-## 파이썬 중복 제거하는 방법<br>
+## 파이썬 리스트 중복 제거하는 방법<br>
 
 파이썬에서 중복을 제거하는 방법은 크게 세가지가 있습니다.
 
@@ -84,6 +84,7 @@ print(list2)
 ['h', 'e', 'l', 'o', '!']
 [1, 0, 4]
 ```
+<br>
 
 ※참고: dict.fromkeys() 정리하기<br>
 
