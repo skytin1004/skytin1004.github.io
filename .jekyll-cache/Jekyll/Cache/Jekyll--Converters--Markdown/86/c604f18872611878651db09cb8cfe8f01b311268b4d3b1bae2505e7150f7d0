@@ -1,0 +1,226 @@
+I"�d<h2 id="dequedouble-ended-que">deque(double-ended-que)</h2>
+<p>deque는 리스트 처럼 원소들을 담아둘 수 있는 자료구조이며. 리스트와는 다르게 큐의 양 옆에서 원소를 삽입하거나, 지울 수 있습니다.
+기존의 리스트를 이용할 때는 원소들을 순환(rotate) 시키거나 리스트 가장 앞에 원소를 추가시키려면 직접 코드로 구현해야 하지만
+deque 를 이용하면 deque 원소들을 순환(rotate)시키거나 deque 가장 앞에 원소를 추가시키는 등 기존 리스트에서는 하기 어려웠던 다양한 기능들을 활용할 수 있습니다.
+이번 포스트에서는 deque 메소드의 여러가지 사용법을 정리하겠습니다.<br /></p>
+<h2 id="deque-의-용도">deque 의 용도</h2>
+<p>deque 자료구조는 리스트로는 활용하기 어려운 기능들을 이용할 때 쓰입니다.</p>
+
+<h2 id="deque-사용법">deque 사용법</h2>
+<p>deque를 사용하기 위해서는 collections에서 deque를 import 해주어야 합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+</code></pre></div></div>
+<h3 id="deque-선언하기">deque 선언하기</h3>
+<ol>
+  <li>빈 deque  선언하기
+빈 deque를 선언할 때는 <span style="color:#9370DB">변수 = deque()</span> 로 선언합니다.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+</code></pre></div></div>
+
+<ol>
+  <li>원소들을 포함한 deque</li>
+</ol>
+
+<p>원소들을 포함한 deque는 <span style="color:#9370DB">변수 = deque([1,2,3,4])</span> 형식으로 <span style="color:#9370DB">deque()</span> 안에 <span style="color:#9370DB">리스트[]</span>가 들어간 모양으로 표현합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+
+<ol>
+  <li>deque 의 maxlen</li>
+</ol>
+
+<p>deque는 리스트와 다르게 deque의 최대 길이(maxlen)를 지정할 수 있습니다. 지정한 최대 길이(maxlen) 이상으로 deque에 원소가 추가되면 처음 원소는 사라지고 새로 입력한 원소가 추가됩니다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">maxlen</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">maxlen</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">"sky"</span><span class="p">)</span>
+<span class="n">deq2</span><span class="p">.</span><span class="n">appendleft</span><span class="p">(</span><span class="s">"sky"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq2 ="</span><span class="p">,</span><span class="n">deq2</span><span class="p">)</span>
+
+</code></pre></div></div>
+<p>실행 결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="s">'sky'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div></div>
+<p>실행 결과를 보면 deque의 최대 길이가 지정되어있을 때 append 를 사용하면 가장 왼쪽의 원소가 삭제되며 appendleft를 사용하면 가장 오른쪽의 원소가 삭제되는 것을 알 수 있습니다.</p>
+
+<h3 id="deque-메소드-정리">deque 메소드 정리</h3>
+
+<p>deq = deque([1,0,0,4])를 예시로 deque의 여러가지 메소드를 정리하겠습니다.<br /></p>
+<h4 id="1-deqappend--deqappendleft">1. deq.append() , deq.appendleft()</h4>
+<p>deq.append(<span style="color:#9370DB">“원소”</span>): deque의 가장 오른쪽 끝에 새로운 원소 추가<br />
+deq.appendleft(<span style="color:#9370DB">“원소”</span>): deque의 가장 왼쪽 끝에 새로운 원소 추가<br /></p>
+
+<p><strong><em>append,appendleft 예시</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">"sky"</span><span class="p">)</span>
+<span class="n">deq2</span><span class="p">.</span><span class="n">appendleft</span><span class="p">(</span><span class="s">"sky"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq2 ="</span><span class="p">,</span><span class="n">deq2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="s">'sky'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<h4 id="2-deqextend-deqextendleft">2. deq.extend(), deq.extendleft()</h4>
+<p>deq.extend(<span style="color:#9370DB">“원소”</span>): deque의 가장 오른쪽 끝에 새로운 원소 리스트 연장<br />
+deq.extendleft(<span style="color:#9370DB">“원소”</span>): deque의 가장 왼쪽 끝에 새로운 원소 리스트 연장<br /></p>
+
+<p><strong><em>extend,extendleft 예시</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="s">"sky"</span><span class="p">)</span>
+<span class="n">deq2</span><span class="p">.</span><span class="n">extendleft</span><span class="p">(</span><span class="s">"sky"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq2 ="</span><span class="p">,</span><span class="n">deq2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'s'</span><span class="p">,</span> <span class="s">'k'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="s">'y'</span><span class="p">,</span> <span class="s">'k'</span><span class="p">,</span> <span class="s">'s'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>실행 결과를 보면 오른쪽에 “sky”를 연장시킬 때는 정순으로 원소가 배열되지만, 왼쪽에 “sky”를 연장시킬 때는 역순으로 원소가 배열됩니다.</p>
+
+<h4 id="3-deqpop-deqpopleft">3. deq.pop(), deq.popleft()</h4>
+
+<p>deq.pop(): 가장 오른쪽 원소를 반환 후 리스트에서 삭제<br />
+deq.popleft(): 가장 왼쪽 원소를 반환 후 리스트에서 삭제<br /></p>
+
+<p><strong><em>pop,popleft 예시</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">deq2</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq2 ="</span><span class="p">,</span><span class="n">deq2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<h4 id="4-deqrotate">4. deq.rotate()</h4>
+<p>deq.rotate(<span style="color:#9370DB">“양수”</span>): <span style="color:#9370DB">“양수”</span>번 오른쪽으로 deque 순환<br />
+deq.rotate(<span style="color:#9370DB">“음수”</span>): <span style="color:#9370DB">“음수”</span>번 왼쪽으로 deque 순환<br /></p>
+
+<p><strong><em>rotate 예시</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq3</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">deq2</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">deq3</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq2 ="</span><span class="p">,</span><span class="n">deq2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq3 ="</span><span class="p">,</span><span class="n">deq3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">deq3</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>실행 결과를 보면 <span style="color:#9370DB">deq1.rotate(1)</span> 일 때 오른쪽으로 한 번 순환했고 <span style="color:#9370DB">deq2.rotate(-1)</span>
+일 때 왼쪽으로 한 번 순환했으며 <span style="color:#9370DB">deq3.rotate(-2)</span>일 때 왼쪽으로 deque가 두 번 순환했음을 알 수 있습니다.</p>
+
+<h4 id="5-deqinsert">5. deq.insert()</h4>
+<p>deq.insert(<span style="color:#6B8E23">“인덱스”</span>,<span style="color:#9370DB">“원소”</span>): 원하는 위치(인덱스)에 원소 삽입<br /></p>
+
+<p><strong><em>insert 예시</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">deq3</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">"sky"</span><span class="p">)</span>
+<span class="n">deq2</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s">"sky"</span><span class="p">)</span>
+<span class="n">deq3</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="s">"sky"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq2 ="</span><span class="p">,</span><span class="n">deq2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"deq3 ="</span><span class="p">,</span><span class="n">deq3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">deq2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">deq3</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">])</span>
+</code></pre></div></div>
+<p>실행 결과를 보면 <span style="color:#9370DB"> deq1.insert(1,”sky”) </span>일 때 인덱스 1의 위치에 “sky” 가 들어가지만
+<span style="color:#9370DB">deq2.insert(-1,”sky”)</span>인 경우 “sky”가 인덱스 -1 위치의 바로 앞에 오게 되는 것을 알 수 있습니다.
+ 추가적으로 <span style="color:#9370DB">deq3.insert(100,”sky”)</span> 처럼 deque의 maxlen을 넘어선 값을 인덱스로 지정할 경우에는
+ 마지막 위치에 원소를 삽입합니다.</p>
+
+<h4 id="6-deqremove">6. deq.remove()</h4>
+<p>deq.remove(<span style="color:#6B8E23">“원소”</span>): 왼쪽부터 deque의 원소들을 조사해서 <span style="color:#6B8E23">“원소”</span>가 있으면 삭제합니다.<br /></p>
+
+<p><strong><em>remove 예시</em></strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+<p>실행결과를 보면 remove를 이용해 원소를 삭제했을 때 같은 원소라도 왼쪽의 원소를 먼저 삭제하는 것을 알 수 있습니다.</p>
+
+<h4 id="7-deqreverse">7. deq.reverse()</h4>
+
+<p>deq.reverse(): deque 원소들의 순서를 거꾸로 합니다.(좌우반전)<br /></p>
+
+<p><strong><em>reverse 예시</em></strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">deq1</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"deq1 ="</span><span class="p">,</span><span class="n">deq1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deq1</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div></div>
+:ET

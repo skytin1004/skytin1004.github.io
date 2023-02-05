@@ -5,10 +5,10 @@ subtitle: "파이썬: 중복되는 원소 제거하기"
 categories: Python
 tags: [Python,리스트,방법]
 banner:
-  video: https://drive.google.com/uc?id=15v2reMqS5qHM1J9OUX11TJfOEIJ88XmZ
+  video: 
   volume: 0.0
   start_at: 0.0
-  image: 
+  image: https://drive.google.com/uc?id=1oS2Vz_KEQnAeuZxh2xxRyEDTFfsslqws
   opacity: 0.618
   background: "#000"
   height: "100vh"
