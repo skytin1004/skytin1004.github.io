@@ -27,7 +27,7 @@ enumerate함수는 리스트 원소들에 번호를 매길 때 사용합니다.<
 : enumerate(<span style="color:#9370DB">리스트</span>,	<span style="color:#6B8E23">start = 시작번호</span>)<br>
 enumerate 의 첫번 째 인자에는 번호를 매길 리스트가 들어가고 두 번째 인자에는 원소에 번호가 매겨지는 시작번호가 들어갑니다.<br>
 <span style="color:gray">(시작번호의 기본값은 '0' 이며,
-두번째 인자에 적은게 없다면 0부터 번호가 나열됩니다.)</span><br>
+두번째 인자에 적은게 없다면 '0'부터 번호가 나열됩니다.)</span><br>
 enumerate 함수는 주로 for 문이랑 같이 사용합니다. 아래 예시를 통해서 자세히 설명하겠습니다.<br>
 ## enumerate 함수 예시 
 #### 예시0: enumerate 함수의 형태(참고)
