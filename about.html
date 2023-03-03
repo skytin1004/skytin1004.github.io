@@ -88,17 +88,17 @@ title: About
   <div class="container">
     <form method="POST" data-email="skytin1004@gmail.com"
 		  action="https://script.google.com/macros/s/AKfycbytsQL_kTiq8d36tjb_WPUfo9gtW9WLSavgCWNyHetLs8h20Ecio6e9XNmPwbzb96dgoA/exec"
-		  target="frAttachFiles">
+		  target = "iframe1">
       <h2>Contact Me</h2>
       <input type="text" placeholder="Name" id="name" name="name" class="full-half">
       <input type="email" placeholder="Email" id="email" name="email" class="full-half">
       <input type="text" placeholder="Subject" id="subject" name="subject">
       <textarea placeholder="Message" id="message" name="message"></textarea>
-      <input type="submit" value="Send">
+      <input type="submit" value="Send" onclick="alert('Your email was sent successfully ')">
     </form>
   </div>
 </div>
-
+<iframe id="iframe1" name="iframe1" style="display:none"></iframe>
 <footer class="container-fluid footer">
   <div class="container">
     <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
