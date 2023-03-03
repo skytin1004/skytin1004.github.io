@@ -1,0 +1,63 @@
+I"z!<h2 id="count-함수-정의">count 함수 정의</h2>
+<p>count함수는 주어진 리스트(or 문자열)에서 특정 원소가 몇 개 있는지 알려주는 함수입니다.<br />
+count힘수는 주로 문자열에서 많이 쓰입니다.<br />
+<span style="color:gray">※count 함수는 문자열,리스트,튜플을 인자로 받을 수 있습니다.(딕셔너리,집합 제외)</span></p>
+<h2 id="count-함수-용도">count 함수 용도</h2>
+<p>count함수는 문자열 속 특정 문자의 개수를 구할 때 사용합니다.<br />
+count함수는 리스트,튜플 속 특정 원소의 개수를 구할 때 사용합니다.</p>
+<h2 id="count-함수-사용법">count 함수 사용법</h2>
+<p><span style="color:#6B8E23">“문자열”</span>.count(<span style="color:#9370DB">“특정문자”</span>)<br />
+<span style="color:#6B8E23">“리스트”</span>.count(<span style="color:#9370DB">“특정원소”</span>)<br /></p>
+<h2 id="count-함수-예시">count 함수 예시</h2>
+
+<h4 id="예시1-문자열에서-특정-문자-개수">예시1: 문자열에서 특정 문자 개수</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="s">"skytink1004"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">'k'</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span>
+</code></pre></div></div>
+
+<h4 id="예시2-리스트에서-특정-원소-개수">예시2: 리스트에서 특정 원소 개수</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span>
+</code></pre></div></div>
+
+<h4 id="예시3-튜플에서-특정-원소-개수">예시3: 튜플에서 특정 원소 개수</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span>
+</code></pre></div></div>
+
+<h4 id="예시4-딕셔너리에서-특정-원소-개수에러-발생">예시4: 딕셔너리에서 특정 원소 개수(에러 발생)</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">{</span><span class="s">'a'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'b'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'c'</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">,</span><span class="s">'d'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'e'</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="s">'f'</span> <span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="k">print</span><span class="p">((</span><span class="n">number</span><span class="p">.</span><span class="n">values</span><span class="p">()).</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">AttributeError</span><span class="p">:</span> <span class="s">'dict_values'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s">'count'</span>
+</code></pre></div></div>
+<p>dictionary형태에서는 count함수를 사용할 수 없다.</p>
+<h4 id="예시4-1-딕셔너리에서-특정-원소-개수">예시4-1: 딕셔너리에서 특정 원소 개수</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">{</span><span class="s">'a'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'b'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'c'</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">,</span><span class="s">'d'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'e'</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="s">'f'</span> <span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="n">values</span><span class="p">()).</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span>
+</code></pre></div></div>
+<p>number.values() 형태에서는 count 함수를 사용할 수 없으므로 list로 묶어줘야 한다.</p>
+<h4 id="예시5-집합에서-특정-원소-개수에러-발생">예시5: 집합에서 특정 원소 개수(에러 발생)</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">AttributeError</span><span class="p">:</span> <span class="s">'set'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s">'count'</span>
+</code></pre></div></div>
+<p>예시4와 마찬가지로 set형태에서는 count함수를 사용할 수 없다.<br /></p>
+
+<p><b>정리 - count함수를 사용하지 못하는 자료형: set,dictionary<b></b></b></p>
+:ET

@@ -1,0 +1,44 @@
+I"�<h2 id="sum-함수-정의">sum 함수 정의</h2>
+<p>sum함수는 리스트 원소들의 총합을 구하는 함수입니다.<br />
+<span style="color:gray">※sum 함수는 리스트 뿐만 아니라 딕셔너리, 튜플 등 반복가능한 개체를 인자로 받을 수 있습니다.</span></p>
+<h2 id="sum-함수-사용법">sum 함수 사용법</h2>
+<p>sum(<span style="color:#9370DB">“리스트”</span>)<br />
+<span style="color:gray">※sum 함수에 들어오는 리스트의 원소들은 전부 ‘숫자’로 이루어져있어야 합니다.</span></p>
+<h2 id="sum-함수-예시">sum 함수 예시</h2>
+
+<h4 id="예시1-숫자로-이루어진-리스트">예시1: 숫자로 이루어진 리스트</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">21</span>
+</code></pre></div></div>
+
+<h4 id="예시2-숫자로-이루어진-튜플">예시2: 숫자로 이루어진 튜플</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">21</span>
+</code></pre></div></div>
+<h4 id="예시3-숫자로-이루어진-집합">예시3: 숫자로 이루어진 집합</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">21</span>
+</code></pre></div></div>
+
+<h4 id="예시4-딕셔너리">예시4: 딕셔너리</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span><span class="o">=</span> <span class="p">{</span><span class="s">'a'</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span><span class="s">'b'</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">,</span><span class="s">'c'</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">,</span><span class="s">'d'</span> <span class="p">:</span> <span class="mi">4</span> <span class="p">,</span><span class="s">'e'</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="s">'f'</span> <span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="n">values</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+<p>실행결과</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">21</span>
+</code></pre></div></div>
+
+:ET
