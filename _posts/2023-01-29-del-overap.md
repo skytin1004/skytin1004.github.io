@@ -69,6 +69,8 @@ print(list2)
 [1, 0, 4]
 ```
 #### 예시3: dict.fromkeys() 이용해서 중복 제거하기
+<span style="color:gray">※dict.fromkeys()는 리스트의 원소를 'key' 값으로 인식해 리스트를 딕셔너리로 만드는 함수입니다.<br></span>
+딕셔너리의 'key'값들은 중복될 수 없다는 것을 이용한 방법입니다.<br>
 ```python
 ex1 = "hello!"
 ex2 =[1,0,0,4]
