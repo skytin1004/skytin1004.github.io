@@ -47,8 +47,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Skytin1004, Programming, Data engineering, python, django  
   스카이틴1004, 프로그래밍, 데이터 엔지니어링, 파이썬, 장고
   
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. https://example.com
+baseurl: "https://skytin1004.github.io/about" # the subpath of your site, e.g. /blog
+url: "https://skytin1004.github.io/" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
@@ -220,3 +220,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+# Analytics
+analytics:
+  provider               : "google-gtag" 
+                          # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : "G-X946DNBS12"
+    anonymize_ip         : # true, false (default)
