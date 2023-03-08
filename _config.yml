@@ -227,4 +227,4 @@ analytics:
                           # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
     tracking_id: "G-X946DNBS12"
-    anonymize_ip: false #(default)
+    anonymize_ip: true #(default)
