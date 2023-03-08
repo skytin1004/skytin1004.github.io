@@ -6,4 +6,5 @@
 </div>
 <h4 align="center">Welcome.</h4>
 
-
+favicon:
+<a href="https://www.flaticon.com/free-icons/whale/" target="_blank"><span style="color:#9370DB"> Whale icons created by Eucalyp - Flaticon</span></a><br>
