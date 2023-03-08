@@ -223,8 +223,8 @@ plugins:
 
 # Analytics
 analytics:
-  provider: "google-gtag" 
+  provider: "google" 
                           # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
     tracking_id: "G-X946DNBS12"
-    anonymize_ip: true #(default)
+    anonymize_ip: false #(default)
