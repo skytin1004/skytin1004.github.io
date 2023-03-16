@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "[Python]문자열 나누는 함수: split() split(" ")차이첨"
-subtitle: "split()/split(' ')"
+title: "[Python]문자열 나누는 함수: split(),split(" ")차이첨"
+subtitle: "split(),split(' ')차이점"
 categories: Python
 tags: [Python,여러가지함수,문자열]
 banner:
@@ -16,9 +16,9 @@ banner:
 
 ## split(), split(" ")
 split 함수는 문자열을 쪼개서 리스트로 만드는 함수입니다.<br>
-split() , split(" ") 둘 다 띄어쓰기를 기준으로 문자열을 나눈다는 공통점이 있습니다. 하지만 
-두 함수 사이에는 차이점이 있습니다. 이번 포스트에서는 split() , split(" ")의 차이점과 두 함수
-가 각각 어떤 방식으로 작동하는지 알아보려 합니다.<br>
+split() , split(" ") 둘 다 띄어쓰기를 기준으로 문자열을 나눈다는 공통점이 있습니다.<br> 하지만 
+두 함수 사이에는 차이점이 있습니다.<br>이번 포스트에서는 split() , split(" ")의 차이점과 두 함수
+가 각각 어떤 방식으로 작동하는지 알아보겠습니다.<br>
 
 <span style="color:gray">※ split 함수에 대해 알고 싶다면 아래 "split 함수 정리하기" 링크를 클릭하세요.</span><br>
 <a href="https://skytin1004.github.io/python/2023/01/25/split.html" target="_blank"><span style="color:#9370DB">split 함수 정리하기</span></a><br>
@@ -69,5 +69,5 @@ print(fruits)
 ## split() split(" ")함수의 차이점
 split()과 split(" ")의 실행결과를 보면 두번 이상 연속으로 띄어쓰기를 했던 <span style="color:#9370DB">"banana"</span> 뒤 부터 차이가 발생합니다.<br>
 split()을 사용하면 banana 뒤에 띄어쓰기가 여러번 들어가도 한 번에 처리하여 띄어쓰기가 리스트의 원소로 들어가지 않는 반면에
-split(" ")을 사용하면 banana뒤의 첫 번째 띄어쓰기만 처리하고 나머지 띄어쓰기들은 리스트의 원소르 들어갑니다.
+split(" ")을 사용하면 banana뒤의 첫 번째 띄어쓰기만 처리하고 나머지 띄어쓰기들은 리스트의 원소로 들어갑니다.
 
