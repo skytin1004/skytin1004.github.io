@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Python]문자열 나누는 함수: split() / split(" ") 차이첨"
+title: "[Python]문자열 나누는 함수: split() split(" ")차이첨"
 subtitle: "split()/split(' ')"
 categories: Python
 tags: [Python,여러가지함수,문자열]
