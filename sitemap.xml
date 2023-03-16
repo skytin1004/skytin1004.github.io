@@ -1,117 +1,28 @@
+---
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in site.posts %}
+    <url>
+      <loc>{{ site.url }}{{ post.url }}</loc>
+      {% if post.lastmod == null %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
+      {% endif %}
 
+      {% if post.sitemap.changefreq == null %}
+        <changefreq>daily</changefreq>
+      {% else %}
+        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+      {% endif %}
 
-<url>
-  <loc>https://skytin1004.github.io/</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/about.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/archives.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/categories.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/tags.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/03/07/setting-python2.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/03/07/setting-python1.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/03/05/replace.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/03/02/sum.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/03/02/count.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/02/24/enumerate.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/02/06/deque.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/01/29/del-overap.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/01/25/split.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/01/21/map.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/01/09/isdigit.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/python/2023/01/08/fliter.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/github/2022/09/18/github-blog_2.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/github/2022/09/17/github-blog.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/career/reading_note/2022/08/20/welcome-to-jekyll.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://skytin1004.github.io/index.html</loc>
-  <lastmod>2023-03-16T01:29:09+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
+      {% if post.sitemap.priority == null %}
+          <priority>0.5</priority>
+      {% else %}
+        <priority>{{ post.sitemap.priority }}</priority>
+      {% endif %}
 
-
+    </url>
+  {% endfor %}
 </urlset>
