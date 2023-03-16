@@ -67,7 +67,19 @@ print(fruits)
 ['', '', '', '', 'apple']
 ```
 ## split() split(' ')함수의 차이점
+```python
+fruits = "apple banana  lemon   orange    "
+fruits1 = fruits.split()
+fruits2 = fruits.split(' ')
+print("fruits1 = {}".format(fruits1))
+print("fruits2 = {}".format(fruits2))
+```
+실행결과
+```python
+fruits1 = ['apple', 'banana', 'lemon', 'orange']
+fruits2 = ['apple', 'banana', '', 'lemon', '', '', 'orange', '', '', '', '']
+```
 split()과 split(' ')의 실행결과를 보면 두번 이상 연속으로 띄어쓰기를 했던 <span style="color:#9370DB">"banana"</span> 뒤 부터 차이가 발생합니다.<br>
-split()을 사용하면 banana 뒤에 띄어쓰기가 여러번 들어가도 한 번에 처리하여 띄어쓰기가 리스트의 원소로 들어가지 않는 반면에
-split(' ')을 사용하면 banana뒤의 첫 번째 띄어쓰기만 처리하고 나머지 띄어쓰기들은 리스트의 원소로 들어갑니다.
+split()을 사용하면 <span style="color:#9370DB">"banana"</span> 뒤에 띄어쓰기가 여러번 들어가도 한 번에 처리하여 띄어쓰기가 리스트의 원소로 들어가지 않는 반면에
+split(' ')을 사용하면 <span style="color:#9370DB">"banana"</span>뒤의 첫 번째 띄어쓰기만 처리하고 나머지 띄어쓰기들은 리스트의 원소로 들어갑니다.
 
