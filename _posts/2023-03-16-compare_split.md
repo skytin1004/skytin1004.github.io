@@ -29,8 +29,6 @@ split() , split(' ') 둘 다 띄어쓰기를 기준으로 문자열을 나눈다
 apple뒤에 띄어쓰기 한 번, banana뒤에 띄어쓰기 두 번 lemon뒤에 띄어쓰기 세 번 orange뒤에 띄어쓰기 네 번 하겠습니다.
 
 ### split() 함수의 작동방식
-[그림1: split()의 작동방식]
-![img](https://drive.google.com/uc?id=1XWcexB_uu_Bb4vb8npbt2IjtQHyhBd1p)
 
 ```python
 fruits = "apple banana  lemon   orange    "
@@ -45,12 +43,11 @@ split()을 사용하면 띄어쓰기가 여러번 되어있더라도 띄어 쓴 
 split()은 banana,lemon,orange 뒤에 띄어쓰기가 여러번 들어가도 공백 여러 개를 하나의 덩어리로 인식하기 때문에
 "apple banana lemon orange"에 split()을 적용했을 때랑 같은 결과가 나오게 됩니다.<br>
 
+![img](https://drive.google.com/uc?id=1XWcexB_uu_Bb4vb8npbt2IjtQHyhBd1p)
+<span style="text-align:center">[그림1: split()의 작동방식]</span>
 
 
 ### split(' ')함수의 작동방식
-[그림2: split(' ')의 작동방식]
-![img](https://drive.google.com/uc?id=1OXJnRhRpBaVa0iU4IleNVuwEQKomYe3f)
-
 
 ```python
 fruits = "apple banana  lemon   orange    "
@@ -64,7 +61,8 @@ print(fruits)
 split(' ')을 사용하면 구분자인 ' '<span style="color:gray">(띄어쓰기 한 번)</span>을 기준으로 문자열이 나뉘기 때문에 여러번 띄어쓰기를 하게 되면 
 띄어쓰기 한 번 할 때마다 각각 처리됩니다. 예시의 실행결과 <span style="color:#9370DB">'orange', '', '', '', ''</span>를 보면 문자열 가장 뒤인 <span style="color:#9370DB">'orange'</span>
 뒤에 나온 총 네 번의 띄어쓰기 사이에 있는 '' 들이 모두 리스트의 원소로 들어갔다는 것을 알 수 있습니다.<span style="color:gray">(그림2 참고)</span><br>
-
+![img](https://drive.google.com/uc?id=1OXJnRhRpBaVa0iU4IleNVuwEQKomYe3f)
+<span style="text-align:center">[그림2: split(' ')의 작동방식]</span>
 ## split() split(' ')함수의 차이점
 ```python
 fruits = "apple banana  lemon   orange    "
