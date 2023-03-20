@@ -43,12 +43,12 @@ author: Skytin1004
 copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Skytin1004블로그는 프로그래밍을 하면서 배운 것들을 다루는 블로그입니다.
-  Skytin1004, Programming, Data engineering, python, django  
-  스카이틴1004, 프로그래밍, 데이터 엔지니어링, 파이썬, 장고
+  Skytin1004블로그에서는 프로그래밍을 하면서 배운 내용, 고민이 많았던 내용들을
+  게시하는 블로그입니다.Python,Java,SQL,Data engineering과 관련된 내용을 게시합니다.
+  
   
 baseurl: "" #설정금지 # the subpath of your site, e.g. /blog
-url: "https://skytin1004.github.io" #설정금지S the base hostname & protocol for your site, e.g. https://example.com
+url: "https://skytin1004.github.io" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "https://drive.google.com/uc?id=17t9jcUNUtnRdhUvSNsK2wlpVnRFlzjsB" # the favicon for your site
 
 # Yat date format
