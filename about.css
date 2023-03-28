@@ -106,7 +106,25 @@ nav .nav-toggle {
   z-index: 1000
 }
 
+nav ul {
+  border-top: 1px solid #ccc;
+  clear: both;
+  list-style: none;
+  margin: 0 -1em;
+  padding: 0;
+  z-index: 999;
+}
 
+nav ul li {
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+nav ul li a {
+  color: #444;
+  display: block;
+  padding: .75em;
+}
 
 nav.sticky {
   animation: show-header .5s ease;
