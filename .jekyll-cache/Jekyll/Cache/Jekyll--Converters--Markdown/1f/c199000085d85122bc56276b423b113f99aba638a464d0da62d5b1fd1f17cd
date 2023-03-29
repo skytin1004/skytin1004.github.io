@@ -1,0 +1,8 @@
+I"i<h2 id="sum-함수-정의">sum 함수 정의</h2>
+<p>sum함수는 리스트 원소들의 총합을 구하는 함수입니다.<br />
+<span style="color:gray">※sum 함수는 리스트 뿐만 아니라 딕셔너리, 튜플 등 반복가능한 개체를 인자로 받을 수 있습니다.</span></p>
+<h2 id="sum-함수-사용법">sum 함수 사용법</h2>
+<p>sum(<span style="color:#9370DB">“리스트”</span>)<br />
+<span style="color:gray">※sum 함수에 들어오는 리스트의 원소들은 전부 ‘숫자’로 이루어져있어야 합니다.</span></p>
+<h2 id="sum-함수-예시">sum 함수 예시</h2>
+:ET
