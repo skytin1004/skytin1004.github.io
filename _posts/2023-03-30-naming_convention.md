@@ -27,7 +27,7 @@ camelCase는 소문자로 단어를 시작해서 중간에 단어가 바뀔 때 
 PascalCase은 대문자로 글자를 시작해서 단어가 바뀔 때 마다 단어의 첫 글자를 대문자로 바꾸는 방법입니다.<br>
 ### PascalCase 예시
 `NumberOfStudent`
-## 3.Snake_case
+## 3.snake_case
 snake_case는 소문자로 단어를 작성하고 단어와 단어 사이에 언더바(<span style="color:#9370DB">_</span>)를 넣어 적는 방법입니다.<br>
 ### snake_case예시
 `number_of_student`
