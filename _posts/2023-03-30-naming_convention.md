@@ -34,7 +34,7 @@ snake_case는 소문자로 단어를 작성하고 단어와 단어 사이에 언
 
 ## 파이썬의 네이밍 컨벤션
 
-1. Module(모듈)의 네이밍 컨벤션
+### 1. Module(모듈)의 네이밍 컨벤션
 모듈 이름은 전부 소문자로 작성합니다.
 
 ```Python
@@ -42,7 +42,7 @@ snake_case는 소문자로 단어를 작성하고 단어와 단어 사이에 언
 import skytin
 ```
 
-2. Calss(클래스)의 네이밍 컨벤션
+### 2. Calss(클래스)의 네이밍 컨벤션
 클래스 이름은 PascalCase를 따릅니다.
 
 ```Python
@@ -57,7 +57,7 @@ class SkytinBlog:
 
 ```
 
-3. Function(함수)의 네이밍 컨벤션
+### 3. Function(함수)의 네이밍 컨벤션
 함수의 이름은 snake_case를 따릅니다.
 
 ```Python
@@ -75,7 +75,7 @@ class SkytinBlog:
     def print_skytin_blog(self):
         print(self.case)
 ```
-4. Variable(변수)의 네이밍 컨벤션
+### 4. Variable(변수)의 네이밍 컨벤션
 변수의 이름은 snake_case를 따릅니다.
 
 ```Python
@@ -85,7 +85,7 @@ class SkytinBlog:
 number_of_student = 1004
 ```
 
-5. Constant(상수)의 네이밍 컨벤션
+### 5. Constant(상수)의 네이밍 컨벤션
 상수의 이름은 전부 대문자로 표기하며 단어와 단어 사이에 언더바(<span style="color:#9370DB">_</span>)를 넣어 적습니다.
 
 ```Python
@@ -95,7 +95,7 @@ number_of_student = 1004
 NUMBER_OF_STUDENT = 1004
 ```
 
-6. Private function,method,variable /Private 함수, 메서드, 변수의 네이밍 컨벤션
+### 6. Private function,method,variable /Private 함수, 메서드, 변수의 네이밍 컨벤션
 Private 함수, 메서드, 변수의 이름 앞에는 언더바(<span style="color:#9370DB">_</span>)를 작성하며 snake_case를 따릅니다.
 
 ```Python
@@ -112,7 +112,7 @@ class skytin:
 
 ## 자바의 네이밍 컨밴션
 
-1. Pakage(패키지)의 네이밍 컨벤션
+### 1. Pakage(패키지)의 네이밍 컨벤션
 패키지 이름은 전부 소문자로 작성합니다.
 
 
@@ -121,7 +121,7 @@ class skytin:
 package skytin
 ```
 
-2. Class(클래스)의 네이밍 컨벤션
+### 2. Class(클래스)의 네이밍 컨벤션
 클래스 이름은 PascalCase를 따릅니다.
 
 ```Java
@@ -131,7 +131,7 @@ package skytin;
 public class SkytinBlog { 
 }
 ```
-3. Methods(메서드)의 네이밍 컨벤션
+### 3. Methods(메서드)의 네이밍 컨벤션
 메서드 이름은 camelCase를 따릅니다.
 
 ```Java
@@ -148,7 +148,7 @@ public class SkytinBlog {
 }
 ```
 
-4. Variable(변수)의 네이밍 컨벤션
+### 4. Variable(변수)의 네이밍 컨벤션
 변수의 이름은 camelCase를 따릅니다.
 
 ```Java
@@ -163,7 +163,7 @@ public class SkytinBlog {
     int numberOfStudent = 1004;
 }
 ```
-5. Constant(상수)의 네이밍 컨벤션
+### 5. Constant(상수)의 네이밍 컨벤션
 상수의 이름은 전부 대문자로 표기하며 단어와 단어 사이에 언더바(<span style="color:#9370DB">_</span>)를 넣어 적습니다.
 
 ```Java
