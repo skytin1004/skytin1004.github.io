@@ -2,7 +2,7 @@
 layout: post
 title: "네이밍 컨벤션(Naming Convention) 정리하기"
 subtitle: "네이밍 컨벤션: Coding 이름 짓는 관례"
-categories: dev python Java
+categories: Dev Python Java
 tags: 
 banner:
   image: https://drive.google.com/uc?id=1yxNfYKHwCzBN6d2U4mMOo_Aq-Cq3eNN5
