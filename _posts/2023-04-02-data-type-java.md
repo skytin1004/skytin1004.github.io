@@ -16,7 +16,7 @@ banner:
 
 ## 1. 정수 자료형
 
-JAVA의 정수 자료형에는 <span style="color:#9370DB">byte, short, int, long</span> 이 있습니다.
+Java의 정수 자료형에는 <span style="color:#9370DB">byte, short, int, long</span> 이 있습니다.
 
 | 자료형 | 크기 | 범위 |
 | --- | --- | --- |
@@ -79,7 +79,7 @@ System.out.println(num1 + num2);
 ```
 Java의 정수 연산에서 두 byte 값(또는 int보다 작은 기본 유형) 간의 산술 연산 결과는 int 값으로 승격됩니다.
 
-이를 "정수 승격(Integral Promotion)"이라고 하며,정수 승격은 데이터 손실을 방지하고 결과값이 데이터 유형의 범위 내에 들어갈 수 있도록 보장하기 위해 발생합니다.
+이를 "정수 승격(Integral Promotion)"이라고 하며, 정수 승격은 데이터 손실을 방지하고 결과값이 데이터 유형의 범위 내에 들어갈 수 있도록 보장하기 위해 발생합니다.
 
 <span style="color:gray">(byte num1 = 126, byte num2 = 127인경우 num1 + num2 를 하면 byte형의 범위를 벗어남.)</span>
 
