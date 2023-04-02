@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Java]자바의 자료형"
+title: "[Java] 자바의 자료형"
 subtitle: " Java의 정수 자료형과 실수 자료형"
 categories: Java
 tags: [Java,자료형]
@@ -60,7 +60,7 @@ Java의 실수 자료형은 <span style="color:#9370DB">float, double</span>이 
 
 ## 숫자의 기본 저장소
 
-정수는 <span style="color:#9370DB">int</span>형 , 실수는 기본적으로 <span style="color:#9370DB">double</span>형으로 저장되어있습니다.<br>
+정수는 <span style="color:#9370DB">int</span>형 저장소에, 실수는<span style="color:#9370DB">double</span>형 저장소에 저장되어있습니다.<br>
 
 예시
 ```java
