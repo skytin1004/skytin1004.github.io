@@ -20,17 +20,14 @@ banner:
 'NoneType' object is not iterable
 ```
 
-도대체 코드 어디에 문제가 있었는지 분석해보던 중 이상한 점을 발견했다.
+도대체 코드 어디에 문제가 있었는지 분석해봤다.
 
 ```Python
 from collections import deque
-U_list =deque("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-u_list =deque("abcdefghijklmnopqrstuvwxyz")
-nU_list=U_list.rotate(-4)
+U_list =deque("ABCDEFGHIJKLMNOPQRSTUVWXYZ") # U_list는 대문자 알파벳으로 이루어진 deque 리스트이다.
+nU_list=U_list.rotate(-4) #nU_list는 U_list를 4번 왼쪽으로 회전시킨 deque 리스트를 대입한 것이다.(착각)
 print(type(U_list))
 print(type(nU_list))
-# 문제점 파악: deque의 rotete 원리를 착각했다. rotate는 기존 deque값을 변경하는 메서드이지 rotate한 값을 반환하는 메서드가 아니다.
-# rotate는 반환값이 없다.
 ```
 실행결과
 ```Python
@@ -40,12 +37,14 @@ print(type(nU_list))
 
 U_list의 타입은  <span style="color:#9370DB">'deque'</span>가 맞는데 nU_list의 타입이  <span style="color:#9370DB">'NoneType'</span>이 나왔다.<br>
 
-결과적으로 deque에서 rotate 메소드의 원리를 착각했었다. `U_list = U_list.rotate(-4)` 를 했을 때 rotate 메소드를 이용하면 U_list에서 왼쪽으로 4번 회전한 값이 리턴될 줄 알았다.<br>
+예상대로라면 nU_list의 타입도 <span style="color:#9370DB">'deque'</span> 가 맞는데 왜 <span style="color:#9370DB">'NoneType'</span>이 나왔을까?<br>
+
+결과적으로 deque에서 rotate 메소드의 원리를 착각했었다. `nU_list = U_list.rotate(-4)` 를 했을 때 rotate 메소드를 이용하면 nU_list가 U_list에서 왼쪽으로 4번 회전한 값이 될 거라고 착각했다..<br>
 
 ※ rotate는 기존의 deque리스트 값을 변경하는 메서드이지 회전한 deque리스트를 리턴하는 메서드가 아니다.<br>
 
 정리하면 rotate 메서드는 리턴값이 없는 함수이며,
-<span style="color:#9370DB">U_list.rotate(-4)</span>는 U_list에서 왼쪽으로 4번 회전한 새로운 deque리스트를 의미하는 것이 아니라 U_list의 값을 왼쪽으로 4번 회전시킨다는 것이다.<br>
+<span style="color:#9370DB">U_list.rotate(-4)</span>는 U_list에서 왼쪽으로 4번 회전한 새로운 deque리스트를 의미하는 것이 아니라 U_list의 값을 왼쪽으로 4번 회전시킨다는 의미이다.<br>
 
 예시
 ```Python
