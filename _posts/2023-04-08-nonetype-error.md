@@ -5,7 +5,7 @@ subtitle: "메소드의 리턴"
 categories: Error
 tags: [Python,Error,deque]
 banner:
-  image: https://drive.google.com/uc?id=1-066lrD53EhS9Ty4OaObRca8CmhhFlsG
+  image: https://drive.google.com/uc?id=1G0HBYhONrIz8Io_0SFvOtWRkS3e8gfkS
   opacity: 0.618
   background: "#000"
   height: "100vh"
