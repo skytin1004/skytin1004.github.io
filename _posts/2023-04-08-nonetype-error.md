@@ -21,7 +21,7 @@ banner:
 ```
 
 코드 어디에 문제가 있었는지 확인해봤는데 다음과 같은 문제가 있었습니다.<br>
-의심스러운 부분 U-list와 nU_list의 타입을 출력했습니다.
+의심스러운 부분 <span style="color:#9370DB">U_list</span>와 <span style="color:#9370DB">nU_list</span>의 타입을 출력했습니다.
 
 ```Python
 from collections import deque
