@@ -3,7 +3,7 @@ layout: post
 title: "[Prompt] 동물사진 맞추기 프롬프트"
 subtitle: "Chat gpt에서 동물사진 맞추기"
 categories: Prompt 2023MicrosoftAzurethon
-tags: [Prompt,Chatgpt,2023MicrosoftAzurethon,유아교육]
+tags: [Prompt,Chatgpt,유아교육,2023MicrosoftAzurethon]
 banner:
   image: https://drive.google.com/uc?id=1GUh94bgqNzZ8QYRp7jwflSV0FgDPONlQ
   opacity: 0.618
@@ -13,6 +13,8 @@ banner:
   heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
   subheading_style: "color: #E6E6FA"
 ---
+
+
 <span style="background-color:#E6E6FA"><span style="color:#454545">※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다. </span> </span>
 
 
