@@ -19,6 +19,7 @@ banner:
 
 
 |🛫<span style="color:#9370DB">**팀 이름:** </span>| <span style="color:#9370DB">**skytin1004**</span>|
+|🛫<span style="color:#9370DB">**팀장 아이디:** </span>| <span style="color:#9370DB">**sms7950@gmail.com**</span>|
 
 
 
