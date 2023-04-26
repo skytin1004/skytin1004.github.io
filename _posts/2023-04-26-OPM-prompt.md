@@ -18,8 +18,8 @@ banner:
 <span style="background-color:#E6E6FA"><span style="color:#454545">※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다. </span> </span>
 
 
-|:🛫<span style="color:#9370DB">**팀 이름:** </span>:|: <span style="color:#9370DB">**skytin1004**</span>:|
-|:🛫<span style="color:#9370DB">**팀장 아이디:** </span>:|: <span style="color:#9370DB">**sms7950@gmail.com**</span>:|
+|🛫<span style="color:#9370DB">**팀 이름:** </span>| <span style="color:#9370DB">**skytin1004**</span>|
+
 
 ## 목차
 
