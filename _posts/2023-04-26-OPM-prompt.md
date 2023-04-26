@@ -3,7 +3,7 @@ layout: post
 title: "[Prompt] OPM을 활용한 공급망 최적화 프롬프트"
 subtitle: "OPM을 Chat gpt 프롬프트로 활용하기"
 categories: Prompt 2023MicrosoftAzurethon
-tags: [Prompt,Chatgpt,2023MicrosoftAzurethon,산업공학]
+tags: [Prompt,Chatgpt,산업공학,2023MicrosoftAzurethon]
 banner:
   image: https://drive.google.com/uc?id=1JHgOYKErXtKSyT2Qqw-kVr4-ac5fyJij
   opacity: 0.618
@@ -13,6 +13,8 @@ banner:
   heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
   subheading_style: "color: #E6E6FA"
 ---
+
+
 <span style="background-color:#E6E6FA"><span style="color:#454545">※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다. </span> </span>
 
 
