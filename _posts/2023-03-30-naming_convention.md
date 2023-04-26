@@ -2,7 +2,7 @@
 layout: post
 title: "네이밍 컨벤션(Naming Convention) 정리하기"
 subtitle: "네이밍 컨벤션: Coding 이름 짓는 관례"
-categories: Dev Python Java
+categories: Cs Python Java
 tags: 
 banner:
   image: https://drive.google.com/uc?id=1yxNfYKHwCzBN6d2U4mMOo_Aq-Cq3eNN5
@@ -44,6 +44,9 @@ import skytin
 
 ### 2. Calss(클래스)의 네이밍 컨벤션
 클래스 이름은 PascalCase를 따릅니다.
+
+<span style="color:gray">(※ 유의: 파이썬 공식 문서에서는 각 단어 첫문자를 대문자로 쓰는 형태를 CamelCase로 정의하고 있습니다. 
+이 때의 CamelCase는 PascalCase와 같습니다. )</span>
 
 ```Python
 
