@@ -24,9 +24,11 @@ banner:
 
 <span style="color:#9370DB">**2. 제출한 프롬프트**</span>
 
-<span style="color:#9370DB">**3. 2023 ChatGPT MS Azurethon 참여후기**</span>
+<span style="color:#9370DB">**3. 2023 ChatGPT MS Azurethon 동기**</span>
 
-<span style="color:#9370DB">**4. 정확성을 위한 프롬프트 개선**</span>
+<span style="color:#9370DB">**4. 산업공학과 ChatGPT의 연결**</span>
+
+<span style="color:#9370DB">**5. 2023 ChatGPT MS Azurethon 후기**</span>
 
 ## 🛫Microsoft Azurethon 이란?
 
