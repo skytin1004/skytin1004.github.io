@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "ChatGPT MS 애저톤 참여 후기"
+title: "ChatGPT MS 애저톤 수상 후기"
 subtitle: "🛫 2023 ChatGPT Microsoft Azurethon"
 categories: 2023MicrosoftAzurethon
-tags: [2023MicrosoftAzurethon]
+tags: [2023MicrosoftAzurethon,Award]
 banner:
   image: https://drive.google.com/uc?id=1JHgOYKErXtKSyT2Qqw-kVr4-ac5fyJij
   opacity: 0.618
@@ -13,6 +13,11 @@ banner:
   heading_style: "font-size: 2.25em; font-weight: none; text-decoration: none"
   subheading_style: "color: #E6E6FA"
 ---
+
+**💎<span style="color:#9370DB">서비스 분야 프롬프트 엔지니어링으로 수상했습니다:)</span> **
+
+![img](https://drive.google.com/uc?id=1YocbZTOMSCZ4h-XoMg-Mz8oSV5ftzHDo)
+
 
 
 |🛫<span style="color:#9370DB">**팀 이름:** </span>| <span style="color:#9370DB">**skytin1004**</span>|
@@ -78,7 +83,7 @@ AIfactory에는 ChatGPT 애저톤 뿐만 아니라 AI와 관련된 많은 공모
 도 이러한 생각에서 만들게 되었습니다.
 프롬프트를 만들기 위해 산업공학의 
 JIT, 6시그마 이론을 다시 공부했습니다. 처음에는 생산량과 불량품 개수를 입력하면
-ChatGPT가 정보를 바탕으로 6시그마 수준을 계산하고 수준값에 기반해서 공정의 생산 품질을 검사하는 프롬프트를 만들었습니다.
+공정의 생산 품질을 검사해주는 프롬프트를 만들었습니다.
 하지만 해당 프롬프트는 충분이 엑셀 함수 기능으로 구현할 수 있다는 생각이 들어서
 6시그마와 관련된 산업공학 최적화 이론을 집중적으로 공부했습니다. 산업공학의 선형계획법 모델을 공부하던 중 OPM(Operations Planning Model)에 대해서 공부하게 되었습니다.
 6시그마 수준값을 이용한 프롬프트는 매개변수가 적어서 엑셀로도 충분히 구현이 가능했지만 OPM은 상황에 따라 다른 매개변수가 사용되고 많은 변수를 필요로 하기 때문에 엑셀로 구현하기는 매우 버거웠습니다. 
@@ -101,3 +106,4 @@ ChatGPT에게 원하는 답변을 얻을 수 있는 프롬프트를 작성하는
 또한 ChatGPT를 적용시킬 수 있는 다양한 분야에 대해 고민을 해보면서 
 복잡한 문제를 해결하기 위해 지식과 기술을 적용할 수 있는 능력을 기를 수 있었으며 
 산업 공학 분야에서 AI 기술의 잠재적 응용 가능성을 탐구해보고 산업 시스템 최적화를 위한 새로운 도구와 방법에 대해 많은 생각을 해볼 수 있었습니다.
+
