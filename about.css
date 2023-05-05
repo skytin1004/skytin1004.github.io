@@ -635,9 +635,8 @@ Main components
   .cd-timeline-content {
     color: white;
     margin-left: 0;
-    padding: 1.6em;
-    width: 36%;
-    margin: 0 5%
+    width: 45%;
+    margin: 0.1%
   }
   .cd-timeline-content::before {
     top: 24px;
