@@ -13,7 +13,7 @@ banner:
   heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
   subheading_style: "color: #E6E6FA"
 ---
-<span style="background-color:#E6E6FA"><span style="color:#454545">**💎서비스 분야 프롬프트 엔지니어링으로 수상했습니다.** </span> </span>
+<span style="background-color:#E6E6FA"><span style="color:#454545">**💎프롬프트 엔지니어링 서비스 분야에서 수상했습니다.** </span> </span>
 
 <span style="background-color:#E6E6FA"><span style="color:#454545">※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다. </span> </span>
 
