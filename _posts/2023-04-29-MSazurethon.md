@@ -13,8 +13,7 @@ banner:
   heading_style: "font-size: 2.25em; font-weight: none; text-decoration: none"
   subheading_style: "color: #E6E6FA"
 ---
-
-**💎<span style="color:#9370DB">서비스 분야 프롬프트 엔지니어링으로 수상했습니다:)</span> **
+<span style="background-color:#E6E6FA"><span style="color:#454545">**💎서비스 분야 프롬프트 엔지니어링으로 수상했습니다.** </span> </span>
 
 ![img](https://drive.google.com/uc?id=1YocbZTOMSCZ4h-XoMg-Mz8oSV5ftzHDo)
 
