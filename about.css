@@ -157,7 +157,7 @@ Sections
 }
 
 .profile-image {
-  border-radius: 50%;
+  border-radius: 50%; 
   display: block;
   max-width: 200px;
   margin: 0 auto 1em;
