@@ -84,5 +84,5 @@ apache/airflow에서 airflow를 제 레포지토리로 가져온 모습입니다
 
 ![img](https://drive.google.com/uc?id=1un7MG8lP_ngiklIWUalbCjvW2ce_JnSf)
 
-apache-airflow의 Contributer 목록에서 제 깃허브 이름이 나오는 것을 확인할 수 있습니다. 
+apache-airflow의 Contributers 목록에서 제 깃허브 이름이 나오는 것을 확인할 수 있습니다. 
 
