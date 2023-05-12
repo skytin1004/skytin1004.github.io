@@ -30,8 +30,8 @@ apache-airflow는 데이터 처리 및 워크플로우를 자동화해주는 오
 
 ## 오픈소스 컨트리뷰트 방법
 
-저 같은 경우는 airflow 문서의 오탈자를 잡아내거나 주석에서 문법적으로 잘못된 부분을 찾아 <span style="color:#9370DB">Pull request</span> 를 해서 apache-airflow에
-컨트리부트 하게 되었습니다.
+저는 airflow 문서의 오탈자를 잡아내거나 주석에서 문법적으로 잘못된 부분을 찾아 <span style="color:#9370DB">Pull request</span> 를 해서 apache-airflow에
+기여를 했습니다.
 
 ### 오픈소스 컨트리뷰션의 과정
 오픈소스에 기여하는 것을 오픈소스 컨트리뷰션이라고 하는데 오픈소스 컨트리뷰션은 <span style="color:#9370DB">Fork → Pull Request → Merge</span>
