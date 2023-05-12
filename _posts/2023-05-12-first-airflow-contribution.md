@@ -35,7 +35,7 @@ apache-airflow는 데이터 처리 및 워크플로우를 자동화해주는 오
 
 ### 오픈소스 컨트리뷰션의 과정
 오픈소스에 기여하는 것을 오픈소스 컨트리뷰션이라고 하는데 오픈소스 컨트리뷰션은 <span style="color:#9370DB">Fork → Pull Request → Merge</span>
-과정으로 이루어집니다. 오픈소스가 존재하는 메인 레포지토리(저장소)에서 본인의 레포지토리로 가져오는 것을 <span style="color:#9370DB">"Fork"</span>, 본인의 레포지토리에서 오픈소스를 수정하고 메인 레포지토리에 변경 요청을 하는 것을
+과정으로 이루어집니다. 오픈소스가 존재하는 레포지토리(저장소)에서 본인의 레포지토리로 가져오는 것을 <span style="color:#9370DB">"Fork"</span>, 본인의 레포지토리에서 오픈소스를 수정하고 메인 레포지토리에 변경 요청을 하는 것을
 <span style="color:#9370DB">"Pull request"</span>, 오픈소스 커미터가 변경 내용을 승인해서 메인 레포지토리에 통합하는 것을 <span style="color:#9370DB">"Merge"</span>라고 합니다.
 
 ### 1. Fork
@@ -80,7 +80,7 @@ apache/airflow에서 airflow를 제 레포지토리로 가져온 모습입니다
 
 ![img](https://drive.google.com/uc?id=1TBiuOcFEBf8YVFaqRlU_NAEx7yZg1vER)
 
-컨트리뷰션이 완료되면 메인 브렌치에 <span style="color:#9370DB">Pull request</span>한 내용이 나옵니다.
+컨트리뷰션이 완료되면 메인 브랜치에 <span style="color:#9370DB">Pull request</span>한 내용이 나옵니다.
 
 ![img](https://drive.google.com/uc?id=1un7MG8lP_ngiklIWUalbCjvW2ce_JnSf)
 
