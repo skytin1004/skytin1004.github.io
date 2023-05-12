@@ -76,7 +76,7 @@ apache/airflow에서 airflow를 제 레포지토리로 가져온 모습입니다
 
 이렇게 apache/airflow에 첫 컨트리뷰션을 마무리 했습니다. 
 
-## 컨트리뷰션
+## 4. Contribution
 
 ![img](https://drive.google.com/uc?id=1TBiuOcFEBf8YVFaqRlU_NAEx7yZg1vER)
 
