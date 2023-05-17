@@ -133,6 +133,10 @@ nav.sticky {
   width: 100%;
 }
 
+ul {
+  list-style-type: '⚜';
+}
+
 /* ========================
 Sections
 ======================== */
@@ -201,7 +205,7 @@ Sections
   padding: 5em 0;
 }
 
-.intro, .features, .portfolio, .contact {
+.features, .portfolio, .contact { /* 글자정렬 */
   text-align: center;
 }
 
