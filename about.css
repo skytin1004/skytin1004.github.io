@@ -46,6 +46,12 @@ p {
   line-height: 1.5;
 }
 
+ul {
+  list-style-type: '⚜';
+  line-height: 1.5;
+
+}
+
 a, a:hover, a:focus, a:active, a:visited {
   color: #9370DB;
   text-decoration: underline;
@@ -133,9 +139,6 @@ nav.sticky {
   width: 100%;
 }
 
-ul {
-  list-style-type: '⚜';
-}
 
 /* ========================
 Sections
