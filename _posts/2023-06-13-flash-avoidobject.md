@@ -26,7 +26,7 @@ banner:
 
 Here is my Flash game:
 
-<object width="600" height="400" data="/workspace/skytin1004BLOG/skytin1004.github.io/assets/flashes/avoid-object.swf">
+<object width="600" height="600" data="/workspace/skytin1004BLOG/skytin1004.github.io/assets/flashes/avoid-object.swf">
     <param name="movie" value="/workspace/skytin1004BLOG/skytin1004.github.io/assets/flashes/avoid-object.swf">
     <embed src="/workspace/skytin1004BLOG/skytin1004.github.io/assets/flashes/avoid-object.swf" width="600" height="400">
 </object>
