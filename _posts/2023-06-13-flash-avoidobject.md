@@ -24,6 +24,13 @@ banner:
 
 'Ruffle'이라는 크롬 확장앱을 다운받고 실행시킨 뒤 사이트에 들어가면 플레이할 수 있습니다.
 
+Here is my Flash game:
+
+<object width="600" height="400" data="https://drive.google.com/file/d/1vdmKCvDmPLvDAh1ZPMIqYjCgLz4SXLZH/view?usp=sharing">
+    <param name="movie" value="https://drive.google.com/file/d/1vdmKCvDmPLvDAh1ZPMIqYjCgLz4SXLZH/view?usp=sharing">
+    <embed src="http://example.com/game.swf" width="600" height="400">
+</object>
+
 '플래시365'라는 커뮤니티에서 약 6000명의 조회수, 35개의 댓글, '자작플래시 BEST 30'에서 주간랭킹 2위를 했었습니다. 
 지금 보면 부끄러운 수준이지만 초등학교 시절 프로그래머의 꿈을 가지게 해준 작품입니다.
 
