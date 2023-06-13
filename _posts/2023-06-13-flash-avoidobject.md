@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "[flash] 물건 피하기 게임 제작 리뷰"
+title: "[Flash] 물건피하기 게임 제작 리뷰"
 subtitle: "초등학교 때 제작했던 물건 피하기 게임을 공유합니다."
 categories: Flash
 tags: [Flash]
 banner:
-  image: https://drive.google.com/uc?id=1-iLsCTOpKgfrSHaKPwzyTEicQVx1lc-x
+  image: https://drive.google.com/uc?id=13-WpLgEidfOjbIKDVvF1YadN-psV5NJf
   opacity: 0.618
   background: "#000"
   height: "100vh"
@@ -18,16 +18,28 @@ banner:
 
 ### 플래시 게임 링크
 <a href="http://www.flash365.co.kr/game/zboard.php?id=author&no=113963&page=1&select_arrange=headnum&desc=asc&category=&sn=off&ss=on&sc=on&keyword=&sn1=&divpage=1&view_comment_page=1&view_comment_print=10" target="_blank"><span style="color:#9370DB">플래시 게임 링크</span></a><br>
+<br>
+<a href="http://www.flash365.co.kr/game/zboard.php?id=author&no=115018" target="_blank"><span style="color:#9370DB">플래시 게임 링크[후속작]</span></a><br>
 
 'Ruffle'이라는 크롬 확장앱을 다운받고 실행시킨 뒤 사이트에 들어가면 플레이할 수 있습니다.
 
-'플래시365'라는 커뮤니티에서 약 6000명의 조회수와, 35개의 댓글이 달렸고, '자작플래시 BEST 30'에서 주간랭킹 2위를 했었습니다. 
+'플래시365'라는 커뮤니티에서 약 6000명의 조회수, 35개의 댓글, '자작플래시 BEST 30'에서 주간랭킹 2위를 했었습니다. 
 지금 보면 부끄러운 수준이지만 초등학교 시절 프로그래머의 꿈을 가지게 해준 작품입니다.
 
 
 ### 플래시 게임 플레이 GIF
 
 ![img](https://drive.google.com/uc?id=1Jw56lTKuMkqRytNO77JmB-zvFsyWrT0G)
+
+
+
+
+
+
+
+
+
+
 
 ## 물건 피하기 게임 리뷰
 
