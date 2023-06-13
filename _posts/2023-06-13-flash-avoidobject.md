@@ -26,7 +26,7 @@ banner:
 
 Here is my Flash game:
 
-<object width="600" height="600" data="https://drive.google.com/uc?id=1vdmKCvDmPLvDAh1ZPMIqYjCgLz4SXLZH">
+<object width="600" height="600">
     <param name="movie" value="https://drive.google.com/uc?id=1vdmKCvDmPLvDAh1ZPMIqYjCgLz4SXLZH">
     <embed src="https://drive.google.com/uc?id=1vdmKCvDmPLvDAh1ZPMIqYjCgLz4SXLZH" width="600" height="400">
 </object>
