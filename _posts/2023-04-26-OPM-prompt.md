@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[Prompt] 공급망 최적화 프롬프트"
+title: "[MS azurethon] 공급망 최적화 프롬프트"
 subtitle: "OPM을 활용한 공급망 최적화 프롬프트"
-categories: Prompt 2023MicrosoftAzurethon
+categories: Prompt Competition
 tags: [Prompt,Chatgpt,산업공학,2023MicrosoftAzurethon,Award]
 banner:
   image: https://drive.google.com/uc?id=1JHgOYKErXtKSyT2Qqw-kVr4-ac5fyJij

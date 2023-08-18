@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[Prompt] 동물사진 맞추기 프롬프트"
+title: "[MS azurethon] 동물사진 맞추기 프롬프트"
 subtitle: "Chat gpt에서 동물사진 맞추기"
-categories: Prompt 2023MicrosoftAzurethon
+categories: Prompt Competition
 tags: [Prompt,Chatgpt,유아교육,2023MicrosoftAzurethon]
 banner:
   image: https://drive.google.com/uc?id=1GUh94bgqNzZ8QYRp7jwflSV0FgDPONlQ

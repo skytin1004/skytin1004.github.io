@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "ChatGPT MS 애저톤 수상 후기"
+title: "[MS azurethon]ChatGPT MS 애저톤 수상 후기"
 subtitle: "🛫 2023 ChatGPT Microsoft Azurethon"
-categories: 2023MicrosoftAzurethon
+categories: Competition
 tags: [2023MicrosoftAzurethon,Award]
 banner:
   image: https://drive.google.com/uc?id=1JHgOYKErXtKSyT2Qqw-kVr4-ac5fyJij
