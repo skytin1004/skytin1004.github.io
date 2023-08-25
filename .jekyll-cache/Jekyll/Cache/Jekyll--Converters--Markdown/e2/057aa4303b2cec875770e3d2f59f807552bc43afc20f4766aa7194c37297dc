@@ -1,0 +1,144 @@
+I"F#<p>2023년 05/15부터 현재까지 약 세달 간 Apache-Iceberg 라는 데이터 레이크 관리 프로그램 오픈소스 개발에 참여하고 있습니다. 주로 
+Apache-Iceberg의 테스트 코드를 JUnit4애서 JUnit5로 마이그레이션 하는 업무를 맡았습니다.</p>
+
+<p>PR 10회 약3000줄 추가, 약2700줄 삭제</p>
+
+<p><a href="https://github.com/apache/iceberg">GitHub - apache/iceberg: Apache Iceberg</a></p>
+
+<p>오픈소스 업무를 맡으면서 생겼던 코드 문제를 공유해서 오픈소스 커미터랑 같이 문제를 해결했던 경험,
+제가 작성해서 올린 코드를 오픈소스 커미터가 자세히 리뷰하고 불필요한 변수를 삭제하거나 메서드를 더 간결하게 바꿔서 코드를 리펙토링했던 경험,
+제가 올린 PR에서 오픈소스 커미터가 제안한 아이디어를 바탕으로 새로 코드를 수정했던 경험들이 프로그래밍 실력 향상에 많은 도움을 주었던 것 같습니다.</p>
+
+<p>전반적으로 Apache-Iceberg에서 오픈소스 개발에 참여했고 자기 전에 취미로 여러 오픈소스의 문서의 Readme.md 나 코드의 주석들을 보면서 오탈자를 잡고 수정하면서
+Apache-druid, Apache-kibble, Apache-airflow, Apache-celeborn, flet, microsoft-lstbench … 등등의 오픈소스에 문서 오탈자 관련 내용으로 기여를 했습니다.</p>
+
+<p>처음 오픈소스에 기여할 때 많이 어려웠던 부분, 고민이 많았던 부분을 정리해서 단계적으로 정리하고 공유하려고 합니다.</p>
+
+<p><strong>※ 오픈소스 기여하기 전에 알아야 할 것!</strong></p>
+
+<ol>
+  <li>
+    <p>기여하려는 오픈소스의 PullRequest 목록에 들어가서 PR이 어떻게 이뤄지고 있는지 확인하기! (오픈소스마다 PR을 올리는 유형이 다르니 기여하려는 오픈소스 문화를 알고 있어야 합니다.)</p>
+  </li>
+  <li>
+    <p>오픈소스에 기여하기 전에 기여하려고 하는 오픈소스의 커뮤니티가 활발한지 확인하기!(커뮤니티가 활발하지 않으면 올린 PR이 무시되거나 PR이 받아들여지는데 한 달 이상이 걸릴 수 도 있습니다.)</p>
+  </li>
+  <li>
+    <p>기여하려는 오픈소스의 <a href="https://github.com/apache/iceberg/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> 를 참고하면 기여하는 양식, 방법에 대해 자세히 알 수 있습니다.</p>
+  </li>
+  <li>
+    <p>생각보다 PR이 받아들여지는 과정에서 영어로 채팅을 많이 해야합니다.</p>
+  </li>
+</ol>
+
+<h2 id="오픈소스-기여하는-방법">오픈소스 기여하는 방법</h2>
+
+<h3 id="1-깃허브에서-기여하려는-오픈소스를-fork">1. 깃허브에서 기여하려는 오픈소스를 fork</h3>
+
+<p><img src="https://drive.google.com/uc?id=1TnP686NNSuHui7kMIQoIbdbxqshwcCEn" alt="iceberg fork.jpg" /></p>
+
+<p>기여하고자 하는 오픈소스 링크에 들어가서 본인의 레포지토리로 fork를 해옵니다.</p>
+
+<h3 id="2-fork한-오픈소스에서-깃허브-링크-복사">2. fork한 오픈소스에서 깃허브 링크 복사</h3>
+
+<p><img src="https://drive.google.com/uc?id=1mbgTC2OH-7GwOSa-7iUhOpB4BuEqlX6g" alt="copy_link.jpg" /></p>
+
+<p>본인의 레포지토리로 fork를 한 뒤에 오른쪽 위 “code&lt;&gt;”를 클릭해서 나오는 링크를 복사해줍니다.</p>
+
+<h3 id="3-로컬환경에서-오픈소스를-설치할-폴더-생성">3. 로컬환경에서 오픈소스를 설치할 폴더 생성</h3>
+
+<p>이제 로컬 환경에서 오픈소스를 설치할 폴더를 만듭니다.</p>
+
+<p><span style="color:gray">참고: Apache-Iceberg는 리눅스/맥 환경만 지원하고 있습니다.
+그래서 저는 윈도우 컴퓨터에서 리눅스 가상환경에서 폴더를 만들었습니다. 
+(윈도우에서 리눅스 가상환경 만드는 부분은 다음에 자세히 설명하겠습니다.)</span></p>
+
+<h3 id="4-오픈소스-로컬환경으로-가져오기">4. 오픈소스 로컬환경으로 가져오기</h3>
+
+<p>터미널에서 오픈소스를 설치할 폴더로 이동해서 <code class="language-plaintext highlighter-rouge">git clone 복사한 링크</code> 입력</p>
+
+<p>링크예시: <code class="language-plaintext highlighter-rouge">git clone https://github.com/USER_NAME/REPO_NAME.git</code></p>
+
+<h3 id="5-fork한-레포지토리랑-설치한-오픈소스-연결">5. fork한 레포지토리랑 설치한 오픈소스 연결</h3>
+
+<p>터미널에서 설치한 오픈소스 폴더로 들어가서 PR을 올릴 원격 저장소 연결</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">upstream</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/ORIGIN_OWNER/ORIGIN_REPO.git</span>
+</code></pre></div></div>
+
+<p>• clone 해 온 저장소에 원격 저장소 설정을 합니다. 즉, <strong>내가 PR을 보낼 곳</strong>을 추가해 주는 것입니다.</p>
+
+<p>Apache-iceberg을 clone해왔으면 <code class="language-plaintext highlighter-rouge">git remote add upstream https://github.com/apache/iceberg.git</code></p>
+
+<h3 id="6-오픈소스-실행">6. 오픈소스 실행</h3>
+
+<h3 id="7-터미널에서-pr용-새로운-브렌치-생성">7. 터미널에서 PR용 새로운 브렌치 생성</h3>
+
+<p><code class="language-plaintext highlighter-rouge">git checkout -b branchName</code></p>
+
+<p>(새로운 브렌치를 만드는 동시에 새로 만든 브렌치로 이동하는 명령어입니다.)</p>
+
+<p>”branchName” 부분에 새로 만든 브렌치 이름 입력합니다.</p>
+
+<h3 id="8새로-만든-branchname브렌치에서-오픈소스를-수정">8.새로 만든 “branchName”브렌치에서 오픈소스를 수정</h3>
+
+<p>코드 수정을 마쳤으면 오픈소스 터미널에서 아래와 같이 입력합니다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">git add .</code></li>
+  <li><code class="language-plaintext highlighter-rouge">git commit -m"커밋 이름"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">git push origin branchName</code></li>
+</ol>
+
+<h3 id="9-pr을-올릴-오픈소스로-이동">9. PR을 올릴 오픈소스로 이동</h3>
+
+<p>apache-iceberg에 기여했다면 오픈소스의 원본이 있는 곳으로 이동합니다.</p>
+
+<p><a href="https://github.com/apache/iceberg">GitHub - apache/iceberg: Apache Iceberg</a></p>
+
+<h3 id="10-pr-올리기">10. PR 올리기</h3>
+
+<p>git push가 제대로 이루어졌다면 오픈소스 깃허브로 갔을 때</p>
+
+<p>PR을 올리라는 알림이 새로 생깁니다. (PR을 올리기 전에 로컬환경에서 build가 잘 되는지 꼭 체크해줍시다!!)</p>
+
+<p>오픈소스의 원본이 있는 깃허브로 이동 후</p>
+
+<p>Pull Request 버튼 클릭 → new Pull Request 버튼 클릭</p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/99bf8557-7ff6-4762-ad26-7391668cdbdf/airflow_pr2.png" alt="airflow_pr2.png" /></p>
+
+<p>여기에 코드 수정한 부분을 자세히 “영어로” 입력해주시면 됩니다.</p>
+
+<p><a href="https://github.com/apache/iceberg/pull/7803">Core: Switch tests to Junit5 in metrics,puffin,rest pakages by skytin1004 · Pull Request #7803 · apache/iceberg</a></p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25720dec-8dd7-4ca9-867b-2eb67965dd08/PR.png" alt="PR.png" /></p>
+
+<p>이런식으로 작성하면 됩니다. 위에는 제가 올렸던 PR 링크 입니다. 오픈소스 커미터랑 대화하는 내용을 참고해서 오픈소스 기여하면 될 것 같습니다. 이 과정에서 평균적으로 1~2주 소요됩니다.</p>
+
+<h3 id="11-오픈소스-pr-이-merge-되면">11. 오픈소스 PR 이 Merge 되면?</h3>
+
+<p>PR이 성공적으로 오픈소스의 main 브렌치에 Merge되면 PR용으로 작업했던 브렌치를 삭제해야 합니다.</p>
+
+<p>로컬환경에서 main 혹은 master 브렌치로 이동 후 오픈소스의 터미널에서</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git branch -D branchName</code> (로컬 브렌치 삭제)</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git push origin --delete branch_name</code> (깃허브 브렌치 삭제)</p>
+  </li>
+</ol>
+
+<p>입력해서 깔끔하게 브렌치를 삭제해야 합니다.</p>
+
+<p>이렇게 성공적으로 Merge 되면 해당 오픈소스에 Contributor 목록에 본인 이름이 추가됩니다.</p>
+
+<h3 id="브렌치를-삭제해야-하는-이유">브렌치를 삭제해야 하는 이유?</h3>
+
+<p>PR이 Merge 된 후 기존의 브렌치에서 다시 수정해서 PR을 보내면 새로운 PR에 예전에 작성했던 커밋 목록이 그대로 남아있어서 PR이 난잡해집니다.</p>
+
+<p>예전에 브런치 삭제 안하고 했다가 다시 PR을 올린적이 있어요..</p>
+
+:ET
