@@ -71,7 +71,7 @@ Apache-druid, Apache-kibble, Apache-airflow, Apache-celeborn, flet, microsoft-ls
 
 저는 터미널 기본 위치에서 "dev"라는 폴더를 만들었고 "dev"폴더로 이동해서 `git clone 복사한 링크`를 입력했습니다.
 
-<span style="color:gray">(저도 오픈소스를 처음 기여했을 당시에는 터미널을 다루는게 서툴렀습니다. cd, mkdir, ls 같은 기본 터미널 명령어가 햇갈리신다면 정리해서 포스트 링크 달아두겠습니다.)</span>
+<span style="color:gray">(저도 오픈소스를 처음 기여했을 당시에는 터미널을 다루는게 서툴렀습니다. cd, mkdir, ls 같은 기본 터미널 명령어가 헷갈리신다면 정리해서 포스트 링크 달아두겠습니다.)</span>
 
 링크예시: `git clone https://github.com/USER_NAME/REPO_NAME.git` 
 
