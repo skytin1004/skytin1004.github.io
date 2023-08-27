@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[OpenSource]오픈소스 기여하기1"
+title: "[OpenSource]오픈소스 기여하는 방법"
 subtitle: "오픈소스 컨트리뷰션"
 categories: Contribution Iceberg
 tags: [OpenSource,Iceberg]
