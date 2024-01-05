@@ -43,8 +43,7 @@ author: Skytin1004
 copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Skytin1004블로그에서는 프로그래밍을 하면서 배운 내용, 고민이 많았던 내용들을
-  게시하는 블로그입니다.Python,Java,SQL,Data engineering과 관련된 내용을 게시합니다.
+  The stories about my programming journey
   
   
 baseurl: "" #설정금지 # the subpath of your site, e.g. /blog
@@ -72,7 +71,7 @@ yat:
 sitemap: true
 
 # If you want to change site language, you can set lang option
-lang: "ko"  # default lang is en
+lang: "en"  # default lang is en
 
 # Translate languges
 # langs refer to https://cloud.google.com/translate/docs/languages
@@ -149,7 +148,7 @@ code_badge:
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
-# header_pages:
+header_pages:
 #   - index.html
 #   - archives.html
 #   - categories.html
@@ -160,8 +159,8 @@ code_badge:
 defaults:
    home:
      heading: "Skytin1004 Engineering Blog"
-     subheading: "About data engineering and programming"
-     banner: "Your image url"
+     subheading: "The stories of my programming journey"
+     banner: "/assets/images/banners/home.png"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
@@ -183,7 +182,7 @@ defaults:
 # excerpt_size: 350
 
 # Pagination setting
-# paginate: 5
+paginate: 5
 
 # Disqus comments
 # disqus:
