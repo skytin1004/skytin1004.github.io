@@ -120,7 +120,7 @@ translate_langs:
 # brand_color: orangered
 #
 # Custom color as below:
-brand_color: "#9370DB"
+brand_color: "#7092BF"
 
 # Night/Dark mode
 # Default mode is "auto", "auto" is for auto nightshift
@@ -160,7 +160,7 @@ defaults:
    home:
      heading: "Skytin1004 Engineering Blog"
      subheading: "The stories of my programming journey"
-     banner: "/assets/images/banners/home.png"
+     banner: "/assets/images/banners/home2.png"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
