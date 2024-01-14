@@ -13,4 +13,23 @@
 
 </div>
 
+### 포스트 배너 레이아웃
+
+---
+layout: post
+title: "[MS azurethon] 공급망 최적화 프롬프트"
+subtitle: "OPM을 활용한 공급망 최적화 프롬프트"
+categories: AI
+tags: [Prompt,Chatgpt,Industrial Engineering,2023MicrosoftAzurethon,Award]
+banner:
+  image: none
+  opacity: 0.618
+  background: "#7092BF"
+  height: "100vh"
+  min_height: "38vh"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
+---
+
+기본 틀 제작
 

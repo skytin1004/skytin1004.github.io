@@ -2,7 +2,7 @@
 layout: post
 title: "[MS azurethon] 숫자 비교하기 프롬프트"
 subtitle: "Chat gpt에서 숫자 비교하기"
-categories: Prompt Competition
+categories: AI
 tags: [Prompt,Chatgpt,유아교육,2023MicrosoftAzurethon]
 banner:
   image: https://drive.google.com/uc?id=152gysplq3cZxy8zJovxibtMLYYMTljJC

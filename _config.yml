@@ -59,7 +59,7 @@ yat:
 # debug: false
 
 # If you don't want transparent header, you can set false
-# header_transparent: true
+header_transparent: true
 
 # If you want to change the content width, you can set to another value
 # content_width: "920px"
@@ -143,7 +143,7 @@ timezone: Asia/Seoul
 code_badge:
   enabled: "true"
   color: "#fff"
-  background_color: "#ff4e00"
+  background_color: "#7092BF" # 코드 블록에 표시되는 코드 이름 배경색
   text_transform: "uppercase"  # ("uppercase", "lowercase", "capitalize")
 
 # If you want to link only specific pages in your header, uncomment
