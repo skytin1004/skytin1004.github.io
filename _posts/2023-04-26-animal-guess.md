@@ -5,13 +5,13 @@ subtitle: "Chat gpt에서 동물사진 맞추기"
 categories: AI
 tags: [Prompt,Chatgpt,유아교육,2023MicrosoftAzurethon]
 banner:
-  image: https://drive.google.com/uc?id=1GUh94bgqNzZ8QYRp7jwflSV0FgDPONlQ
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 

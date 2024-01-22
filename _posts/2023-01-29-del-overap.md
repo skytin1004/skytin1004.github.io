@@ -1,20 +1,17 @@
 ---
 layout: post
-title: "[Python] 파이썬 리스트 중복 제거"
+title: "[Python] 리스트 중복 제거"
 subtitle: "파이썬: 중복되는 원소 제거하기"
-categories: Python
-tags: [Python,리스트,방법]
+categories: Dev
+tags: [Python,Data structure]
 banner:
-  video: 
-  volume: 0.0
-  start_at: 0.0
-  image: https://drive.google.com/uc?id=1oS2Vz_KEQnAeuZxh2xxRyEDTFfsslqws
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## 파이썬 리스트 중복 제거하는 방법<br>

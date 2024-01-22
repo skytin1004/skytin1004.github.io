@@ -2,16 +2,16 @@
 layout: post
 title: "[Python]'NoneType' object is not iterable"
 subtitle: "메소드의 리턴"
-categories: Error
-tags: [Python,Error,deque]
+categories: Dev
+tags: [Python,Error,Deque]
 banner:
-  image: https://drive.google.com/uc?id=1G0HBYhONrIz8Io_0SFvOtWRkS3e8gfkS
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 코딩테스트 연습문제를 풀던 도중에 아래와 같은 문제가 발생했습니다.

@@ -2,16 +2,16 @@
 layout: post
 title: "[Python] 파이썬 문자열 나누는 함수: split(),split(` `)차이"
 subtitle: "문자열 나누는 함수: split(),split(` `)비교하기"
-categories: Python
-tags: [Python,여러가지함수,문자열]
+categories: Dev
+tags: [Python,Function,String]
 banner:
-  image: https://drive.google.com/uc?id=1-066lrD53EhS9Ty4OaObRca8CmhhFlsG
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## split(), split(' ')

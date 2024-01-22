@@ -2,16 +2,16 @@
 layout: post
 title: "[Java] 자바의 자료형"
 subtitle: " Java의 정수 자료형과 실수 자료형"
-categories: Java
+categories: Dev
 tags: [Java,자료형]
 banner:
-  image: https://drive.google.com/uc?id=1yxNfYKHwCzBN6d2U4mMOo_Aq-Cq3eNN5
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## 1. 정수 자료형

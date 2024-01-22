@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "[구름IDE] Github 블로그 만들기(2)"
+title: "[Groom IDE] Github 블로그 만들기(2)"
 subtitle: "Github 블로그: 테마 적용 및 수정"
-categories: Github 
-tags: [jekyll, github,구름IDE]
+categories: Dev
+tags: [Jekyll,Github,Groom IDE]
 banner:
-  image: https://drive.google.com/uc?id=15b90gyux9tlTOZREL8IuLE9xpjNwKzbL
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## 1.Jekyll 테마 설치

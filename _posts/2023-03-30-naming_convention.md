@@ -2,16 +2,16 @@
 layout: post
 title: "네이밍 컨벤션(Naming Convention) 정리하기"
 subtitle: "네이밍 컨벤션: Coding 이름 짓는 관례"
-categories: Cs Python Java
+categories: Dev
 tags: 
 banner:
-  image: https://drive.google.com/uc?id=1yxNfYKHwCzBN6d2U4mMOo_Aq-Cq3eNN5
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## 네이밍 컨벤션(Naming Convention)이란?

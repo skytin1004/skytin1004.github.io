@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "[구름IDE] Github 블로그 만들기(1)"
+title: "[Groom IDE] Github 블로그 만들기(1)"
 subtitle: "Github 블로그: 컨테이너 및 클론 생성"
-categories: Github 
-tags: [jekyll,github,구름IDE]
+categories: Github
+tags: [Jekyll,Github,Groom IDE]
 banner:
-  image: https://drive.google.com/uc?id=15b90gyux9tlTOZREL8IuLE9xpjNwKzbL
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## 1. Github 페이지 생성

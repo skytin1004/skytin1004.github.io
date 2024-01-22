@@ -2,7 +2,7 @@
 layout: post
 title: "[Flash] 물건피하기 게임"
 subtitle: "초등학교 때 제작했던 물건 피하기 게임"
-categories: Diary
+categories: LifeInCode
 tags: [Flash]
 banner:
   image: none
