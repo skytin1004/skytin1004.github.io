@@ -2,16 +2,16 @@
 layout: post
 title: "[Flash] 물건피하기 게임"
 subtitle: "초등학교 때 제작했던 물건 피하기 게임"
-categories: Flash
+categories: Diary
 tags: [Flash]
 banner:
-  image: https://drive.google.com/uc?id=13-WpLgEidfOjbIKDVvF1YadN-psV5NJf
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 ## 물건 피하기 게임
@@ -26,7 +26,6 @@ banner:
 
 
 '플래시365'라는 커뮤니티에서 '자작플래시 BEST 30'에서 주간랭킹 2위를 했었습니다. 
-(지금 보면 부끄러운 수준이지만) 초등학교 시절 프로그래머의 꿈을 가지게 해준 작품입니다.
 
 
 ### 플래시 게임 플레이 GIF

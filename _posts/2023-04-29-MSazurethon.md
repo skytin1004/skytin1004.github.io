@@ -2,16 +2,16 @@
 layout: post
 title: "[MS azurethon] ChatGPT MS 애저톤 수상 후기"
 subtitle: "🛫 2023 ChatGPT Microsoft Azurethon"
-categories: Competition
+categories: Achievements&Contributions
 tags: [2023MicrosoftAzurethon,Award]
 banner:
-  image: https://drive.google.com/uc?id=1JHgOYKErXtKSyT2Qqw-kVr4-ac5fyJij
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 2.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 <span style="background-color:#E6E6FA"><span style="color:#454545">**💎프롬프트 엔지니어링 서비스 분야에서 수상했습니다.** </span> </span>
 

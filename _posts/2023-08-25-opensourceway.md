@@ -2,16 +2,16 @@
 layout: post
 title: "[OpenSource]오픈소스 기여하는 방법"
 subtitle: "오픈소스 컨트리뷰션"
-categories: Contribution Iceberg
+categories: Dev
 tags: [OpenSource,Iceberg]
 banner:
-  image: https://drive.google.com/uc?id=1-iLsCTOpKgfrSHaKPwzyTEicQVx1lc-x
+  image: none
   opacity: 0.618
-  background: "#000"
+  background: "#7092BF"
   height: "100vh"
   min_height: "38vh"
-  heading_style: "font-size: 3.25em; font-weight: none; text-decoration: none"
-  subheading_style: "color: #E6E6FA"
+  heading_style: "font-size: 2.5em; font-weight: none; text-decoration: none"
+  subheading_style: "color:"
 ---
 
 2023년 05/15부터 현재까지 약 세달 간 Apache-Iceberg 라는 데이터 레이크 관리 프로그램 오픈소스 개발에 참여하고 있습니다. 주로 
