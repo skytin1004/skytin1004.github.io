@@ -2,7 +2,7 @@
 layout: post
 title: "[Groom IDE] Github 블로그 만들기(1)"
 subtitle: "Github 블로그: 컨테이너 및 클론 생성"
-categories: Github
+categories: Dev
 tags: [Jekyll,Github,Groom IDE]
 banner:
   image: none
