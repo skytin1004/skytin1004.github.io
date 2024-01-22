@@ -1,6 +1,8 @@
 # Welcome to skytin1004's Engineering Blog
 
-![img](https://drive.google.com/uc?id=16yz0C5K0SjXjY1iLsgVs0I3li6E5JivQ)
+![Engineering Blog Banner](https://drive.google.com/uc?id=16yz0C5K0SjXjY1iLsgVs0I3li6E5JivQ)
+
+**Blog Link**: [skytin1004.github.io](https://skytin1004.github.io/)
 
 Hello and welcome to my blog! I'm skytin1004, a passionate developer and technology enthusiast. This is my personal space where I share insights, experiences, and thoughts related to the world of technology and software development.
 
@@ -21,3 +23,7 @@ Hello and welcome to my blog! I'm skytin1004, a passionate developer and technol
 ## Engage and Connect
 
 I believe in the power of community and learning together. I invite you to engage with my posts, share your thoughts, and be a part of this journey. Your comments and feedback are not only welcome, they're appreciated!
+
+---
+
+Feel free to reach out and connect with me on [LinkedIn](https://www.linkedin.com/in/minseok-song-b6347b26a/) or [GitHub](https://github.com/skytin1004).
