@@ -14,27 +14,24 @@ banner:
   subheading_style: "color:"
 ---
 
+※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다.
 
-<span style="background-color:#E6E6FA"><span style="color:#454545">※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다. </span> </span>
+![img](https://drive.google.com/uc?id=1YocbZTOMSCZ4h-XoMg-Mz8oSV5ftzHDo)
 
-
-|🛫<span style="color:#9370DB">**팀 이름:** </span>| <span style="color:#9370DB">**skytin1004**</span>|
-|🛫<span style="color:#9370DB">**팀장 아이디:** </span>| <span style="color:#9370DB">**sms7950@gmail.com**</span>|
-
-
+|🛫**팀 이름:**|**skytin1004**|
+|🛫**팀장 아이디:**|**<sms7950@gmail.com>**|
 
 ## 목차
 
-<span style="color:#9370DB">**1. 동물사진 맞추기 프롬프트 소개**</span>
+1. 동물사진 맞추기 프롬프트 소개
 
-<span style="color:#9370DB">**2. 동물사진 맞추기 프롬프트 설명**</span>
+2. 동물사진 맞추기 프롬프트 설명
 
-<span style="color:#9370DB">**3. ChatGPT 진행**</span>
+3. ChatGPT 진행
 
-<span style="color:#9370DB">**4. 정확성을 위한 프롬프트 개선**</span>
+4. 정확성을 위한 프롬프트 개선
 
 ## 1.동물사진 맞추기 프롬프트 소개
-
 
 유치원에서는 어린이들에게 다양한 프로그램을 체험시키기 위해 회사가 제공하는 유아교육 프로그램을 이용할 수 있습니다. 예를 들어 'A'라는 회사에서 
 어린이들이 다양한 체험활동을 할 수 있도록 유치원에 '영어동요','영어놀이와 관련된 체험키트'를 제공하면 유치원에서 해당 체험키트를 이용해 어린이들에게 영어 교육을 제공할 수 있습니다.
@@ -47,21 +44,22 @@ banner:
 유치원 선생님 또는 학부모님들의 지도 하에 교육을 실시할 수 있습니다.
 
 ### 프롬프트 작동과정
+
 ![img](https://drive.google.com/uc?id=1GUh94bgqNzZ8QYRp7jwflSV0FgDPONlQ)
 
-동물사진 맞추기 프롬프트는 역할 지정 및 진행순서와 게임 규칙을 알려주는 <span style="color:#9370DB">지시문</span>, 게임의 진행방식을 보여주는 <span style="color:#9370DB">예시</span>,
-동물사진 목록을 보여주는 <span style="color:#9370DB">지문</span>, ChatGpt가 동물 사진을
-제시하도록 유도하는 <span style="color:#9370DB">답변유도</span>로 구성했습니다.
- 
+동물사진 맞추기 프롬프트는 역할 지정 및 진행순서와 게임 규칙을 알려주는 지시문, 게임의 진행방식을 보여주는 예시,
+동물사진 목록을 보여주는 지문, ChatGpt가 동물 사진을
+제시하도록 유도하는 답변유도로 구성했습니다.
+
 ### 프롬프트 시연
 
-결과 화면은 아래와 같습니다. 
+결과 화면은 아래와 같습니다.
 
 ![img](https://drive.google.com/uc?id=1P3O5GuuDoBO6qhZ53LxInyC4SwuhS6ZF)
 [AnimalGuessPrompt]
 
-
 ### 입력 프롬프트
+
 ---
 
 동물사진 맞추기 프롬프트 전문입니다.
@@ -105,12 +103,15 @@ Here is the list of pictures:
 picture:
 ```
 
-## 2.동물사진 맞추기 프롬프트 설명
+## 동물사진 맞추기 프롬프트 설명
+
 동물사진 맞추기 프롬프트의 작동방식 및 구조에 대해서 설명하겠습니다.
+
 ```Prompt
 As a professional who specializes in helping young children guess pictures accurately,
 I will guide you through a fun exercise! Imagine that you are a young child and I am the expert.
 ```
+
 프롬프트에서 ChatGPT는 어린아이들이 사진을 추측할 수 있도록 도와주는 전문가 역할을 맡고 있으며 여러분은 6~7세의 어린이라는 가정하에 대화를 진행합니다.
 
 ```Prompt
@@ -118,6 +119,7 @@ I will randomly select one of 13 pictures from the list below and show it to you
 For example, I might show you a picture of a rabbit and say, "which animal is in this picture?" 
 Then, you will answer which animal in this picture and I will let you know if your answer matches the picture I selected.
 ```
+
 ChatGPT는 먼저 프롬프트 안에 있는 13개의 동물 사진 중에서 무작위로 하나를 선택해서 어린이에게 보여줍니다. (13개의 동물 사진은 구글 드라이브 링크와 연결되어있습니다.)
 어린이는 ChatGPT가 제시한 사진을 보고 사진 속 동물이 어떤 동물인지 추측합니다.
 
@@ -159,10 +161,11 @@ Here is the list of pictures:
 
 picture:
 ```
+
 "picture:" 은 ChatGPT가 동물 사진 이미지를 제시하도록 하는 답변 지시 유도어입니다.
 
+## ChatGpt 진행
 
-## 3.ChatGpt 진행
 동물사진 맞추기 프롬프트 전문입니다.
 ![img](https://drive.google.com/uc?id=1rk05D3ynjtYWs9JhOak3WH0x8RQeE_Dn)
 [AnimalGuessPrompt]
@@ -212,49 +215,44 @@ ChatGPT는 사진 속에 어떤 동물이 있는지 정확히 맞출 때 마다 
 동물의 사진과 입력한 답변 "zebra"가 일치했으므로 ChatGPT는 2x2 테이블에 귀여운 얼룩말 이모지를 추가합니다. 
 2x2테이블에 귀여운 동물 이모지 4개가 모였으므로 ChatGPT는 여러분에게 특급 칭찬을 해주며 대화를 마무리 합니다.
 
-
-## 4.정확성을 위한 프롬프트 개선
-
+## 정확성을 위한 프롬프트 개선
 
 ### 1. 마크다운 테이블 초기화 문제 개선
 
 기존의 프롬프트로 여러번 실행을 해본 결과 어린이가 동물의 정답을 맞추었을 때는
 마크다운 표에 동물 이모지가 추가되지만 어린이가 오답을 했을 시 기존 마크다운 안에 들어있던 이모지들이 전부 초기화되고 새로운 마크다운 테이블을 
-보여주는 문제가 발생했습니다. 
+보여주는 문제가 발생했습니다.
 
-><span style="color:#9370DB">기존 프롬프트: "If your answer does not match the picture, we will keep the existing markdown table intact and show"</span>
+> 기존 프롬프트: "If your answer does not match the picture, we will keep the existing markdown table intact and show"
 
-기존 프롬프트를 작성했을 때 기존 마크다운 테이블을 그대로 유지하고 보여주도록 지시했습니다. 하지만 오답을 답한 경우 마크다운 테이블을 초기화한 후 보여주는 문제가 생겨 아래와 같이 프롬프트를 개선했습니다. 
+기존 프롬프트를 작성했을 때 기존 마크다운 테이블을 그대로 유지하고 보여주도록 지시했습니다. 하지만 오답을 답한 경우 마크다운 테이블을 초기화한 후 보여주는 문제가 생겨 아래와 같이 프롬프트를 개선했습니다.
 
-><span style="color:#9370DB">수정된 프롬프트: "If your answer does not match the picture, we will continue playing until we get 4 correct guesses."</span>
+> 수정된 프롬프트: "If your answer does not match the picture, we will continue playing until we get 4 correct guesses."
 
-<span style="color:#9370DB">"continue playing until we get 4 correct guesses"</span> 이라는 문장을 삽입해서 4개의 정답을 맞출 때 까지
+"continue playing until we get 4 correct guesses"이라는 문장을 삽입해서 4개의 정답을 맞출 때 까지
 (오답을 하더라도) 마크다운 테이블의 이모지를 유지할 수 있도록 프롬프트를 개선했습니다.
 
+### 게임 종료 조건을 무시하는 문제 개선
 
-### 2.게임 종료 조건을 무시하는 문제 개선
+> 기존 프롬프트: "7.We will repeat steps 1-6 until we get 4 emoji in 2x2 markdowntable."
 
-><span style="color:#9370DB">기존 프롬프트: "7.We will repeat steps 1-6 until we get 4 emoji in 2x2 markdowntable."</span>
-
-기존 프롬프트에서 게임을 끝내는 조건을 <span style="color:#9370DB">"get 4 emoji in 2x2 markdowntable"</span>로  설정 헀을 시 
+기존 프롬프트에서 게임을 끝내는 조건을 "get 4 emoji in 2x2 markdowntable"로  설정 헀을 시
 
 ChatGPT가 해당 조건을 인지하지 못하고 무한히 게임을 반복하는 상황이 발생했습니다.
 
-><span style="color:#9370DB">수정된 프롬프트: "7.We will repeat steps 1-6 until we get 4 correct guesses."</span>
+>수정된 프롬프트: "7.We will repeat steps 1-6 until we get 4 correct guesses."
 
-해당 조건을 <span style="color:#9370DB">get 4 correct guesses</span>로 변경함으로써
+해당 조건을 get 4 correct guesses로 변경함으로써
 
 정답을 4번 맞추게 되면 게임을 종료할 수 있도록 프롬프트를 개선했습니다.
 
-
-
-### 3.ChatGPT가 사진링크의 사진을 인식하지 못하는 문제 개선
+### ChatGPT가 사진링크의 사진을 인식하지 못하는 문제 개선
 
 문제상황은 다음과 같았습니다.
 
 게임 진행 도중 ChatGPT가 하얀색 강아지 사진을 제시해서 "dog"라는 답변을 입력했지만 ChatGPT는 해당 사진을 "snowman"으로 인식해서 오답처리하는 경우가 발생했습니다.
 
-이에 대한 해결방법으로는 두 가지가 있었습니다. 
+이에 대한 해결방법으로는 두 가지가 있었습니다.
 
 #### 1. 동물사진 개수 줄이기
 
