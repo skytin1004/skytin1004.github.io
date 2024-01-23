@@ -1,3 +1,5 @@
+/*about.html은 _layouts에 있음*/
+
 * {
   box-sizing: border-box;
 }
@@ -267,7 +269,7 @@ Contact form
 .contact form {
   background-color: #fff;
   border-radius: 12px;
-  border-top: 5px solid #9370DB;
+  border-top: 5px solid #7092BF;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 2em;
   max-width: 500px;
@@ -285,7 +287,7 @@ Contact form
 }
 
 .contact form input:focus, .contact form textarea:focus {
-  border-color: #9370DB;
+  border-color: #7092BF;
 }
 
 .contact form textarea {
@@ -293,7 +295,7 @@ Contact form
 }
 
 .contact form input[type="submit"] {
-  background-color: #9370DB;
+  background-color: #7092BF;
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -310,7 +312,7 @@ Footer
 ======================== */
 
 .footer {
-  background-color: #9370DB;
+  background-color: #7092BF;
   color:  #fff;
   font-size: 1.5em;
   text-align: center;
@@ -506,7 +508,7 @@ Timeline
   position: absolute;
   display: inline-block;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #fff, 0 0 0 6px #9370DB;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px #7092BF;
 
 }
 .cd-timeline-img { /*단추 안 색상*/
@@ -568,7 +570,7 @@ Timeline
     flex-wrap: wrap;
     justify-content: center;
     li {
-      background: #9370DB;
+      background: #7092BF;
       border-radius: 8px;
       display: inline-block;
       padding: 2px 10px;
@@ -610,7 +612,7 @@ Timeline
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid #9370DB;
+  border-right: 7px solid #7092BF;
 }
 
 @media only screen and (min-width: 768px) {
@@ -638,7 +640,7 @@ Timeline
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: #9370DB;/*말풍선 뾰족이- 홀수번째*/
+    border-left-color: #7092BF;/*말풍선 뾰족이- 홀수번째*/
   }
   .cd-timeline-content .cd-date { /*날짜*/
     position: auto;
@@ -656,7 +658,7 @@ Timeline
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: #9370DB; /*말풍선 뾰족이-짝수번째*/
+    border-right-color: #7092BF; /*말풍선 뾰족이-짝수번째*/
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
     float: right;
