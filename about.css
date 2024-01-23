@@ -53,7 +53,7 @@ ul {
 }
 
 a, a:hover, a:focus, a:active, a:visited {
-  color: #9370DB;
+  color: #7092BF;
   text-decoration: underline;
 }
 
@@ -145,8 +145,8 @@ Sections
 ======================== */
 
 .splash {
-  background: linear-gradient(rgba(44, 62, 80, 0.65), rgba(52, 152, 219, 0.65)),
-				url("https://drive.google.com/uc?id=1v-f7F-DR3aMkWgKm-66RHnbfwQ2DCUtt") no-repeat fixed center;
+  background: linear-gradient(rgba(44, 62, 80, 0.65), #7092BF),
+				url("") no-repeat fixed center;
 	background-size: cover;
 	color: #fff;
 	border-radius: 8px;
