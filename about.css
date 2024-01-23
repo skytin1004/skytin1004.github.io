@@ -201,6 +201,7 @@ Sections
   display: inline-block;
   text-decoration: none;
   width: 80px;
+  transition: background-image 0.3s ease;
 }
 .splash .continue a:hover {
   background-image: url('./assets/images/favicon/favicon1.png'); /* 이미지 경로 설정 */
