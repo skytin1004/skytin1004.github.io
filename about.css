@@ -202,6 +202,10 @@ Sections
   text-decoration: none;
   width: 80px;
   transition: background-image 0.3s ease;
+  background-image: url('./assets/images/favicon/favicon2.png'); /* 이미지 경로 설정 */
+  background-size: cover; /* 이미지가 도형 안에 꽉 차도록 설정 */
+  background-position: center; /* 이미지 중앙 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
 }
 .splash .continue a:hover {
   background-image: url('./assets/images/favicon/favicon1.png'); /* 이미지 경로 설정 */
