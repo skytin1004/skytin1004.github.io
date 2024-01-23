@@ -1,10 +1,12 @@
+
 .portfolio-container {
-  width: 100%;
-  height: auto; /* 또는 필요한 높이 */
+  width: 100% !important;
+  height: 100vh !important;
   margin: 0;
   padding: 0;
   /* 필요한 추가 스타일 */
 }
+
 * {
   box-sizing: border-box;
 }
