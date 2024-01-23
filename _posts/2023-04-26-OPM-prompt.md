@@ -2,7 +2,7 @@
 layout: post
 title: "[MS azurethon] 공급망 최적화 프롬프트"
 subtitle: "OPM을 활용한 공급망 최적화 프롬프트"
-categories: AI
+categories: KorArchive2022-2023
 tags: [Prompt,Chatgpt,Industrial Engineering,2023MicrosoftAzurethon,Award]
 banner:
   image: none
@@ -432,7 +432,7 @@ It is assumed that safety stock meets the demand of 95%.
 
 프롬프트 초안을 작성했을 때 ChatGPT는 자유분방한 보고서를 작성했습니다. ChatGPT가 작성하는 보고서가 일관되지 않았을 때 다음과 같은 문제가 생겼습니다.
 첫 번째로 입력값의 수치를 조금씩 변경해서 작성된 보고서를 비교하고자 하는 경우 ChatGPT가 동일한 주제로 보고서를 생성하지 않아 입력값의 수치를 증가시키거나 감소시켰을 때 보고서의 비교가 어려웠습니다.
-두 번째 문제는 보고서의 자유도가 상승함에 따라 ChatGPT가 수요자의 입장에서 원하는 주제의 정보를 알려주지 않는 경우가 많았습니다. 그렇기 때문에 
+두 번째 문제는 보고서의 자유도가 상승함에 따라 ChatGPT가 수요자의 입장에서 원하는 주제의 정보를 알려주지 않는 경우가 많았습니다. 그렇기 때문에
 
 ```Prompt
 This includes determining [1.the optimal production schedule], [2.optimal inventory level], 

@@ -2,7 +2,7 @@
 layout: post
 title: "[Python]'NoneType' object is not iterable"
 subtitle: "메소드의 리턴"
-categories: Dev
+categories: KorArchive2022-2023
 tags: [Python,Error,Deque]
 banner:
   image: none
@@ -20,8 +20,9 @@ banner:
 'NoneType' object is not iterable
 ```
 
-코드 어디에 문제가 있었는지 확인해봤는데 다음과 같은 문제가 있었습니다.<br>
-의심스러운 부분 <span style="color:#9370DB">U_list</span>와 <span style="color:#9370DB">nU_list</span>의 타입을 출력했습니다.
+코드 어디에 문제가 있었는지 확인해봤는데 다음과 같은 문제가 있었습니다.
+
+의심스러운 부분 U_list와 nU_list의 타입을 출력했습니다.
 
 ```Python
 from collections import deque
@@ -30,24 +31,27 @@ nU_list=U_list.rotate(-4) #nU_list는 U_list를 4번 왼쪽으로 회전시킨 d
 print(type(U_list))
 print(type(nU_list))
 ```
+
 실행결과
+
 ```Python
 <class 'collections.deque'>
 <class 'NoneType'>
 ```
 
-U_list의 타입은  <span style="color:#9370DB">'deque'</span>가 맞는데 nU_list의 타입이  <span style="color:#9370DB">'NoneType'</span>이 나왔습니다.<br>
+U_list의 타입은  'deque'가 맞는데 nU_list의 타입이  'NoneType'이 나왔습니다.
 
-nU_list의 타입도 <span style="color:#9370DB">'deque'</span> 가 되어야 맞을 것 같은데 왜 <span style="color:#9370DB">'NoneType'</span>이 나왔을까요?<br>
+nU_list의 타입도 'deque' 가 되어야 맞을 것 같은데 왜 'NoneType'이 나왔을까요?
 
-결과적으로 deque에서 rotate 메소드의 원리를 착각했습니다. `nU_list = U_list.rotate(-4)` 를 했을 때 rotate 메소드를 이용하면 nU_list가 U_list에서 왼쪽으로 4번 회전한 값이 될 거라고 착각했습니다.<br>
+결과적으로 deque에서 rotate 메소드의 원리를 착각했습니다. `nU_list = U_list.rotate(-4)` 를 했을 때 rotate 메소드를 이용하면 nU_list가 U_list에서 왼쪽으로 4번 회전한 값이 될 거라고 착각했습니다.
 
-※ rotate는 기존의 deque리스트 값을 변경하는 메서드이지 회전한 deque리스트를 리턴하는 메서드가 아닙니다.<br>
+※ rotate는 기존의 deque리스트 값을 변경하는 메서드이지 회전한 deque리스트를 리턴하는 메서드가 아닙니다.
 
 정리하면 rotate 메서드는 리턴값이 없는 함수이며,
-<span style="color:#9370DB">U_list.rotate(-4)</span>는 U_list에서 왼쪽으로 4번 회전한 새로운 deque리스트를 의미하는 것이 아니라 U_list의 값을 왼쪽으로 4번 회전시킨다는 의미입니다.<br>
+U_list.rotate(-4)는 U_list에서 왼쪽으로 4번 회전한 새로운 deque리스트를 의미하는 것이 아니라 U_list의 값을 왼쪽으로 4번 회전시킨다는 의미입니다.
 
 예시
+
 ```Python
 from collections import deque
 U_list =deque("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -56,18 +60,19 @@ print(U_list)
 ```
 
 실행 결과
+
 ```Python
 deque(['E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D'])
 ```
 
-실행 결과 U_list의 값이 왼쪽으로 4번 회전된 것을 알 수 있습니다.<br>
+실행 결과 U_list의 값이 왼쪽으로 4번 회전된 것을 알 수 있습니다.
 
-<a href="https://skytin1004.github.io/python/2023/02/06/deque.html" target="_blank"><span style="color:#9370DB">※참고: deque 정리하기</span></a><br>
+※참고: deque 정리하기
 
-결국엔 아래처럼 코드를 작성해서 문제를 해결했습니다.<br>
+아래처럼 코드를 작성해서 문제를 해결했습니다.
 
+해결
 
-해결 
 ```Python
 #deque의 rotate이용
 from collections import deque

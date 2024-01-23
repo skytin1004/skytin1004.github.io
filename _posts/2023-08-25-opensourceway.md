@@ -2,7 +2,7 @@
 layout: post
 title: "[OpenSource]오픈소스 기여하는 방법"
 subtitle: "오픈소스 컨트리뷰션"
-categories: Dev
+categories: KorArchive2022-2023
 tags: [OpenSource,Iceberg]
 banner:
   image: none
