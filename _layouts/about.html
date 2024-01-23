@@ -1,3 +1,6 @@
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
 <head>
 <link rel="stylesheet" href="about.css">
 <script src="about.js"> </script>
@@ -202,3 +205,6 @@
     <a href="https://github.com/skytin1004" target="_blank"><i class="fa fa-github"></i></a>
   </div>
 </footer>
+{%- include views/footer.html -%}
+{%- include analytics.html -%}
+</html>
