@@ -145,7 +145,7 @@ Sections
 ======================== */
 
 .splash {
-  background: linear-gradient(rgba(44, 62, 80, 0.65), #7092BF),
+  background: linear-gradient(rgba(44, 62, 80, 0.3), #7092BF),
 				url("") no-repeat fixed center;
 	background-size: cover;
 	color: #fff;
