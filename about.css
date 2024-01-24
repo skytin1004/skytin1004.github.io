@@ -152,6 +152,11 @@ Sections
 	color: #fff;
 }
 
+.splash .container {
+  padding-top: 25vh; /* No JS fallback*/
+  padding-bottom: 25vh; /* No JS fallback*/
+}
+
 .profile-image {
   border-radius: 50%; 
   display: block;
