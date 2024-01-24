@@ -150,9 +150,6 @@ Sections
 				url("./assets/images/about/profile8.jpg") no-repeat fixed center;
 	background-size: cover;
 	color: #fff;
-	border-radius: 8px;
-    padding: 1em;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
     
 .splash:hover {
@@ -229,13 +226,6 @@ Sections
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   color: #fff;
-  border-radius: 8px;
-  padding: 1em;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
-    0 2px 2px rgba(0,0,0,0.1), 
-    0 4px 4px rgba(0,0,0,0.1), 
-    0 8px 8px rgba(0,0,0,0.1),
-    0 16px 16px rgba(0,0,0,0.1);
 }
 
 .intro a, .intro a:hover, .intro a:focus, .intro a:active, .intro a:visited {
