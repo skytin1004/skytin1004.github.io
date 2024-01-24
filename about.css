@@ -151,14 +151,6 @@ Sections
 	background-size: cover;
 	color: #fff;
 }
-    
-.splash:hover {
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3); /* 마우스 호버 시 그림자 확장 효과 */
-}
-.splash .container {
-  padding-top: 25vh; /* No JS fallback*/
-  padding-bottom: 25vh; /* No JS fallback*/
-}
 
 .profile-image {
   border-radius: 50%; 
