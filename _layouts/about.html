@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="about.css">
 <script src="about.js"> </script>
 </head>
+<body>
 {%- include views/header.html -%}
 <div class="container-fluid splash" id="splash">
   <div class="container">
@@ -14,8 +15,6 @@
     <span class="continue"><a href="#about"><i class="fa fa-angle-down"></i></a></span>
   </div>
 </div>
-<br>
-<br>
 <div class="container-fluid intro" id="about">
   <div class="container">
     <h2 style="text-align:center">About me</h2>
@@ -30,7 +29,59 @@
   </div>
 </div>
 
+	<!-- PORTFOLIO -->
+
+<div class="container-fluid portfolio" id="portfolio">
+  <div class="container cf">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <div class="gallery-image">       <a href="https://github.com/skytin1004/Inhabas.com-api">
+          <img src="./assets/images/about/IBAS_logo_purple.png" alt="IBAS club logo">
+          <span class="img-description">
+			  IBAS Project</span>
+        </a></div>
+      <div class="gallery-image">       <a href="https://skytin1004.github.io/korarchive2022-2023/2023/04/29/MSazurethon.html">
+          <img src="./assets/images/about/OPM_diagram.png" alt="OPM_prompt">
+          <span class="img-description">2023 Chat GPT Microsoft Azurethon Award for Prompt Engineering Services<br></span>
+        </a></div>
+      <div class="gallery-image">       <a href="https://github.com/apache/iceberg/pulls?q=is%3Apr+author%3Askytin1004+is%3Aclosed">
+          <img src="./assets/images/about/iceberg.png" alt="">
+          <span class="img-description">Apach Iceberg Contributor<br> I Switched tests from JUnit4 to Junit5 in Iceberg</span>
+        </a></div>
+      <div class="gallery-image">       <a href="https://techcommunity.microsoft.com/t5/educator-developer-blog/teach-chatgpt-to-answer-questions-using-azure-ai-search-amp/ba-p/3969713?wt.mc_id=studentamb_279723">
+          <img src="./assets/images/about/posted_ms_blog.png" alt="">
+          <span class="img-description">Teach ChatGPT to PDF (Lang Chain)<br> Published on Microsoft Tech Community</span>
+        </a></div>
+      <div class="gallery-image">       <a href="https://techcommunity.microsoft.com/t5/educator-developer-blog/teach-chatgpt-to-answer-questions-using-azure-ai-search-amp/ba-p/3985395?wt.mc_id=studentamb_279723">
+          <img src="./assets/images/about/posted_ms_blog.png" alt="">
+          <span class="img-description">Teach ChatGPT to PDF (Semantic Kernel)<br> Published on Microsoft Tech Community</span>
+        </a></div>
+      <div class="gallery-image">       <a href="https://www.linkedin.com/in/minseok-song-b6347b26a/overlay/1635555444435/single-media-viewer/?profileId=ACoAAEHr17sBjBZVunATedTzg-s72uZU-AXsB9k">
+          <img src="./assets/images/about/ranked1-mlsa.jpeg" alt="">
+          <span class="img-description">
+Most Views New Publishing (2023 / 11)<br><br> "Teach ChatGPT to Answer(Lang Chain)" was featured in the "Most Views New Publishing" section(21,600 views) in the MLSA's Monthly Community Call</span>
+        </a></div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container-fluid portfolio" id="portfolio">
+  <div class="container cf">
+    <h2>Speeches and presentations</h2>
+    <div class="gallery">
+      <div class="gallery-image"><img src="./assets/images/about/profile4.jpg" alt=""></div>
+      <div class="gallery-image"><img src="./assets/images/about/profile6.jpg" alt=""></div>
+      <div class="gallery-image"><img src="https://unsplash.it/800/450?image=248" alt=""></div>
+      <div class="gallery-image"><img src="https://unsplash.it/800/450?image=247" alt=""></div>
+      <div class="gallery-image"><img src="https://unsplash.it/800/450?image=239" alt=""></div>
+      <div class="gallery-image"><img src="https://unsplash.it/800/450?image=238" alt=""></div>
+    </div>
+  </div>
+</div>
+-->
 <div class="container-fluid features" id="timeline">
+	<div class="container">
 <!--이식-->
 <h2 style="text-align:center">Timeline</h2>
 <section id="cd-timeline" class="cd-container">
@@ -177,9 +228,9 @@
 		</div> <!-- cd-timeline-block -->
 
 	</section> <!-- cd-timeline -->
-
 	</div>
-
+</div>
+    
 
 <div class="container-fluid contact" id="contact">
   <div class="container">
@@ -197,6 +248,8 @@
 </div>
 
 <iframe id="iframe1" name="iframe1" style="display:none"></iframe>
+	
+</body>
 <footer class="container-fluid footer">
   <div class="container">
     <a href="https://www.linkedin.com/in/minseok-song-b6347b26a/" target="_blank"><i class="fa fa-linkedin"></i></a>

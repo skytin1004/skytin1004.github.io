@@ -235,20 +235,6 @@ Sections
   max-width: 200px;
 }
 
-.gallery .gallery-image {
-  margin: 1em auto;
-  width: 100%;
-}
-
-.gallery .gallery-image img {
-  background-color: #FFF0F5;
-  border-radius: 4px;
-  display: block;
-  height: auto;
-  padding: 6px;
-  width: 100%;
-}
-
 /* ========================
 Contact form
 ======================== */
@@ -303,9 +289,6 @@ Footer
   color:  #fff;
   font-size: 1.5em;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1), 
-              0 1px 3px rgba(0,0,0,0.08);
 
 }
 
@@ -648,5 +631,109 @@ Timeline
     left: auto;
     right: 122%;
     text-align: right;
+  }
+}
+
+/* ========================
+PortFolio
+======================== */
+/*--- PORTFOLIO ---*/
+.portfolio .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.portfolio .gallery-image {
+  flex-basis: calc(33.333% - 10px);
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 200px;
+  border: 1.5px solid #ccc;
+}
+
+.portfolio .gallery-image a {
+  display: block;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio .gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 8px;
+  position: absolute; /* 이미지를 절대 위치로 설정 */
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.portfolio .gallery-image .img-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.70); /* 반투명 흰색 배경 */
+  color: #000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2; /* z-index를 2로 설정하여 이미지 위에 배치 */
+  transition: background 0.3s ease-in-out;
+}
+
+.portfolio .gallery-image:hover .img-description {
+  background: rgba(255, 255, 255, 0.90); /* 호버 시 배경색 변경 */
+}
+
+.portfolio .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+}
+
+.portfolio .gallery-image {
+  flex-basis: calc(33.333% - 10px); /* 기본적으로 이미지 3개씩 표시 */
+  margin-bottom: 15px; 
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  height: 200px; /* 직사각형 형태 유지 */
+}
+
+.portfolio .gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지를 비율을 유지하며 컨테이너에 맞게 조절 */
+  transition: transform 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.portfolio .gallery-image:hover img {
+  transform: scale(1.1); 
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio .gallery-image {
+    flex-basis: calc(50% - 10px); /* 화면이 중간 크기일 때 이미지 2개씩 표시 */
+    height: 150px; /* 높이 조절 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio .gallery-image {
+    flex-basis: 100%; /* 화면이 작을 때 이미지를 한 줄에 하나씩 표시 */
+    height: 150px; /* 높이 조절 */
   }
 }
