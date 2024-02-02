@@ -1,0 +1,84 @@
+I"#<h2 id="파이썬-최빈값-설명">파이썬 최빈값 설명</h2>
+
+<p>최빈값은 주어진 자료에서 가장 많이 등장하는 값입니다.</p>
+
+<p>최빈값은 하나이거나 여러개 이거나 아니면 존재하지 않을 수 있습니다.</p>
+
+<p>최빈값이 하나인 경우: <code class="language-plaintext highlighter-rouge">number=[1,1,1,2,2,3]</code> number 리스트를 참고했을 때 리스트에서 가장 많이 등장하는 값은 1 이므로 number리스트의 최빈값은 1이라고 할 수 있습니다.
+최빈값이 여러개인 경우: <code class="language-plaintext highlighter-rouge">number=[1,1,2,2,3,4]</code> number 리스트를 참고했을 때 리스트에서 1이 두 번, 2가 두 번, 3,4는 각각 한 번 등장했으므로 number리스트의 최빈값은 1,2라고 할 수 있습니다.
+최빈값이 존재하지 않는 경우: 모든 원소가 같거나 모든 원소가 다르다면 최빈값은 존재하지 않습니다. <code class="language-plaintext highlighter-rouge">number1=[1,1,1,1,1,1]</code>, <code class="language-plaintext highlighter-rouge">number2=[1,2,3,4,5,6]</code> number1,number2 리스트를 참고했을 때
+number1은 모든 원소가 같고, number2는 모든 원소가 다르므로 최빈값은 존재하지 않습니다.
+이번 포스트에서는 리스트 자료에서 최빈값을 구하는 방법들을 정리하겠습니다.</p>
+
+<h2 id="파이썬-최빈값-구하는-방법">파이썬 최빈값 구하는 방법</h2>
+
+<h3 id="방법1-딕셔너리로-최빈값-구현하기">방법1. 딕셔너리로 최빈값 구현하기</h3>
+
+<p>어떤 숫자가 몇 번 등장했는지 딕셔너리로 정리하는 방법입니다.
+“숫자(key):등장횟수(value)” 로 딕셔너리 구성해서 최빈값을 구할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">number</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1"># "숫자(key):등장횟수(value)" 로 딕셔너리 구성
+</span>
+<span class="c1"># 숫자(key) = num_keys
+</span><span class="n">num_keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+
+<span class="c1"># "숫자:등장횟수" 를 집어넣을 딕셔너리(counted_num) 생성
+</span><span class="n">counted_num</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1">#딕셔너리에 key,value 집어넣기
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num_keys</span><span class="p">:</span>
+	<span class="n">counted_num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">number</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="c1">#최빈값 지정	(최빈값 = mode)
+</span><span class="n">mode</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">counted_num</span><span class="p">.</span><span class="n">values</span><span class="p">())</span>
+<span class="c1"># 모든 원소가 같거나 모든 원소가 다르다면
+</span><span class="k">if</span>  <span class="n">mode</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"최빈값이 존재하지 않습니다."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+<span class="c1"># num_count딕셔너리의 key와value를 items()로 추출
+</span>    <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counted_num</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">mode</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"최빈값:{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"등장횟수:{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">최빈값</span><span class="p">:</span><span class="mi">5</span>
+<span class="n">등장횟수</span><span class="p">:</span><span class="mi">2</span>
+</code></pre></div></div>
+
+<h3 id="방법2-파이썬-counter-활용">방법2. 파이썬 Counter 활용</h3>
+
+<p>파이썬의 Counter를 이용해서 최빈값을 구하는 방법입니다.
+방법1에서는  “숫자:등장횟수” 를 집어넣을 딕셔너리(counted_num)를 만들 때 반복문을 이용했는데 Counter을 이용하면 이러한 과정을 생략할 수 있습니다.</p>
+
+<p>Counter 정리하기</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#collections모듈에서 Counter 클래스 가져오기
+</span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">number</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1">#Counter클래스로 "숫자:등장횟수"로 이루어진 딕셔너리(counted_num) 바로 생성
+</span><span class="n">counted_num</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="c1">#최빈값 지정
+</span><span class="n">mode</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">counted_num</span><span class="p">.</span><span class="n">values</span><span class="p">())</span>
+<span class="c1"># 모든 원소가 같거나 모든 원소가 다르다면
+</span><span class="k">if</span>  <span class="n">mode</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"최빈값이 존재하지 않습니다."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+<span class="c1"># num_count딕셔너리의 key와value를 items()로 추출
+</span>    <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counted_num</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">mode</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"최빈값:{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"등장횟수:{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">최빈값</span><span class="p">:</span><span class="mi">5</span>
+<span class="n">등장횟수</span><span class="p">:</span><span class="mi">2</span>
+</code></pre></div></div>
+:ET

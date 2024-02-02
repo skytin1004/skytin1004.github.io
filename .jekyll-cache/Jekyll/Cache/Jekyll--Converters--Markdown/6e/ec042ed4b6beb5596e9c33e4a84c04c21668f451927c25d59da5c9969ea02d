@@ -1,0 +1,131 @@
+I"-<h2 id="counter-정의">Counter 정의</h2>
+
+<p>Counter클래스는 자료의 개수를 구하는 Collections모듈의 클래스입니다.</p>
+<blockquote>
+  <p>※Counter는 리스트 뿐만 아니라 딕셔너리,문자열,튜플 등 반복가능한 개체를 인자로 받을 수 있습니다.</p>
+</blockquote>
+
+<h2 id="counter와-count">Counter와 count</h2>
+
+<p>Counter 클래스와 count함수는 둘 다 자료의 개수를 알려주는 함수입니다.두 개의 차이점은 count 함수는 특정 원소의 개수를 알려주지만 
+Counter클래스는 각각 원소들이 몇 개씩 있는지 전부 알려준다는 것입니다 예제를 통해서 알아보겠습니다.</p>
+
+<p>※참고:count 함수 정리하기</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'banana'</span><span class="p">,</span><span class="s">'melon'</span><span class="p">,</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'melon'</span><span class="p">]</span>
+<span class="n">Counter_result</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Counter_result</span><span class="p">)</span>
+
+<span class="n">count_result</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">'apple'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">count_result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Counter</span><span class="p">({</span><span class="s">'apple'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'melon'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span> <span class="c1">#Counter함수의 결과
+</span><span class="mi">3</span> <span class="c1">#count함수의 결과
+</span></code></pre></div></div>
+
+<p>실행결과를 보면 Counter클래스를 쓰면 각 원소가 몇 개씩 있는지 한 번에 알 수 있지만 count함수를 쓰면 한 번에 한가지 원소의 개수만 알 수 있습니다.</p>
+
+<h2 id="counter-용도">Counter 용도</h2>
+
+<p>Counter의 인자에는 리스트, 튜플 문자열 뿐만 아니라 다양한 자료형을 인자로 받을 수 있습니다.
+크게 Counter의 용도를 두가지로 정리하면 다음과 같습니다.</p>
+
+<ol>
+  <li>
+    <p>리스트,튜플 에서 각 원소가 몇 번씩 나왔는지 확인할 때</p>
+  </li>
+  <li>
+    <p>문자열에서 특정 문자의 개수가 몇 개인지 확인할 때</p>
+  </li>
+</ol>
+
+<h2 id="counter-사용법">Counter 사용법</h2>
+
+<p>Counter를 사용하기 위해서는 collections에서 Counter를 import 해주어야 합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</code></pre></div></div>
+
+<h3 id="리스트">리스트</h3>
+
+<p>Counter의 인자에 리스트가 들어오면 Counter 함수는 리스트의 각 원소가 몇 변씩 나왔는지를 반환합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'banana'</span><span class="p">,</span><span class="s">'melon'</span><span class="p">,</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'melon'</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Counter</span><span class="p">({</span><span class="s">'apple'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'melon'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>print(result) 대신에 print(dict(result))를 하면 딕셔너리 형태로 출력할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'banana'</span><span class="p">,</span><span class="s">'melon'</span><span class="p">,</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'melon'</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">'apple'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'melon'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="문자열">문자열</h3>
+
+<p>Counter의 인자에 문자열이 들어오면 Counter 함수는 문자열 안의 각 알파벳이 몇 변씩 나왔는지를 반환합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="s">"banana"</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Counter</span><span class="p">({</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'n'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="딕셔너리">딕셔너리</h3>
+
+<p>Counter는 딕셔너리를 인자로 받을 수 있습니다. 딕셔너리가 인자로 들어오면 Counter는 value값이 큰 순서대로 딕셔너리를 정렬해 반환합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span><span class="p">{</span><span class="s">'apple'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'melon'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Counter</span><span class="p">({</span><span class="s">'apple'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'melon'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="값개수-형태">값=개수 형태</h3>
+
+<p>Counter에 ‘값=개수’형태로 인자를 넣으면 위의 딕셔너리를 인자로 넣었을 때 처럼 갯수가 많은 순서대로 반환합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">fruits</span> <span class="o">=</span><span class="n">Counter</span><span class="p">(</span><span class="n">apple</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">banana</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">melon</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>실행결과</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Counter</span><span class="p">({</span><span class="s">'apple'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'melon'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</code></pre></div></div>
+:ET

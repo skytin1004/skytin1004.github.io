@@ -1,0 +1,440 @@
+I"mt<p><strong>💎프롬프트 엔지니어링 서비스 분야에서 수상했습니다.</strong></p>
+
+<p>※해당 게시물은 2023 ChatGPT Microsoft Azurethon 출품작으로 제출했습니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1YocbZTOMSCZ4h-XoMg-Mz8oSV5ftzHDo" alt="img" /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>🛫**팀 이름:**</td>
+      <td>**skytin1004**</td>
+    </tr>
+    <tr>
+      <td>🛫**팀장 아이디:**</td>
+      <td>**<a href="mailto:sms7950@gmail.com">sms7950@gmail.com</a>**</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="목차">목차</h2>
+
+<ol>
+  <li>Microsoft Azurethon 이란?</li>
+  <li>제출한 프롬프트</li>
+  <li>2023 ChatGPT MS Azurethon 동기</li>
+  <li>산업공학과 ChatGPT의 연결</li>
+  <li>2023 ChatGPT MS Azurethon 후기</li>
+</ol>
+
+<h2 id="공급망-최적화-프롬프트-소개">공급망 최적화 프롬프트 소개</h2>
+
+<p>SCM(Supply Chain Management)직무는 제품의 생산 과정에서부터 제품이 고객에게 도달할 때 까지의 공급망을 최적화하는 역할을 담당합니다.
+즉, 최소의 비용으로 최대의 효율을 낼 수 있는 공급망을 만들어야 하는 SCM직무에서는, 최적의 공급망을 만들기 위해 최적화와 관련된 다양하고 복잡한 수식을 사용합니다. 하지만
+중소기업 처럼 규모가 작은 회사는 공급망을 최적화 할 수 있는 부서가 따로 존재하지 않아 
+비효율적인 공정을 운영하거나, 공정에 대한 피드백이 부족해 잘못된 점이 쉽게 고쳐지지 않는다는 문제가 발생합니다.
+이러한 배경을 바탕으로 특별한 전문지식이 없어도 공정에 대한 정보만 입력하면 ChatGPT가 최소의 비용으로 수요에 맞는 최적의 생산량을 얻어낼 수 있도록
+분석 및 조언을 해주는 공급망 최적화 프롬프트를 제작했습니다.</p>
+
+<p>공급망 최적화 프롬프트에서 ChatGPT는 입력된 값을 바탕으로</p>
+
+<p>1.최적의 생산 계획</p>
+
+<p>2.최적의 재고 수준</p>
+
+<p>3.공급망 네트워크 디자인</p>
+
+<p>4.지속적인 성장을 위한 조언</p>
+
+<p>이라는 4가지의 주제를 하나의 정리된 보고서로 작성합니다.</p>
+
+<p>공급망 최적화 프롬프트는 다음과 같은 사람들을 대상으로 만들었습니다.</p>
+
+<ol>
+  <li>
+    <p>불필요한 시간과 돈을 들이지 않고 간단한 방식으로 공정의 공급망을 분석하고자 하는 소규모 회사의 사장.</p>
+  </li>
+  <li>
+    <p>프롬프트를 이용해 효율적으로 공정을 분석하여 업무의 효율을 높이고자 하는 SCM 직무를 맡고있는 회사원.</p>
+  </li>
+</ol>
+
+<p>프롬프트를 설명하기에 앞서 프롬프트를 작성하면서 사용했던 개념들을 간단히 소개하겠습니다.</p>
+
+<h3 id="프롬프트에-사용되는-개념">프롬프트에 사용되는 개념</h3>
+
+<h3 id="opm">OPM</h3>
+
+<p>Operations Planning Model(OPM)은 주어진 조건에서 함수를 최대화하거나 최소화하는 선형계획법(LP) 모델 중 하나입니다.
+OPM은 제조 회사에서 생산 계획과 스케줄링을 돕기 위해 사용되는 수학적 모델이며 생산 능력과 수요 예측을 고려하여 최적의 생산 계획을 도출합니다. 
+OPM을 이용하면 생산 계획에 영향을 미치는 다양한 변수들을 고려해서 생산 일정, 생산 라인 구성, 제품 제조 비용 등을 최적화할 수 있습니다.</p>
+
+<h3 id="eoq">EOQ</h3>
+
+<p>경제적 주문량(EOQ)은 수요에 맞는 최적화된 주문량(생산량)을 계산하는 수학적 모델입니다.</p>
+<h3 id="rop">ROP</h3>
+
+<p>Reorder Point(ROP)는 재고 수준이 일정 수준 아래로 떨어질 때 재고를 재주문하기 위한 최소한의 재고 수준을 계산하는 수학적 모델입니다.</p>
+
+<h3 id="프롬프트-작동과정">프롬프트 작동과정</h3>
+
+<p><img src="https://drive.google.com/uc?id=1JHgOYKErXtKSyT2Qqw-kVr4-ac5fyJij" alt="img" /></p>
+
+<p>공급망 최적화 프롬프트는 역할 지정 및 보고서의 개요를 설정하는 <strong>지시문</strong>, 보고서에 작성할 공식을 지정해주는 <strong>공식유도</strong>,
+보고서 작성의 기반이 되는 정보를 입력하는 <strong>정보입력</strong>으로 구성했습니다.</p>
+
+<h3 id="프롬프트-시연">프롬프트 시연</h3>
+
+<p>결과 화면은 아래와 같습니다.</p>
+
+<p><img src="https://drive.google.com/uc?id=1vuSztud7Nf76wZLoe9wmexbodtaLjGmU" alt="img" />
+[OPM_model_prompt_GIF]</p>
+
+<h2 id="프롬프트-및-응답">프롬프트 및 응답</h2>
+
+<p>실제로 사용한 프롬프트 및 응답입니다. 프롬프트 설명은 아래에 자세히 작성했습니다.</p>
+
+<h3 id="입력-프롬프트">입력 프롬프트</h3>
+
+<hr />
+
+<pre><code class="language-Prompt">As a supply chain manager at a manufacturing company, 
+you are responsible for optimizing the production and supply of your product to meet customer demand while minimizing costs. 
+To achieve this, you have developed an Operations Planning Model (OPM) that takes into account various factors such as demand, production cost, inventory cost, and production setup cost,
+as well as lead time, production capacity, supplier reliability, and transportation costs.
+
+Based on the information you entered, I will generate a plan to optimize the production and supply of your product based on OPM within 2,700 characters.
+This includes determining [1.the optimal production schedule], [2.optimal inventory level], 
+and [3.supply chain network design] and [4.continuous improvement] to meet demand and minimize costs.
+If I use a formula in the answer, I will show the calculation process briefly  as well.
+(Use this fomula:
+EOQ = sqrt((2 * mean of monthly demand* setup cost) / (production cost * inventory cost))
+Reorder point = (lead time * mean of monthly demand) + safety stock
+safety stock = (number of standard deviations from the mean) * sqrt(lead time) * (Standard deviation of monthly demand)
+It is assumed that safety stock meets the demand of 95%.
+)
+
+To utilize the OPM model, please provide the following information.
+
+For example, you could enter:
+INPUT("Enter the lead time for receiving the product from suppliers"):14days
+INPUT("Enter the production capacity per month"):5000
+INPUT("Enter the cost of setting up the production line for a batch of product"):500$
+INPUT("Enter the transportation cost per unit of product"):0.3$
+INPUT("Enter the product's monthly demand forecast for the next 6 months (in units per month)): [1000,1200,1400,1500,1800,1200]
+INPUT("Enter the product's production cost per unit"):0.8$
+INPUT("Enter the product's inventory cost per unit per month):100$
+
+Are you ready to get started? If so, please provide me the required information:
+
+INPUT("Enter the lead time for receiving the product from suppliers"):7days
+INPUT("Enter the production capacity per month"):3000
+INPUT("Enter the cost of setting up the production line for a batch of product"):600$
+INPUT("Enter the transportation cost per unit of product"):0.2$
+INPUT("Enter the product's monthly demand forecast for the next 6 months (in units per month)): [750,860,880,980,950,880]
+INPUT("Enter the product's production cost per unit"):0.6$
+INPUT("Enter the product's inventory cost per unit per month):100$
+</code></pre>
+
+<h3 id="chatgpt의-답변">ChatGpt의 답변</h3>
+
+<hr />
+
+<pre><code class="language-Prompt">Based on the information provided, here is an optimized production and supply plan for the manufacturing company:
+
+1. Optimal Production Schedule:
+To determine the optimal production schedule, we can use the Economic Order Quantity (EOQ) formula which calculates the batch size to minimize the total production and inventory cost. The formula is:
+EOQ = sqrt((2 * mean of monthly demand* setup cost) / (production cost * inventory cost))
+Using the given inputs, we can calculate EOQ as:
+EOQ = sqrt((2 * (750+860+880+980+950+880)/6 * 600$) / (0.6$ * 100$)) = 223
+
+This means that the company should produce 223 units in each batch to minimize production and inventory costs. Given the production capacity of 3000 units per month, the company can produce 13 batches of 223 units each in a month, leaving some spare capacity for unexpected demand.
+
+2. Optimal Inventory Level:
+To determine the optimal inventory level, we need to calculate the reorder point and safety stock level. The reorder point is the level at which the company needs to place a new order to avoid stockouts, and the safety stock is the additional stock held to cover demand during lead time.
+Using the given inputs, we can calculate the reorder point and safety stock as:
+Reorder point = (lead time * mean of monthly demand) + safety stock
+safety stock = (number of standard deviations from the mean) * sqrt(lead time) * (Standard deviation of monthly demand)
+Given a lead time of 7 days and a demand forecast of [750,860,880,980,950,880] units per month, we can calculate the mean and standard deviation of monthly demand as follows:
+Mean of monthly demand = (750+860+880+980+950+880)/6 = 876.67
+Standard deviation of monthly demand = sqrt((1/6)*((750-876.67)^2+(860-876.67)^2+(880-876.67)^2+(980-876.67)^2+(950-876.67)^2+(880-876.67)^2)) = 79.35
+
+To achieve a 95% service level, we can set the number of standard deviations from the mean to be 1.64. Using these values, we can calculate the safety stock as:
+safety stock = 1.64 * sqrt(7) * 79.35 = 280.31
+
+Finally, we can calculate the reorder point as:
+Reorder point = (7 * 876.67) + 280.31 = 6393.69
+
+Therefore, the optimal inventory level for this product would be to maintain an inventory of around 6394 units.
+
+3. Supply Chain Network Design:
+To optimize the supply chain network design, we need to consider the transportation costs and supplier reliability. The transportation cost per unit of product is given as 0.2$, and the supplier reliability is assumed to be high.
+Given the demand forecast and production schedule, the company will need to transport 223 units of product to the warehouse each time a batch is produced. Assuming a total transportation distance of 1000 miles and a transportation cost of 0.2$ per unit, the total transportation cost per batch will be:
+Total transportation cost = 223 * 0.2$ * 1000 = 44,600$
+
+4. Continuous Improvement:
+To continuously improve the production and supply plan, the company should regularly review and adjust the inputs to the OPM model based on actual demand and cost data. By tracking key performance indicators such as production efficiency, inventory turnover, and transportation costs, the company can identify areas for improvement
+</code></pre>
+
+<p>사진도 같이 첨부합니다.</p>
+
+<h3 id="입력-프롬프트이미지">입력 프롬프트(이미지)</h3>
+
+<p><img src="https://drive.google.com/uc?id=1EAqsdqXYrFGIhcFSZvxYXiAuBcNw1GCw" alt="img" /></p>
+
+<h3 id="chatgpt의-답변이미지">ChatGPT의 답변(이미지)</h3>
+
+<p><img src="https://drive.google.com/uc?id=1xYXrMbQpJ4pUQIdskRwBXq2fmz7U2hMO" alt="img" />
+<img src="https://drive.google.com/uc?id=1rCl52rh62c9QFRpyCU3J2e1jjkJ19Bxr" alt="img" /></p>
+
+<h2 id="프롬프트-설명">프롬프트 설명</h2>
+
+<p>공급망 최적화 프롬프트는 현재 공정에 대한 정보를 입력하면 [최적의 생산 계획,최적의 재고 수준,공급망 네트워크 디자인,지속적인 성장을 위한 조언]
+이라는 4가지 주제를 바탕으로 보고서를 작성하는 프롬프트입니다. 보고서를 작성하는 과정에서 ChatGPT는 Operations Planning Model(OPM)을 활용하여 최대의 효율을 낼 수 있는
+최적의 생산량과 최적의 재고량을 계산하고 그 결과를 바탕으로 수학적인 분석과 조언을 제공합니다.</p>
+
+<pre><code class="language-Prompt">As a supply chain manager at a manufacturing company, 
+you are responsible for optimizing the production and supply of your product to meet customer demand while minimizing costs. 
+To achieve this, you have developed an Operations Planning Model (OPM) that takes into account various factors such as demand, production cost, inventory cost, and production setup cost,
+as well as lead time, production capacity, supplier reliability, and transportation costs.
+</code></pre>
+
+<p>프롬프트에서 역할 지정을 담당하는 부분입니다. 유저는 supply chain manager(공급망 관리자)의 역할을 맡고 있습니다.</p>
+
+<pre><code class="language-Prompt">Based on the information you entered, I will generate a plan to optimize the production and supply of your product based on OPM within 2,700 characters.
+This includes determining [1.the optimal production schedule], [2.optimal inventory level], 
+and [3.supply chain network design] and [4.continuous improvement] to meet demand and minimize costs.
+If I use a formula in the answer, I will show the calculation process briefly  as well.
+</code></pre>
+
+<p>프롬프트에서 보고서 개요 작성을 담당하는 부분입니다. 이 부분에서 ChatGPT는 supply chain manager인 유저가 입력한 정보를 바탕으로 2700자 이내의 보고서를 작성합니다.</p>
+
+<p>보고서는 [1.the optimal production schedule], [2.optimal inventory level], [3.supply chain network design], [4.continuous improvement] 총 4가지의 단락으로 구성됩니다.</p>
+
+<p>ChatGPT는 OPM의 수식을 바탕으로 보고서의 개요에 맞게 보고서를 작성합니다. 수식의 전개과정을 보고서에 명시하라고 설정한 이유는</p>
+<blockquote>
+  <p>“I will show the calculation process briefly  as well”</p>
+</blockquote>
+
+<p>두 가지가 있습니다.
+첫 번째 이유는 supply chain manager 가 직접 공정의 상황에 맞는 수식이 들어갔는지 정확히 판단하고 분석할 수 있도록 보여주기 때문이며
+두 번째 이유는 산업공학에서는 하나의 개념을 표현하는 공식이 다양하기 때문에 해당 프롬프트를 응용해서 더 공정의 상황에 적합한 공식을 투입할 수 있도록 하기 때문입니다.</p>
+
+<blockquote>
+  <p>예를 들어 아래 프롬프트에서 safety stock을 표현하는 공식은 10가지 이상이 존재합니다.</p>
+</blockquote>
+
+<pre><code class="language-Prompt">(Use this fomula:
+EOQ = sqrt((2 * mean of monthly demand* setup cost) / (production cost * inventory cost))
+Reorder point = (lead time * mean of monthly demand) + safety stock
+safety stock = (number of standard deviations from the mean) * sqrt(lead time) * (Standard deviation of monthly demand)
+It is assumed that safety stock meets the demand of 95%.
+)
+</code></pre>
+<p>ChatGPT가 보고서를 작성할 때 사용하는 공식을 유도하기 위해 작성한 부분입니다. [1.the optimal production schedule]에서는  optimal production schedule과 관련된 EOQ(경제적 주문량) 공식을 바탕으로 보고서를 작성하며</p>
+
+<p>[2.optimal inventory level]에서는 optimal inventory level와 관련된 ROP(Reorder point), safety stock공식을 바탕으로 보고서를 작성합니다.</p>
+
+<p>공급망 최적화 프롬프트는 프롬프트 안의 INPUT 기능에 다양한 정보를 입력받습니다.
+프롬프트를 사용하려면 먼저 입력 프롬프트의 맨 아랫부분에 7가지의 정보를 입력해야 합니다.</p>
+
+<p>Are you ready to get started? If so, please provide me the required information:</p>
+
+<p>INPUT(“Enter the lead time for receiving the product from suppliers”):<strong>7days</strong></p>
+
+<p>INPUT(“Enter the production capacity per month”):<strong>3000</strong></p>
+
+<p>INPUT(“Enter the cost of setting up the production line for a batch of product”):<strong>600$</strong></p>
+
+<p>INPUT(“Enter the transportation cost per unit of product”):<strong>0.2$</strong></p>
+
+<p>INPUT(“Enter the product’s monthly demand forecast for the next 6 months (in units per month)): <strong>[750,860,880,980,950,880]</strong></p>
+
+<p>INPUT(“Enter the product’s production cost per unit”):<strong>0.6$</strong></p>
+
+<p>INPUT(“Enter the product’s inventory cost per unit per month):<strong>100</strong></p>
+
+<p>위에서 굵게 표시 된 부분은 실제 프롬프트에서 비어있는 값이며 원하는 값을 입력할 수 있습니다.</p>
+
+<p>입력하는 정보에 대해서 설명하겠습니다.</p>
+
+<h3 id="lead-time">lead time</h3>
+
+<p>첫 번째 INPUT(“Enter the lead time for receiving the product from suppliers”):<strong>7days</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>리드타임(lead time)</strong> 은 제품을 생산하는데 걸리는 시간을 의미합니다. 위 예시에서 리드타임이 <strong>7days</strong>
+라고 하면 제품의 생산을 계획하고 공정 착수하는 시점부터 제품을 완성해서 제품이 창고에 입고되는 시점까지의 기간이 7일 이라는 뜻입니다.</p>
+
+<h3 id="production-capacity-per-month">production capacity per month</h3>
+
+<p>두 번째 INPUT(“Enter the production capacity per month”):<strong>3000</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>production capacity per month</strong>는 한달에 제품을 생산할 수 있는 최대 용량을 의미합니다. 위 예시에서 production capacity per month = <strong>3000</strong>
+이라고 하면 해당 공정은 한달에 최대 3000개의 제품을 생산할 수 있다는 뜻입니다.</p>
+
+<h3 id="cost-of-setting-up-the-production-line">cost of setting up the production line</h3>
+
+<p>세 번째 INPUT(“Enter the cost of setting up the production line for a batch of product”):<strong>600$</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>cost of setting up the production line</strong>은 제품을 생산하는 라인을 만들 때 소요되는 비용을 의미합니다.</p>
+
+<h3 id="transportation-cost-per-unit-of-product">transportation cost per unit of product</h3>
+
+<p>네 번째 INPUT(“Enter the transportation cost per unit of product”):<strong>0.2$</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>transportation cost per unit of product</strong>는 제품 한 개가 생산된 지역에서 제품 창고로 운송될 때 필요한 비용입니다.</p>
+
+<h3 id="monthly-demand-forecast-for-the-next-6-months-in-units-per-month">monthly demand forecast for the next 6 months (in units per month)</h3>
+
+<p>다섯 번째 INPUT(“Enter the product’s monthly demand forecast for the next 6 months (in units per month)): <strong>[750,860,880,980,950,880]</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>monthly demand forecast for the next 6 months (in units per month)</strong>은 앞으로 6개월 동안 예상되는 월 단위 수요를 의미합니다.</p>
+
+<p>위 예시에서 <strong>[750,860,880,980,950,880]</strong>처럼 리스트 형태로 입력합니다.</p>
+
+<h3 id="production-cost-per-unit">production cost per unit</h3>
+
+<p>여섯 번째 INPUT(“Enter the product’s production cost per unit”):<strong>0.6$</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>production cost per unit</strong>은 제품을 하나 생산할 때 소요되는 비용입니다.</p>
+
+<h3 id="inventory-cost-per-unit-per-month">inventory cost per unit per month</h3>
+
+<p>마지막 INPUT(“Enter the product’s inventory cost per unit per month):<strong>100$</strong>
+에 해당하는 값입니다.</p>
+
+<p><strong>inventory cost per unit per month</strong>은 제품 한개 당 한달동안 보관하는데 사용되는 비용입니다.
+위 예시에서 <strong>100$</strong> 라고 하면 제품 하나를 한달동안 보관하는데 <strong>100$</strong>의 비용이 소요된다는 뜻입니다.</p>
+
+<p>ChatGPT는 입력한 값을 바탕으로 아래 4가지 항목에 대해서 자세한 보고서를 작성합니다.</p>
+
+<ol>
+  <li>Optimal Production Schedule</li>
+  <li>Optimal Inventory Level</li>
+  <li>Supply Chain Network Design</li>
+  <li>Continuous Improvement</li>
+</ol>
+
+<p>보고서 작성 방식에 대해 설명하겠습니다.</p>
+
+<pre><code class="language-Prompt">(Use this fomula:
+EOQ = sqrt((2 * mean of monthly demand* setup cost) / (production cost * inventory cost))
+Reorder point = (lead time * mean of monthly demand) + safety stock
+safety stock = (number of standard deviations from the mean) * sqrt(lead time) * (Standard deviation of monthly demand)
+It is assumed that safety stock meets the demand of 95%.
+)
+</code></pre>
+
+<p>위의 프롬프트를 통해서 Optimal Production Schedule을 구현하는 부분에서는 경제적 주문량(EOQ) 공식을 이용하여 분석할 수 있도록,
+Optimal Inventory Level을 구현하는 부분에서는 ROQ와 Safety stock 공식을 이용하여 분석할 수 있도록 유도했습니다.</p>
+
+<h3 id="optimal-production-schedule">Optimal Production Schedule</h3>
+
+<pre><code class="language-Prompt">1. Optimal Production Schedule:
+To determine the optimal production schedule, we can use the Economic Order Quantity (EOQ) formula 
+which calculates the batch size to minimize the total production and inventory cost. The formula is:
+EOQ = sqrt((2 * mean of monthly demand* setup cost) / (production cost * inventory cost))
+Using the given inputs, we can calculate EOQ as:
+EOQ = sqrt((2 * (750+860+880+980+950+880)/6 * 600$) / (0.6$ * 100$)) = 223
+This means that the company should produce 223 units in each batch to minimize production and inventory costs. 
+Given the production capacity of 3000 units per month, the company can produce 13 batches of 223 units each in a month,
+leaving some spare capacity for unexpected demand.
+</code></pre>
+
+<p>ChatGPT의 답변 중 1. Optimal Production Schedule에 대한 부분을 발췌했습니다.
+ChatGPT는 먼저 입력된 값을 바탕으로 경제적 주문량(EOQ)를 계산합니다. ChatGPT는 계산된 EOQ값을 바탕으로 최적의 생산 계획을 분석해줍니다.
+위 경우에는 최고의 효율을 낼 수 있는 경제적 주문량(EOQ)값이 223개가 나왔습니다. 정리하면 13개의 생산 라인에서 각각 매달 223개의 제품을 생산하는 것이 가장 효율적이라는 뜻입니다.</p>
+
+<h3 id="optimal-inventory-level">Optimal Inventory Level</h3>
+
+<pre><code class="language-Prompt">2. Optimal Inventory Level:
+To determine the optimal inventory level, we need to calculate the reorder point and safety stock level. The reorder point is the level at which the company needs to place a new order to avoid stockouts, and the safety stock is the additional stock held to cover demand during lead time.
+Using the given inputs, we can calculate the reorder point and safety stock as:
+Reorder point = (lead time * mean of monthly demand) + safety stock
+safety stock = (number of standard deviations from the mean) * sqrt(lead time) * (Standard deviation of monthly demand)
+Given a lead time of 7 days and a demand forecast of [750,860,880,980,950,880] units per month, we can calculate the mean and standard deviation of monthly demand as follows:
+Mean of monthly demand = (750+860+880+980+950+880)/6 = 876.67
+Standard deviation of monthly demand = sqrt((1/6)*((750-876.67)^2+(860-876.67)^2+(880-876.67)^2+(980-876.67)^2+(950-876.67)^2+(880-876.67)^2)) = 79.35
+To achieve a 95% service level, we can set the number of standard deviations from the mean to be 1.64. Using these values, we can calculate the safety stock as:
+safety stock = 1.64 * sqrt(7) * 79.35 = 280.31
+
+Finally, we can calculate the reorder point as:
+Reorder point = (7 * 876.67) + 280.31 = 6393.69
+
+Therefore, the optimal inventory level for this product would be to maintain an inventory of around 6394 units.
+</code></pre>
+
+<p>ChatGPT의 답변 중 2. Optimal Inventory Level에 대한 부분을 발췌했습니다.
+최적의 재고 수준을 분석할 때에는 리드타임(lead time),Reorder Point(ROP), 안전재고량(safety stock) 개념이 사용됩니다. ChatGPT는 이 세가지 개념을 이용해서 최적의 재고 수준을 분석합니다.
+위 분석에 따르면, 예상 수요에 맞는 최적의 재고 수준은 6394개의 제품을 창고에 유지시키는 것입니다.</p>
+
+<h3 id="supply-chain-network-design">Supply Chain Network Design</h3>
+
+<pre><code class="language-Prompt">3. Supply Chain Network Design:
+To optimize the supply chain network design, we need to consider the transportation costs and supplier reliability. The transportation cost per unit of product is given as 0.2$, and the supplier reliability is assumed to be high.
+Given the demand forecast and production schedule, the company will need to transport 223 units of product to the warehouse each time a batch is produced. Assuming a total transportation distance of 1000 miles and a transportation cost of 0.2$ per unit, the total transportation cost per batch will be:
+Total transportation cost = 223 * 0.2$ * 1000 = 44,600$
+</code></pre>
+
+<p>ChatGPT의 답변 중 3. Supply Chain Network Design에 대한 부분을 발췌했습니다.
+위의 경우에는, 1.에서 구한 개념을 이용해서 총 운송비용 Total transportation cost =44,600$을 구했습니다.</p>
+
+<p>(ChatGPT는 제품을 보관하는 창고가 생산지에서 1000마일 떨어져있다고 가정했습니다.)</p>
+
+<p>여러번 프롬프트를 실행해본 결과 일반적인 경우는 운송비를 단축시킬 수 있는 간단한 조언에서 마무리됩니다.</p>
+
+<h3 id="4-continuous-improvement">4. Continuous Improvement</h3>
+
+<pre><code class="language-Prompt">4. Continuous Improvement:
+To continuously improve the production and supply plan, the company should regularly review and adjust the inputs to the OPM model based on actual demand and cost data. By tracking key performance indicators such as production efficiency, inventory turnover, and transportation costs, the company can identify areas for improvement
+</code></pre>
+
+<p>ChatGPT의 답변 중 4. Continuous Improvement에 대한 부분을 발췌했습니다.
+이 부분은 앞으로 공정을 개선시키려면 어떻게 해야할 지 ChatGPT가 조언을 하는 부분입니다.</p>
+
+<h2 id="정확성을-위한-프롬프트-개선">정확성을 위한 프롬프트 개선</h2>
+
+<h3 id="최적화-이론-공식의-구체화">최적화 이론 공식의 구체화</h3>
+
+<p>: 산업공학에서 어떤 현상을 표현하는 공식은 여러가지가 있습니다. 특히 본문에서 Safety stock을 나타내는 공식은 10개 이상입니다.
+Safety stock 공식을 따로 정해주지 않고 해당 프롬프트를 10번 정도를 실행한 결과 ,
+ChatGPT가 Safety stock 공식을 랜덤으로 가져오는 경우가 많았고 또한 EOQ의 개념을 유사개념인 EPQ랑 혼동을 하는 경우가 있었습니다.
+입력값이 같아도 공식의 차이에 의해 결과값이 달라지는 문제가 발생하여 기존 프롬프트에</p>
+
+<pre><code class="language-Prompt">(Use this fomula:
+EOQ = sqrt((2 * mean of monthly demand* setup cost) / (production cost * inventory cost))
+Reorder point = (lead time * mean of monthly demand) + safety stock
+safety stock = (number of standard deviations from the mean) * sqrt(lead time) * (Standard deviation of monthly demand)
+It is assumed that safety stock meets the demand of 95%.
+)
+</code></pre>
+
+<p>부분을 삽입하여 ChatGpt가 설명을 할 때 해당 형태의 공식만을 이용할 것을 지시하여 해결했습니다.
+여러가지 공식들 중에, 리드타임이 변수로 주어진 경우 효과적인 정확도를 도출하는 장점이 있는 greasly가 제시한 Safety stock공식을 채택했습니다.</p>
+
+<h3 id="부족한-매개변수의-구체화">부족한 매개변수의 구체화</h3>
+
+<p>실제로 OPM 이론은 실제 상황에서 나타날수 있는 여러 개의 변수를 받고 그 변수들을 고려해서 최적의 값을 도출해야 하기 때문에 많은 매개변수를 필요로 합니다.
+만약 너무 많은 변수들을 입력하게 된다면 일반적인 상황에 적합한 프롬프트를 설계할 수 없기 때문에 
+<code class="language-plaintext highlighter-rouge">It is assumed that safety stock meets the demand of 95%.</code> 의 가정을 삽입하여 일반적인 상황에서 문제를 해결할 수 있게끔 제작했습니다.
+이 부분을 수정하면 다른 조건에서도 공급망을 최적화 할 수 있습니다.</p>
+
+<h3 id="명시적으로-지정한-보고서-단락">명시적으로 지정한 보고서 단락</h3>
+
+<p>프롬프트 초안을 작성했을 때 ChatGPT는 자유분방한 보고서를 작성했습니다. ChatGPT가 작성하는 보고서가 일관되지 않았을 때 다음과 같은 문제가 생겼습니다.
+첫 번째로 입력값의 수치를 조금씩 변경해서 작성된 보고서를 비교하고자 하는 경우 ChatGPT가 동일한 주제로 보고서를 생성하지 않아 입력값의 수치를 증가시키거나 감소시켰을 때 보고서의 비교가 어려웠습니다.
+두 번째 문제는 보고서의 자유도가 상승함에 따라 ChatGPT가 수요자의 입장에서 원하는 주제의 정보를 알려주지 않는 경우가 많았습니다. 그렇기 때문에</p>
+
+<pre><code class="language-Prompt">This includes determining [1.the optimal production schedule], [2.optimal inventory level], 
+and [3.supply chain network design] and [4.continuous improvement] to meet demand and minimize costs.
+</code></pre>
+
+<p>프롬프트에 위와 같은 부분을 추가해서 ChatGPT가 [1.the optimal production schedule], [2.optimal inventory level], [3.supply chain network design],[4.continuous improvement] 라는 총 4가지 주제에 맞게 보고서를 작성할 수 있도록 설정했습니다.
+해당 주제에 맞는 보고서를 작성하게 함으로써 입력된 정보를 바탕으로 일관성 있는 정보를 얻을 수 있습니다.</p>
+:ET
