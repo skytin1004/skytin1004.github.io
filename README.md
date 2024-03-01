@@ -1,18 +1,16 @@
 # Welcome to skytin1004's Engineering Blog
 
-![Engineering Blog Banner](https://drive.google.com/uc?id=16yz0C5K0SjXjY1iLsgVs0I3li6E5JivQ)
-
 **Blog Link**: [skytin1004.github.io](https://skytin1004.github.io/)
 
 Hello and welcome to my blog! I'm skytin1004, a passionate developer and technology enthusiast. This is my personal space where I share insights, experiences, and thoughts related to the world of technology and software development.
 
 ## What This Blog Offers
 
-### Personal Development Stories
+### Development Stories
 
 - Insights into my journey as a developer and the lessons I've learned.
 
-### In-Depth Tutorials
+### Tutorials
 
 - Comprehensive guides to help you understand various tech concepts.
 
