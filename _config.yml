@@ -157,10 +157,10 @@ header_pages:
 
 # Page default value
 defaults:
-   home:
-     heading: "Skytin1004 Engineering Blog"
-     subheading: "The stories of my programming journey"
-     banner: "/assets/images/banners/home2.png"
+  home:
+    heading: "Skytin1004 Engineering Blog"
+    subheading: "The stories of my programming journey"
+    banner: "/assets/images/banners/home1.png"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
