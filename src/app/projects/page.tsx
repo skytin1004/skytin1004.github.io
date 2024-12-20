@@ -86,25 +86,6 @@ export default function ProjectsPage() {
                 <FaGithub />
               </a>
             </div>
-            <p className="text-gray-300 mb-6">
-              Contributed to Apache Iceberg by migrating test suites from JUnit4 to JUnit5 across multiple packages.
-              Enhanced documentation and improved code organization.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Java</span>
-              <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">JUnit</span>
-              <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Open Source</span>
-            </div>
-          </div>
-
-          {/* Apache Iceberg */}
-          <div className="bg-white/5 p-8 rounded-lg hover:bg-white/10 transition">
-            <div className="flex justify-between items-start mb-4">
-              <h2 className="text-2xl font-bold">Apache Iceberg</h2>
-            </div>
-            <div className="mb-8">
-              <h3 className="text-xl font-bold mb-2">Apache Iceberg Contributor</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">May 2023 - Nov 2023</p>
               <p className="mb-4">
                 Contributed to Apache Iceberg by modernizing test frameworks and improving documentation.
                 Made significant contributions in migrating test suites from JUnit4 to JUnit5 across multiple packages.
@@ -136,6 +117,10 @@ export default function ProjectsPage() {
                   </li>
                 </ul>
               </div>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Java</span>
+              <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">JUnit</span>
+              <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Open Source</span>
             </div>
           </div>
 
