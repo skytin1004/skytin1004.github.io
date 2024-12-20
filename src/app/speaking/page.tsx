@@ -1,4 +1,4 @@
-import { FaMicrophone, FaGlobe, FaYoutube } from 'react-icons/fa';
+import { FaMicrophone, FaGlobe } from 'react-icons/fa';
 import Image from 'next/image';
 
 export default function SpeakingPage() {
