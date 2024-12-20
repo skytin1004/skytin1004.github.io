@@ -130,13 +130,8 @@ export default function ProjectsPage() {
                     </a>
                   </li>
                   <li>
-                    <a href="https://github.com/apache/iceberg/pull/7996" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
-                      PR #7996: Switch tests to JUnit5 in Core, AWS, Deltalake, Snowflake packages
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/apache/iceberg/pull/7548" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
-                      PR #7548: Fix documentation related to AWS and revise markdown tables
+                    <a href="https://github.com/apache/iceberg/pull/7861" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      PR #7861: Core: Switch tests to Junit5 in rest, hadoop pakages
                     </a>
                   </li>
                 </ul>
