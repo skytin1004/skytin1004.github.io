@@ -97,6 +97,53 @@ export default function ProjectsPage() {
             </div>
           </div>
 
+          {/* Apache Iceberg */}
+          <div className="bg-white/5 p-8 rounded-lg hover:bg-white/10 transition">
+            <div className="flex justify-between items-start mb-4">
+              <h2 className="text-2xl font-bold">Apache Iceberg</h2>
+            </div>
+            <div className="mb-8">
+              <h3 className="text-xl font-bold mb-2">Apache Iceberg Contributor</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4">May 2023 - Nov 2023</p>
+              <p className="mb-4">
+                Contributed to Apache Iceberg by modernizing test frameworks and improving documentation.
+                Made significant contributions in migrating test suites from JUnit4 to JUnit5 across multiple packages.
+              </p>
+              <ul className="list-disc pl-5 mb-4 space-y-2">
+                <li>
+                  Migrated test suites from JUnit4 to JUnit5 in various packages including avro, core, aws, deltalake, snowflake,
+                  orc, rest, hadoop, catalog, encryption, inmemory, io, view, deletes, expressions, and auth packages
+                </li>
+                <li>
+                  Implemented s3MockExtension annotation while migrating AWS package tests
+                </li>
+                <li>
+                  Enhanced documentation related to AWS and revised markdown tables
+                </li>
+              </ul>
+              <div className="space-y-2">
+                <p className="font-semibold">Key Pull Requests:</p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>
+                    <a href="https://github.com/apache/iceberg/pull/8380" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      PR #8380: Switch tests from JUnit4 to JUnit5 in avro, data.avro package
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/apache/iceberg/pull/7996" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      PR #7996: Switch tests to JUnit5 in Core, AWS, Deltalake, Snowflake packages
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/apache/iceberg/pull/7548" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      PR #7548: Fix documentation related to AWS and revise markdown tables
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Microsoft Phi-3 Cookbook Contributions */}
           <div className="bg-white/5 p-8 rounded-lg hover:bg-white/10 transition">
             <div className="flex justify-between items-start mb-4">
