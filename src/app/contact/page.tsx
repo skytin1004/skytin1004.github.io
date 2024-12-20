@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaBlog } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export default function ContactPage() {
   return (
@@ -23,35 +23,39 @@ export default function ContactPage() {
               </div>
             </a>
 
-            <a 
-              href="https://www.linkedin.com/in/minseok-song-b6347b26a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
-            >
-              <div className="flex items-center gap-4">
-                <FaLinkedin className="text-2xl text-blue-400" />
-                <div>
-                  <h2 className="text-xl font-semibold">LinkedIn</h2>
-                  <p className="text-gray-300">Minseok Song</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              {/* GitHub */}
+              <a 
+                href="https://github.com/skytin1004"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
+              >
+                <div className="flex items-center gap-4">
+                  <FaGithub className="text-2xl text-blue-400" />
+                  <div>
+                    <h2 className="text-xl font-semibold">GitHub</h2>
+                    <p className="text-gray-300">skytin1004</p>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
 
-            <a 
-              href="https://skytin1004.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
-            >
-              <div className="flex items-center gap-4">
-                <FaBlog className="text-2xl text-blue-400" />
-                <div>
-                  <h2 className="text-xl font-semibold">Blog</h2>
-                  <p className="text-gray-300">skytin1004.github.io</p>
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/in/minseok-song-b6347b26a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
+              >
+                <div className="flex items-center gap-4">
+                  <FaLinkedin className="text-2xl text-blue-400" />
+                  <div>
+                    <h2 className="text-xl font-semibold">LinkedIn</h2>
+                    <p className="text-gray-300">Minseok Song</p>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
 
           {/* Message */}
