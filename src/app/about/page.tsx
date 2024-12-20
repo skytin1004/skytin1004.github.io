@@ -99,6 +99,19 @@ export default function AboutPage() {
                 Article on "Fine-Tune and Integrate Custom Phi-3 Models" received over 11,500 views
               </p>
             </div>
+            <div className="bg-white/5 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold">Microsoft Educator Developer Blog: Most Viewed (November 2023)</h3>
+              <p className="text-gray-300 mt-2">
+                Article on "Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Lang Chain)" received over 21,600 views
+              </p>
+            </div>
+            <div className="bg-white/5 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold">2023 ChatGPT Microsoft Azurethon Award</h3>
+              <p className="text-gray-300 mt-2">
+              Won the Prompt Engineering Services category award at Microsoft Azurethon. Created an innovative ChatGPT prompt 
+              that generates supply chain optimization reports using Operations Planning Models from industrial engineering.
+              </p>
+            </div>
           </div>
         </section>
       </div>

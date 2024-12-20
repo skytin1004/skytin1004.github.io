@@ -66,7 +66,7 @@ export default function ProjectsPage() {
               Led the development team for Inha Bigdata Analysis Society's web platform. 
               Implemented backend services and data engineering solutions to support the society's activities.
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Java</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Spring Boot</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">SQL</span>
@@ -117,7 +117,7 @@ export default function ProjectsPage() {
                   </li>
                 </ul>
               </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Java</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">JUnit</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Open Source</span>
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
                 <li>22+ merged pull requests improving documentation and features</li>
               </ul>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Azure AI Studio</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Phi-3</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Documentation</span>
@@ -289,7 +289,7 @@ export default function ProjectsPage() {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Azure OpenAI</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Azure AI Studio</span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded text-sm">Technical Writing</span>
