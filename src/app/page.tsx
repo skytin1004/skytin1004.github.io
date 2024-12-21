@@ -31,7 +31,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <p>Maintainer of Co-op Translator at Microsoft Azure</p>
+            <p>Maintainer of Azure Co-op Translator</p>
             <p>Microsoft Learn Student Ambassador</p>
           </motion.div>
 
@@ -83,12 +83,13 @@ export default function Home() {
             <div className="space-y-6">
               <p className="text-gray-300">
                 An open-source tool that automates multilingual translations for markdown and images,
-                making technical documentation accessible worldwide. Built with Azure AI Services.
+                making technical documentation accessible worldwide. I redesigned the initial project
+                which was later adopted by Azure as an official open-source project.
               </p>
               <ul className="space-y-3 text-gray-300 list-disc list-inside">
-                <li>Developed and maintained an automated multilingual translation system using Azure AI services</li>
+                <li>Led the redesign of the project that became an official Azure open-source tool</li>
                 <li>Integrated Azure OpenAI and Azure Computer Vision for text extraction and translation</li>
-                <li>Managed the transition of the Co-op Translator project to open source on GitHub</li>
+                <li>Currently serving as the maintainer, managing contributions and project direction</li>
               </ul>
               <div className="flex gap-4">
                 <a 
