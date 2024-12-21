@@ -3,48 +3,74 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-b from-gray-900 to-gray-800">
-        <div className="max-w-4xl text-center space-y-8">
-          <h1 className="text-6xl font-bold">
-            Hello, I'm <span className="text-blue-400">Minseok Song</span>
-          </h1>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl text-center space-y-8"
+        >
+          <motion.h1 
+            className="text-6xl font-bold"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            Hello, I'm <span className="text-blue-400 hover:text-blue-300 transition-colors">Minseok Song</span>
+          </motion.h1>
           
-          <div className="space-y-2 text-2xl text-gray-300">
+          <motion.div 
+            className="space-y-2 text-2xl text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
             <p>Maintainer of Co-op Translator at Microsoft Azure</p>
             <p>Microsoft Learn Student Ambassador</p>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-center gap-6 text-3xl">
+          <motion.div 
+            className="flex justify-center gap-6 text-3xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
             <a href="https://github.com/skytin1004" target="_blank" rel="noopener noreferrer" 
-               className="hover:text-blue-400 transition">
+               className="hover:text-blue-400 transition-all hover:scale-110">
               <FaGithub />
             </a>
             <a href="https://www.linkedin.com/in/minseok-song-b6347b26a" target="_blank" rel="noopener noreferrer"
-               className="hover:text-blue-400 transition">
+               className="hover:text-blue-400 transition-all hover:scale-110">
               <FaLinkedin />
             </a>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-center gap-4">
+          <motion.div 
+            className="flex justify-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
             <Link
               href="/projects"
-              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition"
+              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all hover:scale-105"
             >
               View My Work
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 bg-white/10 rounded-lg hover:bg-white/20 transition"
+              className="px-6 py-3 bg-white/10 rounded-lg hover:bg-white/20 transition-all hover:scale-105"
             >
               Contact Me
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Featured Project Section */}

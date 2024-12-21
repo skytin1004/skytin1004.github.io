@@ -7,17 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Minseok Song | Portfolio",
-  description: "Software Engineer passionate about AI, Cloud Computing, and Open Source",
-  icons: [
-    {
-      rel: 'icon',
-      url: '/images/fav.png',
-    },
-    {
-      rel: 'apple-touch-icon',
-      url: '/images/fav.png',
-    },
-  ],
+  description: "Welcome to my portfolio",
 };
 
 export default function RootLayout({
