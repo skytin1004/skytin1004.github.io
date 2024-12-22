@@ -80,33 +80,45 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6">
             <div className="bg-white/5 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold">Microsoft Learn Student Ambassador</h3>
-              <p className="text-gray-400">2023 - Present</p>
+              <h3 className="text-xl font-semibold">Inha Open Source Software Festival - 1st Place Award (President&apos;s Award)</h3>
+              <p className="text-gray-400">December 2024</p>
               <p className="text-gray-300 mt-2">
-                Part of a global group of campus leaders who are eager to help fellow students, create robust tech communities 
-                and develop technical and career skills for the future.
+                Received the highest recognition for outstanding contributions to the Azure Co-op Translator project. 
+                Led innovative developments in open-source software, presenting the project&apos;s impact at INHA Creative Space. 
               </p>
             </div>
             <div className="bg-white/5 p-6 rounded-lg">
               <h3 className="text-xl font-semibold">Microsoft Educator Developer Blog: Most Viewed (September 2024)</h3>
+              <p className="text-gray-400">September 2024</p>
               <p className="text-gray-300 mt-2">
                 Article on "Evaluate Fine-tuned Phi-3 / 3.5 Models in Azure AI Studio" received over 8,000 views
               </p>
             </div>
             <div className="bg-white/5 p-6 rounded-lg">
               <h3 className="text-xl font-semibold">Microsoft Educator Developer Blog: Most Viewed (July 2024)</h3>
+              <p className="text-gray-400">July 2024</p>
               <p className="text-gray-300 mt-2">
                 Article on "Fine-Tune and Integrate Custom Phi-3 Models" received over 11,500 views
               </p>
             </div>
             <div className="bg-white/5 p-6 rounded-lg">
               <h3 className="text-xl font-semibold">Microsoft Educator Developer Blog: Most Viewed (November 2023)</h3>
+              <p className="text-gray-400">November 2023</p>
               <p className="text-gray-300 mt-2">
                 Article on "Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Lang Chain)" received over 21,600 views
               </p>
             </div>
             <div className="bg-white/5 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold">Microsoft Learn Student Ambassador</h3>
+              <p className="text-gray-400">August 2023 - Present</p>
+              <p className="text-gray-300 mt-2">
+                Part of a global group of campus leaders who are eager to help fellow students, create robust tech communities 
+                and develop technical and career skills for the future.
+              </p>
+            </div>
+            <div className="bg-white/5 p-6 rounded-lg">
               <h3 className="text-xl font-semibold">2023 ChatGPT Microsoft Azurethon Award</h3>
+              <p className="text-gray-400">May 2023</p>
               <p className="text-gray-300 mt-2">
               Won the Prompt Engineering Services category award at Microsoft Azurethon. Created an innovative ChatGPT prompt 
               that generates supply chain optimization reports using Operations Planning Models from industrial engineering.
