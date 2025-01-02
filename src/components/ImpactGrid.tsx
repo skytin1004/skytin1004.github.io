@@ -18,7 +18,7 @@ const showcaseItems = [
     iconColor: 'text-blue-400',
     title: 'Automating Tasks',
     impact: 'Azure / Co-op Translator',
-    description: 'Developing open-source tools that revolutionize how teams work with AI',
+    description: 'Redesigning and enhancing existing Co-op Translator into Python-based CLI solution to automate technical documentation translation workflows and migrating to Azure open-source',
     gradient: 'from-blue-600/20 to-cyan-600/20',
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30'
   },
