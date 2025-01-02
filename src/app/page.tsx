@@ -111,31 +111,16 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 px-8">
+      {/* Impact Grid Section */}
+      <section className="py-20 px-8 bg-gradient-to-b from-gray-900 to-gray-800">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <StatsCard 
-              number={127000} 
-              label="Developers Reached"
-              delay={0.2}
-            />
-            <StatsCard 
-              number={1350} 
-              label="LinkedIn Followers"
-              delay={0.3}
-            />
-            <StatsCard 
-              number={923} 
-              label="Content Reactions"
-              delay={0.4}
-            />
-            <StatsCard 
-              number={7} 
-              label="Technical Tutorials"
-              delay={0.5}
-            />
-          </div>
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+          </motion.h2>
+          <ImpactGrid />
         </div>
       </section>
 

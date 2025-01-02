@@ -7,17 +7,17 @@ const showcaseItems = [
   {
     icon: FaLightbulb,
     iconColor: 'text-yellow-400',
-    title: 'Empowering Developers',
-    impact: '40,000+ Developers Reached',
-    description: 'Creating comprehensive guides and documentation that simplify complex AI implementations',
+    title: 'Sharing Assets',
+    impact: 'Technical Writing & Tools',
+    description: 'Creating comprehensive guides and documentation at Microsoft Tech Community and Microsoft Phi-3 CookBook, and transforming POC projects into Azure open-source tools and maintenance',
     gradient: 'from-yellow-600/20 to-orange-600/20',
     hoverGradient: 'hover:from-yellow-500/30 hover:to-orange-500/30'
   },
   {
     icon: FaTools,
     iconColor: 'text-blue-400',
-    title: 'Building the Future',
-    impact: 'Azure Co-op Translator',
+    title: 'Automating Tasks',
+    impact: 'Azure / Co-op Translator',
     description: 'Developing open-source tools that revolutionize how teams work with AI',
     gradient: 'from-blue-600/20 to-cyan-600/20',
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30'
@@ -25,7 +25,7 @@ const showcaseItems = [
   {
     icon: FaUsers,
     iconColor: 'text-purple-400',
-    title: 'Driving Innovation',
+    title: 'Community Leadership',
     impact: 'Community Leadership',
     description: 'Leading technical communities and sharing knowledge through practical implementations',
     gradient: 'from-purple-600/20 to-pink-600/20',
