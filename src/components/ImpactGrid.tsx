@@ -26,8 +26,8 @@ const showcaseItems = [
     icon: FaUsers,
     iconColor: 'text-purple-400',
     title: 'Community Leadership',
-    impact: 'Community Leadership',
-    description: 'Leading technical communities and sharing knowledge through practical implementations',
+    impact: 'MLSA & IBAS Lead',
+    description: 'Leading Microsoft communities as MLSA and speaking at MS events, while leading IBAS development team in migrating society platform from Django to Spring Boot, serving 150+ members',
     gradient: 'from-purple-600/20 to-pink-600/20',
     hoverGradient: 'hover:from-purple-500/30 hover:to-pink-500/30'
   }
