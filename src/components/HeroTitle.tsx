@@ -1,44 +1,65 @@
 'use client';
 
 import { motion, useAnimationControls } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const roles = [
-  'AI Engineer',
+  'Open Source Contributor',
+  'Community Leader',
   'Maintainer of Co-op Translator',
   'Industrial Management & AI Engineering',
   'Microsoft Learn Student Ambassador',
-  'Open Source Contributor',
   'Technical Writer',
-  'Community Leader'
+  'AI Engineer'
 ];
 
 export default function HeroTitle() {
   const [roleIndex, setRoleIndex] = useState(0);
   const controls = useAnimationControls();
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+      if (isMounted.current) {
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   useEffect(() => {
     const animate = async () => {
-      await controls.start({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1 }
-      });
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      if (roleIndex !== roles.length - 1) {
+      if (!isMounted.current) return;
+
+      try {
         await controls.start({
-          opacity: 0,
-          y: 20,
-          transition: { duration: 0.5 }
+          opacity: 1,
+          y: 0,
+          transition: { duration: 1 }
         });
+
+        if (!isMounted.current) return;
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        if (!isMounted.current) return;
+        if (roleIndex !== roles.length - 1) {
+          await controls.start({
+            opacity: 0,
+            y: 20,
+            transition: { duration: 0.5 }
+          });
+        }
+      } catch (error) {
+        // Animation was interrupted, which is fine during unmount
       }
     };
 
@@ -54,6 +75,14 @@ export default function HeroTitle() {
         delay: i * 0.05,
       },
     }),
+  };
+
+  const calculateLetterIndex = (wordIndex: number, letterIndex: number, words: string[]): number => {
+    let totalIndex = 0;
+    for (let i = 0; i < wordIndex; i++) {
+      totalIndex += words[i].length + 1;
+    }
+    return totalIndex + letterIndex;
   };
 
   return (
@@ -78,19 +107,26 @@ export default function HeroTitle() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="text-2xl md:text-3xl text-gray-400"
+          className="text-2xl md:text-3xl text-gray-400 flex flex-wrap justify-center gap-x-2"
         >
-          {roles[roleIndex].split('').map((letter, i) => (
-            <motion.span
-              key={i}
-              variants={letterVariants}
-              custom={i}
-              initial="hidden"
-              animate="visible"
-              className="inline-block"
-            >
-              {letter}
-            </motion.span>
+          {roles[roleIndex].split(' ').map((word, wordIndex, words) => (
+            <span key={wordIndex} className="inline-flex">
+              {word.split('').map((letter, letterIndex) => (
+                <motion.span
+                  key={`${wordIndex}-${letterIndex}`}
+                  variants={letterVariants}
+                  custom={calculateLetterIndex(wordIndex, letterIndex, words)}
+                  initial="hidden"
+                  animate="visible"
+                  className="inline-block"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+              {wordIndex < words.length - 1 && (
+                <span className="inline-block">&nbsp;</span>
+              )}
+            </span>
           ))}
         </motion.div>
       </div>
