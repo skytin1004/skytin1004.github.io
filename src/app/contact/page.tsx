@@ -1,76 +1,114 @@
-import React from 'react';
+'use client';
+
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
+const contacts = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/skytin1004',
+    icon: FaGithub,
+    color: 'hover:text-gray-300',
+    description: 'Check out my open-source projects and contributions'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/minseok-song-b6347b26a',
+    icon: FaLinkedin,
+    color: 'hover:text-blue-400',
+    description: 'Connect with me professionally and explore my career journey'
+  },
+  {
+    name: 'Email',
+    url: 'mailto:skytin1004@gmail.com',
+    icon: FaEnvelope,
+    color: 'hover:text-red-400',
+    description: 'Send me an email for collaborations or inquiries'
+  }
+];
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen py-20 px-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-12">Get in Touch</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Contact Links */}
-          <div className="space-y-8">
-            <a 
-              href="mailto:skytin1004@gmail.com"
-              className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
-            >
-              <div className="flex items-center gap-4">
-                <FaEnvelope className="text-2xl text-blue-400" />
-                <div>
-                  <h2 className="text-xl font-semibold">Email</h2>
-                  <p className="text-gray-300">skytin1004@gmail.com</p>
-                </div>
-              </div>
-            </a>
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
+      {/* Hero Section */}
+      <section className="relative h-[40vh]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-600/30 via-transparent to-purple-600/30" />
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-20" />
+        <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+              Contact Me
+            </h1>
+            <p className="text-xl text-gray-300 max-w-2xl">
+              Let's connect! Whether you're interested in collaboration, have questions about my work, 
+              or just want to say hello, I'd love to hear from you.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              {/* GitHub */}
-              <a 
-                href="https://github.com/skytin1004"
+      {/* Contact Grid */}
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {contacts.map((contact, index) => (
+              <motion.a
+                key={contact.name}
+                href={contact.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative bg-white/5 rounded-3xl p-8 backdrop-blur-sm border border-white/10 overflow-hidden"
               >
-                <div className="flex items-center gap-4">
-                  <FaGithub className="text-2xl text-blue-400" />
-                  <div>
-                    <h2 className="text-xl font-semibold">GitHub</h2>
-                    <p className="text-gray-300">skytin1004</p>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative space-y-4">
+                  <div className="flex items-center gap-4">
+                    <contact.icon className={`text-4xl ${contact.color} transition-colors`} />
+                    <h2 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                      {contact.name}
+                    </h2>
+                  </div>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                    {contact.description}
+                  </p>
+                  <div className="pt-4">
+                    <span className="text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
+                      Connect →
+                    </span>
                   </div>
                 </div>
-              </a>
-
-              {/* LinkedIn */}
-              <a 
-                href="https://www.linkedin.com/in/minseok-song-b6347b26a"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-6 bg-white/5 rounded-lg hover:bg-white/10 transition"
-              >
-                <div className="flex items-center gap-4">
-                  <FaLinkedin className="text-2xl text-blue-400" />
-                  <div>
-                    <h2 className="text-xl font-semibold">LinkedIn</h2>
-                    <p className="text-gray-300">Minseok Song</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Message */}
-          <div className="bg-white/5 p-8 rounded-lg">
-            <h2 className="text-2xl font-bold mb-6">Let's Connect!</h2>
-            <p className="text-gray-300 leading-relaxed">
-              I'm always interested in new opportunities, collaborations, and connecting with fellow developers. 
-              Whether you have a question about my projects or just want to say hi, feel free to reach out!
-            </p>
-            <p className="text-gray-300 mt-4">
-              Currently maintaining Co-op Translator at Microsoft Azure and actively contributing to open-source projects.
-            </p>
+              </motion.a>
+            ))}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Additional Info */}
+      <section className="relative py-20 bg-white/5">
+        <div className="max-w-7xl mx-auto px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center space-y-8"
+          >
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+              Looking Forward to Connecting
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              I'm always open to new opportunities, collaborations, and interesting conversations. 
+              Currently maintaining Co-op Translator at Microsoft Azure and actively contributing to open-source projects.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   );
 }
