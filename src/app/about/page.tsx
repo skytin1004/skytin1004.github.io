@@ -158,31 +158,50 @@ export default function AboutPage() {
             <AwardCard
               title="Inha Open Source Software Festival - 1st Place"
               date="December 2024"
-              description="Received the highest recognition for outstanding contributions to the Azure Co-op Translator project. Led innovative developments in open-source software, presenting the project's impact at INHA Creative Space."
+              organization="Inha University"
+              description="Received the highest recognition for outstanding contributions to the Azure Co-op Translator project. Led innovative developments in open-source software."
               iconType="trophy"
               iconColor="text-yellow-400"
-              imagePath="/images/awards/oss-festival.jpg"
+              imagePath={[
+                "/images/awards/i-oss-award.png",
+                "/images/awards/i-oss-award-2.png"
+              ]}
             />
             <AwardCard
               title="Microsoft Educator Developer Blog: Most Viewed"
               date="September 2024"
-              description="Article on 'Evaluate Fine-tuned Phi-3 / 3.5 Models in Azure AI Studio' received over 8,000 views"
+              organization="Microsoft Tech Community"
+              description="Article on 'Fine-Tune and Integrate Custom Phi-3 / 3.5 Models in Azure AI Studio' received over 8,000 views"
               iconType="newspaper"
               iconColor="text-blue-400"
+              imagePath={[
+                "/images/fintune-phi-aistudio.png",
+                "/images/awards/finetune-phi-ai-studio-award.png"
+              ]}
             />
             <AwardCard
               title="Microsoft Educator Developer Blog: Most Viewed"
               date="July 2024"
+              organization="Microsoft Tech Community"
               description="Article on 'Fine-Tune and Integrate Custom Phi-3 Models' received over 11,500 views"
               iconType="newspaper"
               iconColor="text-blue-400"
+              imagePath={[
+                "/images/finetune-phi.png",
+                "/images/awards/finetune-phi-award.png"
+              ]}
             />
             <AwardCard
               title="Microsoft Educator Developer Blog: Most Viewed"
               date="November 2023"
+              organization="Microsoft Tech Community"
               description="Article on 'Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Lang Chain)' received over 21,600 views"
               iconType="newspaper"
               iconColor="text-blue-400"
+              imagePath={[
+                "/images/teach-chatgpt.png",
+                "/images/awards/teach-chatgpt-award.jpeg"
+              ]}
             />
             <AwardCard
               title="Microsoft Learn Student Ambassador"
@@ -198,66 +217,8 @@ export default function AboutPage() {
               description="Won the Prompt Engineering Services category award at Microsoft Azurethon. Created an innovative ChatGPT prompt that generates supply chain optimization reports using Operations Planning Models from industrial engineering."
               iconType="trophy"
               iconColor="text-yellow-400"
-              imagePath="/images/awards/azurethon.jpg"
+              imagePath="/images/awards/azurethon.png"
             />
-          </div>
-        </motion.section>
-
-        {/* Contributions Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="space-y-8"
-        >
-          <h2 className="text-3xl font-bold flex items-center gap-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-            <FaTools className="text-green-400" />
-            Contributions & Tools
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div 
-              className="group relative bg-white/5 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:border-blue-500/50 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-6">
-                  <FaShareAlt className="text-2xl text-blue-400" />
-                  <h3 className="text-2xl font-semibold">Technical Assets</h3>
-                </div>
-                <p className="text-gray-300 mb-6">
-                  Created and maintained comprehensive guides for AI model fine-tuning and integration, 
-                  reaching over 127,000 developers through Microsoft's platform.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-500/20 rounded-full text-sm">Documentation</span>
-                  <span className="px-3 py-1 bg-blue-500/20 rounded-full text-sm">Tutorials</span>
-                  <span className="px-3 py-1 bg-blue-500/20 rounded-full text-sm">Best Practices</span>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="group relative bg-white/5 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-6">
-                  <FaGithub className="text-2xl text-purple-400" />
-                  <h3 className="text-2xl font-semibold">Open Source Tools</h3>
-                </div>
-                <p className="text-gray-300 mb-6">
-                  Developed Azure Co-op Translator and other open-source tools to streamline 
-                  AI implementation processes and enhance development workflows.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Azure Tools</span>
-                  <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Process Automation</span>
-                  <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Developer Tools</span>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </motion.section>
       </div>
