@@ -166,6 +166,7 @@ export default function AboutPage() {
                 "/images/awards/i-oss-award.png",
                 "/images/awards/i-oss-award-2.png"
               ]}
+              link="https://swuniv.inha.ac.kr/swuniv/12703/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGc3d1bml2JTJGMzExMyUyRjE0MTU0NiUyRmFydGNsVmlldy5kbyUzRnBhZ2UlM0QxJTI2c3JjaENvbHVtbiUzRCUyNnNyY2hXcmQlM0QlMjZiYnNDbFNlcSUzRCUyNmJic09wZW5XcmRTZXElM0QlMjZyZ3NCZ25kZVN0ciUzRCUyNnJnc0VuZGRlU3RyJTNEJTI2aXNWaWV3TWluZSUzRGZhbHNlJTI2cGFzc3dvcmQlM0QlMjY%3D"
             />
             <AwardCard
               title="Microsoft Educator Developer Blog: Most Viewed"
@@ -178,6 +179,7 @@ export default function AboutPage() {
                 "/images/fintune-phi-aistudio.png",
                 "/images/awards/finetune-phi-ai-studio-award.png"
               ]}
+              link="https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in-azure-ai-studio/4191726?wt.mc_id=studentamb_279723"
             />
             <AwardCard
               title="Microsoft Educator Developer Blog: Most Viewed"
@@ -190,6 +192,7 @@ export default function AboutPage() {
                 "/images/finetune-phi.png",
                 "/images/awards/finetune-phi-award.png"
               ]}
+              link="https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-step-by-step-guide/4178612?wt.mc_id=studentamb_279723"
             />
             <AwardCard
               title="Microsoft Educator Developer Blog: Most Viewed"
@@ -202,6 +205,7 @@ export default function AboutPage() {
                 "/images/teach-chatgpt.png",
                 "/images/awards/teach-chatgpt-award.jpeg"
               ]}
+              link="https://techcommunity.microsoft.com/blog/educatordeveloperblog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-lang-chain/3969713?wt.mc_id=studentamb_279723"
             />
             <AwardCard
               title="Microsoft Learn Student Ambassador"
@@ -209,6 +213,8 @@ export default function AboutPage() {
               description="Part of a global group of campus leaders who are eager to help fellow students, create robust tech communities and develop technical and career skills for the future."
               iconType="users"
               iconColor="text-purple-400"
+              imagePath="/images/mlsa.png"
+              link="https://mvp.microsoft.com/studentambassadors/certificate/e67c5642-76f5-4d5d-858b-f58a17c6bdcd"
             />
             <AwardCard
               title="2023 ChatGPT Microsoft Azurethon Award"
@@ -217,7 +223,11 @@ export default function AboutPage() {
               description="Won the Prompt Engineering Services category award at Microsoft Azurethon. Created an innovative ChatGPT prompt that generates supply chain optimization reports using Operations Planning Models from industrial engineering."
               iconType="trophy"
               iconColor="text-yellow-400"
-              imagePath="/images/awards/azurethon.png"
+              imagePath={[
+                "/images/awards/azurethon.png",
+                "/images/awards/2023ChatGPTMSazurethon.jpg"
+              ]}
+              link="https://aifactory.space/task/2290/discussion/268"
             />
           </div>
         </motion.section>

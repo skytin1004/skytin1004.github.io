@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { FaTrophy, FaNewspaper, FaUsers, FaTimes } from 'react-icons/fa';
+import { FaTrophy, FaNewspaper, FaUsers, FaTimes, FaShareAlt } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface AwardCardProps {
@@ -13,6 +13,7 @@ interface AwardCardProps {
   iconColor: string;
   imagePath?: string | string[];
   organization?: string;
+  link?: string;
 }
 
 const IconMap = {
@@ -28,7 +29,8 @@ export default function AwardCard({
   iconType,
   iconColor,
   imagePath,
-  organization
+  organization,
+  link
 }: AwardCardProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isHovered, setIsHovered] = useState<number | null>(null);
@@ -36,7 +38,7 @@ export default function AwardCard({
 
   return (
     <motion.div 
-      className="bg-white/5 p-6 rounded-lg"
+      className="group bg-white/5 p-6 rounded-lg relative overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -79,71 +81,92 @@ export default function AwardCard({
         )}
       </AnimatePresence>
 
-      <div className="flex items-center gap-3">
-        <Icon className={`${iconColor} text-2xl`} />
-        <h3 className="text-xl font-semibold">{title}</h3>
-      </div>
-      <p className="text-gray-400">{date}</p>
-      {organization && (
-        <p className="text-gray-400">{organization}</p>
-      )}
-      
-      {imagePath && (
-        <div className="mt-4 grid grid-cols-2 gap-4">
-          {Array.isArray(imagePath) ? (
-            imagePath.map((path, index) => (
+      <div className="relative z-10">
+        <div className="flex items-center gap-3">
+          <Icon className={`${iconColor} text-2xl`} />
+          <h3 className="text-xl font-semibold">{title}</h3>
+        </div>
+        <p className="text-gray-400">{date}</p>
+        {organization && (
+          <p className="text-gray-400">{organization}</p>
+        )}
+        
+        {imagePath && (
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            {Array.isArray(imagePath) ? (
+              imagePath.map((path, index) => (
+                <motion.div
+                  key={index}
+                  className="cursor-pointer relative h-48 group"
+                  onHoverStart={() => setIsHovered(index)}
+                  onHoverEnd={() => setIsHovered(null)}
+                  onClick={() => setSelectedImage(path)}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Image
+                    src={path}
+                    alt={`${title} Certificate ${index + 1}`}
+                    fill
+                    className="rounded-lg transition-all duration-300 object-contain bg-gray-900/50"
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={false}
+                    animate={{ opacity: isHovered === index ? 1 : 0 }}
+                  >
+                    <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                      <p className="text-sm font-medium">Click to view full image</p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))
+            ) : (
               <motion.div
-                key={index}
-                className="cursor-pointer relative h-48 group"
-                onHoverStart={() => setIsHovered(index)}
-                onHoverEnd={() => setIsHovered(null)}
-                onClick={() => setSelectedImage(path)}
+                className="cursor-pointer col-span-2 relative h-48 group"
+                onClick={() => setSelectedImage(imagePath)}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <Image
-                  src={path}
-                  alt={`${title} Certificate ${index + 1}`}
+                  src={imagePath}
+                  alt={`${title} Certificate`}
                   fill
                   className="rounded-lg transition-all duration-300 object-contain bg-gray-900/50"
                 />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={false}
-                  animate={{ opacity: isHovered === index ? 1 : 0 }}
-                >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                     <p className="text-sm font-medium">Click to view full image</p>
                   </div>
-                </motion.div>
-              </motion.div>
-            ))
-          ) : (
-            <motion.div
-              className="cursor-pointer col-span-2 relative h-48 group"
-              onClick={() => setSelectedImage(imagePath)}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Image
-                src={imagePath}
-                alt={`${title} Certificate`}
-                fill
-                className="rounded-lg transition-all duration-300 object-contain bg-gray-900/50"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                  <p className="text-sm font-medium">Click to view full image</p>
                 </div>
-              </div>
-            </motion.div>
-          )}
-        </div>
-      )}
+              </motion.div>
+            )}
+          </div>
+        )}
+        
+        <p className="text-gray-300 mt-4">
+          {description}
+        </p>
+        
+        {link && (
+          <motion.a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaShareAlt className="text-sm" />
+            View More
+          </motion.a>
+        )}
+      </div>
       
-      <p className="text-gray-300 mt-4">
-        {description}
-      </p>
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        initial={false}
+      />
     </motion.div>
   );
 }
