@@ -62,12 +62,12 @@ export default function FeaturedProject({
           </div>
         </div>
 
-        <div className="relative h-48 mb-4 rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-500">
+        <div className="relative h-64 mb-4 rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-500">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
 

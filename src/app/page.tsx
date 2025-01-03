@@ -190,7 +190,7 @@ export default function Home() {
           <FeaturedProject
             title="Azure Co-op Translator"
             description="An open-source tool that automates multilingual translations for markdown and images, making technical documentation accessible worldwide. Helping thousands of developers access technical content in their native language."
-            image="/images/coop-translator.png"
+            image="/images/co-op-translator.png"
             github="https://github.com/Azure/co-op-translator"
             external="https://techcommunity.microsoft.com/t5/educator-developer-blog/automate-markdown-and-image-translations-using-co-op-translator/ba-p/4263474"
             tags={['Azure OpenAI', 'Azure Computer Vision', 'Python', 'Open Source']}
