@@ -1,15 +1,17 @@
 'use client';
 
-import { FaGithub, FaExternalLinkAlt, FaAward, FaCode, FaDatabase } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaAward, FaCode, FaDatabase, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '@/components/SectionTitle';
 import AnimatedCard from '@/components/AnimatedCard';
 import GradientText from '@/components/GradientText';
+import Image from 'next/image';
+import { useState } from 'react';
 
 const projects = [
   {
     title: 'Co-op Translator',
-    description: 'An open-source tool that automates multilingual translations for markdown and images, making technical documentation accessible worldwide.',
+    description: 'Redesigned and rebuilt the existing POC version of Co-op Translator into a Python CLI tool. This open-source project helps developers translate their technical documentation into multiple languages by automatically handling markdown files and embedded images.It preserves markdown formatting while translating content and can extract, translate, and replace text from images, making documentation truly accessible worldwide. Currently serving as the main maintainer after successfully transitioning it to Azure Opensource.',
     icon: FaCode,
     gradient: 'from-blue-600/20 to-cyan-600/20',
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
@@ -22,18 +24,34 @@ const projects = [
       'Integrated Azure OpenAI and Azure Computer Vision for text extraction and translation',
       'Managed the transition of the Co-op Translator project to open source on GitHub'
     ],
-    tags: ['Python', 'Azure OpenAI', 'Azure Computer Vision']
+    tags: ['Python', 'Azure OpenAI', 'Azure Computer Vision'],
+    images: [
+      '/images/co-op-translator.png',
+      '/images/projects/co-op-translator-demo.png'
+    ]
   },
   {
-    title: 'IBAS Web Service',
-    description: 'Led the development team for Inha Bigdata Analysis Society\'s web platform. Implemented backend services and data engineering solutions.',
+    title: 'Inha Bigdata Analysis Society (IBAS) Web Service',
+    description: 'Led the development of IBAS\'s Learning Management System (LMS) backend features. Implemented contest and project board systems with advanced sorting and file management capabilities. Established project structure with code conventions using SpotlessApply and integrated automated checks via GitHub Actions. Created comprehensive project documentation including API specifications, architecture diagrams, and development guidelines. Handled data migration and implemented file classification system for thumbnails, images, and other file types.',
     icon: FaDatabase,
     gradient: 'from-purple-600/20 to-pink-600/20',
     hoverGradient: 'hover:from-purple-500/30 hover:to-pink-500/30',
     links: {
+      github: 'https://github.com/InhaBas',
       external: 'https://www.inhabas.com/'
     },
-    tags: ['Java', 'Spring Boot', 'SQL']
+    highlights: [
+      'Implemented contest and project board systems with advanced sorting functionality',
+      'Created comprehensive project documentation',
+      'Established code conventions and integrated SpotlessApply with GitHub Actions',
+      'Developed comprehensive file classification system for various file types',
+      'Handled data migration'
+    ],
+    tags: ['Java', 'Spring Boot', 'MariaDB', 'JUnit5'],
+    images: [
+      '/images/projects/ibas-architecture.png',
+      '/images/projects/ibas-demo.gif'
+    ]
   },
   {
     title: 'Apache Iceberg Contributions',
@@ -86,6 +104,8 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen py-20 px-8">
       <div className="max-w-6xl mx-auto">
@@ -148,6 +168,26 @@ export default function ProjectsPage() {
                       {project.description}
                     </p>
 
+                    {project.images && (
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {project.images.map((image, i) => (
+                          <div 
+                            key={i} 
+                            className="relative h-48 rounded-lg overflow-hidden cursor-pointer"
+                            onClick={() => setSelectedImage(image)}
+                          >
+                            <Image
+                              src={image}
+                              alt={`${project.title} screenshot ${i + 1}`}
+                              fill
+                              className="object-contain hover:scale-105 transition-transform duration-300"
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     {project.highlights && (
                       <ul className="space-y-3">
                         {project.highlights.map((highlight, i) => (
@@ -186,6 +226,40 @@ export default function ProjectsPage() {
           })}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.button
+              className="absolute top-4 right-4 text-white/80 hover:text-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              <FaTimes className="text-2xl" />
+            </motion.button>
+            <div className="relative w-full max-w-5xl aspect-video">
+              <Image
+                src={selectedImage}
+                alt="Full size image"
+                fill
+                className="object-contain"
+                quality={95}
+                priority
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
