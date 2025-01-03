@@ -188,7 +188,7 @@ export default function Home() {
           </motion.h2>
 
           <FeaturedProject
-            title="Azure Co-op Translator"
+            title="Co-op Translator"
             description="An open-source tool that automates multilingual translations for markdown and images, making technical documentation accessible worldwide. Helping thousands of developers access technical content in their native language."
             image="/images/co-op-translator.png"
             github="https://github.com/Azure/co-op-translator"

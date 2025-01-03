@@ -25,7 +25,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-              About Me
+              Minseok Song
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl">
               A passionate AI Engineer and Open Source Maintainer, dedicated to making technical knowledge accessible worldwide.
