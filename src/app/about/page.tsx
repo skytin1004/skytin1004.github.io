@@ -176,7 +176,7 @@ export default function AboutPage() {
               iconType="newspaper"
               iconColor="text-blue-400"
               imagePath={[
-                "/images/fintune-phi-aistudio.png",
+                "/images/finetune-phi-aistudio.png",
                 "/images/awards/finetune-phi-ai-studio-award.png"
               ]}
               link="https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in-azure-ai-studio/4191726?wt.mc_id=studentamb_279723"
