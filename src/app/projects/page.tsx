@@ -113,9 +113,14 @@ const projects = [
         views: 42000
       },
       {
+        title: 'Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Semantic Kernel)',
+        url: 'https://techcommunity.microsoft.com/blog/EducatorDeveloperBlog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-semantic-k/3985395?wt.mc_id=studentamb_279723',
+        views: 25000
+      },
+      {
         title: 'Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: Step-by-Step Guide',
         url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-step-by-step-guide/4178612?wt.mc_id=studentamb_279723',
-        views: 30000
+        views: 31000
       },
       {
         title: 'Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow in Azure AI Studio',
@@ -126,6 +131,11 @@ const projects = [
         title: 'Evaluate Fine-tuned Phi-3 / 3.5 Models in Azure AI Studio Focusing on Microsoft\'s Responsible AI',
         url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/evaluate-fine-tuned-phi-3--3-5-models-in-azure-ai-studio-focusing-on-microsofts-/4227850?wt.mc_id=studentamb_279723',
         views: 19000
+      },
+      {
+        title: 'Build a chatbot service to ensure safe conversations: Using Azure Content Safety & Azure OpenAI',
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/build-a-chatbot-service-to-ensure-safe-conversations-using-azure-content-safety-/4143628?wt.mc_id=studentamb_279723',
+        views: 7300
       },
       {
         title: 'Automate Markdown and Image Translations Using Co-op Translator: Phi-3 Cookbook Case Study',
