@@ -8,7 +8,44 @@ import GradientText from '@/components/GradientText';
 import Image from 'next/image';
 import { useState } from 'react';
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  icon: any;
+  gradient: string;
+  hoverGradient: string;
+  links: {
+    github?: string;
+    external?: string;
+    contributions?: string;
+    issues?: string;
+  };
+  highlights?: string[];
+  tags: string[];
+  images?: string[];
+  achievements?: {
+    title: string;
+    description: string;
+    links: {
+      title: string;
+      url: string;
+      description?: string;
+      views?: string;
+      status?: string;
+      featured?: boolean;
+      impact?: string;
+    }[];
+  }[];
+  blogPosts?: {
+    title: string;
+    url: string;
+    views?: string;
+    status?: string;
+    featured?: boolean;
+  }[];
+}
+
+const projects: Project[] = [
   {
     title: 'Co-op Translator',
     description: 'Redesigned and rebuilt the existing POC version of Co-op Translator into a Python CLI tool. This open-source project helps developers translate their technical documentation into multiple languages by automatically handling markdown files and embedded images.It preserves markdown formatting while translating content and can extract, translate, and replace text from images, making documentation truly accessible worldwide. Currently serving as the main maintainer after successfully transitioning it to Azure Opensource.',
@@ -71,19 +108,83 @@ const projects = [
   },
   {
     title: 'Microsoft Phi-3 Cookbook Contributions',
-    description: 'Major contributor to Microsoft\'s official Phi-3 Cookbook project, providing comprehensive end-to-end tutorials and improving documentation quality.',
-    icon: FaAward,
-    gradient: 'from-green-600/20 to-blue-600/20',
-    hoverGradient: 'hover:from-green-500/30 hover:to-blue-500/30',
+    description: 'Major contributor to Microsoft\'s official Phi-3 Cookbook project, providing comprehensive tutorials and enhancing documentation quality. Led key improvements in documentation structure and multilingual support.',
+    icon: FaCode,
+    gradient: 'from-blue-600/20 to-cyan-600/20',
+    hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
     links: {
-      github: 'https://github.com/microsoft/Phi-3CookBook/'
+      github: 'https://github.com/microsoft/Phi-3CookBook/',
+      contributions: 'https://github.com/microsoft/Phi-3CookBook/pulls?q=is%3Apr+author%3Askytin1004+is%3Aclosed',
     },
-    highlights: [
-      'Created end-to-end tutorials for fine-tuning and evaluating Phi-3 models in Azure AI Studio',
-      'Implemented automated documentation link validation using GitHub Actions',
-      'Added multilingual support in 6 languages using Co-op Translator'
+    achievements: [
+      {
+        title: 'Major Tutorials',
+        description: 'Created comprehensive tutorials for Phi-3 implementation',
+        links: [
+          {
+            title: 'Fine-tune and Integrate custom Phi-3 models with Prompt flow',
+            url: 'https://github.com/microsoft/Phi-3CookBook/blob/main/md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration.md',
+            description: 'Step-by-step guide for fine-tuning Phi-3 models with Prompt Flow integration',
+            views: '31,000+ views',
+            featured: true
+          },
+          {
+            title: 'Fine-tune and Integrate custom Phi-3 models with Prompt flow in Azure AI Foundry',
+            url: 'https://github.com/microsoft/Phi-3CookBook/blob/main/md/06.E2ESamples/E2E_Phi-3-FineTuning_PromptFlow_Integration_AIstudio.md',
+            description: 'Comprehensive guide for deploying and managing Phi-3 models in Azure AI Studio',
+            views: '20,000+ views',
+            featured: true
+          },
+          {
+            title: 'Evaluate the Fine-tuned Phi-3 / Phi-3.5 Model in Azure AI Foundry Focusing on Microsoft\'s Responsible AI Principles',
+            url: 'https://github.com/microsoft/Phi-3CookBook/blob/main/md/06.E2ESamples/E2E_Phi-3-Evaluation_AIstudio.md',
+            description: 'Detailed guide on model evaluation with Microsoft\'s Responsible AI principles',
+            featured: true
+          }
+        ]
+      },
+      {
+        title: 'Key Pull Requests',
+        description: 'Significant improvements to documentation and functionality',
+        links: [
+          {
+            title: 'Automated Documentation Link Validation',
+            url: 'https://github.com/microsoft/Phi-3CookBook/pull/74',
+            description: 'Implemented GitHub Actions workflow for automated link checking',
+            status: 'Merged',
+            impact: 'Improved documentation reliability'
+          },
+          {
+            title: 'Multilingual Support Integration',
+            url: 'https://github.com/microsoft/Phi-3CookBook/pull/205',
+            description: 'Added support for 6 languages using Co-op Translator',
+            status: 'Merged',
+            impact: 'Enhanced global accessibility'
+          }
+        ]
+      },
+      {
+        title: 'Issue Management',
+        description: 'Resolved critical documentation and implementation issues',
+        links: [
+          {
+            title: 'Flash Attention supports only fp16 and bf16 data type for Phi-3-small-128K fine-tuning using QLoRA',
+            url: 'https://github.com/microsoft/Phi-3CookBook/issues/127',
+            description: 'Resolved Flash Attention issue',
+            status: 'Closed',
+            impact: 'Provided solution for users'
+          },
+          {
+            title: 'QLoRA parameters missing in 04.Finetuning /Phi-3-finetune-qlora-python.ipynb',
+            url: 'https://github.com/microsoft/Phi-3CookBook/issues/94',
+            description: 'Resolved missing QLoRA parameters in the notebook',
+            status: 'Closed',
+            impact: 'Enhanced functionality'
+          }
+        ]
+      }
     ],
-    tags: ['Azure AI Studio', 'Phi-3', 'Documentation']
+    tags: ['Azure AI Studio', 'Phi-3', 'Documentation', 'GitHub Actions']
   },
   {
     title: 'Microsoft Tech Community Knowledge Sharing',
@@ -112,37 +213,42 @@ const projects = [
       {
         title: 'Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Lang Chain)',
         url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-lang-chain/3969713?wt.mc_id=studentamb_279723',
-        views: 42000
+        views: '42,000+ views',
+        featured: true
       },
       {
         title: 'Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Semantic Kernel)',
-        url: 'https://techcommunity.microsoft.com/blog/EducatorDeveloperBlog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-semantic-k/3985395?wt.mc_id=studentamb_279723',
-        views: 25000
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-semantic-kernel/3969714?wt.mc_id=studentamb_279723',
+        views: '25,000+ views',
+        featured: true
       },
       {
         title: 'Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow: Step-by-Step Guide',
         url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-step-by-step-guide/4178612?wt.mc_id=studentamb_279723',
-        views: 31000
+        views: '31,000+ views',
+        featured: true
       },
       {
         title: 'Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow in Azure AI Studio',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in-azure-ai-studio/4191726?wt.mc_id=studentamb_279723',
-        views: 20000
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in-azure-ai-studio/4178614?wt.mc_id=studentamb_279723',
+        views: '20,000+ views',
+        featured: true
       },
       {
         title: 'Evaluate Fine-tuned Phi-3 / 3.5 Models in Azure AI Studio Focusing on Microsoft\'s Responsible AI',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/evaluate-fine-tuned-phi-3--3-5-models-in-azure-ai-studio-focusing-on-microsofts-/4227850?wt.mc_id=studentamb_279723',
-        views: 19000
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/evaluate-fine-tuned-phi-3--35-models-in-azure-ai-studio-focusing-on-microsofts-responsible-ai/4178615?wt.mc_id=studentamb_279723',
+        views: '19,000+ views',
+        featured: true
       },
       {
         title: 'Build a chatbot service to ensure safe conversations: Using Azure Content Safety & Azure OpenAI',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/build-a-chatbot-service-to-ensure-safe-conversations-using-azure-content-safety-/4143628?wt.mc_id=studentamb_279723',
-        views: 7300
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/build-a-chatbot-service-to-ensure-safe-conversations-using-azure-content-safety--azure-openai/4178616?wt.mc_id=studentamb_279723',
+        views: '7,300+ views'
       },
       {
         title: 'Automate Markdown and Image Translations Using Co-op Translator: Phi-3 Cookbook Case Study',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/automate-markdown-and-image-translations-using-co-op-translator-phi-3-cookbook-c/4263474?wt.mc_id=studentamb_279723',
-        views: 1700
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/automate-markdown-and-image-translations-using-co-op-translator-phi-3-cookbook-case-study/4178617?wt.mc_id=studentamb_279723',
+        views: '1,700+ views'
       }
     ]
   }
@@ -254,6 +360,109 @@ export default function ProjectsPage() {
                       </ul>
                     )}
 
+                    {project.achievements && (
+                      <div className="mt-6 space-y-6">
+                        {project.achievements.map((achievement, i) => (
+                          <div key={i} className="space-y-4">
+                            <h3 className="text-lg font-semibold text-gray-200 mb-3">{achievement.title}</h3>
+                            <div className="grid grid-cols-1 gap-3">
+                              {achievement.links.map((link, j) => (
+                                <motion.a
+                                  key={j}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-300"
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.1 * j }}
+                                  whileHover={{ scale: 1.01 }}
+                                >
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-3 mb-1">
+                                      <span className="text-gray-200 group-hover:text-white font-medium truncate transition-colors">
+                                        {link.title}
+                                      </span>
+                                      <div className="flex gap-2">
+                                        {link.views && (
+                                          <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
+                                            {link.views}
+                                          </span>
+                                        )}
+                                        {link.status && (
+                                          <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
+                                            {link.status}
+                                          </span>
+                                        )}
+                                        {link.featured && (
+                                          <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
+                                            Featured
+                                          </span>
+                                        )}
+                                      </div>
+                                    </div>
+                                    {link.description && (
+                                      <p className="text-sm text-gray-400 truncate">
+                                        {link.description}
+                                      </p>
+                                    )}
+                                    {link.impact && (
+                                      <p className="text-sm text-green-400 mt-1">
+                                        {link.impact}
+                                      </p>
+                                    )}
+                                  </div>
+                                  <FaExternalLinkAlt className="w-4 h-4 text-gray-400 group-hover:text-gray-300 ml-4 flex-shrink-0 transition-colors" />
+                                </motion.a>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+
+                        {/* Quick links */}
+                        {project.links && (
+                          <div className="flex flex-wrap items-center gap-3 mt-6">
+                            {project.links.github && (
+                              <motion.a
+                                href={project.links.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-white/10 hover:text-blue-400 rounded-lg transition-all duration-300"
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <FaGithub className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
+                                <span className="text-sm">Repository</span>
+                              </motion.a>
+                            )}
+                            {project.links.contributions && (
+                              <motion.a
+                                href={project.links.contributions}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-white/10 hover:text-blue-400 rounded-lg transition-all duration-300"
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <FaCode className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
+                                <span className="text-sm">All PRs</span>
+                              </motion.a>
+                            )}
+                            {project.links.issues && (
+                              <motion.a
+                                href={project.links.issues}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-white/10 hover:text-blue-400 rounded-lg transition-all duration-300"
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <FaTimes className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
+                                <span className="text-sm">All Issues</span>
+                              </motion.a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
                     {project.blogPosts && (
                       <div className="mt-6">
                         <h3 className="text-lg font-semibold mb-4">Featured Articles</h3>
@@ -264,23 +473,37 @@ export default function ProjectsPage() {
                               href={post.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-                              whileHover={{ scale: 1.02 }}
-                              initial={{ opacity: 0, y: 20 }}
+                              className="group flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-300"
+                              whileHover={{ scale: 1.01 }}
+                              initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.1 * i }}
                             >
-                              <div className="flex items-center justify-between">
-                                <span className="text-gray-300 group-hover:text-white transition-colors">
-                                  {post.title}
-                                </span>
-                                <div className="flex items-center gap-4">
-                                  <span className="text-sm text-gray-400">
-                                    {post.views.toLocaleString()}+ views
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-3">
+                                  <span className="text-gray-200 group-hover:text-white font-medium truncate transition-colors">
+                                    {post.title}
                                   </span>
-                                  <FaExternalLinkAlt className="text-gray-400 group-hover:text-blue-400 transition-colors" />
+                                  <div className="flex gap-2">
+                                    {post.views && (
+                                      <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
+                                        {post.views}
+                                      </span>
+                                    )}
+                                    {post.status && (
+                                      <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
+                                        {post.status}
+                                      </span>
+                                    )}
+                                    {post.featured && (
+                                      <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
+                                        Featured
+                                      </span>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
+                              <FaExternalLinkAlt className="w-4 h-4 text-gray-400 group-hover:text-gray-300 ml-4 flex-shrink-0 transition-colors" />
                             </motion.a>
                           ))}
                         </div>
