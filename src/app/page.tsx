@@ -74,29 +74,6 @@ export default function Home() {
               <FaLinkedin />
             </motion.a>
           </motion.div>
-
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-          >
-            <Link
-              href="/projects"
-              className="group px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 
-                       rounded-lg transition-all hover:scale-105 flex items-center gap-2"
-            >
-              View My Work
-              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3 bg-white/10 rounded-lg hover:bg-white/20 
-                       transition-all hover:scale-105"
-            >
-              Contact Me
-            </Link>
-          </motion.div>
         </div>
 
         <motion.div
