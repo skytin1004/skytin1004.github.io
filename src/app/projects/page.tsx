@@ -261,7 +261,6 @@ const projects: Project[] = [
     },
     highlights: [
       'Migrated multiple packages (rest, hadoop, catalog, encryption, inmemory, io, avro, data.avro, etc) from JUnit4 to JUnit5',
-      'Refactored 3,000+ lines (+3,498 / –3,219) to migrate tests from JUnit4 to JUnit5, boosting coverage and consistency',
       'Replaced @Rule TemporaryFolder with @TempDir and addressed namespace listing/file handling issues',
       'Integrated AssertJ for more expressive assertions, improving code readability and consistency',
       'Collaborated with maintainers through detailed reviews, resolving issues and merging',
@@ -282,7 +281,7 @@ const projects: Project[] = [
           {
             title: 'Core: Switch tests to Junit5 in catalog,encryption,inmemory,io,view',
             url: 'https://github.com/apache/iceberg/pull/7767',
-            description: 'Migrated tests in the catalog, encryption, inmemory, io, and view packages from JUnit4 to JUnit5, modernizing the test framework and improving maintainability. Integrated AssertJ for better readability and expressiveness, and resolved directory handling and data validation issues in critical test cases. Clarified containsAll vs. containsExactlyInAnyOrder usage with maintainers',
+            description: 'Migrated tests in the catalog, encryption, inmemory, io, and view packages from JUnit4 to JUnit5, modernizing the test framework and improving maintainability. Resolved directory handling and data validation issues in critical test cases. Clarified containsAll vs. containsExactlyInAnyOrder usage with maintainers',
             status: 'Merged',
             impact: 'Enhanced test maintainability'
           },
