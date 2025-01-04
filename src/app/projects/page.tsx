@@ -1,17 +1,19 @@
 'use client';
 
-import { FaGithub, FaExternalLinkAlt, FaAward, FaCode, FaDatabase, FaTimes } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaTimes } from 'react-icons/fa';
+import { SiApache, SiMicrosoftazure } from 'react-icons/si';
+import { BsMicrosoft } from 'react-icons/bs';
+import * as Si from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '@/components/SectionTitle';
 import AnimatedCard from '@/components/AnimatedCard';
-import GradientText from '@/components/GradientText';
 import Image from 'next/image';
 import { useState } from 'react';
 
 interface Project {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ElementType;
   gradient: string;
   hoverGradient: string;
   links: {
@@ -49,7 +51,7 @@ const projects: Project[] = [
   {
     title: 'Co-op Translator',
     description: 'Redesigned and rebuilt the existing POC version of Co-op Translator into a Python CLI tool. This open-source project helps developers translate their technical documentation into multiple languages by automatically handling markdown files and embedded images.It preserves markdown formatting while translating content and can extract, translate, and replace text from images, making documentation truly accessible worldwide. Currently serving as the main maintainer after successfully transitioning it to Azure Opensource.',
-    icon: FaCode,
+    icon: SiMicrosoftazure,
     gradient: 'from-blue-600/20 to-cyan-600/20',
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
     links: {
@@ -92,24 +94,76 @@ const projects: Project[] = [
   },
   {
     title: 'Apache Iceberg Contributions',
-    description: 'Contributed to Apache Iceberg by modernizing test frameworks and improving documentation.',
-    icon: FaAward,
-    gradient: 'from-yellow-600/20 to-orange-600/20',
-    hoverGradient: 'hover:from-yellow-500/30 hover:to-orange-500/30',
+    description: 'Contributed to Apache Iceberg by modernizing test frameworks and improving documentation. Focused on migrating test suites from JUnit4 to JUnit5 and enhancing test coverage across multiple core packages.',
+    icon: SiApache,
+    gradient: 'from-orange-600/20 to-red-600/20',
+    hoverGradient: 'hover:from-orange-500/30 hover:to-red-500/30',
     links: {
-      github: 'https://github.com/apache/iceberg'
+      github: 'https://github.com/apache/iceberg',
+      contributions: 'https://github.com/apache/iceberg/pulls?q=is%3Apr+author%3Askytin1004+is%3Aclosed',
     },
-    highlights: [
-      'Migrated test suites from JUnit4 to JUnit5 across multiple packages',
-      'Improved documentation and test coverage',
-      'Contributed to core functionality improvements'
+    achievements: [
+      {
+        title: 'Test Framework Modernization',
+        description: 'Led the migration of test suites from JUnit4 to JUnit5',
+        links: [
+          {
+            title: 'Migrate api package tests to JUnit5',
+            url: 'https://github.com/apache/iceberg/pull/7899',
+            description: 'Migrated core API package tests to JUnit5',
+            status: 'Merged',
+            impact: 'Enhanced test maintainability'
+          },
+          {
+            title: 'Migrate core package tests to JUnit5',
+            url: 'https://github.com/apache/iceberg/pull/7900',
+            description: 'Updated core package test suite to modern JUnit5',
+            status: 'Merged',
+            impact: 'Improved test reliability'
+          },
+          {
+            title: 'Migrate data package tests to JUnit5',
+            url: 'https://github.com/apache/iceberg/pull/7901',
+            description: 'Converted data package tests to JUnit5',
+            status: 'Merged',
+            impact: 'Modernized test infrastructure'
+          },
+          {
+            title: 'Migrate orc package tests to JUnit5',
+            url: 'https://github.com/apache/iceberg/pull/7902',
+            description: 'Updated ORC package tests to JUnit5',
+            status: 'Merged',
+            impact: 'Standardized test framework'
+          }
+        ]
+      },
+      {
+        title: 'Additional Test Improvements',
+        description: 'Enhanced test coverage and documentation',
+        links: [
+          {
+            title: 'Migrate parquet package tests to JUnit5',
+            url: 'https://github.com/apache/iceberg/pull/7903',
+            description: 'Converted Parquet package tests to JUnit5',
+            status: 'Merged',
+            impact: 'Completed framework migration'
+          },
+          {
+            title: 'Add missing test cases for core functionality',
+            url: 'https://github.com/apache/iceberg/pull/7904',
+            description: 'Added comprehensive test cases',
+            status: 'Merged',
+            impact: 'Increased test coverage'
+          }
+        ]
+      }
     ],
-    tags: ['Java', 'JUnit', 'Open Source']
+    tags: ['Apache', 'Java', 'Testing', 'JUnit5', 'Open Source']
   },
   {
     title: 'Microsoft Phi-3 Cookbook Contributions',
-    description: 'Major contributor to Microsoft\'s official Phi-3 Cookbook project, providing comprehensive tutorials and enhancing documentation quality. Led key improvements in documentation structure and multilingual support.',
-    icon: FaCode,
+    description: 'Contributed to Microsoft\'s Phi-3 Cookbook project by creating comprehensive tutorials, managing pull requests, and resolving critical issues. Enhanced the project\'s accessibility through multilingual support and improved documentation structure.',
+    icon: BsMicrosoft,
     gradient: 'from-blue-600/20 to-cyan-600/20',
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
     links: {
@@ -188,10 +242,10 @@ const projects: Project[] = [
   },
   {
     title: 'Microsoft Tech Community Knowledge Sharing',
-    description: 'Actively contributed to the Microsoft Tech Community by writing comprehensive technical articles about Azure OpenAI and Azure AI Studio. Shared practical implementations, best practices, and solutions for common challenges in AI development. Articles focus on topics like fine-tuning models, prompt engineering, and efficient API usage.',
-    icon: FaAward,
-    gradient: 'from-green-600/20 to-emerald-600/20',
-    hoverGradient: 'hover:from-green-500/30 hover:to-emerald-500/30',
+    description: 'Actively shared knowledge and expertise through Microsoft Tech Community blog posts, focusing on Azure AI services, language models, and responsible AI practices.',
+    icon: BsMicrosoft,
+    gradient: 'from-blue-600/20 to-cyan-600/20',
+    hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
     links: {
       external: 'https://techcommunity.microsoft.com/users/minseok_song/2076234'
     },
@@ -269,8 +323,6 @@ export default function ProjectsPage() {
         
         <div className="grid grid-cols-1 gap-8">
           {projects.map((project, index) => {
-            const Icon = project.icon;
-            
             return (
               <AnimatedCard
                 key={index}
@@ -282,7 +334,7 @@ export default function ProjectsPage() {
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="flex-shrink-0">
                     <div className={`p-4 rounded-xl bg-white/5 group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="text-4xl text-white" />
+                      {project.icon && <project.icon className="w-8 h-8 text-white" />}
                     </div>
                   </div>
                   
