@@ -383,11 +383,11 @@ export default function ProjectsPage() {
                     </p>
 
                     {project.images && (
-                      <div className={`mt-4 grid grid-cols-2 ${project.images.length >= 4 ? 'md:grid-cols-3 lg:flex lg:flex-row lg:overflow-x-auto' : 'md:grid-cols-2'} gap-2`}>
-                        {project.images.map((image, i) => (
+                      <div className={`mt-4 grid grid-cols-2 ${project.images?.length >= 4 ? 'md:grid-cols-3 lg:flex lg:flex-row lg:overflow-x-auto' : 'md:grid-cols-2'} gap-2`}>
+                        {project.images?.map((image, i) => (
                           <div 
                             key={i} 
-                            className={`relative w-full ${project.images.length >= 4 
+                            className={`relative w-full ${(project.images?.length || 0) >= 4 
                               ? 'h-32 md:h-36 lg:w-40 lg:h-40 lg:flex-shrink-0' 
                               : 'h-48 md:h-48'} rounded-lg overflow-hidden cursor-pointer`}
                             onClick={() => setSelectedImage(image)}
@@ -397,7 +397,7 @@ export default function ProjectsPage() {
                               alt={`${project.title} screenshot ${i + 1}`}
                               fill
                               className="object-contain hover:scale-105 transition-transform duration-300"
-                              sizes={project.images.length >= 4 
+                              sizes={(project.images?.length || 0) >= 4 
                                 ? "(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 : "(max-width: 768px) 50vw, 50vw"}
                             />
