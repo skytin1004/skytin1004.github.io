@@ -1,14 +1,25 @@
 'use client';
 
 import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaTimes } from 'react-icons/fa';
-import { SiApache, SiMicrosoftazure } from 'react-icons/si';
+import { SiApache } from 'react-icons/si';
 import { BsMicrosoft } from 'react-icons/bs';
-import * as Si from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '@/components/SectionTitle';
 import AnimatedCard from '@/components/AnimatedCard';
 import Image from 'next/image';
 import { useState } from 'react';
+
+const IbasIcon = ({ className }: { className?: string }) => (
+  <div className={className}>
+    <Image
+      src="/images/logos/ibas_main_logo.png"
+      alt="IBAS Logo"
+      width={32}
+      height={32}
+      className="w-full h-full object-contain"
+    />
+  </div>
+);
 
 interface Project {
   title: string;
@@ -51,7 +62,7 @@ const projects: Project[] = [
   {
     title: 'Co-op Translator',
     description: 'Redesigned and rebuilt the existing POC version of Co-op Translator into a Python CLI tool. This open-source project helps developers translate their technical documentation into multiple languages by automatically handling markdown files and embedded images.It preserves markdown formatting while translating content and can extract, translate, and replace text from images, making documentation truly accessible worldwide. Currently serving as the main maintainer after successfully transitioning it to Azure Opensource.',
-    icon: SiMicrosoftazure,
+    icon: BsMicrosoft,
     gradient: 'from-blue-600/20 to-cyan-600/20',
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
     links: {
@@ -72,7 +83,7 @@ const projects: Project[] = [
   {
     title: 'Inha Bigdata Analysis Society (IBAS) Web Service',
     description: 'Led the development of IBAS\'s Learning Management System (LMS) backend features. Implemented contest and project board systems with advanced sorting and file management capabilities. Established project structure with code conventions using SpotlessApply and integrated automated checks via GitHub Actions. Created comprehensive project documentation including API specifications, architecture diagrams, and development guidelines. Handled data migration and implemented file classification system for thumbnails, images, and other file types.',
-    icon: FaDatabase,
+    icon: IbasIcon,
     gradient: 'from-purple-600/20 to-pink-600/20',
     hoverGradient: 'hover:from-purple-500/30 hover:to-pink-500/30',
     links: {
