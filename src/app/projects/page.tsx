@@ -81,97 +81,6 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'Inha Bigdata Analysis Society (IBAS) Web Service',
-    description: 'Led the development of IBAS\'s Learning Management System (LMS) backend features. Implemented contest and project board systems with advanced sorting and file management capabilities. Established project structure with code conventions using SpotlessApply and integrated automated checks via GitHub Actions. Created comprehensive project documentation including API specifications, architecture diagrams, and development guidelines. Handled data migration and implemented file classification system for thumbnails, images, and other file types.',
-    icon: IbasIcon,
-    gradient: 'from-purple-600/20 to-pink-600/20',
-    hoverGradient: 'hover:from-purple-500/30 hover:to-pink-500/30',
-    links: {
-      github: 'https://github.com/InhaBas',
-      external: 'https://www.inhabas.com/'
-    },
-    highlights: [
-      'Implemented contest and project board systems with advanced sorting functionality',
-      'Created comprehensive project documentation',
-      'Established code conventions and integrated SpotlessApply with GitHub Actions',
-      'Developed comprehensive file classification system for various file types',
-      'Handled data migration'
-    ],
-    tags: ['Java', 'Spring Boot', 'MariaDB', 'JUnit5'],
-    images: [
-      '/images/projects/ibas-architecture.png',
-      '/images/projects/ibas-demo.gif'
-    ]
-  },
-  {
-    title: 'Apache Iceberg Contributions',
-    description: 'Contributed to Apache Iceberg by modernizing test frameworks and improving documentation. Focused on migrating test suites from JUnit4 to JUnit5 and enhancing test coverage across multiple core packages.',
-    icon: SiApache,
-    gradient: 'from-orange-600/20 to-red-600/20',
-    hoverGradient: 'hover:from-orange-500/30 hover:to-red-500/30',
-    links: {
-      github: 'https://github.com/apache/iceberg',
-      contributions: 'https://github.com/apache/iceberg/pulls?q=is%3Apr+author%3Askytin1004+is%3Aclosed',
-    },
-    achievements: [
-      {
-        title: 'Test Framework Modernization',
-        description: 'Led the migration of test suites from JUnit4 to JUnit5',
-        links: [
-          {
-            title: 'Migrate api package tests to JUnit5',
-            url: 'https://github.com/apache/iceberg/pull/7899',
-            description: 'Migrated core API package tests to JUnit5',
-            status: 'Merged',
-            impact: 'Enhanced test maintainability'
-          },
-          {
-            title: 'Migrate core package tests to JUnit5',
-            url: 'https://github.com/apache/iceberg/pull/7900',
-            description: 'Updated core package test suite to modern JUnit5',
-            status: 'Merged',
-            impact: 'Improved test reliability'
-          },
-          {
-            title: 'Migrate data package tests to JUnit5',
-            url: 'https://github.com/apache/iceberg/pull/7901',
-            description: 'Converted data package tests to JUnit5',
-            status: 'Merged',
-            impact: 'Modernized test infrastructure'
-          },
-          {
-            title: 'Migrate orc package tests to JUnit5',
-            url: 'https://github.com/apache/iceberg/pull/7902',
-            description: 'Updated ORC package tests to JUnit5',
-            status: 'Merged',
-            impact: 'Standardized test framework'
-          }
-        ]
-      },
-      {
-        title: 'Additional Test Improvements',
-        description: 'Enhanced test coverage and documentation',
-        links: [
-          {
-            title: 'Migrate parquet package tests to JUnit5',
-            url: 'https://github.com/apache/iceberg/pull/7903',
-            description: 'Converted Parquet package tests to JUnit5',
-            status: 'Merged',
-            impact: 'Completed framework migration'
-          },
-          {
-            title: 'Add missing test cases for core functionality',
-            url: 'https://github.com/apache/iceberg/pull/7904',
-            description: 'Added comprehensive test cases',
-            status: 'Merged',
-            impact: 'Increased test coverage'
-          }
-        ]
-      }
-    ],
-    tags: ['Apache', 'Java', 'Testing', 'JUnit5', 'Open Source']
-  },
-  {
     title: 'Microsoft Phi-3 Cookbook Contributions',
     description: 'Contributed to Microsoft\'s Phi-3 Cookbook project by creating comprehensive tutorials, managing pull requests, and resolving critical issues. Enhanced the project\'s accessibility through multilingual support and improved documentation structure.',
     icon: BsMicrosoft,
@@ -316,6 +225,78 @@ const projects: Project[] = [
         views: '1,700+ views'
       }
     ]
+  },
+  {
+    title: 'Inha Bigdata Analysis Society (IBAS) Web Service',
+    description: 'Led the development of IBAS\'s Learning Management System (LMS) backend features. Implemented contest and project board systems with advanced sorting and file management capabilities. Established project structure with code conventions using SpotlessApply and integrated automated checks via GitHub Actions. Created comprehensive project documentation including API specifications, architecture diagrams, and development guidelines. Handled data migration and implemented file classification system for thumbnails, images, and other file types.',
+    icon: IbasIcon,
+    gradient: 'from-purple-600/20 to-pink-600/20',
+    hoverGradient: 'hover:from-purple-500/30 hover:to-pink-500/30',
+    links: {
+      github: 'https://github.com/InhaBas',
+      external: 'https://www.inhabas.com/'
+    },
+    highlights: [
+      'Implemented contest and project board systems with advanced sorting functionality',
+      'Created comprehensive project documentation',
+      'Established code conventions and integrated SpotlessApply with GitHub Actions',
+      'Developed comprehensive file classification system for various file types',
+      'Handled data migration'
+    ],
+    tags: ['Java', 'Spring Boot', 'MariaDB', 'JUnit5'],
+    images: [
+      '/images/projects/ibas-architecture.png',
+      '/images/projects/ibas-demo.gif'
+    ]
+  },
+  {
+    title: 'Apache Iceberg Contributions',
+    description: 'Contributed to Apache Iceberg by modernizing the test framework and improving documentation. Focused on migrating test suites from JUnit4 to JUnit5, enhancing code readability with AssertJ, and increasing overall test coverage.',
+    icon: SiApache,
+    gradient: 'from-orange-600/20 to-red-600/20',
+    hoverGradient: 'hover:from-orange-500/30 hover:to-red-500/30',
+    links: {
+      github: 'https://github.com/apache/iceberg',
+      contributions: 'https://github.com/apache/iceberg/pulls?q=is%3Apr+author%3Askytin1004+is%3Aclosed',
+    },
+    highlights: [
+      'Migrated multiple packages (rest, hadoop, catalog, encryption, inmemory, io, avro, data.avro, etc) from JUnit4 to JUnit5',
+      'Refactored 3,000+ lines (+3,498 / –3,219) to migrate tests from JUnit4 to JUnit5, boosting coverage and consistency',
+      'Replaced @Rule TemporaryFolder with @TempDir and addressed namespace listing/file handling issues',
+      'Integrated AssertJ for more expressive assertions, improving code readability and consistency',
+      'Collaborated with maintainers through detailed reviews, resolving issues and merging',
+      'Standardized the test framework usage across core modules, boosting reliability and maintainability'
+    ],
+    achievements: [
+      {
+        title: 'Key Pull Requests',
+        description: 'Led the migration of test suites from JUnit4 to JUnit5',
+        links: [
+          {
+            title: 'Core: Switch tests to Junit5 in rest, hadoop pakages',
+            url: 'https://github.com/apache/iceberg/pull/7861',
+            description: 'Migrated tests in the rest and hadoop packages from JUnit4 to JUnit5, modernizing the test framework and enhancing maintainability. Integrated AssertJ for improved readability and expressiveness, and resolved issues related to directory handling and namespace listing in HadoopCatalog tests.',
+            status: 'Merged',
+            impact: 'Enhanced test maintainability'
+          },
+          {
+            title: 'Core: Switch tests to Junit5 in catalog,encryption,inmemory,io,view',
+            url: 'https://github.com/apache/iceberg/pull/7767',
+            description: 'Migrated tests in the catalog, encryption, inmemory, io, and view packages from JUnit4 to JUnit5, modernizing the test framework and improving maintainability. Integrated AssertJ for better readability and expressiveness, and resolved directory handling and data validation issues in critical test cases. Clarified containsAll vs. containsExactlyInAnyOrder usage with maintainers',
+            status: 'Merged',
+            impact: 'Enhanced test maintainability'
+          },
+          {
+            title: 'Core: Switch tests to JUnit5 in avro, data.avro packages',
+            url: 'https://github.com/apache/iceberg/pull/8380',
+            description: 'Migrated tests in avro and data.avro packages from JUnit4 to JUnit5, improving file handling and test maintainability.',
+            status: 'Merged',
+            impact: 'Enhanced test maintainability'
+          }
+        ]
+      }
+    ],
+    tags: ['Apache', 'Java', 'Testing', 'JUnit5', 'Open Source']
   }
 ];
 
@@ -465,7 +446,7 @@ export default function ProjectsPage() {
                                       </div>
                                     </div>
                                     {link.description && (
-                                      <p className="text-sm text-gray-400 truncate">
+                                      <p className="text-sm text-gray-400 whitespace-normal break-words">
                                         {link.description}
                                       </p>
                                     )}
