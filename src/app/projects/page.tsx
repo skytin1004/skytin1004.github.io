@@ -254,7 +254,7 @@ const projects: Project[] = [
           {
             title: "[feature/Inhabas#241] Implement Project Board API Functionality",
             url: "https://github.com/InhaBas/Inhabas.com-api/pull/249",
-            description: "Developed comprehensive API functionality for the project board, including controllers, services, and repositories. Conducted Postman CRUD tests, resolved commit conflicts, and integrated GitHub Actions for build verification. Implemented refactoring based on peer reviews to ensure code quality and consistency.",
+            description: "Developed comprehensive API functionality for the project board, including controllers, services, and repositories. Reviewed and resolved commit conflicts, and integrated GitHub Actions for build verification. Implemented refactoring based on peer reviews to ensure code quality and consistency.",
             status: "Merged",
             impact: "Enhanced project management capabilities by enabling robust interaction with the project board API."
           }
