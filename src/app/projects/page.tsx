@@ -421,37 +421,30 @@ export default function ProjectsPage() {
                                   transition={{ delay: 0.1 * j }}
                                   whileHover={{ scale: 1.01 }}
                                 >
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-3 mb-1">
-                                      <span className="text-gray-200 group-hover:text-white font-medium truncate transition-colors">
-                                        {link.title}
-                                      </span>
-                                      <div className="flex gap-2">
-                                        {link.views && (
-                                          <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
-                                            {link.views}
-                                          </span>
-                                        )}
-                                        {link.status && (
-                                          <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
-                                            {link.status}
-                                          </span>
-                                        )}
-                                        {link.featured && (
-                                          <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
-                                            Featured
-                                          </span>
-                                        )}
-                                      </div>
+                                  <div className="flex flex-col">
+                                    <span className="text-gray-200 group-hover:text-white font-medium block w-full break-words mb-2">
+                                      {link.title}
+                                    </span>
+                                    <div className="flex gap-2 flex-wrap flex-shrink-0 mb-2">
+                                      {link.views && (
+                                        <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
+                                          {link.views}
+                                        </span>
+                                      )}
+                                      {link.status && (
+                                        <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
+                                          {link.status}
+                                        </span>
+                                      )}
+                                      {link.featured && (
+                                        <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
+                                          Featured
+                                        </span>
+                                      )}
                                     </div>
                                     {link.description && (
-                                      <p className="text-sm text-gray-400 whitespace-normal break-words">
+                                      <p className="text-gray-400 text-sm">
                                         {link.description}
-                                      </p>
-                                    )}
-                                    {link.impact && (
-                                      <p className="text-sm text-green-400 mt-1">
-                                        {link.impact}
                                       </p>
                                     )}
                                   </div>
@@ -523,12 +516,12 @@ export default function ProjectsPage() {
                               transition={{ delay: 0.1 * i }}
                             >
                               <div className="flex items-center justify-between overflow-hidden">
-                                <div className="flex-1 min-w-0 mr-4">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-gray-200 group-hover:text-white font-medium block w-full break-words">
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex flex-col">
+                                    <span className="text-gray-200 group-hover:text-white font-medium block w-full break-words mb-2">
                                       {post.title}
                                     </span>
-                                    <div className="flex gap-2 flex-wrap flex-shrink-0">
+                                    <div className="flex gap-2 flex-wrap flex-shrink-0 mb-2">
                                       {post.views && (
                                         <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
                                           {post.views}
