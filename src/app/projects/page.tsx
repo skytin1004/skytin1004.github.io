@@ -192,7 +192,7 @@ const projects: Project[] = [
       },
       {
         title: 'Teach ChatGPT to Answer Questions: Using Azure AI Search & Azure OpenAI (Semantic Kernel)',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-semantic-kernel/3969714?wt.mc_id=studentamb_279723',
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/teach-chatgpt-to-answer-questions-using-azure-ai-search--azure-openai-semantic-k/3985395?wt.mc_id=studentamb_279723',
         views: '25,000+ views',
         featured: true
       },
@@ -204,24 +204,24 @@ const projects: Project[] = [
       },
       {
         title: 'Fine-Tune and Integrate Custom Phi-3 Models with Prompt Flow in Azure AI Studio',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in-azure-ai-studio/4178614?wt.mc_id=studentamb_279723',
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/fine-tune-and-integrate-custom-phi-3-models-with-prompt-flow-in-azure-ai-studio/4191726?wt.mc_id=studentamb_279723',
         views: '20,000+ views',
         featured: true
       },
       {
         title: 'Evaluate Fine-tuned Phi-3 / 3.5 Models in Azure AI Studio Focusing on Microsoft\'s Responsible AI',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/evaluate-fine-tuned-phi-3--35-models-in-azure-ai-studio-focusing-on-microsofts-responsible-ai/4178615?wt.mc_id=studentamb_279723',
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/evaluate-fine-tuned-phi-3--35-models-in-azure-ai-studio-focusing-on-microsofts-responsible-ai/4227850?wt.mc_id=studentamb_279723',
         views: '19,000+ views',
         featured: true
       },
       {
         title: 'Build a chatbot service to ensure safe conversations: Using Azure Content Safety & Azure OpenAI',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/build-a-chatbot-service-to-ensure-safe-conversations-using-azure-content-safety--azure-openai/4178616?wt.mc_id=studentamb_279723',
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/build-a-chatbot-service-to-ensure-safe-conversations-using-azure-content-safety-/4143628?wt.mc_id=studentamb_279723',
         views: '7,300+ views'
       },
       {
         title: 'Automate Markdown and Image Translations Using Co-op Translator: Phi-3 Cookbook Case Study',
-        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/automate-markdown-and-image-translations-using-co-op-translator-phi-3-cookbook-case-study/4178617?wt.mc_id=studentamb_279723',
+        url: 'https://techcommunity.microsoft.com/blog/educatordeveloperblog/automate-markdown-and-image-translations-using-co-op-translator-phi-3-cookbook-case-study/4263474?wt.mc_id=studentamb_279723',
         views: '1,700+ views'
       }
     ]
@@ -509,44 +509,46 @@ export default function ProjectsPage() {
                     {project.blogPosts && (
                       <div className="mt-6">
                         <h3 className="text-lg font-semibold mb-4">Featured Articles</h3>
-                        <div className="grid gap-3">
+                        <div className="space-y-2">
                           {project.blogPosts.map((post, i) => (
                             <motion.a
                               key={i}
                               href={post.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-300"
+                              className="group block bg-white/5 hover:bg-white/10 rounded-lg p-4 transition-all duration-300"
                               whileHover={{ scale: 1.01 }}
                               initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.1 * i }}
                             >
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-3">
-                                  <span className="text-gray-200 group-hover:text-white font-medium truncate transition-colors">
-                                    {post.title}
-                                  </span>
-                                  <div className="flex gap-2">
-                                    {post.views && (
-                                      <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
-                                        {post.views}
-                                      </span>
-                                    )}
-                                    {post.status && (
-                                      <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
-                                        {post.status}
-                                      </span>
-                                    )}
-                                    {post.featured && (
-                                      <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
-                                        Featured
-                                      </span>
-                                    )}
+                              <div className="flex items-center justify-between overflow-hidden">
+                                <div className="flex-1 min-w-0 mr-4">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-gray-200 group-hover:text-white font-medium truncate block w-full">
+                                      {post.title}
+                                    </span>
+                                    <div className="flex gap-2 flex-wrap flex-shrink-0">
+                                      {post.views && (
+                                        <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
+                                          {post.views}
+                                        </span>
+                                      )}
+                                      {post.status && (
+                                        <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
+                                          {post.status}
+                                        </span>
+                                      )}
+                                      {post.featured && (
+                                        <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
+                                          Featured
+                                        </span>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
+                                <FaExternalLinkAlt className="w-4 h-4 text-gray-400 group-hover:text-gray-300 flex-shrink-0 transition-colors ml-2" />
                               </div>
-                              <FaExternalLinkAlt className="w-4 h-4 text-gray-400 group-hover:text-gray-300 ml-4 flex-shrink-0 transition-colors" />
                             </motion.a>
                           ))}
                         </div>
