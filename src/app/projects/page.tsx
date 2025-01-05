@@ -525,7 +525,7 @@ export default function ProjectsPage() {
                               <div className="flex items-center justify-between overflow-hidden">
                                 <div className="flex-1 min-w-0 mr-4">
                                   <div className="flex items-center gap-2">
-                                    <span className="text-gray-200 group-hover:text-white font-medium truncate block w-full">
+                                    <span className="text-gray-200 group-hover:text-white font-medium block w-full break-words">
                                       {post.title}
                                     </span>
                                     <div className="flex gap-2 flex-wrap flex-shrink-0">
