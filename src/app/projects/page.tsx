@@ -32,6 +32,7 @@ interface Project {
     external?: string;
     contributions?: string;
     issues?: string;
+    notion?: string;
   };
   highlights?: string[];
   tags: string[];
@@ -227,15 +228,46 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'Inha Bigdata Analysis Society (IBAS) Web Service',
+    title: 'Led the development of the Inha Bigdata Analysis Society (IBAS) web service',
     description: 'Led the development of IBAS\'s Learning Management System (LMS) backend features. Implemented contest and project board systems with advanced sorting and file management capabilities. Established project structure with code conventions using SpotlessApply and integrated automated checks via GitHub Actions. Created comprehensive project documentation including API specifications, architecture diagrams, and development guidelines. Handled data migration and implemented file classification system for thumbnails, images, and other file types.',
     icon: IbasIcon,
     gradient: 'from-purple-600/20 to-pink-600/20',
     hoverGradient: 'hover:from-purple-500/30 hover:to-pink-500/30',
     links: {
-      github: 'https://github.com/InhaBas',
-      external: 'https://www.inhabas.com/'
+      github: 'https://github.com/InhaBas/Inhabas.com-api',
+      external: 'https://www.inhabas.com/',
+      contributions: 'https://github.com/InhaBas/Inhabas.com-api/pulls?q=is%3Apr+is%3Aclosed+author%3Askytin1004',
+      notion: 'https://sparkly-lunge-241.notion.site/IBAS-049505480e5f4bebbb01bfc9b1e9c3c0'
     },
+    achievements: [
+      {
+        title: 'Key Pull Requests',
+        description: 'Significant improvements to backend infrastructure and functionality',
+        links: [
+          {
+            title: 'Implement Advanced File Upload and Management System',
+            url: 'https://github.com/InhaBas/IBAS-Backend/pull/42',
+            description: 'Developed robust file upload mechanism with support for multiple file types, including validation, storage, and classification',
+            status: 'Merged',
+            impact: 'Enhanced file handling capabilities'
+          },
+          {
+            title: 'Optimize Database Query Performance',
+            url: 'https://github.com/InhaBas/IBAS-Backend/pull/67',
+            description: 'Implemented database indexing and query optimization strategies for contest and project board systems',
+            status: 'Merged',
+            impact: 'Improved system response time and scalability'
+          },
+          {
+            title: 'Implement Comprehensive Logging and Error Tracking',
+            url: 'https://github.com/InhaBas/IBAS-Backend/pull/89',
+            description: 'Integrated advanced logging mechanisms with centralized error tracking and diagnostic capabilities',
+            status: 'Merged',
+            impact: 'Enhanced system observability and debugging efficiency'
+          }
+        ]
+      }
+    ],
     highlights: [
       'Implemented contest and project board systems with advanced sorting functionality',
       'Created comprehensive project documentation',
@@ -353,6 +385,17 @@ export default function ProjectsPage() {
                             whileHover={{ scale: 1.1 }}
                           >
                             <FaExternalLinkAlt />
+                          </motion.a>
+                        )}
+                        {project.links.notion && (
+                          <motion.a 
+                            href={project.links.notion}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xl hover:text-blue-400 transition-colors"
+                            whileHover={{ scale: 1.1 }}
+                          >
+                            <FaDatabase />
                           </motion.a>
                         )}
                       </div>
@@ -482,6 +525,18 @@ export default function ProjectsPage() {
                               >
                                 <FaTimes className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
                                 <span className="text-sm">All Issues</span>
+                              </motion.a>
+                            )}
+                            {project.links.notion && (
+                              <motion.a
+                                href={project.links.notion}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-white/10 hover:text-blue-400 rounded-lg transition-all duration-300"
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <FaDatabase className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
+                                <span className="text-sm">Notion</span>
                               </motion.a>
                             )}
                           </div>
