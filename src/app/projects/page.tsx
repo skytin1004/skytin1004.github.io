@@ -61,7 +61,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Co-op Translator',
+    title: 'Maintainer of Co-op Translator',
     description: 'Redesigned and rebuilt the existing POC version of Co-op Translator into a Python CLI tool. This open-source project helps developers translate their technical documentation into multiple languages by automatically handling markdown files and embedded images.It preserves markdown formatting while translating content and can extract, translate, and replace text from images, making documentation truly accessible worldwide. Currently serving as the main maintainer after successfully transitioning it to Azure Opensource.',
     icon: BsMicrosoft,
     gradient: 'from-blue-600/20 to-cyan-600/20',
@@ -112,7 +112,7 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'Microsoft Phi-3 Cookbook Contributions',
+    title: 'Core Contributor to the Microsoft Phi-3 Cookbook',
     description: 'Contributed to Microsoft\'s Phi-3 Cookbook project by creating comprehensive tutorials, managing pull requests, and resolving critical issues. Enhanced the project\'s accessibility through multilingual support and improved documentation structure.',
     icon: BsMicrosoft,
     gradient: 'from-blue-600/20 to-cyan-600/20',
