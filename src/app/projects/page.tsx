@@ -279,7 +279,7 @@ const projects: Project[] = [
             impact: 'Enhanced test maintainability'
           },
           {
-            title: 'Core: Switch tests to Junit5 in catalog,encryption,inmemory,io,view',
+            title: 'Core: Switch tests to Junit5 in multiple packages',
             url: 'https://github.com/apache/iceberg/pull/7767',
             description: 'Migrated tests in the catalog, encryption, inmemory, io, and view packages from JUnit4 to JUnit5, modernizing the test framework and improving maintainability. Resolved directory handling and data validation issues in critical test cases. Clarified containsAll vs. containsExactlyInAnyOrder usage with maintainers',
             status: 'Merged',
