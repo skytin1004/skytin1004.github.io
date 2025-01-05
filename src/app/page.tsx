@@ -41,12 +41,12 @@ export default function Home() {
           <HeroTitle />
 
           <motion.p
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-full px-4 mx-auto break-words text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            Translating complex AI concepts into action. Breaking down barriers and connecting global developers through open source.
+            Translating complex AI concepts into action.<br />Breaking down barriers and<br /> connecting global developers.
           </motion.p>
 
           <motion.div 
