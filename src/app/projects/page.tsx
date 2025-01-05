@@ -245,25 +245,26 @@ const projects: Project[] = [
         description: 'Significant improvements to backend infrastructure and functionality',
         links: [
           {
-            title: 'Implement Advanced File Upload and Management System',
-            url: 'https://github.com/InhaBas/IBAS-Backend/pull/42',
-            description: 'Developed robust file upload mechanism with support for multiple file types, including validation, storage, and classification',
-            status: 'Merged',
-            impact: 'Enhanced file handling capabilities'
+            title: "[feature/Inhabas#252] Implement 'My Information' Feature for Viewing User's Posts, Comments, and Budget Applications",
+            url: "https://github.com/InhaBas/Inhabas.com-api/pull/255",
+            description: "Developed and integrated functionalities for retrieving a user's written posts, comments, and budget application history, including DTOs, services, repositories, and controllers. Ensured robust testing through Swagger and implemented refactoring for optimized code structure.",
+            status: "Merged",
+            impact: "Improved user experience by providing comprehensive access to personal activity data."
           },
           {
-            title: 'Optimize Database Query Performance',
-            url: 'https://github.com/InhaBas/IBAS-Backend/pull/67',
-            description: 'Implemented database indexing and query optimization strategies for contest and project board systems',
-            status: 'Merged',
-            impact: 'Improved system response time and scalability'
-          },
+            title: "[feature/Inhabas#241] Implement Project Board API Functionality",
+            url: "https://github.com/InhaBas/Inhabas.com-api/pull/249",
+            description: "Developed comprehensive API functionality for the project board, including controllers, services, and repositories. Conducted Postman CRUD tests, resolved commit conflicts, and integrated GitHub Actions for build verification. Implemented refactoring based on peer reviews to ensure code quality and consistency.",
+            status: "Merged",
+            impact: "Enhanced project management capabilities by enabling robust interaction with the project board API."
+          }
+          ,
           {
-            title: 'Implement Comprehensive Logging and Error Tracking',
-            url: 'https://github.com/InhaBas/IBAS-Backend/pull/89',
-            description: 'Integrated advanced logging mechanisms with centralized error tracking and diagnostic capabilities',
-            status: 'Merged',
-            impact: 'Enhanced system observability and debugging efficiency'
+            title: "[feature/Inhabas#234] Implement File Classification Functionality",
+            url: "https://github.com/InhaBas/Inhabas.com-api/pull/236",
+            description: "Developed functionality to classify attached files into thumbnails, images, and other files when viewing a single board post. Introduced `ClassifyFiles` and `ClassifiedFiles` classes to handle file categorization during board creation or modification. Ensured proper testing and seamless integration with existing board services.",
+            status: "Merged",
+            impact: "Improved user experience by enabling clear organization of attached files, facilitating better content management and access."
           }
         ]
       }
