@@ -426,24 +426,14 @@ export default function ProjectsPage() {
                                       {link.title}
                                     </span>
                                     <div className="flex gap-2 flex-wrap flex-shrink-0 mb-2">
-                                      {link.views && (
-                                        <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-300 rounded-full">
-                                          {link.views}
-                                        </span>
-                                      )}
                                       {link.status && (
                                         <span className="px-2 py-0.5 text-xs bg-green-500/20 text-green-300 rounded-full">
                                           {link.status}
                                         </span>
                                       )}
-                                      {link.featured && (
-                                        <span className="px-2 py-0.5 text-xs bg-purple-500/20 text-purple-300 rounded-full">
-                                          Featured
-                                        </span>
-                                      )}
                                     </div>
                                     {link.description && (
-                                      <p className="text-gray-400 text-sm">
+                                      <p className="text-gray-400 text-sm break-words">
                                         {link.description}
                                       </p>
                                     )}
