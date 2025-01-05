@@ -68,8 +68,38 @@ const projects: Project[] = [
     hoverGradient: 'hover:from-blue-500/30 hover:to-cyan-500/30',
     links: {
       github: 'https://github.com/Azure/co-op-translator',
-      external: 'https://techcommunity.microsoft.com/t5/educator-developer-blog/automate-markdown-and-image-translations-using-co-op-translator/ba-p/4263474'
+      external: 'https://techcommunity.microsoft.com/t5/educator-developer-blog/automate-markdown-and-image-translations-using-co-op-translator/ba-p/4263474',
+      contributions: 'https://github.com/Azure/co-op-translator/pulls?q=is%3Apr+author%3Askytin1004+is%3Aclosed'
     },
+    achievements: [
+      {
+        title: 'Key Pull Requests',
+        description: 'Significant improvements to translation automation and project functionality',
+        links: [
+          {
+            title: "Redesigned Architecture to Support Multiple LLM Services in Co-op Translator",
+            url: "https://github.com/Azure/co-op-translator/pull/63",
+            description: "Refactored the architecture of Co-op Translator to support multiple language and vision model providers, including OpenAI and Azure OpenAI. Introduced abstract base classes, modularized provider-specific configurations, and reorganized utilities for enhanced maintainability. The redesign ensures better separation of concerns and facilitates the integration of new LLM and vision services like Anthropic or Google Cloud Vision. Functional testing confirmed core functionalities remain intact.",
+            status: "Merged",
+            impact: "Improved extensibility and maintainability of the Co-op Translator, enabling easier integration of diverse LLM and vision services for future scalability."
+          },
+          {
+            title: "Improve Disclaimer to Indicate Translation by Generative AI and Resolve Issues with Skipped Chunks in Markdown Translation",
+            url: "https://github.com/Azure/co-op-translator/pull/17",
+            description: "Enhanced the disclaimer to inform users that translations are performed by generative AI, ensuring transparency about the source and limitations. Resolved issues with skipped chunks and incomplete document translations by implementing a sequential processing mechanism for markdown files. Introduced a `process_api_requests_sequential` method to ensure reliable and consistent translation by processing markdown files one at a time. Updated the `translate_all_markdown_files` method to utilize this sequential processing approach.",
+            status: "Merged",
+            impact: "Improved user trust through enhanced disclaimers and ensured complete and accurate translation of markdown documents, addressing previous issues with skipped or partially translated chunks."
+          },
+          {
+            title: "Modularize Project for Diverse Test Cases",
+            url: "https://github.com/Imperial-EE-Microsoft/co_op_translator/pull/1",
+            description: "Refactored the project structure to enhance maintainability and facilitate diverse testing scenarios. Introduced separate modules for configurations, image processing, text translation, and utilities. Centralized configuration management using a `Config` class and segregated development and production settings. Added initial testing infrastructure with unit tests for each module and a template for integration tests. Improved documentation by adding detailed docstrings and updating the README.",
+            status: "Merged",
+            impact: "Enhanced project scalability, improved code organization, and streamlined the process of adding new features or tests."
+          }
+        ]
+      }
+    ],
     highlights: [
       'Developed and maintained an automated multilingual translation system using Azure AI services',
       'Integrated Azure OpenAI and Azure Computer Vision for text extraction and translation',
