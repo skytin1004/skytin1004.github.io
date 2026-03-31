@@ -387,12 +387,14 @@ button {
 
 .signal-item strong {
   display: block;
+  text-align: right;
   font-size: 0.96rem;
 }
 
 .signal-item span {
   color: var(--muted);
   font-size: 0.9rem;
+  text-align: left;
 }
 
 .section-heading {

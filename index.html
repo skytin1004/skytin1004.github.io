@@ -55,8 +55,8 @@ description: Microsoft AI MVP, OSS maintainer of Azure/co-op-translator, and bui
           <div class="signal-list">
             {% for signal in profile.signals %}
               <div class="signal-item">
-                <strong>{{ signal.label }}</strong>
                 <span>{{ signal.detail }}</span>
+                <strong>{{ signal.label }}</strong>
               </div>
             {% endfor %}
           </div>
@@ -73,20 +73,6 @@ description: Microsoft AI MVP, OSS maintainer of Azure/co-op-translator, and bui
             <p class="metric-detail">{{ metric.detail }}</p>
           </article>
         {% endfor %}
-      </div>
-
-      <div class="repo-strip panel reveal">
-        <div class="section-heading">
-          <p class="eyebrow">Ecosystem Reach</p>
-          <h2 class="section-title">Built for real repositories, not demo content.</h2>
-          <p class="section-copy">The workflow has been shaped by multilingual developer education and open-source repositories that change continuously.</p>
-        </div>
-
-        <div class="pill-row">
-          {% for repo in profile.featured_repos %}
-            <span class="pill">{{ repo }}</span>
-          {% endfor %}
-        </div>
       </div>
     </section>
 
