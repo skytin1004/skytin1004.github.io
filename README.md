@@ -1,10 +1,22 @@
-# Minseok Song's Portfolio
+# Minseok Song Portfolio
 
-My personal portfolio website built with Next.js, showcasing my projects and experiences.
+Portfolio site for [Minseok Song](https://skytin1004.github.io/), rebuilt as a single-page experience focused on:
 
-## Tech Stack
+- Microsoft AI MVP
+- OSS maintainer of [Azure/co-op-translator](https://github.com/Azure/co-op-translator)
+- builder of [Localizeflow](https://localizeflow.com/)
+- GitHub-native localization infrastructure for multilingual documentation
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- GitHub Pages
+## Local development
+
+This site is powered by Jekyll.
+
+```bash
+bundle exec jekyll serve
+```
+
+## Content model
+
+Portfolio content is centralized in [`_data/profile.yml`](./_data/profile.yml).
+
+The redesign direction and visual system are documented in [`DESIGN.md`](./DESIGN.md).

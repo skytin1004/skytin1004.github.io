@@ -1,0 +1,18 @@
+---
+layout: default
+title: About_KOR
+---
+<main class="route-shell" id="content">
+  <section class="route-card">
+    <p class="eyebrow">Section moved</p>
+    <h1>소개 페이지는 새 포트폴리오 메인 화면 안으로 통합되었습니다.</h1>
+    <p>잠시 후 자동으로 이동합니다. 이동하지 않으면 아래 버튼으로 새 메인 페이지의 여정 섹션으로 가실 수 있습니다.</p>
+    <div class="route-actions">
+      <a class="button button-primary" href="{{ "/" | relative_url }}#journey">Journey section</a>
+      <a class="button button-secondary" href="{{ "/" | relative_url }}">Home</a>
+    </div>
+  </section>
+</main>
+<script>
+  window.location.replace("{{ "/" | relative_url }}#journey");
+</script>
