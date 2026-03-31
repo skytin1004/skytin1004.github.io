@@ -1,17 +1,17 @@
 ---
 ---
 :root {
-  --bg: #f4efe8;
-  --bg-strong: #efe7de;
-  --surface: rgba(255, 255, 255, 0.68);
-  --surface-strong: rgba(255, 255, 255, 0.92);
-  --text: #101827;
-  --muted: #596273;
-  --line: rgba(16, 24, 39, 0.12);
-  --blue: #1b69ff;
-  --teal: #0fb6aa;
-  --amber: #ef9f39;
-  --shadow: 0 24px 70px rgba(16, 24, 39, 0.08);
+  --bg: #eff5fb;
+  --bg-strong: #e6eef8;
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --text: #0f1b2d;
+  --muted: #5d6c80;
+  --line: rgba(43, 89, 145, 0.14);
+  --blue: #5d8fcb;
+  --blue-strong: #3f73b2;
+  --blue-soft: #dbe8f7;
+  --shadow: 0 24px 70px rgba(47, 87, 138, 0.12);
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -35,9 +35,9 @@ body {
   min-height: 100vh;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(27, 105, 255, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(15, 182, 170, 0.12), transparent 25%),
-    linear-gradient(180deg, #f8f3ed 0%, var(--bg) 38%, #f1ebe3 100%);
+    radial-gradient(circle at top left, rgba(93, 143, 203, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(93, 143, 203, 0.12), transparent 25%),
+    linear-gradient(180deg, #f7fbff 0%, var(--bg) 38%, #eaf2fb 100%);
   font-family: var(--font-body);
   line-height: 1.6;
 }
@@ -61,9 +61,9 @@ body::before {
 
 body::after {
   background:
-    radial-gradient(circle at 14% 16%, rgba(239, 159, 57, 0.12), transparent 24%),
-    radial-gradient(circle at 82% 18%, rgba(27, 105, 255, 0.12), transparent 24%),
-    radial-gradient(circle at 50% 72%, rgba(15, 182, 170, 0.12), transparent 30%);
+    radial-gradient(circle at 14% 16%, rgba(93, 143, 203, 0.1), transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(63, 115, 178, 0.12), transparent 24%),
+    radial-gradient(circle at 50% 72%, rgba(93, 143, 203, 0.12), transparent 30%);
 }
 
 img {
@@ -144,8 +144,8 @@ button {
   height: 42px;
   border-radius: 16px;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue), var(--teal));
-  box-shadow: 0 14px 24px rgba(27, 105, 255, 0.28);
+  background: linear-gradient(135deg, var(--blue), var(--blue-strong));
+  box-shadow: 0 14px 24px rgba(63, 115, 178, 0.28);
 }
 
 .nav-toggle {
@@ -264,9 +264,10 @@ button {
 .hero-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.6rem);
-  line-height: 0.94;
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 0.98;
   letter-spacing: -0.05em;
+  max-width: 12ch;
 }
 
 .hero-summary {
@@ -312,8 +313,8 @@ button {
 
 .button-primary {
   color: #fff;
-  background: linear-gradient(135deg, var(--blue), #1453cc);
-  box-shadow: 0 16px 30px rgba(27, 105, 255, 0.24);
+  background: linear-gradient(135deg, var(--blue), var(--blue-strong));
+  box-shadow: 0 16px 30px rgba(63, 115, 178, 0.24);
 }
 
 .button-secondary {
@@ -330,7 +331,7 @@ button {
   position: relative;
   border-radius: 26px;
   overflow: hidden;
-  background: linear-gradient(160deg, rgba(27, 105, 255, 0.18), rgba(15, 182, 170, 0.18));
+  background: linear-gradient(160deg, rgba(93, 143, 203, 0.18), rgba(63, 115, 178, 0.16));
 }
 
 .portrait-wrap::after {
@@ -470,7 +471,7 @@ button {
 
 .quote-panel {
   padding: 34px;
-  background: linear-gradient(135deg, rgba(16, 24, 39, 0.94), rgba(28, 38, 58, 0.94));
+  background: linear-gradient(135deg, rgba(52, 88, 134, 0.96), rgba(77, 120, 176, 0.94));
   color: #fff;
 }
 
@@ -565,7 +566,7 @@ button {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), var(--teal));
+  background: linear-gradient(135deg, var(--blue), var(--blue-strong));
   transform: translateY(-50%);
 }
 
@@ -607,11 +608,24 @@ button {
   width: 56px;
   height: 56px;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(27, 105, 255, 0.14), rgba(15, 182, 170, 0.14));
+  background: linear-gradient(135deg, rgba(93, 143, 203, 0.16), rgba(63, 115, 178, 0.14));
   color: var(--blue);
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+.signal-item,
+.pill,
+.principle,
+.background-card li {
+  border-color: rgba(93, 143, 203, 0.16);
+}
+
+.panel-type,
+.journey-year {
+  background: rgba(93, 143, 203, 0.12);
+  color: var(--blue-strong);
 }
 
 .principle h3 {
@@ -670,8 +684,33 @@ button {
   font-weight: 700;
 }
 
+.story-collapsible {
+  display: grid;
+  gap: 16px;
+  max-height: 0;
+  overflow: hidden;
+  padding: 12px 0 6px;
+  margin: -12px 0 -6px;
+  transition: max-height 420ms ease;
+}
+
+.story-collapsible.is-open {
+  overflow: visible;
+}
+
+.expand-button {
+  justify-self: start;
+  margin-top: 4px;
+  border-color: rgba(93, 143, 203, 0.18);
+  background: rgba(255, 255, 255, 0.44);
+  backdrop-filter: blur(10px);
+  color: var(--blue);
+  cursor: pointer;
+}
+
 .background-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 28px;
 }
 
 .background-card {
@@ -700,6 +739,7 @@ button {
 
 .journey-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 8px;
 }
 
 .journey-card {
@@ -873,7 +913,7 @@ html.js .reveal.is-visible {
   }
 
   .hero-title {
-    font-size: clamp(2.6rem, 13vw, 4rem);
+    font-size: clamp(2.3rem, 11vw, 3.5rem);
   }
 
   .section-title {
