@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Script from "next/script";
-import "./globals.css";
-import Navigation from "@/components/Navigation";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Script from 'next/script';
+import './globals.css';
+import Navigation from '@/components/Navigation';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Minseok Song | Portfolio",
-  description: "Welcome to my portfolio",
+  title: 'Minseok Song | Portfolio',
+  description:
+    'GitHub-native infrastructure for multilingual documentation, open-source maintenance, and developer workflows.',
 };
 
 export default function RootLayout({
@@ -32,11 +33,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.className} bg-gray-900 text-white`}>
+      <body className={`${inter.className} site-shell`}>
         <Navigation />
-        <div className="pt-16">
-          {children}
-        </div>
+        <div className="page-content">{children}</div>
       </body>
     </html>
   );
