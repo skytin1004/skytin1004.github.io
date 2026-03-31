@@ -162,15 +162,15 @@ img {
 
 .hero-copy,
 .hero-card {
-  padding: 38px;
+  padding: 34px;
 }
 
 .hero-copy h1 {
-  max-width: 12ch;
-  margin: 14px 0 18px;
-  font-size: clamp(3.6rem, 8vw, 5.6rem);
-  line-height: 0.94;
-  letter-spacing: -0.06em;
+  max-width: 11ch;
+  margin: 12px 0 16px;
+  font-size: clamp(2.3rem, 4.8vw, 3.55rem);
+  line-height: 1;
+  letter-spacing: -0.065em;
 }
 
 .hero-summary,
@@ -187,24 +187,24 @@ img {
 }
 
 .hero-summary {
-  max-width: 62ch;
-  margin: 0 0 18px;
-  font-size: 1.08rem;
-  line-height: 1.75;
+  max-width: 54ch;
+  margin: 0 0 14px;
+  font-size: 1rem;
+  line-height: 1.68;
 }
 
 .hero-detail {
-  max-width: 52ch;
+  max-width: 48ch;
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.62;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin: 30px 0 18px;
+  margin: 24px 0 16px;
 }
 
 .hero-actions a,
@@ -242,7 +242,7 @@ img {
 
 .availability {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .hero-card {
@@ -375,14 +375,15 @@ img {
 
 .section-heading h2 {
   margin-top: 10px;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
 }
 
 .section-heading p:last-child {
-  margin: 14px 0 0;
-  font-size: 1rem;
-  line-height: 1.7;
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.66;
 }
 
 .project-grid {
@@ -652,7 +653,8 @@ img {
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.9rem, 15vw, 4.5rem);
+    max-width: 11ch;
+    font-size: clamp(2.1rem, 10vw, 3rem);
   }
 
   .metrics-grid,
