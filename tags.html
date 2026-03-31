@@ -1,4 +1,18 @@
 ---
-layout: tags
+layout: default
 title: Tags
 ---
+<main class="route-shell" id="content">
+  <section class="route-card">
+    <p class="eyebrow">Section moved</p>
+    <h1>The tag page is no longer part of the main experience.</h1>
+    <p>The new site is organized around work, thinking, writing, journey, and contact instead of blog taxonomies.</p>
+    <div class="route-actions">
+      <a class="button button-primary" href="{{ "/" | relative_url }}">Go to Home</a>
+      <a class="button button-secondary" href="{{ "/" | relative_url }}#work">Open Work</a>
+    </div>
+  </section>
+</main>
+<script>
+  window.location.replace("{{ "/" | relative_url }}");
+</script>

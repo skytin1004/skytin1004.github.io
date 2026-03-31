@@ -1,4 +1,18 @@
 ---
-layout: about
+layout: default
 title: About
 ---
+<main class="route-shell" id="content">
+  <section class="route-card">
+    <p class="eyebrow">Section moved</p>
+    <h1>The About page now lives inside the redesigned one-page portfolio.</h1>
+    <p>You should be redirected automatically. If not, use the link below to jump to the journey and background section.</p>
+    <div class="route-actions">
+      <a class="button button-primary" href="{{ "/" | relative_url }}#journey">Go to Journey</a>
+      <a class="button button-secondary" href="{{ "/" | relative_url }}">Go to Home</a>
+    </div>
+  </section>
+</main>
+<script>
+  window.location.replace("{{ "/" | relative_url }}#journey");
+</script>

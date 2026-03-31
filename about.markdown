@@ -1,7 +1,19 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
-
-안녕하세요!!
+<main class="route-shell" id="content">
+  <section class="route-card">
+    <p class="eyebrow">Section moved</p>
+    <h1>The About route now points to the redesigned portfolio story.</h1>
+    <p>You should be redirected automatically. If not, use the button below.</p>
+    <div class="route-actions">
+      <a class="button button-primary" href="{{ "/" | relative_url }}#journey">Go to Journey</a>
+      <a class="button button-secondary" href="{{ "/" | relative_url }}">Go to Home</a>
+    </div>
+  </section>
+</main>
+<script>
+  window.location.replace("{{ "/" | relative_url }}#journey");
+</script>

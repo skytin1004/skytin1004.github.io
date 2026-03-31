@@ -1,7 +1,245 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
-title: Home
+layout: default
+title: Minseok Song
+description: Microsoft AI MVP, OSS maintainer of Azure/co-op-translator, and builder of Localizeflow.
 ---
+{% assign profile = site.data.profile %}
+
+<header class="topbar">
+  <div class="topbar-inner" data-nav-shell data-open="false">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark">MS</span>
+      <span>{{ profile.site.name }}</span>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-navigation">
+      Menu
+    </button>
+
+    <nav class="nav-links" id="site-navigation" aria-label="Primary">
+      <a href="#work" data-nav-link>Work</a>
+      <a href="#thinking" data-nav-link>Thinking</a>
+      <a href="#writing" data-nav-link>Writing</a>
+      <a href="#journey" data-nav-link>Journey</a>
+      <a href="#connect" data-nav-link>Connect</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content" class="portfolio-main">
+  <div class="page-shell">
+    <section class="hero" id="top">
+      <article class="hero-copy hero-card reveal">
+        <p class="eyebrow">Minseok Song</p>
+        <h1 class="hero-title">{{ profile.site.hero_title }}</h1>
+        <p class="hero-summary">{{ profile.site.hero_summary }}</p>
+        <p class="hero-detail">{{ profile.site.hero_detail }}</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore the work</a>
+          <a class="button button-secondary" href="{{ profile.site.localizeflow }}" target="_blank" rel="noreferrer">Open Localizeflow</a>
+          <a class="button button-secondary" href="{{ profile.site.github }}" target="_blank" rel="noreferrer">View GitHub</a>
+        </div>
+      </article>
+
+      <aside class="hero-card reveal">
+        <div class="portrait-wrap">
+          <img src="{{ profile.site.portrait | relative_url }}" alt="{{ profile.site.portrait_alt }}">
+        </div>
+
+        <div class="profile-meta">
+          <div>
+            <h2 class="profile-name">{{ profile.site.name }}</h2>
+            <p class="profile-subtitle">{{ profile.site.availability }}</p>
+          </div>
+
+          <div class="signal-list">
+            {% for signal in profile.signals %}
+              <div class="signal-item">
+                <strong>{{ signal.label }}</strong>
+                <span>{{ signal.detail }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="metrics-grid">
+        {% for metric in profile.metrics %}
+          <article class="metric-card reveal">
+            <span class="metric-value">{{ metric.value }}</span>
+            <span class="metric-label">{{ metric.label }}</span>
+            <p class="metric-detail">{{ metric.detail }}</p>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="repo-strip panel reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Ecosystem Reach</p>
+          <h2 class="section-title">Built for real repositories, not demo content.</h2>
+          <p class="section-copy">The workflow has been shaped by multilingual developer education and open-source repositories that change continuously.</p>
+        </div>
+
+        <div class="pill-row">
+          {% for repo in profile.featured_repos %}
+            <span class="pill">{{ repo }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Flagship Work</p>
+        <h2 class="section-title">From open-source maintainer workflow to product infrastructure.</h2>
+        <p class="section-copy">The portfolio is organized around two layers: the engine that powers multilingual documentation workflows and the zero-setup product built from operating that engine at scale.</p>
+      </div>
+
+      <div class="project-grid">
+        {% for project in profile.projects %}
+          <article class="panel reveal">
+            <span class="panel-type">{{ project.type }}</span>
+            <h3>{{ project.name }}</h3>
+            <p class="panel-summary">{{ project.summary }}</p>
+            <p class="panel-description">{{ project.description }}</p>
+
+            <ul class="bullet-list">
+              {% for bullet in project.bullets %}
+                <li>{{ bullet }}</li>
+              {% endfor %}
+            </ul>
+
+            <a class="panel-link" href="{{ project.url }}" target="_blank" rel="noreferrer">{{ project.cta }}</a>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section" id="thinking">
+      <div class="system-grid">
+        <article class="panel reveal">
+          <div class="section-heading">
+            <p class="eyebrow">How I Think</p>
+            <h2 class="section-title">Maintainer empathy, system design, and GitHub-native execution.</h2>
+            <p class="section-copy">The strongest signal across the public work is consistency: documentation belongs in version control, translation drift should be observable, and multilingual updates should arrive through the same pull-request workflow developers already trust.</p>
+          </div>
+
+          <div class="pill-row">
+            {% for signal in profile.signals %}
+              <span class="pill">{{ signal.label }}</span>
+            {% endfor %}
+          </div>
+        </article>
+
+        <div class="principles-list">
+          {% for principle in profile.principles %}
+            <article class="principle panel reveal">
+              <div class="principle-index">{{ forloop.index }}</div>
+              <div>
+                <h3>{{ principle.title }}</h3>
+                <p>{{ principle.description }}</p>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="writing">
+      <div class="story-grid">
+        <div class="story-column">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Selected Writing</p>
+            <h2 class="section-title">Writing that connects AI tooling, localization, and operational clarity.</h2>
+            <p class="section-copy">The writing spans Azure AI and Responsible AI, but the center of gravity has moved toward documentation systems, translation state, and maintainable multilingual workflows.</p>
+          </div>
+
+          {% for article in profile.writing %}
+            <article class="story-card reveal">
+              <div class="story-meta">
+                <span>{{ article.category }}</span>
+                <span>{{ article.outlet }}</span>
+                <span>{{ article.date }}</span>
+              </div>
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.blurb }}</p>
+              <a class="story-link" href="{{ article.url }}" target="_blank" rel="noreferrer">Read the article</a>
+            </article>
+          {% endfor %}
+        </div>
+
+        <div class="story-column">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Talks and Media</p>
+            <h2 class="section-title">Public sessions that turn infrastructure into stories people can use.</h2>
+            <p class="section-copy">The talks focus on making complex workflows understandable for developers, maintainers, and learners.</p>
+          </div>
+
+          {% for talk in profile.talks %}
+            <article class="story-card reveal">
+              <div class="story-meta">
+                <span>{{ talk.venue }}</span>
+                <span>{{ talk.date }}</span>
+              </div>
+              <h3>{{ talk.title }}</h3>
+              <p>{{ talk.description }}</p>
+              <a class="story-link" href="{{ talk.url }}" target="_blank" rel="noreferrer">Open session</a>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Background</p>
+        <h2 class="section-title">A journey from first software to global documentation systems.</h2>
+        <p class="section-copy">The timeline below combines education, public recognition, and the shift from technical tutorials toward a durable product and maintainer identity.</p>
+      </div>
+
+      <div class="background-grid">
+        {% for block in profile.background %}
+          <article class="background-card panel reveal">
+            <h3>{{ block.title }}</h3>
+            <ul>
+              {% for item in block.items %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="journey-grid">
+        {% for step in profile.journey %}
+          <article class="journey-card panel reveal">
+            <span class="journey-year">{{ step.year }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section" id="connect">
+      <article class="contact-panel hero-card reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Connect</p>
+          <h2 class="section-title">If you care about multilingual docs, open source, or GitHub-native automation, let's talk.</h2>
+          <p class="section-copy">The fastest way to understand the work is to explore the product, inspect the open-source engine, and read the writing that explains the operating model behind both.</p>
+        </div>
+
+        <div class="contact-actions">
+          {% for item in profile.connect %}
+            <a class="button {% if forloop.first %}button-primary{% else %}button-secondary{% endif %}" href="{{ item.href }}" {% unless item.href contains "mailto:" %}target="_blank" rel="noreferrer"{% endunless %}>{{ item.label }}</a>
+          {% endfor %}
+        </div>
+
+        <p class="footer-note">Public profile signals reflected here were gathered from GitHub, Microsoft properties, Localizeflow, and the existing published portfolio, then reorganized around the current maintainer-plus-builder narrative.</p>
+      </article>
+    </section>
+  </div>
+</main>

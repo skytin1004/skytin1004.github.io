@@ -1,4 +1,18 @@
 ---
-layout: archives
+layout: default
 title: Archives
 ---
+<main class="route-shell" id="content">
+  <section class="route-card">
+    <p class="eyebrow">Section moved</p>
+    <h1>The archive view has been folded into the new portfolio story.</h1>
+    <p>Use the writing section on the home page to explore current articles and public work.</p>
+    <div class="route-actions">
+      <a class="button button-primary" href="{{ "/" | relative_url }}#writing">Open Writing</a>
+      <a class="button button-secondary" href="{{ "/" | relative_url }}">Go to Home</a>
+    </div>
+  </section>
+</main>
+<script>
+  window.location.replace("{{ "/" | relative_url }}#writing");
+</script>
