@@ -1,0 +1,41 @@
+title: Minseok Song
+email: skytin1004@gmail.com
+author: Minseok Song
+description: >-
+  Microsoft AI MVP, OSS maintainer of Azure/co-op-translator, and builder of
+  Localizeflow. I build GitHub-native localization infrastructure for
+  multilingual documentation.
+baseurl: ""
+url: "https://skytin1004.github.io"
+lang: "en"
+timezone: Asia/Seoul
+future: true
+published: true
+sitemap: true
+favicon: "/assets/images/favicon/favicon1.png"
+
+header_pages: []
+translate_langs: []
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/about/profile4.jpg"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-spaceship
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-X946DNBS12"
+    anonymize_ip: false
