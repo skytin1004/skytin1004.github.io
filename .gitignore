@@ -4,3 +4,6 @@
 .jekyll-cache
 _site
 Gemfile.lock
+node_modules
+.next
+out
