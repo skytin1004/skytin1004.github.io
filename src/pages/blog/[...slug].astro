@@ -1,0 +1,114 @@
+---
+import '../../styles/tailwind.css'
+import BlogLayout from '../../layouts/BlogLayout.astro'
+import { getCollection, getEntry, render } from 'astro:content'
+import { getBlogNavigation } from '../../lib/blogNavigation'
+import { site } from '../../lib/site'
+import GA4 from '../../components/GA4.astro'
+import { isSupportedBlogLocale, blogDefaultLocale } from '../../locales/config'
+
+const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  const now = Date.now()
+
+  const filtered = posts.filter((post) => {
+    const notDraft = !post.data.draft
+    const notFuture = !post.data.date || post.data.date.getTime() <= now
+    const hasId = typeof post.id === 'string' && post.id.length > 0
+    return notDraft && notFuture && hasId
+  })
+
+  const localizedPaths = filtered.map((post) => ({
+    params: { slug: post.id },
+  }))
+
+  const unprefixedEnglishPaths = filtered
+    .filter((post) => post.id.startsWith('en/'))
+    .map((post) => ({ params: { slug: post.id.replace(/^en\//, '') } }))
+
+  return [...localizedPaths, ...unprefixedEnglishPaths]
+}
+
+const { slug } = Astro.params
+
+if (!slug) {
+  throw new Error('Missing slug')
+}
+
+// If the slug is unprefixed (e.g., "teach-ai-to-answer-documents-series-1"),
+// permanently redirect to the English-prefixed route.
+if (!slug.includes('/')) {
+  return Astro.redirect(`/blog/${blogDefaultLocale}/${slug}`, 301)
+}
+
+const entry = await getEntry('blog', slug)
+
+if (!entry) {
+  return new Response('Not found', { status: 404 })
+}
+
+const { Content, headings } = await render(entry)
+
+type TocItem = {
+  id: string
+  title: string
+  children: TocItem[]
+}
+
+const toc = (headings as any[]).reduce((sections: TocItem[], h: any) => {
+  if (h.depth === 2) {
+    sections.push({ id: h.slug, title: h.text, children: [] })
+  } else if (h.depth === 3 && sections.length > 0) {
+    sections[sections.length - 1].children.push({
+      id: h.slug,
+      title: h.text,
+      children: [],
+    })
+  }
+  return sections
+}, [])
+
+const [maybeLocale] = slug.split('/')
+const isLocalized = slug.includes('/')
+const locale = isLocalized
+  ? (isSupportedBlogLocale(maybeLocale) ? maybeLocale : blogDefaultLocale)
+  : blogDefaultLocale
+
+const blogNavigation = await getBlogNavigation(locale)
+---
+
+<html lang={locale} class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{entry.data.title} - {site.title}</title>
+    {entry.data.description && <meta name="description" content={entry.data.description} />}
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:title" content={entry.data.title} />
+    {entry.data.description && <meta property="og:description" content={entry.data.description} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <GA4 />
+  </head>
+  <body>
+    <BlogLayout
+      title={entry.data.title}
+      intro={entry.data.description}
+      currentPath={`/blog/${slug}`}
+      toc={toc}
+      navigation={blogNavigation}
+      subtitle="Blog"
+      author={entry.data.author}
+      date={entry.data.date}
+      updatedAt={entry.data.updatedAt}
+      readingTimeMinutes={entry.data.readingTimeMinutes}
+      category={entry.data.category}
+    >
+      <Content />
+    </BlogLayout>
+  </body>
+</html>

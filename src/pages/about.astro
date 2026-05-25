@@ -1,0 +1,64 @@
+---
+import '../styles/tailwind.css'
+import BlogLayout from '../layouts/BlogLayout.astro'
+import GA4 from '../components/GA4.astro'
+import { getEntry, render } from 'astro:content'
+import { site } from '../lib/site'
+
+const entry = await getEntry('about', 'resume')
+
+if (!entry) {
+  throw new Error('Missing src/content/about/resume.md')
+}
+
+const { Content, headings } = await render(entry)
+const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+
+type TocItem = {
+  id: string
+  title: string
+  children: TocItem[]
+}
+
+const toc = (headings as any[]).reduce((sections: TocItem[], h: any) => {
+  if (h.depth === 2) {
+    sections.push({ id: h.slug, title: h.text, children: [] })
+  } else if (h.depth === 3 && sections.length > 0) {
+    sections[sections.length - 1].children.push({
+      id: h.slug,
+      title: h.text,
+      children: [],
+    })
+  }
+  return sections
+}, [])
+---
+
+<html lang="en" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{entry.data.title} - {site.title}</title>
+    {entry.data.description && <meta name="description" content={entry.data.description} />}
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:title" content={entry.data.title} />
+    {entry.data.description && <meta property="og:description" content={entry.data.description} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <GA4 />
+  </head>
+  <body class="bg-bg">
+    <BlogLayout
+      title={entry.data.title}
+      intro={entry.data.description}
+      currentPath="/about"
+      toc={toc}
+      navigation={[]}
+      subtitle="About"
+    >
+      <Content />
+    </BlogLayout>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+---
+import '../../styles/tailwind.css'
+import BlogLayout from '../../layouts/BlogLayout.astro'
+import { getBlogNavigation } from '../../lib/blogNavigation'
+import { getPublishedBlogPosts } from '../../lib/blogPosts'
+import { site } from '../../lib/site'
+import { blogLocales, blogDefaultLocale, isSupportedBlogLocale } from '../../locales/config'
+import GA4 from '../../components/GA4.astro'
+import { getAuthor } from '../../lib/authors'
+
+export async function getStaticPaths() {
+  return blogLocales.filter((l) => !l.isDefault).map((lang) => ({
+    params: { locale: lang.code },
+  }))
+}
+
+const { locale: rawLocale } = Astro.params
+const locale = isSupportedBlogLocale(rawLocale) ? rawLocale : blogDefaultLocale
+
+const posts = await getPublishedBlogPosts(locale)
+const blogNavigation = await getBlogNavigation(locale)
+const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+
+---
+<html lang={locale} class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <GA4 />
+  </head>
+  <body class="bg-bg">
+    <BlogLayout
+      title={site.title}
+      intro={site.description}
+      currentPath={`/blog/${locale}`}
+      navigation={blogNavigation}
+    >
+      <div class="not-prose mt-8 space-y-6">
+        {posts.map((post) => {
+          const authorProfile = getAuthor(post.data.author)
+          return (
+            <article class="rounded-lg border border-border bg-white p-6 shadow-sm transition hover:border-brand/40 dark:border-slate-800 dark:bg-slate-900/60">
+              <a href={`/blog/${post.id}`} class="block">
+                <h2 class="font-display text-xl font-medium text-text dark:text-white">
+                  {post.data.title}
+                </h2>
+                {post.data.description && (
+                  <p class="mt-2 text-sm text-text-secondary dark:text-slate-400">
+                    {post.data.description}
+                  </p>
+                )}
+                {authorProfile && (
+                  <p class="mt-2 text-xs text-text-secondary dark:text-slate-400">
+                    {authorProfile.name}
+                    {authorProfile.title && (
+                      <span class="ml-1">· {authorProfile.title}</span>
+                    )}
+                  </p>
+                )}
+                {post.data.date && (
+                  <p class="mt-4 text-xs text-text-secondary dark:text-slate-400">
+                    {post.data.date.toLocaleDateString?.('en', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    }) ?? post.data.date}
+                  </p>
+                )}
+              </a>
+            </article>
+          )
+        })}
+      </div>
+    </BlogLayout>
+  </body>
+</html>

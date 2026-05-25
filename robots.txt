@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://skytin1004.github.io/sitemap.xml
-

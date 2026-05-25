@@ -1,22 +1,41 @@
-# Minseok Song Portfolio
+# Minseok Song Tech Blog
 
-Portfolio site for [Minseok Song](https://skytin1004.github.io/), rebuilt as a single-page experience focused on:
+Personal technical blog built with [Astro](https://astro.build), React islands, and Tailwind CSS.
 
-- Microsoft AI MVP
-- OSS maintainer of [Azure/co-op-translator](https://github.com/Azure/co-op-translator)
-- builder of [Localizeflow](https://localizeflow.com/)
-- GitHub-native localization infrastructure for multilingual documentation
+## Development
 
-## Local development
+Use Node.js 22.12.0 or newer.
 
-This site is powered by Jekyll.
+Install dependencies:
 
 ```bash
-bundle exec jekyll serve
+npm install
 ```
 
-## Content model
+Start the local dev server:
 
-Portfolio content is centralized in [`_data/profile.yml`](./_data/profile.yml).
+```bash
+npm run dev
+```
 
-The redesign direction and visual system are documented in [`DESIGN.md`](./DESIGN.md).
+Build the static site:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Content
+
+- Blog posts live in `src/content/blog`.
+- The About page renders `src/content/about/resume.md`.
+- Shared site metadata lives in `src/lib/site.ts`.
+
+## Deployment
+
+The site builds to `dist/` and can be deployed to GitHub Pages or any static host.

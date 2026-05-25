@@ -1,0 +1,211 @@
+@import 'tailwindcss';
+@import './prism.css';
+
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 2rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2.5rem;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 2.5rem;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 3rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-lexend);
+  --font-display--font-feature-settings: 'ss01';
+
+  --container-8xl: 88rem;
+}
+
+@layer base {
+  :root {
+    /* Blog color system */
+    --color-bg: #ffffff; /* Paper */
+    --color-text: #22262a; /* Onyx */
+    --color-primary: #32817f; /* Brand primary */
+    --color-primary-hover: #2c3e50; /* CTA / darker primary */
+    --color-primary-rgb: 50, 129, 127; /* For rgba usage */
+    --color-primary-soft: #4bb0ad; /* Softer teal for highlights */
+    --color-primary-soft-rgb: 75, 176, 173;
+    --color-onyx: #22262a;
+    --color-accent: #6bdab6; /* Secondary accent */
+    --color-important: #8b5cf6; /* Important callouts (purple) */
+    --color-text-secondary: #6c7a89; /* Secondary text */
+    --color-border: #e5e8ec; /* Dividers, borders */
+    --color-subtle-bg: #f1f3f5; /* Cards, inputs */
+    --color-error: #ff6b6b; /* Errors, warnings */
+
+    /* Skeleton UI */
+    --color-skeleton: #eef2f7;
+    --color-skeleton-pill: #f5f7fa;
+
+    /* Layout surfaces */
+    --color-sidebar-bg: #f8f9fa;
+    --color-sidebar-hover: #f1f3f5;
+    --color-sidebar-active: #e9ecef;
+    --color-sidebar-text: #495057;
+    --color-sidebar-active-text: var(--color-primary);
+    --color-header-bg: #ffffff;
+    --color-header-border: #e5e8ec;
+
+    /* Tokens used by Tailwind theme extensions */
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --radius-sm: 0.125rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  ::selection {
+    background-color: rgba(var(--color-primary-soft-rgb), 0.28);
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  [inert] ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .prose .admonition {
+    margin: 1.5rem 0;
+    padding: 0.9rem 1rem 0.9rem 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background-color: #ffffff;
+    border-left-width: 4px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  }
+
+  .prose .admonition::before {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .prose .admonition-note {
+    border-left-color: var(--color-primary);
+  }
+
+  .prose .admonition-tip {
+    border-left-color: var(--color-accent);
+  }
+
+  .prose .admonition-note::before {
+    content: 'Note';
+    color: var(--color-primary);
+  }
+
+  .prose .admonition-tip::before {
+    content: 'Tip';
+    color: var(--color-accent);
+  }
+
+  .prose .admonition-important {
+    border-left-color: var(--color-important);
+  }
+
+  .prose .admonition-warning {
+    border-left-color: var(--color-error);
+  }
+
+  .prose .admonition-important::before {
+    content: 'Important';
+    color: var(--color-important);
+  }
+
+  .prose .admonition-warning::before {
+    content: 'Warning';
+    color: var(--color-error);
+  }
+
+  .prose .admonition p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Inline code styling within prose */
+  .prose code {
+    background-color: var(--color-subtle-bg);
+    color: var(--color-primary);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    font-weight: var(--font-weight-medium);
+    border: 1px solid var(--color-border);
+  }
+
+  .prose code::before,
+  .prose code::after {
+    content: '' !important;
+  }
+
+  /* Pre blocks should not have the inline code styling */
+  .prose pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    border: none;
+  }
+
+  .dark .prose .admonition {
+    background-color: #020617;
+    border-color: #1f2937;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.45);
+  }
+
+  .dark .prose code {
+    background-color: #1e293b;
+    color: var(--color-primary-soft);
+    border-color: #334155;
+  }
+
+  .dark .prose pre code {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+/* Prevent extra-bold headings when markdown uses **bold** inside headings */
+.prose :where(h1, h2, h3, h4) strong {
+  font-weight: inherit;
+}

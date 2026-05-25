@@ -1,0 +1,289 @@
+---
+import ThemeToggle from '../components/ThemeToggle'
+import { getAuthor } from '../lib/authors'
+import { site } from '../lib/site'
+
+type TocItem = {
+  id: string
+  title: string
+  children?: TocItem[]
+}
+
+type NavSection = {
+  title: string
+  links: { title: string; href: string }[]
+}
+
+const props = Astro.props as {
+  title: string
+  intro?: string
+  currentPath: string
+  toc?: TocItem[]
+  navigation?: NavSection[]
+  subtitle?: string
+  author?: string
+  date?: Date | string
+  updatedAt?: Date | string
+  readingTimeMinutes?: number
+  category?: string
+}
+
+const {
+  title,
+  intro,
+  currentPath,
+  toc = [],
+  navigation: sidebarNavigation = [],
+  subtitle = 'Tech Blog',
+  author,
+  date,
+  updatedAt,
+  readingTimeMinutes,
+  category,
+} = props
+
+const authorProfile = getAuthor(author)
+
+function formatDate(value: Date | string | undefined): string | null {
+  if (!value) return null
+  if (value instanceof Date) {
+    return value.toLocaleDateString?.('en', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }) ?? value.toISOString().slice(0, 10)
+  }
+  return value
+}
+
+const formattedPublishedDate = formatDate(date)
+const formattedUpdatedDate = formatDate(updatedAt)
+
+let displayDateLabel: string | null = null
+let displayDateValue: string | null = null
+
+if (formattedUpdatedDate) {
+  displayDateLabel = 'Updated: '
+  displayDateValue = formattedUpdatedDate
+} else if (formattedPublishedDate) {
+  displayDateValue = formattedPublishedDate
+}
+
+let displayReadingTime: string | null = null
+if (typeof readingTimeMinutes === 'number') {
+  displayReadingTime = `${readingTimeMinutes} min read`
+}
+
+let displayMeta: string | null = null
+if (displayDateValue && displayReadingTime) {
+  displayMeta = `${displayDateLabel ?? ''}${displayDateValue} · ${displayReadingTime}`
+} else if (displayDateValue) {
+  displayMeta = `${displayDateLabel ?? ''}${displayDateValue}`
+} else if (displayReadingTime) {
+  displayMeta = displayReadingTime
+}
+
+function isTopLinkActive(href: string) {
+  if (href === '/blog') {
+    return currentPath === '/' || currentPath.startsWith('/blog')
+  }
+  return currentPath === href
+}
+
+const hasSidebar = sidebarNavigation.length > 0
+---
+
+<div class="min-h-screen bg-bg text-text dark:bg-slate-950 dark:text-white">
+  <header
+    class="sticky top-0 z-50 border-b border-border bg-white/95 px-4 py-4 shadow-sm shadow-slate-900/5 backdrop-blur sm:px-6 lg:px-8 dark:border-slate-800 dark:bg-slate-950/85 dark:shadow-none"
+  >
+    <div class="mx-auto flex max-w-8xl items-center justify-between gap-6">
+      <a href="/" class="inline-flex items-baseline gap-2 text-text dark:text-white">
+        <span class="font-display text-lg font-semibold">{site.name}</span>
+        <span class="text-xs text-text-secondary dark:text-slate-400">{subtitle}</span>
+      </a>
+
+      <div class="flex items-center gap-5">
+        <nav aria-label="Primary navigation" class="flex items-center gap-4 text-sm">
+          {site.navigation.map((item) => {
+            const active = isTopLinkActive(item.href)
+            return (
+              <a
+                href={item.href}
+                class={
+                  'font-medium transition-colors ' +
+                  (active
+                    ? 'text-brand dark:text-white'
+                    : 'text-text-secondary hover:text-text dark:text-slate-400 dark:hover:text-white')
+                }
+              >
+                {item.title}
+              </a>
+            )
+          })}
+        </nav>
+        <ThemeToggle client:load />
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto flex w-full max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
+    {hasSidebar && (
+      <aside class="hidden lg:relative lg:block lg:flex-none">
+        <div class="absolute inset-y-0 right-0 w-[50vw] bg-[var(--color-sidebar-bg)] dark:hidden" />
+        <div class="sticky top-17 -ml-0.5 h-[calc(100vh-4.25rem)] w-64 overflow-x-hidden overflow-y-auto py-14 pr-8 pl-0.5 xl:w-72 xl:pr-16">
+          <nav class="text-sm">
+            <ul role="list" class="space-y-9">
+              {sidebarNavigation.map((section) => (
+                <li>
+                  <h2 class="font-display font-medium text-text dark:text-white">
+                    {section.title}
+                  </h2>
+                  <ul
+                    role="list"
+                    class="mt-4 space-y-4 border-l-2 border-[var(--color-sidebar-active)] dark:border-slate-800"
+                  >
+                    {section.links.map((link) => {
+                      const isActive = link.href === currentPath
+                      return (
+                        <li class="relative">
+                          <a
+                            href={link.href}
+                            class={
+                              'block w-full pl-3.5 before:pointer-events-none before:absolute before:top-1/2 before:-left-1 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full ' +
+                              (isActive
+                                ? 'font-semibold text-brand before:bg-brand dark:text-white'
+                                : 'text-text-secondary before:hidden before:bg-slate-300 hover:text-text hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300')
+                            }
+                          >
+                            {link.title}
+                          </a>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </aside>
+    )}
+
+    <div
+      class:list={[
+        'min-w-0 flex-auto px-4 py-14 lg:pr-0',
+        hasSidebar ? 'max-w-2xl lg:max-w-none lg:pl-8 xl:px-16' : 'max-w-3xl',
+      ]}
+    >
+      <article>
+        <header class="mb-9 space-y-2">
+          {category && (
+            <span class="inline-flex items-center rounded-md bg-subtle px-3 py-1 text-xs font-medium text-text-secondary dark:bg-slate-800 dark:text-slate-200">
+              {category}
+            </span>
+          )}
+          <h1 class="font-display text-3xl font-medium leading-tight tracking-tight text-text dark:text-white">
+            {title}
+          </h1>
+          {(authorProfile || displayMeta) && (
+            <div class="mt-4 space-y-1 text-sm text-text-secondary dark:text-slate-400">
+              {authorProfile && (
+                <div class="flex items-center gap-3">
+                  <a
+                    href={authorProfile.linkedinUrl ?? '#'}
+                    target={authorProfile.linkedinUrl ? '_blank' : undefined}
+                    rel={authorProfile.linkedinUrl ? 'noopener noreferrer' : undefined}
+                    class="flex items-center gap-3"
+                  >
+                    {authorProfile.avatarUrl && (
+                      <img
+                        src={authorProfile.avatarUrl}
+                        alt={authorProfile.name}
+                        class="h-10 w-10 rounded-full object-cover"
+                        loading="lazy"
+                      />
+                    )}
+                    <span class="flex flex-col">
+                      <span class="font-medium text-text dark:text-white">
+                        By {authorProfile.name}
+                      </span>
+                      {authorProfile.title && (
+                        <span class="text-xs text-text-secondary dark:text-slate-400">
+                          {authorProfile.title}
+                        </span>
+                      )}
+                    </span>
+                  </a>
+                </div>
+              )}
+              {displayMeta && (
+                <p class="text-xs text-text-secondary dark:text-slate-400">
+                  {displayMeta}
+                </p>
+              )}
+            </div>
+          )}
+          {intro && (
+            <p class="mt-2 text-base text-text-secondary dark:text-slate-300">
+              {intro}
+            </p>
+          )}
+        </header>
+
+        <div class="prose prose-slate max-w-none dark:prose-invert
+          prose-headings:font-display prose-headings:font-normal prose-headings:tracking-tight
+          prose-h1:text-3xl prose-h1:leading-tight prose-h1:font-normal md:prose-h1:text-4xl
+          prose-h2:mt-10 prose-h2:text-2xl prose-h2:leading-snug prose-h2:font-normal
+          prose-h3:mt-8 prose-h3:text-xl prose-h3:leading-snug prose-h3:font-normal
+          prose-p:text-[0.98rem] prose-p:leading-7 prose-p:text-text
+          prose-a:font-semibold prose-a:text-brand hover:prose-a:text-brand/90
+          prose-ul:my-6 prose-ol:my-6 prose-li:my-1.5
+          prose-img:rounded-lg prose-img:shadow-sm
+          prose-hr:my-10 prose-hr:border-border
+          prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-border prose-blockquote:bg-subtle/60 prose-blockquote:py-4 prose-blockquote:pr-5 prose-blockquote:pl-5 prose-blockquote:font-normal prose-blockquote:italic prose-blockquote:text-text-secondary
+        ">
+          <slot />
+        </div>
+      </article>
+    </div>
+
+    {toc.length > 0 && (
+      <aside class="hidden xl:sticky xl:top-17 xl:-mr-6 xl:block xl:h-[calc(100vh-4.25rem)] xl:flex-none xl:overflow-y-auto xl:py-14 xl:pr-6">
+        <nav aria-labelledby="on-this-page-title" class="w-56">
+          <h2 id="on-this-page-title" class="font-display text-sm font-medium text-text dark:text-white">
+            On this page
+          </h2>
+          <ol role="list" class="mt-4 space-y-3 text-sm">
+            {toc.map((section) => (
+              <li>
+                <h3>
+                  <a
+                    href={`#${section.id}`}
+                    class="font-normal text-text-secondary hover:text-brand focus-visible:text-brand dark:text-slate-400 dark:hover:text-slate-300"
+                  >
+                    {section.title}
+                  </a>
+                </h3>
+                {section.children && section.children.length > 0 && (
+                  <ol role="list" class="mt-2 space-y-3 pl-5 text-text-secondary dark:text-slate-400">
+                    {section.children.map((sub) => (
+                      <li>
+                        <a
+                          href={`#${sub.id}`}
+                          class="hover:text-brand focus-visible:text-brand dark:hover:text-slate-300"
+                        >
+                          {sub.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+    )}
+  </main>
+</div>
