@@ -10,10 +10,6 @@ tags:
   - azure-openai
   - open-source
   - fine-tuning
-takeaways:
-  - Why RAG architecture still matters in 2026
-  - Azure AI Search vs open-source retrieval stacks
-  - When fine-tuning is the wrong answer
 draft: false
 title: Teach AI to Answer Questions Based on Your Documents
 description: I started a 2026 series revisiting document-grounded AI systems, beginning with RAG architecture, Azure vs open-source stacks, and when fine-tuning makes sense.

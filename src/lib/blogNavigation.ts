@@ -3,6 +3,7 @@ import { blogDefaultLocale, normalizeLocaleCode } from '../locales/config'
 
 export type BlogNavSection = {
   title: string
+  href: string
   links: { title: string; href: string }[]
 }
 
@@ -56,6 +57,7 @@ export async function getBlogNavigation(locale: string = blogDefaultLocale): Pro
       const sortedLinks = links.sort((a, b) => b.sortKey - a.sortKey)
       return {
         title: String(year),
+        href: `/blog/archive/${year}`,
         links: sortedLinks.map(({ title, href }) => ({ title, href })),
       }
     })

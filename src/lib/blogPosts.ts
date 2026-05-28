@@ -2,7 +2,14 @@ import { getCollection } from 'astro:content'
 
 import { blogDefaultLocale, normalizeLocaleCode } from '../locales/config'
 
-export async function getPublishedBlogPosts(locale: string = blogDefaultLocale) {
+type PublishedBlogPostOptions = {
+  year?: number
+}
+
+export async function getPublishedBlogPosts(
+  locale: string = blogDefaultLocale,
+  options: PublishedBlogPostOptions = {},
+) {
   const normalizedLocale = normalizeLocaleCode(locale)
   const allPosts = await getCollection('blog')
   const now = Date.now()
@@ -15,8 +22,9 @@ export async function getPublishedBlogPosts(locale: string = blogDefaultLocale) 
       const normalizedPostLocale = normalizeLocaleCode(rawPostLocale)
       const notDraft = !post.data.draft
       const notFuture = !post.data.date || post.data.date.getTime() <= now
+      const matchesYear = !options.year || post.data.date?.getFullYear() === options.year
 
-      return normalizedPostLocale === normalizedLocale && notDraft && notFuture
+      return normalizedPostLocale === normalizedLocale && notDraft && notFuture && matchesYear
     })
     .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
 }

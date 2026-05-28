@@ -1,0 +1,91 @@
+---
+import '../../../styles/tailwind.css'
+import EditorialPostList from '../../../components/EditorialPostList'
+import BlogLayout from '../../../layouts/BlogLayout.astro'
+import GA4 from '../../../components/GA4.astro'
+import { getAuthor } from '../../../lib/authors'
+import { getBlogNavigation } from '../../../lib/blogNavigation'
+import { getPublishedBlogPosts } from '../../../lib/blogPosts'
+import { site } from '../../../lib/site'
+import { blogDefaultLocale } from '../../../locales/config'
+
+export async function getStaticPaths() {
+  const posts = await getPublishedBlogPosts(blogDefaultLocale)
+  const years = Array.from(
+    new Set(
+      posts
+        .map((post) => post.data.date?.getFullYear())
+        .filter((year): year is number => typeof year === 'number'),
+    ),
+  )
+
+  return years.map((year) => ({
+    params: { year: String(year) },
+  }))
+}
+
+const locale = blogDefaultLocale
+const year = Number(Astro.params.year)
+const posts = await getPublishedBlogPosts(locale, { year })
+const blogNavigation = await getBlogNavigation(locale)
+const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+
+const postCards = posts.map((post) => {
+  const authorProfile = getAuthor(post.data.author)
+
+  return {
+    href: `/blog/${post.id}`,
+    title: post.data.title,
+    description: post.data.description,
+    category: post.data.category,
+    date:
+      post.data.date?.toLocaleDateString?.('en', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }) ?? undefined,
+    readingTimeMinutes: post.data.readingTimeMinutes,
+    tags: post.data.tags,
+    authorName: authorProfile?.name,
+    authorTitle: authorProfile?.title,
+  }
+})
+---
+
+<html lang={locale} class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{year} Writing - {site.title}</title>
+    <meta
+      name="description"
+      content={`Technical writing, talks, and field notes published in ${year}.`}
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <meta property="og:title" content={`${year} Writing - ${site.title}`} />
+    <meta
+      property="og:description"
+      content={`Technical writing, talks, and field notes published in ${year}.`}
+    />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <GA4 />
+  </head>
+  <body class="bg-bg">
+    <BlogLayout
+      title={`${year} Writing`}
+      intro={`Technical writing, talks, and field notes published in ${year}.`}
+      currentPath={`/blog/archive/${year}`}
+      navigation={blogNavigation}
+      variant="listing"
+    >
+      <EditorialPostList
+        posts={postCards}
+        heading={`${year} writing`}
+        intro={`A filtered archive of notes, public articles, and talks from ${year}.`}
+      />
+    </BlogLayout>
+  </body>
+</html>

@@ -11,6 +11,7 @@ type TocItem = {
 
 type NavSection = {
   title: string
+  href?: string
   links: { title: string; href: string }[]
 }
 
@@ -29,7 +30,6 @@ const props = Astro.props as {
   readingTimeMinutes?: number
   category?: string
   tags?: string[]
-  takeaways?: string[]
   variant?: PageVariant
 }
 
@@ -46,7 +46,6 @@ const {
   readingTimeMinutes,
   category,
   tags = [],
-  takeaways = [],
   variant = 'article',
 } = props
 
@@ -105,8 +104,9 @@ const isListing = variant === 'listing'
 const isArticle = variant === 'article'
 const isAbout = variant === 'about'
 const showArchive = sidebarNavigation.length > 0 && isListing
-const showToc = toc.length > 0 && (isArticle || isAbout)
+const showToc = toc.length > 0 && isArticle
 const proseContent = isArticle || isAbout
+const currentArchiveYear = currentPath.match(/^\/blog\/archive\/(\d{4})$/)?.[1]
 ---
 
 <div class="min-h-screen overflow-x-hidden bg-bg text-text dark:bg-slate-950 dark:text-white">
@@ -167,28 +167,30 @@ const proseContent = isArticle || isAbout
         <div class="grid min-w-0 gap-12 lg:grid-cols-[minmax(0,1.1fr)_24rem] lg:items-end">
           <div class="min-w-0">
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-              <span>Technical publication</span>
+              <span>AI Systems</span>
               <span class="h-px w-8 bg-border" />
-              <span>Senior engineer portfolio</span>
+              <span>Developer Infrastructure</span>
+              <span class="h-px w-8 bg-border" />
+              <span>OSS</span>
             </div>
             <h1 class="mt-6 max-w-[12ch] break-words font-display text-4xl font-medium leading-[1.02] tracking-tight text-text sm:max-w-4xl sm:text-6xl sm:leading-[0.98] lg:text-7xl dark:text-white">
-              Practical AI engineering, written from the build floor.
+              I build AI systems that survive real workflows.
             </h1>
             <p class="mt-7 max-w-2xl break-words text-lg leading-8 text-text-secondary sm:text-xl sm:leading-9 dark:text-slate-300">
               {site.description}
             </p>
             <div class="mt-10 grid max-w-3xl grid-cols-1 border-y border-border text-sm sm:grid-cols-3 dark:border-slate-800">
               <div class="py-5 sm:pr-6">
-                <span class="block font-display text-2xl text-text dark:text-white">AI</span>
-                <span class="mt-1 block text-text-secondary dark:text-slate-400">RAG, agents, evaluation</span>
+                <span class="block font-display text-2xl text-text dark:text-white">44M+</span>
+                <span class="mt-1 block text-text-secondary dark:text-slate-400">words processed through AI localization workflows</span>
               </div>
               <div class="border-t border-border py-5 sm:border-t-0 sm:border-l sm:px-6 dark:border-slate-800">
-                <span class="block font-display text-2xl text-text dark:text-white">DX</span>
-                <span class="mt-1 block text-text-secondary dark:text-slate-400">Automation, docs, tooling</span>
+                <span class="block font-display text-2xl text-text dark:text-white">835+</span>
+                <span class="mt-1 block text-text-secondary dark:text-slate-400">automated PRs across Microsoft OSS localization</span>
               </div>
               <div class="border-t border-border py-5 sm:border-t-0 sm:border-l sm:pl-6 dark:border-slate-800">
-                <span class="block font-display text-2xl text-text dark:text-white">MVP</span>
-                <span class="mt-1 block text-text-secondary dark:text-slate-400">Microsoft AI community</span>
+                <span class="block font-display text-2xl text-text dark:text-white">120K+</span>
+                <span class="mt-1 block text-text-secondary dark:text-slate-400">public views on Azure AI and LLM engineering writing</span>
               </div>
             </div>
           </div>
@@ -196,9 +198,9 @@ const proseContent = isArticle || isAbout
           <aside class="min-w-0 border border-border bg-white/74 p-5 shadow-[0_24px_80px_rgba(34,38,42,0.08)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/60">
             <div class="flex items-start gap-4">
               <img
-                src="/images/authors/minseok.jpg"
+                src="/images/authors/minseok-avatar.jpg"
                 alt="Minseok Song"
-                class="h-16 w-16 object-cover grayscale"
+                class="profile-avatar border border-border dark:border-slate-800"
                 loading="eager"
               />
               <div>
@@ -206,119 +208,126 @@ const proseContent = isArticle || isAbout
                   Minseok Song
                 </p>
                 <p class="mt-1 text-sm leading-6 text-text-secondary dark:text-slate-400">
-                  Microsoft AI MVP · AI Engineer writing about the work behind reliable AI systems.
+                  Microsoft AI MVP building production-scale LLM infrastructure, OSS localization systems, and developer education workflows.
                 </p>
               </div>
             </div>
             <div class="mt-8 border-t border-border pt-5 dark:border-slate-800">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Current focus</p>
-              <ul class="mt-4 space-y-3 text-sm leading-6 text-text-secondary dark:text-slate-300">
-                <li>Document-grounded AI architecture and evaluation.</li>
-                <li>Localization automation for developer-facing content.</li>
-                <li>Engineering workflows that make teams faster without hiding quality.</li>
-              </ul>
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Currently</p>
+              <p class="mt-4 text-sm leading-6 text-text-secondary dark:text-slate-300">
+                Building GitHub-native AI infrastructure for multilingual OSS, long-running LLM jobs, and production developer workflows.
+              </p>
             </div>
-            <div class="mt-8 grid grid-cols-3 border-t border-border pt-5 text-center dark:border-slate-800">
-              <div>
-                <span class="block font-display text-xl text-text dark:text-white">01</span>
-                <span class="mt-1 block text-[0.68rem] uppercase tracking-[0.14em] text-text-secondary">Essays</span>
-              </div>
-              <div class="border-l border-border dark:border-slate-800">
-                <span class="block font-display text-xl text-text dark:text-white">02</span>
-                <span class="mt-1 block text-[0.68rem] uppercase tracking-[0.14em] text-text-secondary">Systems</span>
-              </div>
-              <div class="border-l border-border dark:border-slate-800">
-                <span class="block font-display text-xl text-text dark:text-white">03</span>
-                <span class="mt-1 block text-[0.68rem] uppercase tracking-[0.14em] text-text-secondary">Notes</span>
-              </div>
+            <div class="mt-8 grid grid-cols-3 border-t border-border pt-5 text-center text-xs font-medium dark:border-slate-800">
+              <a
+                href="/about"
+                class="py-2 uppercase tracking-[0.12em] text-text-secondary transition-colors hover:text-brand dark:text-slate-400"
+              >
+                About
+              </a>
+              <a
+                href="/blog"
+                class="border-l border-border py-2 uppercase tracking-[0.12em] text-text-secondary transition-colors hover:text-brand dark:border-slate-800 dark:text-slate-400"
+              >
+                Writing
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ms-song/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-l border-border py-2 uppercase tracking-[0.12em] text-text-secondary transition-colors hover:text-brand dark:border-slate-800 dark:text-slate-400"
+              >
+                LinkedIn
+              </a>
             </div>
           </aside>
         </div>
       ) : (
         <div
           class:list={[
-            'max-w-4xl',
+            isAbout
+              ? 'mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end'
+              : 'max-w-4xl',
             isArticle ? 'mx-auto' : '',
           ]}
         >
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
-            {category ?? subtitle}
-          </p>
-          <h1
-            class:list={[
-              'mt-5 font-display font-medium leading-tight tracking-tight text-text dark:text-white',
-              isArticle ? 'max-w-3xl text-3xl sm:text-4xl lg:text-5xl' : 'text-4xl sm:text-5xl',
-            ]}
-          >
-            {isListing ? 'Writing on practical AI systems and developer tools' : title}
-          </h1>
-          {intro && (
-            <p class="mt-6 max-w-3xl text-lg leading-8 text-text-secondary dark:text-slate-300">
-              {intro}
+          <div class="min-w-0">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+              {category ?? subtitle}
             </p>
-          )}
+            <h1
+              class:list={[
+                'mt-5 font-display font-medium leading-tight tracking-tight text-text dark:text-white',
+                isArticle
+                  ? 'max-w-3xl text-3xl sm:text-4xl lg:text-5xl'
+                  : isAbout
+                    ? 'text-3xl sm:text-5xl'
+                    : 'text-4xl sm:text-5xl',
+              ]}
+            >
+              {isListing ? 'Writing on practical AI systems and developer tools' : title}
+            </h1>
+            {intro && (
+              <p class="mt-6 max-w-3xl text-lg leading-8 text-text-secondary dark:text-slate-300">
+                {intro}
+              </p>
+            )}
 
-          {isArticle && takeaways.length > 0 && (
-            <aside class="mt-7 grid gap-5 border border-border bg-bg/78 p-5 shadow-[0_18px_60px_rgba(34,38,42,0.06)] backdrop-blur sm:grid-cols-[11rem_minmax(0,1fr)] dark:border-slate-800 dark:bg-slate-900/58">
-              <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-                  In this article
-                </p>
-                <p class="mt-3 text-sm leading-6 text-text-secondary dark:text-slate-400">
-                  A quick map of the decisions this note is trying to clarify.
-                </p>
-              </div>
-              <ul class="space-y-3 text-sm leading-6 text-text dark:text-slate-100">
-                {takeaways.map((item) => (
-                  <li class="flex gap-3">
-                    <span class="mt-[0.65rem] h-1.5 w-1.5 shrink-0 bg-brand" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </aside>
-          )}
-
-          {(authorProfile || displayMeta || tags.length > 0) && (
-            <div class="mt-7 flex flex-col gap-5 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800">
-              {authorProfile && (
-                <a
-                  href={authorProfile.linkedinUrl ?? '#'}
-                  target={authorProfile.linkedinUrl ? '_blank' : undefined}
-                  rel={authorProfile.linkedinUrl ? 'noopener noreferrer' : undefined}
-                  class="flex items-center gap-3"
-                >
-                  {authorProfile.avatarUrl && (
-                    <img
-                      src={authorProfile.avatarUrl}
-                      alt={authorProfile.name}
-                      class="h-11 w-11 object-cover grayscale"
-                      loading="lazy"
-                    />
-                  )}
-                  <span class="flex flex-col">
-                    <span class="font-medium text-text dark:text-white">{authorProfile.name}</span>
-                    {authorProfile.title && (
-                      <span class="text-sm text-text-secondary dark:text-slate-400">
-                        {authorProfile.title}
-                      </span>
+            {(authorProfile || displayMeta || tags.length > 0) && (
+              <div class="mt-7 flex flex-col gap-5 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800">
+                {authorProfile && (
+                  <a
+                    href={authorProfile.linkedinUrl ?? '#'}
+                    target={authorProfile.linkedinUrl ? '_blank' : undefined}
+                    rel={authorProfile.linkedinUrl ? 'noopener noreferrer' : undefined}
+                    class="flex items-center gap-3"
+                  >
+                    {authorProfile.avatarUrl && (
+                      <img
+                        src={authorProfile.avatarUrl}
+                        alt={authorProfile.name}
+                        class="profile-avatar-sm border border-border dark:border-slate-800"
+                        loading="lazy"
+                      />
                     )}
-                  </span>
-                </a>
-              )}
-              <div class="space-y-3 text-sm text-text-secondary sm:text-right dark:text-slate-400">
-                {displayMeta && <p>{displayMeta}</p>}
-                {tags.length > 0 && (
-                  <div class="flex flex-wrap gap-2 sm:justify-end">
-                    {tags.map((tag) => (
-                      <span class="border border-border px-2.5 py-1 text-xs dark:border-slate-800">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
+                    <span class="flex flex-col">
+                      <span class="font-medium text-text dark:text-white">{authorProfile.name}</span>
+                      {authorProfile.title && (
+                        <span class="text-sm text-text-secondary dark:text-slate-400">
+                          {authorProfile.title}
+                        </span>
+                      )}
+                    </span>
+                  </a>
                 )}
+                <div class="space-y-3 text-sm text-text-secondary sm:text-right dark:text-slate-400">
+                  {displayMeta && <p>{displayMeta}</p>}
+                  {tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 sm:justify-end">
+                      {tags.map((tag) => (
+                        <span class="border border-border px-2.5 py-1 text-xs dark:border-slate-800">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
+          </div>
+
+          {isAbout && (
+            <figure class="max-w-[18rem] justify-self-start lg:justify-self-end">
+              <img
+                src="/images/authors/minseok.jpg"
+                alt="Minseok Song"
+                class="aspect-[5/7] w-full border border-border object-cover object-top shadow-[0_24px_80px_rgba(34,38,42,0.10)] dark:border-slate-800"
+                loading="eager"
+              />
+              <figcaption class="mt-3 border-t border-border pt-3 text-xs leading-5 text-text-secondary dark:border-slate-800 dark:text-slate-400">
+                Microsoft AI MVP · Founder of Localizeflow
+              </figcaption>
+            </figure>
           )}
         </div>
       )}
@@ -332,32 +341,54 @@ const proseContent = isArticle || isAbout
           <div class="sticky top-24">
             <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Archive</p>
             <nav aria-label="Writing archive" class="mt-5 space-y-8 text-sm">
-              {sidebarNavigation.map((section) => (
-                <section>
-                  <h2 class="font-display text-base font-medium text-text dark:text-white">
-                    {section.title}
-                  </h2>
-                  <ul class="mt-3 space-y-3 border-l border-border pl-4 dark:border-slate-800">
-                    {section.links.map((link) => {
-                      const isActive = link.href === currentPath
-                      return (
-                        <li>
-                          <a
-                            href={link.href}
-                            class={
-                              isActive
-                                ? 'text-brand'
-                                : 'text-text-secondary transition-colors hover:text-text dark:text-slate-400 dark:hover:text-white'
-                            }
-                          >
-                            {link.title}
-                          </a>
-                        </li>
+              {sidebarNavigation.map((section) => {
+                const showSectionLinks = !currentArchiveYear || section.title === currentArchiveYear
+
+                return (
+                  <section>
+                    {
+                      section.href ? (
+                        <a
+                          href={section.href}
+                          class:list={[
+                            'inline-flex border-b font-display text-base font-medium transition-colors hover:border-brand hover:text-brand',
+                            currentPath === section.href
+                              ? 'border-brand text-brand'
+                              : 'border-transparent text-text dark:text-white',
+                          ]}
+                        >
+                          {section.title}
+                        </a>
+                      ) : (
+                        <h2 class="font-display text-base font-medium text-text dark:text-white">
+                          {section.title}
+                        </h2>
                       )
-                    })}
-                  </ul>
-                </section>
-              ))}
+                    }
+                    {showSectionLinks && (
+                      <ul class="mt-3 space-y-3 border-l border-border pl-4 dark:border-slate-800">
+                        {section.links.map((link) => {
+                          const isActive = link.href === currentPath
+                          return (
+                            <li>
+                              <a
+                                href={link.href}
+                                class={
+                                  isActive
+                                    ? 'text-brand'
+                                    : 'text-text-secondary transition-colors hover:text-text dark:text-slate-400 dark:hover:text-white'
+                                }
+                              >
+                                {link.title}
+                              </a>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    )}
+                  </section>
+                )
+              })}
             </nav>
           </div>
         </aside>
@@ -366,15 +397,23 @@ const proseContent = isArticle || isAbout
         </div>
       </div>
     ) : proseContent ? (
-      <div class="grid gap-12 xl:grid-cols-[minmax(0,46rem)_16rem] xl:justify-center">
-        <article class="min-w-0">
+      <div class="relative mx-auto max-w-[76rem]">
+        {
+          Astro.slots.has('beforeContent') && (
+            <div class="mx-auto mb-14 max-w-[64rem]">
+              <slot name="beforeContent" />
+            </div>
+          )
+        }
+
+        <article class="mx-auto min-w-0 max-w-[46rem]">
           <div class="prose editorial-prose max-w-none dark:prose-invert">
             <slot />
           </div>
         </article>
 
         {showToc && (
-          <aside class="hidden xl:block">
+          <aside class="absolute left-[calc(50%+24rem)] top-0 hidden w-56 xl:block">
             <nav aria-labelledby="on-this-page-title" class="sticky top-24 border-l border-border pl-5 text-sm dark:border-slate-800">
               <h2 id="on-this-page-title" class="font-display text-base font-medium text-text dark:text-white">
                 On this page

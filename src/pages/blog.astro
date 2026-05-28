@@ -10,9 +10,11 @@ import { site } from '../lib/site'
 import { blogDefaultLocale } from '../locales/config'
 
 const locale = blogDefaultLocale
+const postsPerPage = 10
 const posts = await getPublishedBlogPosts(locale)
 const blogNavigation = await getBlogNavigation(locale)
 const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+const totalPages = Math.ceil(posts.length / postsPerPage)
 
 const postCards = posts.map((post) => {
   const authorProfile = getAuthor(post.data.author)
@@ -59,7 +61,14 @@ const postCards = posts.map((post) => {
       navigation={blogNavigation}
       variant="listing"
     >
-      <EditorialPostList posts={postCards} />
+      <EditorialPostList
+        posts={postCards.slice(0, postsPerPage)}
+        pagination={{
+          currentPage: 1,
+          totalPages,
+          basePath: '/blog',
+        }}
+      />
     </BlogLayout>
   </body>
 </html>

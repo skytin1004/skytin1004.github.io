@@ -59,7 +59,7 @@ const postCards = posts.map((post) => {
       navigation={blogNavigation}
       variant="home"
     >
-      <EditorialPostList posts={postCards} />
+      <EditorialPostList posts={postCards} maxPosts={3} moreHref="/blog" moreLabel="More writing" />
     </BlogLayout>
   </body>
 </html>

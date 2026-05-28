@@ -14,6 +14,15 @@ type EditorialPostListProps = {
   posts: EditorialPost[]
   heading?: string
   intro?: string
+  maxPosts?: number
+  moreHref?: string
+  moreLabel?: string
+  startIndex?: number
+  pagination?: {
+    currentPage: number
+    totalPages: number
+    basePath: string
+  }
 }
 
 function formatMeta(post: EditorialPost) {
@@ -25,6 +34,11 @@ export default function EditorialPostList({
   posts,
   heading = 'Recent writing',
   intro = 'Field notes, architecture decisions, and implementation tradeoffs from practical AI and developer tooling work.',
+  maxPosts,
+  moreHref,
+  moreLabel = 'More writing',
+  startIndex = 1,
+  pagination,
 }: EditorialPostListProps) {
   if (posts.length === 0) {
     return (
@@ -34,16 +48,14 @@ export default function EditorialPostList({
     )
   }
 
-  const [featured, ...rest] = posts
-  const topicSet = new Set<string>()
-  posts.forEach((post) => {
-    if (post.category) topicSet.add(post.category)
-    post.tags?.forEach((tag) => topicSet.add(tag))
-  })
-  const topics = Array.from(topicSet).slice(0, 10)
+  const visiblePosts = typeof maxPosts === 'number' ? posts.slice(0, maxPosts) : posts
+  const showMoreLink = Boolean(moreHref) && visiblePosts.length < posts.length
+  const showPagination = pagination && pagination.totalPages > 1
+  const paginationHref = (page: number) =>
+    page === 1 ? pagination?.basePath ?? '/blog' : `${pagination?.basePath ?? '/blog'}/page/${page}`
 
   return (
-    <section className="not-prose space-y-10">
+    <section className="not-prose space-y-8">
       <div className="grid gap-5 border-t border-border pt-8 md:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Archive</p>
@@ -56,133 +68,109 @@ export default function EditorialPostList({
         </p>
       </div>
 
-      <article className="group border-y border-text py-8 transition-colors hover:border-brand">
-        <a href={featured.href} className="grid gap-7 md:grid-cols-[minmax(0,1fr)_15rem]">
-          <div>
-            <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.14em] text-brand">
-              <span>Featured</span>
-              {featured.category && <span>{featured.category}</span>}
-            </div>
-            <h3 className="mt-4 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-text transition-colors group-hover:text-brand sm:text-4xl">
-              {featured.title}
-            </h3>
-            {featured.description && (
-              <p className="mt-5 max-w-2xl text-base leading-8 text-text-secondary">
-                {featured.description}
-              </p>
-            )}
-          </div>
-
-          <div className="flex flex-col justify-between gap-6 border-t border-border pt-5 md:border-t-0 md:border-l md:pl-6 md:pt-0">
-            <div className="space-y-2 text-sm text-text-secondary">
-              {featured.authorName && (
-                <p>
-                  <span className="text-text">{featured.authorName}</span>
-                  {featured.authorTitle && <span className="block text-xs">{featured.authorTitle}</span>}
-                </p>
-              )}
-              <p>{formatMeta(featured)}</p>
-            </div>
-            {featured.tags && featured.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {featured.tags.slice(0, 4).map((tag) => (
-                  <span
-                    key={tag}
-                    className="border border-border px-2.5 py-1 text-xs text-text-secondary"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        </a>
-      </article>
-
-      <div className="grid gap-6 border-b border-border pb-10 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.72fr)]">
-        <div className="border border-border bg-bg p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-            Reading paths
-          </p>
-          <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            <a href="/blog" className="group border-t border-text pt-4">
-              <span className="font-display text-lg text-text transition-colors group-hover:text-brand">
-                AI systems
+      <div className="divide-y divide-border border-y border-text">
+        {visiblePosts.map((post, index) => (
+          <article key={post.href} className="group py-7">
+            <a href={post.href} className="grid gap-5 md:grid-cols-[4rem_minmax(0,1fr)_13rem]">
+              <span className="font-display text-sm text-text-secondary">
+                {String(startIndex + index).padStart(2, '0')}
               </span>
-              <span className="mt-2 block text-sm leading-6 text-text-secondary">
-                RAG, evaluation, agents, and the architecture decisions behind reliable AI.
-              </span>
-            </a>
-            <a href="/blog" className="group border-t border-text pt-4">
-              <span className="font-display text-lg text-text transition-colors group-hover:text-brand">
-                Developer workflows
-              </span>
-              <span className="mt-2 block text-sm leading-6 text-text-secondary">
-                GitHub-native automation, docs pipelines, and tools that reduce review friction.
-              </span>
-            </a>
-            <a href="/about" className="group border-t border-text pt-4">
-              <span className="font-display text-lg text-text transition-colors group-hover:text-brand">
-                Field notes
-              </span>
-              <span className="mt-2 block text-sm leading-6 text-text-secondary">
-                Personal engineering judgment, patterns, and how the work is shaped.
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <aside className="border border-border bg-subtle/60 p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-            Browse by topic
-          </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {topics.map((topic) => (
-              <span
-                key={topic}
-                className="border border-border bg-bg px-3 py-1.5 text-sm text-text"
-              >
-                {topic}
-              </span>
-            ))}
-          </div>
-        </aside>
-      </div>
-
-      {rest.length > 0 && (
-        <div className="divide-y divide-border">
-          {rest.map((post, index) => (
-            <article key={post.href} className="group py-7">
-              <a href={post.href} className="grid gap-5 md:grid-cols-[4rem_minmax(0,1fr)_13rem]">
-                <span className="font-display text-sm text-text-secondary">
-                  {String(index + 2).padStart(2, '0')}
-                </span>
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.14em] text-brand">
-                    {post.category && <span>{post.category}</span>}
-                    <span>{formatMeta(post)}</span>
-                  </div>
-                  <h3 className="mt-2 font-display text-2xl font-medium leading-tight tracking-tight text-text transition-colors group-hover:text-brand">
-                    {post.title}
-                  </h3>
-                  {post.description && (
-                    <p className="mt-3 max-w-2xl text-sm leading-7 text-text-secondary">
-                      {post.description}
-                    </p>
-                  )}
+              <div>
+                <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.14em] text-brand">
+                  {post.category && <span>{post.category}</span>}
+                  <span>{formatMeta(post)}</span>
                 </div>
-                {post.tags && post.tags.length > 0 && (
-                  <div className="flex flex-wrap content-start gap-2 md:justify-end">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="text-xs text-text-secondary">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
+                <h3 className="mt-2 font-display text-2xl font-medium leading-tight tracking-tight text-text transition-colors group-hover:text-brand">
+                  {post.title}
+                </h3>
+                {post.description && (
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-text-secondary">
+                    {post.description}
+                  </p>
                 )}
-              </a>
-            </article>
-          ))}
+              </div>
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex flex-wrap content-start gap-2 md:justify-end">
+                  {post.tags.slice(0, 3).map((tag) => (
+                    <span key={tag} className="text-xs text-text-secondary">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </a>
+          </article>
+        ))}
+      </div>
+      {showPagination && (
+        <nav
+          aria-label="Writing pagination"
+          className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-6"
+        >
+          <a
+            href={
+              pagination.currentPage > 1
+                ? paginationHref(pagination.currentPage - 1)
+                : undefined
+            }
+            aria-disabled={pagination.currentPage === 1}
+            className={
+              'inline-flex border px-4 py-2 text-sm font-medium transition-colors ' +
+              (pagination.currentPage === 1
+                ? 'pointer-events-none border-border text-text-secondary/50'
+                : 'border-text text-text hover:border-brand hover:text-brand')
+            }
+          >
+            Previous
+          </a>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {Array.from({ length: pagination.totalPages }, (_, index) => {
+              const page = index + 1
+              const active = page === pagination.currentPage
+
+              return (
+                <a
+                  key={page}
+                  href={paginationHref(page)}
+                  aria-current={active ? 'page' : undefined}
+                  className={
+                    'grid h-10 w-10 place-items-center border text-sm font-medium transition-colors ' +
+                    (active
+                      ? 'border-text bg-text text-bg'
+                      : 'border-border text-text hover:border-brand hover:text-brand')
+                  }
+                >
+                  {page}
+                </a>
+              )
+            })}
+          </div>
+          <a
+            href={
+              pagination.currentPage < pagination.totalPages
+                ? paginationHref(pagination.currentPage + 1)
+                : undefined
+            }
+            aria-disabled={pagination.currentPage === pagination.totalPages}
+            className={
+              'inline-flex border px-4 py-2 text-sm font-medium transition-colors ' +
+              (pagination.currentPage === pagination.totalPages
+                ? 'pointer-events-none border-border text-text-secondary/50'
+                : 'border-text text-text hover:border-brand hover:text-brand')
+            }
+          >
+            Next
+          </a>
+        </nav>
+      )}
+      {showMoreLink && (
+        <div className="flex justify-end">
+          <a
+            href={moreHref}
+            className="inline-flex border border-text px-4 py-2 text-sm font-medium text-text transition-colors hover:border-brand hover:text-brand"
+          >
+            {moreLabel}
+          </a>
         </div>
       )}
     </section>

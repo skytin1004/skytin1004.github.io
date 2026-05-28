@@ -1,0 +1,97 @@
+---
+import '../../../styles/tailwind.css'
+import EditorialPostList from '../../../components/EditorialPostList'
+import BlogLayout from '../../../layouts/BlogLayout.astro'
+import GA4 from '../../../components/GA4.astro'
+import { getAuthor } from '../../../lib/authors'
+import { getBlogNavigation } from '../../../lib/blogNavigation'
+import { getPublishedBlogPosts } from '../../../lib/blogPosts'
+import { site } from '../../../lib/site'
+import { blogDefaultLocale } from '../../../locales/config'
+
+const postsPerPage = 10
+
+export async function getStaticPaths() {
+  const postsPerPage = 10
+  const posts = await getPublishedBlogPosts(blogDefaultLocale)
+  const totalPages = Math.ceil(posts.length / postsPerPage)
+
+  return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => ({
+    params: { page: String(index + 2) },
+  }))
+}
+
+const locale = blogDefaultLocale
+const currentPage = Number(Astro.params.page)
+const posts = await getPublishedBlogPosts(locale)
+const totalPages = Math.ceil(posts.length / postsPerPage)
+const start = (currentPage - 1) * postsPerPage
+const currentPosts = posts.slice(start, start + postsPerPage)
+const blogNavigation = await getBlogNavigation(locale)
+const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+
+const postCards = currentPosts.map((post) => {
+  const authorProfile = getAuthor(post.data.author)
+
+  return {
+    href: `/blog/${post.id}`,
+    title: post.data.title,
+    description: post.data.description,
+    category: post.data.category,
+    date:
+      post.data.date?.toLocaleDateString?.('en', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }) ?? undefined,
+    readingTimeMinutes: post.data.readingTimeMinutes,
+    tags: post.data.tags,
+    authorName: authorProfile?.name,
+    authorTitle: authorProfile?.title,
+  }
+})
+---
+
+<html lang={locale} class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Writing Page {currentPage} - {site.title}</title>
+    <meta
+      name="description"
+      content={`Page ${currentPage} of technical writing, talks, and field notes.`}
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <meta property="og:title" content={`Writing Page ${currentPage} - ${site.title}`} />
+    <meta
+      property="og:description"
+      content={`Page ${currentPage} of technical writing, talks, and field notes.`}
+    />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <GA4 />
+  </head>
+  <body class="bg-bg">
+    <BlogLayout
+      title={site.title}
+      intro={site.description}
+      currentPath={`/blog/page/${currentPage}`}
+      navigation={blogNavigation}
+      variant="listing"
+    >
+      <EditorialPostList
+        posts={postCards}
+        heading="Recent writing"
+        intro={`Page ${currentPage} of ${totalPages}.`}
+        startIndex={start + 1}
+        pagination={{
+          currentPage,
+          totalPages,
+          basePath: '/blog',
+        }}
+      />
+    </BlogLayout>
+  </body>
+</html>

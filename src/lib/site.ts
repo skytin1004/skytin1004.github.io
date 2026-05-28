@@ -2,7 +2,7 @@ export const site = {
   name: 'Minseok Song',
   title: 'Minseok Song Tech Blog',
   description:
-    'Practical essays on AI systems, developer tooling, localization automation, and shipping reliable software.',
+    'Notes from building production LLM systems, GitHub-native developer infrastructure, and AI localization workflows that operate at open-source scale.',
   url: 'https://www.mssong.com',
   ogImage: '/images/authors/minseok.jpg',
   navigation: [

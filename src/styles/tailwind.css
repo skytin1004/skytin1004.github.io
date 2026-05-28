@@ -396,3 +396,25 @@
 .prose :where(h1, h2, h3, h4) strong {
   font-weight: inherit;
 }
+
+.profile-avatar,
+.profile-avatar-sm {
+  max-width: none;
+  min-width: var(--profile-avatar-size);
+  min-height: var(--profile-avatar-size);
+  width: var(--profile-avatar-size);
+  height: var(--profile-avatar-size);
+  flex: 0 0 var(--profile-avatar-size);
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-avatar {
+  --profile-avatar-size: 5rem;
+}
+
+.profile-avatar-sm {
+  --profile-avatar-size: 3rem;
+}
