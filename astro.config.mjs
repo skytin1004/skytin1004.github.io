@@ -6,7 +6,7 @@ import remarkAdmonitions from './src/lib/remark-admonitions.mjs'
 
 export default defineConfig({
   srcDir: 'src',
-  site: 'https://skytin1004.github.io',
+  site: 'https://www.mssong.com',
   integrations: [react(), mermaid()],
   markdown: {
     remarkPlugins: [remarkAdmonitions],
