@@ -107,6 +107,8 @@ const blogNavigation = await getBlogNavigation(locale)
       updatedAt={entry.data.updatedAt}
       readingTimeMinutes={entry.data.readingTimeMinutes}
       category={entry.data.category}
+      tags={entry.data.tags}
+      variant="article"
     >
       <Content />
     </BlogLayout>

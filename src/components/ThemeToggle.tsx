@@ -68,7 +68,7 @@ export default function ThemeToggle() {
       aria-label={isDark ? 'Use light theme' : 'Use dark theme'}
       title={isDark ? 'Use light theme' : 'Use dark theme'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-white text-text-secondary transition-colors hover:border-brand/50 hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
+      className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-bg text-text-secondary transition-colors hover:border-text hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-white dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
     >
       {isDark ? <SunIcon /> : <MoonIcon />}
     </button>

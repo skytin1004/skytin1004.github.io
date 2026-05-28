@@ -10,8 +10,8 @@ export const authors: Record<string, AuthorProfile> = {
   minseok: {
     id: 'minseok',
     name: 'Minseok Song',
-    title: 'Microsoft AI MVP · AI Engineer',
-    avatarUrl: '/images/authors/minseok.jpg',
+    title: 'Microsoft AI MVP · Founder of Localizeflow',
+    avatarUrl: '/images/authors/minseok-avatar.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/ms-song/',
   },
 }

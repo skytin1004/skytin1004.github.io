@@ -1,5 +1,6 @@
 ---
 import '../styles/tailwind.css'
+import EditorialPostList from '../components/EditorialPostList'
 import BlogLayout from '../layouts/BlogLayout.astro'
 import GA4 from '../components/GA4.astro'
 import { getAuthor } from '../lib/authors'
@@ -12,6 +13,27 @@ const locale = blogDefaultLocale
 const posts = await getPublishedBlogPosts(locale)
 const blogNavigation = await getBlogNavigation(locale)
 const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+
+const postCards = posts.map((post) => {
+  const authorProfile = getAuthor(post.data.author)
+
+  return {
+    href: `/blog/${post.id}`,
+    title: post.data.title,
+    description: post.data.description,
+    category: post.data.category,
+    date:
+      post.data.date?.toLocaleDateString?.('en', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }) ?? undefined,
+    readingTimeMinutes: post.data.readingTimeMinutes,
+    tags: post.data.tags,
+    authorName: authorProfile?.name,
+    authorTitle: authorProfile?.title,
+  }
+})
 ---
 
 <html lang={locale} class="h-full antialiased">
@@ -35,40 +57,9 @@ const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
       intro={site.description}
       currentPath="/"
       navigation={blogNavigation}
+      variant="home"
     >
-      <div class="not-prose mt-8 space-y-6">
-        {posts.map((post) => {
-          const authorProfile = getAuthor(post.data.author)
-          return (
-            <article class="rounded-lg border border-border bg-white p-6 shadow-sm transition hover:border-brand/40 dark:border-slate-800 dark:bg-slate-900/60">
-              <a href={`/blog/${post.id}`} class="block">
-                <h2 class="font-display text-xl font-medium text-text dark:text-white">
-                  {post.data.title}
-                </h2>
-                {post.data.description && (
-                  <p class="mt-2 text-sm text-text-secondary dark:text-slate-400">
-                    {post.data.description}
-                  </p>
-                )}
-                <p class="mt-4 text-xs text-text-secondary dark:text-slate-400">
-                  {authorProfile?.name}
-                  {authorProfile?.title && <span class="ml-1">· {authorProfile.title}</span>}
-                  {post.data.date && (
-                    <span>
-                      {authorProfile ? ' · ' : ''}
-                      {post.data.date.toLocaleDateString?.('en', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                      }) ?? post.data.date}
-                    </span>
-                  )}
-                </p>
-              </a>
-            </article>
-          )
-        })}
-      </div>
+      <EditorialPostList posts={postCards} maxPosts={3} moreHref="/blog" moreLabel="More writing" />
     </BlogLayout>
   </body>
 </html>

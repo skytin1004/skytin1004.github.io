@@ -11,8 +11,11 @@ type TocItem = {
 
 type NavSection = {
   title: string
+  href?: string
   links: { title: string; href: string }[]
 }
+
+type PageVariant = 'home' | 'listing' | 'article' | 'about'
 
 const props = Astro.props as {
   title: string
@@ -26,6 +29,8 @@ const props = Astro.props as {
   updatedAt?: Date | string
   readingTimeMinutes?: number
   category?: string
+  tags?: string[]
+  variant?: PageVariant
 }
 
 const {
@@ -40,6 +45,8 @@ const {
   updatedAt,
   readingTimeMinutes,
   category,
+  tags = [],
+  variant = 'article',
 } = props
 
 const authorProfile = getAuthor(author)
@@ -47,11 +54,13 @@ const authorProfile = getAuthor(author)
 function formatDate(value: Date | string | undefined): string | null {
   if (!value) return null
   if (value instanceof Date) {
-    return value.toLocaleDateString?.('en', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }) ?? value.toISOString().slice(0, 10)
+    return (
+      value.toLocaleDateString?.('en', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }) ?? value.toISOString().slice(0, 10)
+    )
   }
   return value
 }
@@ -63,7 +72,7 @@ let displayDateLabel: string | null = null
 let displayDateValue: string | null = null
 
 if (formattedUpdatedDate) {
-  displayDateLabel = 'Updated: '
+  displayDateLabel = 'Updated '
   displayDateValue = formattedUpdatedDate
 } else if (formattedPublishedDate) {
   displayDateValue = formattedPublishedDate
@@ -76,7 +85,7 @@ if (typeof readingTimeMinutes === 'number') {
 
 let displayMeta: string | null = null
 if (displayDateValue && displayReadingTime) {
-  displayMeta = `${displayDateLabel ?? ''}${displayDateValue} · ${displayReadingTime}`
+  displayMeta = `${displayDateLabel ?? ''}${displayDateValue} / ${displayReadingTime}`
 } else if (displayDateValue) {
   displayMeta = `${displayDateLabel ?? ''}${displayDateValue}`
 } else if (displayReadingTime) {
@@ -90,30 +99,44 @@ function isTopLinkActive(href: string) {
   return currentPath === href
 }
 
-const hasSidebar = sidebarNavigation.length > 0
+const isHome = variant === 'home'
+const isListing = variant === 'listing'
+const isArticle = variant === 'article'
+const isAbout = variant === 'about'
+const showArchive = sidebarNavigation.length > 0 && isListing
+const showToc = toc.length > 0 && isArticle
+const proseContent = isArticle || isAbout
+const currentArchiveYear = currentPath.match(/^\/blog\/archive\/(\d{4})$/)?.[1]
 ---
 
-<div class="min-h-screen bg-bg text-text dark:bg-slate-950 dark:text-white">
-  <header
-    class="sticky top-0 z-50 border-b border-border bg-white/95 px-4 py-4 shadow-sm shadow-slate-900/5 backdrop-blur sm:px-6 lg:px-8 dark:border-slate-800 dark:bg-slate-950/85 dark:shadow-none"
-  >
-    <div class="mx-auto flex max-w-8xl items-center justify-between gap-6">
-      <a href="/" class="inline-flex items-baseline gap-2 text-text dark:text-white">
-        <span class="font-display text-lg font-semibold">{site.name}</span>
-        <span class="text-xs text-text-secondary dark:text-slate-400">{subtitle}</span>
+<div class="min-h-screen overflow-x-hidden bg-bg text-text dark:bg-slate-950 dark:text-white">
+  <div class="editorial-grid pointer-events-none fixed inset-0 z-0 opacity-80 dark:opacity-20" />
+
+  <header class="sticky top-0 z-50 border-b border-border bg-bg/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/88">
+    <div class="mx-auto flex h-16 max-w-8xl items-center justify-between px-3 sm:px-6 lg:px-8">
+      <a href="/" class="group inline-flex min-w-0 items-center gap-3 text-text dark:text-white">
+        <span class="grid h-8 w-8 place-items-center border border-[var(--color-text)] bg-[var(--color-text)] font-display text-[0.68rem] font-semibold tracking-[0.14em] text-[var(--color-bg)] transition-colors group-hover:border-brand group-hover:bg-brand dark:border-white dark:bg-white dark:text-slate-950">
+          MS
+        </span>
+        <span class="leading-none">
+          <span class="block truncate font-display text-sm font-medium tracking-tight">{site.name}</span>
+          <span class="mt-1 hidden text-[0.68rem] uppercase tracking-[0.16em] text-text-secondary sm:block dark:text-slate-400">
+            AI systems / developer tools
+          </span>
+        </span>
       </a>
 
-      <div class="flex items-center gap-5">
-        <nav aria-label="Primary navigation" class="flex items-center gap-4 text-sm">
+      <div class="flex min-w-0 items-center gap-1 sm:gap-5">
+        <nav aria-label="Primary navigation" class="flex items-center gap-1 text-sm sm:gap-2">
           {site.navigation.map((item) => {
             const active = isTopLinkActive(item.href)
             return (
               <a
                 href={item.href}
                 class={
-                  'font-medium transition-colors ' +
+                  'px-2 py-2 font-medium transition-colors sm:px-3 ' +
                   (active
-                    ? 'text-brand dark:text-white'
+                    ? 'text-text dark:text-white'
                     : 'text-text-secondary hover:text-text dark:text-slate-400 dark:hover:text-white')
                 }
               >
@@ -122,74 +145,137 @@ const hasSidebar = sidebarNavigation.length > 0
             )
           })}
         </nav>
-        <ThemeToggle client:load />
+        <div class="hidden sm:block">
+          <ThemeToggle client:load />
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="mx-auto flex w-full max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
-    {hasSidebar && (
-      <aside class="hidden lg:relative lg:block lg:flex-none">
-        <div class="absolute inset-y-0 right-0 w-[50vw] bg-[var(--color-sidebar-bg)] dark:hidden" />
-        <div class="sticky top-17 -ml-0.5 h-[calc(100vh-4.25rem)] w-64 overflow-x-hidden overflow-y-auto py-14 pr-8 pl-0.5 xl:w-72 xl:pr-16">
-          <nav class="text-sm">
-            <ul role="list" class="space-y-9">
-              {sidebarNavigation.map((section) => (
-                <li>
-                  <h2 class="font-display font-medium text-text dark:text-white">
-                    {section.title}
-                  </h2>
-                  <ul
-                    role="list"
-                    class="mt-4 space-y-4 border-l-2 border-[var(--color-sidebar-active)] dark:border-slate-800"
-                  >
-                    {section.links.map((link) => {
-                      const isActive = link.href === currentPath
-                      return (
-                        <li class="relative">
-                          <a
-                            href={link.href}
-                            class={
-                              'block w-full pl-3.5 before:pointer-events-none before:absolute before:top-1/2 before:-left-1 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full ' +
-                              (isActive
-                                ? 'font-semibold text-brand before:bg-brand dark:text-white'
-                                : 'text-text-secondary before:hidden before:bg-slate-300 hover:text-text hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300')
-                            }
-                          >
-                            {link.title}
-                          </a>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </aside>
-    )}
-
+  <section class="relative z-10 border-b border-border dark:border-slate-800">
     <div
       class:list={[
-        'min-w-0 flex-auto px-4 py-14 lg:pr-0',
-        hasSidebar ? 'max-w-2xl lg:max-w-none lg:pl-8 xl:px-16' : 'max-w-3xl',
+        'mx-auto max-w-8xl px-4 sm:px-6 lg:px-8',
+        isHome
+          ? 'py-16 sm:py-20 lg:py-24'
+          : isArticle
+            ? 'py-10 sm:py-12 lg:py-14'
+            : 'py-12 sm:py-16 lg:py-20',
       ]}
     >
-      <article>
-        <header class="mb-9 space-y-2">
-          {category && (
-            <span class="inline-flex items-center rounded-md bg-subtle px-3 py-1 text-xs font-medium text-text-secondary dark:bg-slate-800 dark:text-slate-200">
-              {category}
-            </span>
-          )}
-          <h1 class="font-display text-3xl font-medium leading-tight tracking-tight text-text dark:text-white">
-            {title}
-          </h1>
-          {(authorProfile || displayMeta) && (
-            <div class="mt-4 space-y-1 text-sm text-text-secondary dark:text-slate-400">
-              {authorProfile && (
-                <div class="flex items-center gap-3">
+      {isHome ? (
+        <div class="grid min-w-0 gap-12 lg:grid-cols-[minmax(0,1.1fr)_24rem] lg:items-end">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+              <span>AI Systems</span>
+              <span class="h-px w-8 bg-border" />
+              <span>Developer Infrastructure</span>
+              <span class="h-px w-8 bg-border" />
+              <span>OSS</span>
+            </div>
+            <h1 class="mt-6 max-w-[12ch] break-words font-display text-4xl font-medium leading-[1.02] tracking-tight text-text sm:max-w-4xl sm:text-6xl sm:leading-[0.98] lg:text-7xl dark:text-white">
+              I build AI systems that survive real workflows.
+            </h1>
+            <p class="mt-7 max-w-2xl break-words text-lg leading-8 text-text-secondary sm:text-xl sm:leading-9 dark:text-slate-300">
+              {site.description}
+            </p>
+            <div class="mt-10 grid max-w-3xl grid-cols-1 border-y border-border text-sm sm:grid-cols-3 dark:border-slate-800">
+              <div class="py-5 sm:pr-6">
+                <span class="block font-display text-2xl text-text dark:text-white">44M+</span>
+                <span class="mt-1 block text-text-secondary dark:text-slate-400">words processed through AI localization workflows</span>
+              </div>
+              <div class="border-t border-border py-5 sm:border-t-0 sm:border-l sm:px-6 dark:border-slate-800">
+                <span class="block font-display text-2xl text-text dark:text-white">835+</span>
+                <span class="mt-1 block text-text-secondary dark:text-slate-400">automated PRs across Microsoft OSS localization</span>
+              </div>
+              <div class="border-t border-border py-5 sm:border-t-0 sm:border-l sm:pl-6 dark:border-slate-800">
+                <span class="block font-display text-2xl text-text dark:text-white">120K+</span>
+                <span class="mt-1 block text-text-secondary dark:text-slate-400">public views on Azure AI and LLM engineering writing</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="min-w-0 border border-border bg-white/74 p-5 shadow-[0_24px_80px_rgba(34,38,42,0.08)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/60">
+            <div class="flex items-start gap-4">
+              <img
+                src="/images/authors/minseok-avatar.jpg"
+                alt="Minseok Song"
+                class="profile-avatar border border-border dark:border-slate-800"
+                loading="eager"
+              />
+              <div>
+                <p class="font-display text-lg font-medium text-text dark:text-white">
+                  Minseok Song
+                </p>
+                <p class="mt-1 text-sm leading-6 text-text-secondary dark:text-slate-400">
+                  Microsoft AI MVP building production-scale LLM infrastructure, OSS localization systems, and developer education workflows.
+                </p>
+              </div>
+            </div>
+            <div class="mt-8 border-t border-border pt-5 dark:border-slate-800">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Currently</p>
+              <p class="mt-4 text-sm leading-6 text-text-secondary dark:text-slate-300">
+                Building GitHub-native AI infrastructure for multilingual OSS, long-running LLM jobs, and production developer workflows.
+              </p>
+            </div>
+            <div class="mt-8 grid grid-cols-3 border-t border-border pt-5 text-center text-xs font-medium dark:border-slate-800">
+              <a
+                href="/about"
+                class="py-2 uppercase tracking-[0.12em] text-text-secondary transition-colors hover:text-brand dark:text-slate-400"
+              >
+                About
+              </a>
+              <a
+                href="/blog"
+                class="border-l border-border py-2 uppercase tracking-[0.12em] text-text-secondary transition-colors hover:text-brand dark:border-slate-800 dark:text-slate-400"
+              >
+                Writing
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ms-song/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-l border-border py-2 uppercase tracking-[0.12em] text-text-secondary transition-colors hover:text-brand dark:border-slate-800 dark:text-slate-400"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </aside>
+        </div>
+      ) : (
+        <div
+          class:list={[
+            isAbout
+              ? 'mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end'
+              : 'max-w-4xl',
+            isArticle ? 'mx-auto' : '',
+          ]}
+        >
+          <div class="min-w-0">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+              {category ?? subtitle}
+            </p>
+            <h1
+              class:list={[
+                'mt-5 font-display font-medium leading-tight tracking-tight text-text dark:text-white',
+                isArticle
+                  ? 'max-w-3xl text-3xl sm:text-4xl lg:text-5xl'
+                  : isAbout
+                    ? 'text-3xl sm:text-5xl'
+                    : 'text-4xl sm:text-5xl',
+              ]}
+            >
+              {isListing ? 'Writing on practical AI systems and developer tools' : title}
+            </h1>
+            {intro && (
+              <p class="mt-6 max-w-3xl text-lg leading-8 text-text-secondary dark:text-slate-300">
+                {intro}
+              </p>
+            )}
+
+            {(authorProfile || displayMeta || tags.length > 0) && (
+              <div class="mt-7 flex flex-col gap-5 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800">
+                {authorProfile && (
                   <a
                     href={authorProfile.linkedinUrl ?? '#'}
                     target={authorProfile.linkedinUrl ? '_blank' : undefined}
@@ -200,90 +286,172 @@ const hasSidebar = sidebarNavigation.length > 0
                       <img
                         src={authorProfile.avatarUrl}
                         alt={authorProfile.name}
-                        class="h-10 w-10 rounded-full object-cover"
+                        class="profile-avatar-sm border border-border dark:border-slate-800"
                         loading="lazy"
                       />
                     )}
                     <span class="flex flex-col">
-                      <span class="font-medium text-text dark:text-white">
-                        By {authorProfile.name}
-                      </span>
+                      <span class="font-medium text-text dark:text-white">{authorProfile.name}</span>
                       {authorProfile.title && (
-                        <span class="text-xs text-text-secondary dark:text-slate-400">
+                        <span class="text-sm text-text-secondary dark:text-slate-400">
                           {authorProfile.title}
                         </span>
                       )}
                     </span>
                   </a>
+                )}
+                <div class="space-y-3 text-sm text-text-secondary sm:text-right dark:text-slate-400">
+                  {displayMeta && <p>{displayMeta}</p>}
+                  {tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 sm:justify-end">
+                      {tags.map((tag) => (
+                        <span class="border border-border px-2.5 py-1 text-xs dark:border-slate-800">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-              {displayMeta && (
-                <p class="text-xs text-text-secondary dark:text-slate-400">
-                  {displayMeta}
-                </p>
-              )}
-            </div>
-          )}
-          {intro && (
-            <p class="mt-2 text-base text-text-secondary dark:text-slate-300">
-              {intro}
-            </p>
-          )}
-        </header>
+              </div>
+            )}
+          </div>
 
-        <div class="prose prose-slate max-w-none dark:prose-invert
-          prose-headings:font-display prose-headings:font-normal prose-headings:tracking-tight
-          prose-h1:text-3xl prose-h1:leading-tight prose-h1:font-normal md:prose-h1:text-4xl
-          prose-h2:mt-10 prose-h2:text-2xl prose-h2:leading-snug prose-h2:font-normal
-          prose-h3:mt-8 prose-h3:text-xl prose-h3:leading-snug prose-h3:font-normal
-          prose-p:text-[0.98rem] prose-p:leading-7 prose-p:text-text
-          prose-a:font-semibold prose-a:text-brand hover:prose-a:text-brand/90
-          prose-ul:my-6 prose-ol:my-6 prose-li:my-1.5
-          prose-img:rounded-lg prose-img:shadow-sm
-          prose-hr:my-10 prose-hr:border-border
-          prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-border prose-blockquote:bg-subtle/60 prose-blockquote:py-4 prose-blockquote:pr-5 prose-blockquote:pl-5 prose-blockquote:font-normal prose-blockquote:italic prose-blockquote:text-text-secondary
-        ">
+          {isAbout && (
+            <figure class="max-w-[18rem] justify-self-start lg:justify-self-end">
+              <img
+                src="/images/authors/minseok.jpg"
+                alt="Minseok Song"
+                class="aspect-[5/7] w-full border border-border object-cover object-top shadow-[0_24px_80px_rgba(34,38,42,0.10)] dark:border-slate-800"
+                loading="eager"
+              />
+              <figcaption class="mt-3 border-t border-border pt-3 text-xs leading-5 text-text-secondary dark:border-slate-800 dark:text-slate-400">
+                Microsoft AI MVP · Founder of Localizeflow
+              </figcaption>
+            </figure>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <main class="relative z-10 mx-auto w-full max-w-8xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+    {showArchive ? (
+      <div class="grid gap-12 lg:grid-cols-[14rem_minmax(0,1fr)]">
+        <aside class="hidden lg:block">
+          <div class="sticky top-24">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Archive</p>
+            <nav aria-label="Writing archive" class="mt-5 space-y-8 text-sm">
+              {sidebarNavigation.map((section) => {
+                const showSectionLinks = !currentArchiveYear || section.title === currentArchiveYear
+
+                return (
+                  <section>
+                    {
+                      section.href ? (
+                        <a
+                          href={section.href}
+                          class:list={[
+                            'inline-flex border-b font-display text-base font-medium transition-colors hover:border-brand hover:text-brand',
+                            currentPath === section.href
+                              ? 'border-brand text-brand'
+                              : 'border-transparent text-text dark:text-white',
+                          ]}
+                        >
+                          {section.title}
+                        </a>
+                      ) : (
+                        <h2 class="font-display text-base font-medium text-text dark:text-white">
+                          {section.title}
+                        </h2>
+                      )
+                    }
+                    {showSectionLinks && (
+                      <ul class="mt-3 space-y-3 border-l border-border pl-4 dark:border-slate-800">
+                        {section.links.map((link) => {
+                          const isActive = link.href === currentPath
+                          return (
+                            <li>
+                              <a
+                                href={link.href}
+                                class={
+                                  isActive
+                                    ? 'text-brand'
+                                    : 'text-text-secondary transition-colors hover:text-text dark:text-slate-400 dark:hover:text-white'
+                                }
+                              >
+                                {link.title}
+                              </a>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    )}
+                  </section>
+                )
+              })}
+            </nav>
+          </div>
+        </aside>
+        <div class="min-w-0">
           <slot />
         </div>
-      </article>
-    </div>
+      </div>
+    ) : proseContent ? (
+      <div class="relative mx-auto max-w-[76rem]">
+        {
+          Astro.slots.has('beforeContent') && (
+            <div class="mx-auto mb-14 max-w-[64rem]">
+              <slot name="beforeContent" />
+            </div>
+          )
+        }
 
-    {toc.length > 0 && (
-      <aside class="hidden xl:sticky xl:top-17 xl:-mr-6 xl:block xl:h-[calc(100vh-4.25rem)] xl:flex-none xl:overflow-y-auto xl:py-14 xl:pr-6">
-        <nav aria-labelledby="on-this-page-title" class="w-56">
-          <h2 id="on-this-page-title" class="font-display text-sm font-medium text-text dark:text-white">
-            On this page
-          </h2>
-          <ol role="list" class="mt-4 space-y-3 text-sm">
-            {toc.map((section) => (
-              <li>
-                <h3>
-                  <a
-                    href={`#${section.id}`}
-                    class="font-normal text-text-secondary hover:text-brand focus-visible:text-brand dark:text-slate-400 dark:hover:text-slate-300"
-                  >
-                    {section.title}
-                  </a>
-                </h3>
-                {section.children && section.children.length > 0 && (
-                  <ol role="list" class="mt-2 space-y-3 pl-5 text-text-secondary dark:text-slate-400">
-                    {section.children.map((sub) => (
-                      <li>
-                        <a
-                          href={`#${sub.id}`}
-                          class="hover:text-brand focus-visible:text-brand dark:hover:text-slate-300"
-                        >
-                          {sub.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
-      </aside>
+        <article class="mx-auto min-w-0 max-w-[46rem]">
+          <div class="prose editorial-prose max-w-none dark:prose-invert">
+            <slot />
+          </div>
+        </article>
+
+        {showToc && (
+          <aside class="absolute left-[calc(50%+24rem)] top-0 hidden w-56 xl:block">
+            <nav aria-labelledby="on-this-page-title" class="sticky top-24 border-l border-border pl-5 text-sm dark:border-slate-800">
+              <h2 id="on-this-page-title" class="font-display text-base font-medium text-text dark:text-white">
+                On this page
+              </h2>
+              <ol role="list" class="mt-4 space-y-3">
+                {toc.map((section) => (
+                  <li>
+                    <a
+                      href={`#${section.id}`}
+                      class="text-text-secondary transition-colors hover:text-brand dark:text-slate-400"
+                    >
+                      {section.title}
+                    </a>
+                    {section.children && section.children.length > 0 && (
+                      <ol role="list" class="mt-2 space-y-2 pl-4">
+                        {section.children.map((sub) => (
+                          <li>
+                            <a
+                              href={`#${sub.id}`}
+                              class="text-text-secondary transition-colors hover:text-brand dark:text-slate-500"
+                            >
+                              {sub.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ol>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </aside>
+        )}
+      </div>
+    ) : (
+      <div class="mx-auto max-w-5xl">
+        <slot />
+      </div>
     )}
   </main>
 </div>
