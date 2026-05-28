@@ -85,7 +85,7 @@ const blogNavigation = await getBlogNavigation(locale)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{entry.data.title} - {site.title}</title>
     {entry.data.description && <meta name="description" content={entry.data.description} />}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
     <meta property="og:title" content={entry.data.title} />
     {entry.data.description && <meta property="og:description" content={entry.data.description} />}
     <meta property="og:image" content={ogImageUrl} />
