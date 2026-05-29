@@ -3,6 +3,7 @@ import '../../../styles/tailwind.css'
 import EditorialPostList from '../../../components/EditorialPostList'
 import BlogLayout from '../../../layouts/BlogLayout.astro'
 import GA4 from '../../../components/GA4.astro'
+import SeoHead from '../../../components/SeoHead.astro'
 import { getAuthor } from '../../../lib/authors'
 import { getBlogNavigation } from '../../../lib/blogNavigation'
 import { getPublishedBlogPosts } from '../../../lib/blogPosts'
@@ -28,7 +29,7 @@ const locale = blogDefaultLocale
 const year = Number(Astro.params.year)
 const posts = await getPublishedBlogPosts(locale, { year })
 const blogNavigation = await getBlogNavigation(locale)
-const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+const archiveDescription = `Technical writing, talks, and field notes published in ${year}.`
 
 const postCards = posts.map((post) => {
   const authorProfile = getAuthor(post.data.author)
@@ -56,27 +57,19 @@ const postCards = posts.map((post) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{year} Writing - {site.title}</title>
-    <meta
-      name="description"
-      content={`Technical writing, talks, and field notes published in ${year}.`}
+    <SeoHead
+      title={`${year} Writing`}
+      description={archiveDescription}
+      path={`/blog/archive/${year}`}
+      type="collection"
+      locale={locale}
     />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-    <meta property="og:title" content={`${year} Writing - ${site.title}`} />
-    <meta
-      property="og:description"
-      content={`Technical writing, talks, and field notes published in ${year}.`}
-    />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta name="twitter:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={site.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <GA4 />
   </head>
   <body class="bg-bg">
     <BlogLayout
       title={`${year} Writing`}
-      intro={`Technical writing, talks, and field notes published in ${year}.`}
+      intro={archiveDescription}
       currentPath={`/blog/archive/${year}`}
       navigation={blogNavigation}
       variant="listing"

@@ -3,6 +3,7 @@ import '../../../styles/tailwind.css'
 import EditorialPostList from '../../../components/EditorialPostList'
 import BlogLayout from '../../../layouts/BlogLayout.astro'
 import GA4 from '../../../components/GA4.astro'
+import SeoHead from '../../../components/SeoHead.astro'
 import { getAuthor } from '../../../lib/authors'
 import { getBlogNavigation } from '../../../lib/blogNavigation'
 import { getPublishedBlogPosts } from '../../../lib/blogPosts'
@@ -28,7 +29,7 @@ const totalPages = Math.ceil(posts.length / postsPerPage)
 const start = (currentPage - 1) * postsPerPage
 const currentPosts = posts.slice(start, start + postsPerPage)
 const blogNavigation = await getBlogNavigation(locale)
-const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
+const pageDescription = `Page ${currentPage} of technical writing, talks, and field notes.`
 
 const postCards = currentPosts.map((post) => {
   const authorProfile = getAuthor(post.data.author)
@@ -56,21 +57,13 @@ const postCards = currentPosts.map((post) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Writing Page {currentPage} - {site.title}</title>
-    <meta
-      name="description"
-      content={`Page ${currentPage} of technical writing, talks, and field notes.`}
+    <SeoHead
+      title={`Writing Page ${currentPage}`}
+      description={pageDescription}
+      path={`/blog/page/${currentPage}`}
+      type="collection"
+      locale={locale}
     />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-    <meta property="og:title" content={`Writing Page ${currentPage} - ${site.title}`} />
-    <meta
-      property="og:description"
-      content={`Page ${currentPage} of technical writing, talks, and field notes.`}
-    />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta name="twitter:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={site.name} />
-    <meta name="twitter:card" content="summary_large_image" />
     <GA4 />
   </head>
   <body class="bg-bg">

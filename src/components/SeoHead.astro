@@ -1,0 +1,103 @@
+---
+import { site } from '../lib/site'
+import {
+  blogPostingSchema,
+  personSchema,
+  serializeJsonLd,
+  toIsoDate,
+  webPageSchema,
+  websiteSchema,
+  blogSchema,
+} from '../lib/seo'
+
+type PageType = 'website' | 'collection' | 'article' | 'profile'
+
+const {
+  title = site.title,
+  description = site.description,
+  path = '/',
+  type = 'website',
+  image = site.ogImage,
+  publishedTime,
+  modifiedTime,
+  authorName = site.name,
+  tags = [],
+  locale = 'en',
+} = Astro.props as {
+  title?: string
+  description?: string
+  path?: string
+  type?: PageType
+  image?: string
+  publishedTime?: Date | string
+  modifiedTime?: Date | string
+  authorName?: string
+  tags?: string[]
+  locale?: string
+}
+
+const baseUrl = Astro.site ?? new URL(site.url)
+const canonicalUrl = new URL(path, baseUrl).toString()
+const imageUrl = new URL(image, baseUrl).toString()
+const fullTitle = title === site.title ? site.title : `${title} - ${site.title}`
+const ogType = type === 'article' ? 'article' : type === 'profile' ? 'profile' : 'website'
+const schemaPageType =
+  type === 'collection' ? 'CollectionPage' : type === 'profile' ? 'ProfilePage' : 'WebPage'
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@graph': [
+      personSchema(baseUrl),
+      websiteSchema(baseUrl),
+      blogSchema(baseUrl),
+      webPageSchema({
+        url: canonicalUrl,
+        title: fullTitle,
+        description,
+        pageType: schemaPageType,
+      }),
+      ...(type === 'article'
+        ? [
+            blogPostingSchema({
+              url: canonicalUrl,
+              title,
+              description,
+              imageUrl,
+              publishedTime,
+              modifiedTime,
+              tags,
+            }),
+          ]
+        : []),
+    ],
+  },
+]
+const serializedJsonLd = serializeJsonLd(jsonLd)
+const publishedIso = toIsoDate(publishedTime)
+const modifiedIso = toIsoDate(modifiedTime)
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content={authorName} />
+<meta name="application-name" content={site.shortName} />
+<meta name="apple-mobile-web-app-title" content={site.shortName} />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+<meta property="og:site_name" content={site.title} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={site.name} />
+<meta property="og:locale" content={locale.replace('-', '_')} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+{publishedIso && <meta property="article:published_time" content={publishedIso} />}
+{modifiedIso && <meta property="article:modified_time" content={modifiedIso} />}
+{tags.map((tag) => <meta property="article:tag" content={tag} />)}
+<script type="application/ld+json" set:html={serializedJsonLd}></script>

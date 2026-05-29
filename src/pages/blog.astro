@@ -3,6 +3,7 @@ import '../styles/tailwind.css'
 import EditorialPostList from '../components/EditorialPostList'
 import BlogLayout from '../layouts/BlogLayout.astro'
 import GA4 from '../components/GA4.astro'
+import SeoHead from '../components/SeoHead.astro'
 import { getAuthor } from '../lib/authors'
 import { getBlogNavigation } from '../lib/blogNavigation'
 import { getPublishedBlogPosts } from '../lib/blogPosts'
@@ -13,7 +14,6 @@ const locale = blogDefaultLocale
 const postsPerPage = 10
 const posts = await getPublishedBlogPosts(locale)
 const blogNavigation = await getBlogNavigation(locale)
-const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
 const totalPages = Math.ceil(posts.length / postsPerPage)
 
 const postCards = posts.map((post) => {
@@ -42,15 +42,7 @@ const postCards = posts.map((post) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{site.title}</title>
-    <meta name="description" content={site.description} />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-    <meta property="og:title" content={site.title} />
-    <meta property="og:description" content={site.description} />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta name="twitter:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={site.name} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <SeoHead title="Writing" description={site.description} path="/blog" type="collection" locale={locale} />
     <GA4 />
   </head>
   <body class="bg-bg">

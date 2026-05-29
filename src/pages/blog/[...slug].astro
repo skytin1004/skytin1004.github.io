@@ -1,13 +1,12 @@
 ---
 import '../../styles/tailwind.css'
 import BlogLayout from '../../layouts/BlogLayout.astro'
+import SeoHead from '../../components/SeoHead.astro'
 import { getCollection, getEntry, render } from 'astro:content'
 import { getBlogNavigation } from '../../lib/blogNavigation'
 import { site } from '../../lib/site'
 import GA4 from '../../components/GA4.astro'
 import { isSupportedBlogLocale, blogDefaultLocale } from '../../locales/config'
-
-const ogImageUrl = new URL(site.ogImage, Astro.site).toString()
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -83,15 +82,16 @@ const blogNavigation = await getBlogNavigation(locale)
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{entry.data.title} - {site.title}</title>
-    {entry.data.description && <meta name="description" content={entry.data.description} />}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-    <meta property="og:title" content={entry.data.title} />
-    {entry.data.description && <meta property="og:description" content={entry.data.description} />}
-    <meta property="og:image" content={ogImageUrl} />
-    <meta name="twitter:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content={site.name} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <SeoHead
+      title={entry.data.title}
+      description={entry.data.description ?? site.description}
+      path={`/blog/${slug}`}
+      type="article"
+      locale={locale}
+      publishedTime={entry.data.date}
+      modifiedTime={entry.data.updatedAt}
+      tags={entry.data.tags ?? []}
+    />
     <GA4 />
   </head>
   <body>
