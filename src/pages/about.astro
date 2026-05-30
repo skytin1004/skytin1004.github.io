@@ -32,6 +32,126 @@ const toc = (headings as any[]).reduce((sections: TocItem[], h: any) => {
   }
   return sections
 }, [])
+
+const primaryLinks = [
+  {
+    label: 'Email',
+    href: 'mailto:minseok.song@mssong.com',
+    external: false,
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/skytin1004',
+    external: true,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/ms-song/',
+    external: true,
+  },
+]
+
+const impactStats = [
+  {
+    value: '44.1M+',
+    label: 'words processed',
+    detail: 'Production AI localization workload through Localizeflow.',
+  },
+  {
+    value: '378.7M+',
+    label: 'tokens orchestrated',
+    detail: 'Long-running LLM jobs moved beyond fragile CI execution.',
+  },
+  {
+    value: '99.48%',
+    label: 'final job success',
+    detail: 'April 2026 success after fault isolation and bounded retries.',
+  },
+  {
+    value: '835+',
+    label: 'automated OSS PRs',
+    detail: 'Localization pull requests across Microsoft open-source repos.',
+  },
+]
+
+const reasonsToWork = [
+  {
+    title: 'I turn LLM demos into systems teams can operate.',
+    body: 'My work is strongest where model behavior meets retries, reviewability, observability, structured outputs, safety filters, and messy real-world inputs.',
+  },
+  {
+    title: 'I understand developer workflows from the inside.',
+    body: 'Most of my AI work lives in GitHub: issues, pull requests, CI/CD, release constraints, maintainer review, and automation that keeps humans in control.',
+  },
+  {
+    title: 'I can earn trust in public technical ecosystems.',
+    body: 'Microsoft MVP recognition, Microsoft OSS maintenance, Apache contributions, public talks, and high-traffic technical writing all point to reliable collaboration.',
+  },
+]
+
+const featuredWork = [
+  {
+    name: 'Localizeflow',
+    role: 'Founder / AI infrastructure',
+    problem: 'Large-scale AI localization jobs were too slow, long-running, and failure-prone for CI-only workflows.',
+    built: 'A GitHub-native orchestration platform using Azure Container Apps Jobs, containerized workers, batch orchestration, watchdog recovery, and PR-level visibility.',
+    impact:
+      'Processed 7,256 translation jobs across 25 repositories, 44.1M words, 378.7M tokens, and 1,475+ isolated worker-hours.',
+    links: [],
+  },
+  {
+    name: 'Co-op Translator',
+    role: 'Microsoft OSS maintainer',
+    problem: 'Developer documentation changes constantly, but multilingual docs fall behind and generated translations can break Markdown structure.',
+    built:
+      'A Microsoft OSS localization engine that preserves links, anchors, code blocks, frontmatter, notebooks, image text, CJK formatting, and reviewable PR workflows.',
+    impact:
+      '600+ GitHub stars, 76K+ PyPI downloads, 55 languages, 16 Microsoft OSS repositories, and 835+ automated localization PRs.',
+    links: [
+      {
+        label: 'Repository',
+        href: 'https://github.com/Azure/co-op-translator',
+      },
+    ],
+  },
+  {
+    name: 'Microsoft PhiCookBook',
+    role: 'Core contributor / developer education',
+    problem: 'Developers needed practical guidance for fine-tuning, evaluating, and integrating small language models with Azure AI tooling.',
+    built:
+      'Tutorials and workflow improvements for Phi models, Prompt Flow, Responsible AI evaluation, Azure AI Studio, Azure AI Foundry, and multilingual documentation.',
+    impact:
+      '40 closed PRs in a 3.7K-star Microsoft OSS repository and public learning material used by Azure AI developers.',
+    links: [
+      {
+        label: 'Repository',
+        href: 'https://github.com/microsoft/PhiCookBook',
+      },
+    ],
+  },
+  {
+    name: 'Apache OSS Contributions',
+    role: 'Contributor / quality and tests',
+    problem: 'Mature open-source projects need small, reviewable improvements that respect project conventions and release quality.',
+    built:
+      'JUnit modernization, regression coverage, documentation correctness, Maven artifact link fixes, checksum corrections, and ASF compliance cleanup.',
+    impact:
+      '30+ merged PRs across Apache Iceberg and Apache Fesod, spanning tests, documentation, release quality, and project compliance.',
+    links: [
+      {
+        label: 'GitHub profile',
+        href: 'https://github.com/skytin1004',
+      },
+    ],
+  },
+]
+
+const publicSignals = [
+  'Microsoft Most Valuable Professional (AI), 2025.',
+  'Speaker at Open at Microsoft, Microsoft Learn Live, and Microsoft Reactor.',
+  '120K+ public views across Azure AI, RAG, fine-tuning, and production LLM workflow writing.',
+  'Built multilingual summarization and multi-provider LLM fallback features for Cuckoo Labs, a YC W25 startup.',
+]
 ---
 
 <html lang="en" class="h-full antialiased">
@@ -56,6 +176,151 @@ const toc = (headings as any[]).reduce((sections: TocItem[], h: any) => {
       subtitle="About"
       variant="about"
     >
+      <Fragment slot="beforeContent">
+        <section class="not-prose space-y-14">
+          <div class="grid gap-8 border-y border-text py-8 lg:grid-cols-[0.8fr_1.2fr] dark:border-white">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">What I bring</p>
+              <h2 class="mt-3 max-w-xl font-display text-3xl font-medium leading-tight tracking-tight text-text sm:text-4xl dark:text-white">
+                I build AI systems that keep working after the demo.
+              </h2>
+            </div>
+            <div class="space-y-6">
+              <p class="max-w-3xl text-base leading-8 text-text-secondary dark:text-slate-300">
+                I am most useful to teams building production LLM workflows, GitHub-native automation,
+                localization infrastructure, RAG systems, and developer tools where reliability,
+                reviewability, and adoption matter as much as model quality.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                {primaryLinks.map((link, index) => (
+                  <a
+                    href={link.href}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
+                    class:list={[
+                      'inline-flex border px-4 py-2 text-sm font-medium transition-colors',
+                      index === 0
+                        ? 'border-text bg-text text-bg hover:border-brand hover:bg-brand dark:border-white dark:bg-white dark:text-slate-950'
+                        : 'border-border text-text hover:border-brand hover:text-brand dark:border-slate-700 dark:text-white',
+                    ]}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 dark:border-slate-800 dark:bg-slate-800">
+            {impactStats.map((stat) => (
+              <div class="bg-bg p-5 dark:bg-slate-950">
+                <p class="font-display text-3xl font-medium text-text dark:text-white">{stat.value}</p>
+                <p class="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand">{stat.label}</p>
+                <p class="mt-3 text-sm leading-6 text-text-secondary dark:text-slate-400">{stat.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <section class="space-y-6">
+            <div class="max-w-3xl">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Working principles</p>
+              <h2 class="mt-3 font-display text-3xl font-medium tracking-tight text-text dark:text-white">
+                The pattern behind my work
+              </h2>
+            </div>
+            <div class="grid gap-4 lg:grid-cols-3">
+              {reasonsToWork.map((reason) => (
+                <article class="border border-border bg-white/60 p-5 dark:border-slate-800 dark:bg-slate-900/55">
+                  <h3 class="font-display text-xl font-medium leading-tight text-text dark:text-white">
+                    {reason.title}
+                  </h3>
+                  <p class="mt-4 text-sm leading-7 text-text-secondary dark:text-slate-400">
+                    {reason.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section class="space-y-6">
+            <div class="grid gap-5 border-t border-border pt-8 md:grid-cols-[0.8fr_1.2fr] dark:border-slate-800">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Selected work</p>
+                <h2 class="mt-3 font-display text-3xl font-medium tracking-tight text-text dark:text-white">
+                  Proof, not just positioning
+                </h2>
+              </div>
+              <p class="max-w-2xl text-base leading-8 text-text-secondary dark:text-slate-300">
+                These projects show the same operating style from different angles: production AI
+                infrastructure, open-source maintenance, developer education, and careful engineering
+                inside public review cultures.
+              </p>
+            </div>
+
+            <div class="divide-y divide-border border-y border-text dark:divide-slate-800 dark:border-white">
+              {featuredWork.map((work, index) => (
+                <article class="grid gap-6 py-8 lg:grid-cols-[4rem_minmax(0,1fr)_18rem]">
+                  <p class="font-display text-sm text-text-secondary dark:text-slate-500">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-brand">{work.role}</p>
+                    <h3 class="mt-2 font-display text-2xl font-medium leading-tight text-text dark:text-white">
+                      {work.name}
+                    </h3>
+                    <dl class="mt-5 grid gap-5 md:grid-cols-3">
+                      <div>
+                        <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-text dark:text-white">Problem</dt>
+                        <dd class="mt-2 text-sm leading-7 text-text-secondary dark:text-slate-400">{work.problem}</dd>
+                      </div>
+                      <div>
+                        <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-text dark:text-white">Built</dt>
+                        <dd class="mt-2 text-sm leading-7 text-text-secondary dark:text-slate-400">{work.built}</dd>
+                      </div>
+                      <div>
+                        <dt class="text-xs font-semibold uppercase tracking-[0.14em] text-text dark:text-white">Impact</dt>
+                        <dd class="mt-2 text-sm leading-7 text-text-secondary dark:text-slate-400">{work.impact}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                  <div class="flex flex-wrap content-start gap-2 lg:justify-end">
+                    {work.links.length > 0 ? (
+                      work.links.map((link) => (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex border border-border px-3 py-2 text-xs font-medium uppercase tracking-[0.12em] text-text-secondary transition-colors hover:border-brand hover:text-brand dark:border-slate-800 dark:text-slate-400"
+                        >
+                          {link.label}
+                        </a>
+                      ))
+                    ) : (
+                      <span class="text-xs uppercase tracking-[0.12em] text-text-secondary dark:text-slate-500">
+                        Details on request
+                      </span>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section class="grid gap-8 border-y border-border py-8 lg:grid-cols-[0.8fr_1.2fr] dark:border-slate-800">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">Public trust</p>
+              <h2 class="mt-3 font-display text-3xl font-medium tracking-tight text-text dark:text-white">
+                Signals that travel outside a resume
+              </h2>
+            </div>
+            <ul class="space-y-4 text-base leading-8 text-text-secondary dark:text-slate-300">
+              {publicSignals.map((signal) => (
+                <li class="border-l border-border pl-4 dark:border-slate-700">{signal}</li>
+              ))}
+            </ul>
+          </section>
+        </section>
+      </Fragment>
       <Content />
     </BlogLayout>
   </body>
